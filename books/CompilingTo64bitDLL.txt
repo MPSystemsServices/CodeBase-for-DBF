@@ -1,0 +1,15 @@
+Follow these instructions to build CodeBase libraries on Windows.
+
+Note that we provide build scripts only for Microsoft Visual C++. You can download the Express edition for free from the Microsoft web site.
+
+    In d4all.h, uncomment and comment out preprocessor directives as needed for the build you are doing.
+    Open a Command Prompt and go to the "build\msvc\" folder of your CodeBase installation. Use this Command Prompt the remaining steps.
+    Set the environment of the Command Prompt for running your preferred compiler. You can do this by running "vcvarsall.bat" which you can find somewhere in your Visual Studio installation. This batch file takes an argument that determines whether you want to build as 32-bit or 64-bit.
+        For a 32-bit build, pass "x86".
+        For a 64-bit build, pass either "x64" or "x86_amd64".
+    Run the command script(s) to build your desired library.
+        To build c4dll.dll, run "c4dll.cmd".
+        To build c4lib.lib, run "c4lib.cmd".
+        To build c4class.lib, run "c4class.cmd". Note that c4class.lib is needed only if you are using C++ and using the C++ classes of the CodeBase API.
+    By default, these scripts place their output in the "source" directory. You can pass the "/?" argument to see options.
+    If a library failed to build, the error messages will be in the file called "out" in the "source" directory.

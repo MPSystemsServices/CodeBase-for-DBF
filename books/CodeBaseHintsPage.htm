@@ -1,0 +1,2422 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+   <meta name="Author" content="Cam Stobbe">
+   <title>CodeBase Hints Page</title>
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<h1>
+<font face="Verdana"><font color="#FF0000"><font size=+2>CodeBase 6 Hints</font></font></font></h1>
+
+<h5>
+<font face="Verdana">This document provides a list of solutions for common
+problems and answers to frequently asked questions.</font></h5>
+
+<h3>
+<font face="Verdana"><font size=+0>Common problems</font></font></h3>
+
+<ul><h4><font face="Verdana"><font size=-1>General CodeBase-related</font></font></h4></ul>
+<ul>
+<li>
+<font face="Verdana"><font size=-1><a href="#InvalidTransFile">Invalid
+Transaction file (error -1210) when opening file</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#NotWorkError">CodeBase not
+working after error</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#Win95corruption">Frequent
+Index Corruption under Windows 95</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#LargeFileLock">-50 (e4lock) error when
+using large file support on Windows 9x/ME</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#StructMismatch">Structure
+Verification Failure (error -960) when using CodeBase 6.5 and C++Builder
+4 or 5</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#WinNT">Windows NT</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#Novell">Novell and Windows</a></font></font></li>
+
+<li>
+<font size="-1" face="Verdana"><a href="#NetBEUI">NetBEUI</a></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#externalNew">Unresolved External
+Symbol operator new</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#CodeUtil">CodeUtil</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#Beginthread">beginthread Error
+Building DLL</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#UnixBusError">UNIX bus errors
+or core dumps</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#Libci_lib">Link Error: LIBCI.LIB
+cannot be found</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#report4parent">Overflow Error
+calling report4parent()</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#VC6">Visual C++ 6 support</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#installGPF">Windows 98 GPF
+during installation</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#64klimit">Exceeding the 64K
+default data segment limit in a DOS application</a></font></font></li>
+
+</ul>
+
+<ul><h4><font face="Verdana"><font size=-1>SQL/ODBC-related</font></font></h4></ul>
+<ul>
+<li>
+<font face="Verdana"><font size=-1><a href="#ODBC127">Specified driver
+could not be loaded due to system error 127 (CodeBaseOdbcStand)</a></font></font></li>
+
+<li>
+<font size="-1" face="Verdana"><a href="#ODBCInvalidSession">Invalid Session Option error when using CodeBase
+SQL/ODBC</a></font></li>
+
+<li>
+<font size="-1" face="Verdana"><a href="#ODBC254Fields">Stand-alone CodeBase SQL/ODBC
+will not
+return more than 254 fields</a></font><font face="Verdana"></li>
+</ul>
+
+<ul><h4><font face="Verdana"><font size=-1>CodeControls-related</font></font></h4></ul>
+<ul>
+<li>
+<font face="Verdana"><font size=-1><a href="#CodeCtrlLic">Design-time license
+error when using CodeControls</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#Clsid">Class not registered.
+Looking for object with CLSID: {...}</a></font></font></li>
+</ul>
+
+<h3>
+<font face="Verdana"><font size=+0>Frequently Asked Questions</font></font></h3>
+
+<ul>
+<h4>
+<font face="Verdana"><font size=-1>General CodeBase questions</font></font></h4>
+</ul>
+
+<ul>
+<li><font size=-1><a href="#WinProxy21">How can
+I use CodeBase client/server with WinProxy 2.1?</a></font></li>
+
+<li>
+<font size=-1><a href="#Files">What files are used
+by CodeBase?</a></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#ROExclusive">What is the difference
+between opening a file in read-only mode, and opening the file in exclusive
+mode?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#Mode">How can files be opened
+in different modes?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#numFiles">I get an error after
+opening several files simultaneously. However, if I first close some files,
+and then open the rest, everything is fine.</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#multi">When I change my database
+on one workstation, why do the changes not appear on another workstation
+and I receive errors?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#Blob">What is a BLOB?</a></font></font></li>
+</ul>
+
+<ul>
+<h4>
+<font face="Verdana"><font size=-1>Indexes and Seeking</font></font></h4>
+
+<li>
+<img SRC="new16.gif" height=18 width=42><font face="Verdana"><font size=-1><a href="#seekUnicode">How
+do I seek for a Unicode string?</a></font></font></li>
+
+<li>
+<img SRC="new16.gif" height=18 width=42><font face="Verdana"><font size=-1><a href="#seekDateTime">How
+do I seek for a value in a DateTime field?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#tagindex">What is the difference
+between a TAG and an INDEX?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#CGP">What is a .CGP file?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#exactMatch">How do I perform
+an exact match?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#UPPER">How can I perform a
+case-insensitive search?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#indexCount">How can I get
+the number of records that an index contains?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#complexTag">How do I create
+a tag consisting of two numerical fields?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#filter">How can I filter out
+deleted records when browsing a data file?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="http://www.codebase.com/support/kb/?article=C01090">When reindexing
+a database, why does the index file shrink dramatically?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#nonDefault">How are indexes
+in a non-default directory and indexes with non-standard name extensions
+used with CodeBase?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#unique">Why are all unique
+tags set to r4uniqueContinue, even though they were created with the r4unique
+option?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#uniqueContinue">Why is my
+r4uniqueContinue tag not properly updated?</a></font></font></li>
+</ul>
+
+<ul>
+<h4>
+<font face="Verdana"><font size=-1>Queries, Relations, and Expressions</font></font></h4>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#QO">What are the criteria
+for Query Optimization technology to be activated?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#QO2">Why can Query Optimization
+not use a r4uniqueContinue tag?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#blankSlave">Why are some slaves
+in a relation set blank?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#queryRecordCount">When a query
+that uses Query Optimization technology (QO) is made, how is it possible
+to find out the number of records that are returned?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#queryDate">How is a query
+with a date field made?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#calcCreate2">How do I shorten
+an expression with code4calcCreate?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#multiFileQuery">How can fields
+from different files be referenced in a query?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#alias">Why do I have trouble
+with relations when I am using two files that have the same name, even
+if they are in different directories?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#masterSlave">Is it possible
+to have a master file with multiple relations to the same slave file?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#calcCreate">What is code4calcCreate()
+used for?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#concatenate">How can fields
+be concatenated (linked together) into a meaningful expression?</a></font></font></li>
+</ul>
+
+<ul>
+<h4>
+<font face="Verdana"><font size=-1>Performance</font></font></h4>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#appendSpeed">When I append
+many records to file, why does performance gradually degrade after the
+first few hundred records?</a></font></font></li>
+</ul>
+
+<ul>
+<h4>
+<font face="Verdana"><font size=-1>Client/Server</font></font></h4>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#fastServer">How can I ensure
+optimal performance of the CodeBase database server?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#hostName">How do I know what
+host name to pass to code4connect()?</a></font></font></li>
+</ul>
+
+<ul>
+<h4>
+<font face="Verdana"><font size=-1>CodeReporter</font></font></h4>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#slowReport">Can I speed up
+the time it takes to display a sorted report?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#hideTotal">How is it possible
+to calculate a total without showing it on the screen?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#compileLaunch">How do I re-compile
+any of the launch utilities?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#DSreport">Why are all reports
+printed from DOS double spaced and have extra blank pages in the middle
+and end?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#CRpageSize">How can I make
+my report page size on screen identical to the sheets I use for my printer?</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#blankPage">After viewing one
+report with an invalid printer driver, why do subsequent reports also appear
+blank?</a></font></font></li>
+</ul>
+
+<h3>
+<font face="Verdana"><font size=+0>Other CodeBase Errors</font></font></h3>
+
+<ul>
+<li>
+<font face="Verdana"><font size=-1><a href="#e4codeBase">Error Number:
+-1 or e4codeBase</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#e4create">Error Number: -20</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#e4len">Error Number: -30</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#Win95corruption">Error Number:
+-310</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#e4overFlow">Error Number:
+-440</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#e4info">Error Number: -910</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#e4info">Error Number: -930</a></font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1><a href="#InvalidTransFile">Error Number:
+-1210</a></font></font></li>
+</ul>
+
+<dl>&nbsp;
+<br>
+<hr WIDTH="100%">
+<h3>
+<font face="Verdana"><font color="#FF0000"><font size=+0>Common problems</font></font></font></h3>
+
+<h4>
+<a NAME="InvalidTransFile"></a><font size=-1>Invalid
+Transaction file (error -1210) when opening file</font></h4>
+
+<blockquote><font size=-1>When CodeBase first opens a database,
+if a log file has not yet been opened, CodeBase will look for one called
+C4.LOG in the current directory and open it if found. This is to prepare
+for transaction processing. When this error occurs, CodeBase has found
+such a file, but its contents are invalid. This could be due to a power
+failure or program crash that occurred during the last time the log file
+was written to.</font>
+<p><font size=-1>If the integrity of the log file
+is important, use CodeUtil (in Windows) or the utility functions (in other
+operating systems) to repair the log file. Otherwise, simply delete the
+log file if it is not important.</font>
+<p><font size=-1>If you do not intend to use a log
+file in your application at all, you can force CodeBase to NOT automatically
+open the log file by calling code4logOpenOff() before you open any database
+files.</font></blockquote>
+
+<hr>
+<h4>
+<a NAME="NotWorkError"></a><font size=-1>CodeBase
+not working after error</font></h4>
+
+<blockquote><font size=-1>When a CodeBase error is generated
+in C, C++, Visual Basic or Delphi, CODE4.errorCode (or Code4::errorCode
+in C++) is set to a negative value to indicate the error that occurred.
+In order to resume, you must acknowledge the error by setting the errorCode
+value back to zero.</font></blockquote>
+
+<hr>
+<h4>
+<a NAME="Win95corruption"></a><font size=-1>Frequent
+Index Corruption under Windows 95</font></h4>
+
+<blockquote><font size=-1>This problem is common in Windows
+95 OEM Service Release 2.x. The source of the problem is the file VREDIR.VXD.
+Microsoft has provided a <a href="/support/files/vrdrupd.exe">new version</a>
+(210k) for Windows 95 that will fix this problem. The patch executable
+is a self installing program which will install itself and make the needed
+changes to your Windows setup.</font>
+<p><font size=-1>More information on this bug can
+be found in <a href="http://support.microsoft.com/support/kb/articles/Q174/3/71.asp">article
+Q174371</a> in the Microsoft Knowledge Base.</font>
+<p><font size=-1><a href="/support/op_lock.html">more...</a></font></blockquote>
+
+<hr>
+<h4><a NAME="CodeCtrlLic"></a><font size=-1>Design-time
+license error when using CodeControls</font></h4>
+
+<blockquote><font size=-1>There are two common causes
+of this error:</font>
+<ol>
+<li>
+<font size=-1>The CodeBase Administrator was installed
+or re-installed after the installation of the CodeControls. This
+results in the CodeBase Administrator's set of CodeControls, which does
+not have a design-time license, to be registered, overwriting the registration
+of the CodeControls with the design-time license. The CodeControl
+OCX files in the \CodeBase\CodeCtrl directory must be re-registered using
+the instructions on page 190 of the CodeControl 3 manual.</font></li>
+
+<li>
+<font size=-1>The CodeBase 6.5 CodeControls were registered
+with the wrong set of design-time license files. The correct set
+of license files can be downloaded from <a href="/support/files/cc3lic.zip">here</a>
+to replace the existing ones in the \CodeBase\CodeCtrl directory, and then
+the CodeControl OCX files can be re-registered using the instructions on
+page 190 of the CodeControl 3 manual.</font></li>
+</ol>
+</blockquote>
+
+<hr WIDTH="100%">
+  <h4>
+<a NAME="ODBC127"></a><font size=-1>Specified driver
+could not be loaded due to system error 127 (CodeBaseOdbcStand)</font></h4>
+
+<blockquote><font size=-1>The current releases of
+the stand-alone CodeBase SQL/ODBC
+<!--(not the <a href='/products/odbc/reduced/'>CodeBase Reduced SQL/ODBC Driver</a>)-->
+use their own version of the c4dll.dll.&nbsp;
+However, the installation program for the driver will not install its c4dll.dll
+over any pre-existing c4dll.dll in the \Windows\System or \WinNT\System32
+directory. The c4dll.dll that is currently in the \Windows\System
+or \WinNT\System32 directory must be removed, then the stand-alone CodeBase
+SQL/ODBC must be un-installed and re-installed.</font></blockquote>
+
+<hr WIDTH="100%">
+  <h4>
+<a NAME="ODBCInvalidSession"></a><font size=-1>Invalid Session Option error
+when using CodeBase SQL/ODBC</font></h4>
+
+<blockquote><font SIZE="2">If you are using CodeBase SQL/ODBC on a non-English version
+  of the Windows operating systems, this message may appear. When you do not
+  specify a CodePage for the CodeBase SQL/ODBC to use, it will try to use
+  the CodePage of the operating system. However, if the operating system is not
+  using CodePage 437 or 1252, then this error will occur. Therefore, to avoid
+  this error, you need to specify the CodePage in the connection string of the
+  driver. For instance, &quot;DSN=CodeBaseOdbcStand;UID=;CodePage=437&quot;.</font></blockquote>
+
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="ODBC254Fields"></a><font size="-1" face="Verdana">Stand-alone CodeBase SQL/ODBC
+will not
+return more than 254 columns</font></h4>
+
+<blockquote><font size=-1>There is a change you can make to the Windows registry
+   settings of the driver to increase the number of columns that it returns.
+   Open the Windows Registry Editor, and if you are using the default DSN
+  CodeBaseOdbcStand, go to
+  <b>HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\CodeBaseOdbcStand</b>
+  where you will find several values already there (e.g. DBQ, Locking
+  Attempts).&nbsp; Add a new string value called MaxColSupport, and assign it a
+  number no greater than the limits given for column support in the CodeBase ODBC help
+  file. If you have created your own DSN, you will need to make the change to
+  your DSN's registry settings, located under either
+  <B>HKEY_CURRENT_USER\Software\ODBC\ODBC.INI\</B> or
+  <B>HKEY_LOCAL_MACHINE\Software\ODBC\ODBC.INI\</B></font>
+</blockquote>
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="LargeFileLock"></a><font size=-1>-50 (e4lock) error when
+using large file support on Windows 9x/ME</font></h4>
+
+<blockquote><font size=-1>Windows 9x/ME does not support file locking
+at large (>4GB) file offsets.  To work around this, files should be opened exclusively
+in CodeBase, so that locking is not required.</font></blockquote>
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="StructMismatch"></a><font size=-1>Structure
+Verification Failure (error -960) when using CodeBase 6.5 and C++Builder
+4 or 5</font></h4>
+
+<blockquote><font size=-1>This is due to a difference between
+the compiler options used to build the CodeBase libraries, and the ones
+you are using to build your application under C++Builder. Specifically,
+the CodeBase libraries are compiled use the -b compiler option, which causes
+the compiler to make enumerated data types integer-sized. However,
+projects created by C++Builder use the -b- compiler option by default,
+which makes enumerated data types byte-sized.</font>
+<p><font size=-1>Under C++Builder 4, use the Project|View
+Makefile menu command to examine the makefile for your project. In the
+makefile, there is a variable called CFLAG1 that is assigned several compiler
+options. Change the -b- option to -b, and save the makefile.</font>
+<p><font size=-1>Under C++Builder 5, use the Project|Options
+menu command, and go to the Compiler tab. Under the Compiling section,
+check the box besides "Treat enum types as ints" and click the OK button.</font></blockquote>
+
+<hr WIDTH="100%">
+
+<h4><a NAME="WinNT"></a><font size=-1>Windows NT</font></h4>
+
+<blockquote><font size=-1>A number of problems that arise
+when using Windows NT can be fixed by installing the latest <a href="http://www.microsoft.com/ntworkstation/">Windows
+NT Service Pack</a>. The problems that are solved include memory leaks
+and interaction with NetWare drives.</font></blockquote>
+
+<hr>
+<h4><a NAME="Novell"></a><font size=-1>Novell and Windows</font></h4>
+
+<blockquote><font size=-1>Sometimes CodeBase will generate
+a -200 error when opening a file on a NetWare drive. This is solved by
+downloading an updated <a href="http://netware.novell.com/clients">Windows
+Novell Driver</a>.</font></blockquote>
+
+<hr>
+<h4><a NAME="NetBEUI"></a><font size=-1>NetBEUI</font></h4>
+
+<blockquote><font size=-1>The NetBEUI driver has been found
+to work better than other protocols like IPX/SPX when Windows 95 clients
+are accessing data on a Windows NT server.</font></blockquote>
+
+<hr WIDTH="100%">
+<h4><a NAME="externalNew"></a><font size=-1>Unresolved
+External Symbol operator new</font></h4>
+<blockquote><font size=-1>When compiling with Microsoft Visual
+C++, the following error might be generated:</font>
+<blockquote><p><tt>libcimtd.lib(iostrini.obj) : error LNK2001: unresolved external
+symbol "void * __cdecl operator new(unsigned int,int,char const *,int)"</tt></p></blockquote>
+  <font size=-1>This is caused by using the wrong run-time
+library. For the <b>Release</b> configuration, use the <b>Multithreaded</b>
+run-time library. For the <b>Debug</b> configuration, use the <b>Debug
+Multithreaded</b> run-time library.</font></blockquote>
+
+<hr WIDTH="100%">
+<h4><a NAME="CodeUtil"></a><font size=-1>CodeUtil</font></h4>
+
+<blockquote><font size=-1>The CodeBase installation program
+is not always able to register the control COMDLG16.OCX. To register it
+yourself, use the MSAREG.EXE utility provided in the CODEUTIL\SYSTEM directory.</font>
+<blockquote><p><tt>msareg comdlg16.ocx</tt></p></blockquote>
+</blockquote>
+
+<hr>
+<h4><a NAME="Beginthread"></a><font size=-1>beginthread
+Error Building DLL</font></h4>
+
+<blockquote><font size=-1>This error appears when building
+C4DLL.DLL with Microsoft Visual C++ 4.X with the calling convention set
+to stdcall. To fix this, go into Build | Settings | C/C++ and change Category
+to Code Generation. Then change Calling Convention to _cdecl*.</font></blockquote>
+
+<hr>
+<h4><a NAME="UnixBusError"></a><font size=-1>UNIX bus
+errors or core dumps</font></h4>
+
+<blockquote><font size=-1>Some UNIX systems require that
+data in memory is stored on strict byte boundaries. If these boundaries
+are violated, a system error will usually occur. To ensure that CodeBase
+adheres to these boundaries, set S4DATA_ALIGN in p4port.h.</font></blockquote>
+
+<hr>
+<h4><a NAME="Libci_lib"></a><font size=-1>Link Error:
+LIBCI.LIB cannot be found</font></h4>
+
+<blockquote><font size=-1>This link error is caused by a
+change in the run-time libraries of Microsoft Visual C++. In version MSVC++
+4.1 and previous, all of the iostream functions were located in LIBC.LIB,
+LIBCMT.LIB and MSVCRT.LIB. However, with MSVC++ 4.2 and later versions,
+these iostream functions were moved to their own libraries, called LIBCI.LIB,
+LIBCIMT.LIB and MSVCIRT.LIB respectively. Because the prebuilt CodeBase
+libraries for MSVC++ 4.0 were actually built with MSVC++ 4.2, they require
+the newer run-time libraries. To get around this problem, rebuild the CodeBase
+libraries using your version of MSVC++ 4.x.</font></blockquote>
+
+<hr>
+<h4><a NAME="Clsid"></a><font size=-1>Class not registered.
+Looking for object with CLSID: {...}</font></h4>
+
+<blockquote><font size=-1>This error message occurs when
+you try to open the Properties pages of the CodeControls, but there are
+missing entries in your computer's system registry. You can manually add
+these missing entries to the system registry by using REGEDIT.EXE. In the
+MyComputer\HKEY_CLASSES_ROOT\CLSID folder, use Edit | New | Key from the
+REGEDIT.EXE menu, to add these three keys (the curly braces must be included):</font>
+<blockquote>
+<p><tt>{0BE35200-8F91-11CE-9DE3-00AA004BB851}
+<br>{0BE35201-8F91-11CE-9DE3-00AA004BB851}
+<br>{0BE35202-8F91-11CE-9DE3-00AA004BB851}</tt></p></blockquote>
+<font size=-1>When you select any of these keys, the
+window on the right of REGEDIT.EXE displays its default value. Right click
+on the word Default, select Modify from the pop-up menu and change the
+default values of the keys to the following:</font>
+<dir>
+<p><tt>{0BE35200-8F91-11CE-9DE3-00AA004BB851}
+- "Font Property Page"
+<br>{0BE35201-8F91-11CE-9DE3-00AA004BB851}
+- "Color Property Page"
+<br>{0BE35202-8F91-11CE-9DE3-00AA004BB851}
+- "Picture Property Page"</tt></p>
+  </dir>
+<font size=-1>Each of the above keys should have its
+own subkey called InprocServer32, which can also be created by using Edit
+| New | Key. The default value of InprocServer32 should be the full path
+to where MFC40.DLL has been installed on your computer (i.e.. "C:\WINDOWS\SYSTEM\MFC40.DLL"
+or "C:\WINNT\SYSTEM32\MFC40.DLL").</font>
+</blockquote>
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="report4parent"></a><b><font size=-1>Overflow
+Error calling report4parent()</font></b></h4>
+
+<blockquote><font size=-1>There is a mistake in the declaration
+of report4parent() in CODEBASE.BAS which causes an overflow error when
+you run your program. Instead of:</font>
+<blockquote><p><tt>Declare Function report4parent% Lib "c4dll.dll" (ByVal r4&amp;,
+ByVal hWnd%)</tt></p></blockquote>
+<font size=-1>it should read:</font>
+<blockquote><p><tt>Declare Function report4parent% Lib "c4dll.dll" (ByVal r4&amp;,
+ByVal hWnd&amp;)</tt></p></blockquote>
+  <font size=-1>The character after the hWnd must be
+changed from a '%' to a '&amp;' to avoid this error.</font></blockquote>
+
+<hr>
+
+<h4>
+<a NAME="VC6"></a><font face="Verdana"><font size=-1>Visual C++ 6 support</font></font></h4>
+
+<blockquote><font face="Verdana"><font size=-1>Visual C++ 6 will work with the
+pre-built CodeBase 6.4 DLLs.</font></font>
+<p><font face="Verdana"><font size=-1>Visual C++ 6 may generate compile
+errors when rebuilding the CodeBase static library or DLL. If this occurs,
+download <a href="/support/files/Vs6fix.zip">these</a> fixed CodeBase 6.4
+source files and place them in your SOURCE directory.</font></font>
+<p><font face="Verdana"><font size=-1>Visual C++ 6 will work with CodeControls
+3, but the example projects for Visual C++ 5 that come with CodeBase 6.4
+will not work with Visual C++ 6. <a href="/support/files/cc3exvc6.zip">These</a>
+example projects have been updated for Visual C++ 6.</font></font>
+<p><font face="Verdana"><font size=-1>Two example source files will not
+compile with Visual C++ 6. <a href="/support/files/vs6eg.zip">These</a>
+example source files have been updated to work.</font></font></blockquote>
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="installGPF"></a><font face="Verdana"><font size=-1>Windows 98
+GPF during installation</font></font></h4>
+
+<blockquote><font face="Verdana"><font size=-1>A GPF can occur while running the
+CodeBase 6.4 install program. It occurs when the <b>Browse</b> button in
+the "Choose Destination Location" window is pressed. There are two solutions
+to this problem:</font></font>
+<ol>
+<li>
+<font face="Verdana"><font size=-1>Restart the computer and run the installation
+program again before running any other programs. Do not click the <b>Browse</b>
+button; you will not be able to modify the directory CodeBase is installed
+to.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>Copy the files directly from the CD.
+The files on the CD are not compressed, so they can be copied directly
+to your hard drive. Stand-alone support can be found in the CB65 directory,
+and client/server support can be found in the CB65CS directory. NOTE: If
+you wish to use CodeControls, you will have to manually register the OCX
+files with REGSVR32.EXE.</font></font></li>
+</ol>
+</blockquote>
+
+<hr>
+<h4><a NAME="64klimit"></a><font face="Verdana"><font size=-1>Exceeding the
+64K default data segment limit in a DOS application</font></font></h4>
+
+<blockquote><font face="Verdana"><font size=-1>This error can sometimes be resolved
+by re-building the CodeBase client library with the E4OFF_STRING compiler
+switch. This should free up approximately 40K in your default data segment.
+With this switch set, CodeBase error messages will only output error numbers,
+without any text information about the error. You can cross reference the
+error message by looking up the error numbers in E4STRING.C.</font></font></blockquote>
+
+<hr WIDTH="100%" size="6">
+<h3><font color="#FF0000" size=+0>Frequently Asked Questions</font></h3>
+<a NAME="WinProxy21"></a><b><font face="Verdana"><font size=-1>How can
+I use CodeBase client/server with WinProxy 2.1?</font></font></b>
+<ul><font face="Verdana"><font size=-1><a href="http://www.winproxy.com">
+WinProxy</a> 2.1 is an older version of the product which did not support
+<a href="http://www.itp-journals.com/nasample/p1827.pdf">Network Address
+Translation</a> (NAT). A proxy server that supports NAT can redirect all
+communication.</font></font>
+<p><font face="Verdana"><font size=-1>The following solution will allow
+CodeBase client applications to access the CodeBase server through WinProxy
+2.1 under these conditions:</font></font>
+<ul type=DISC>
+<li>
+<font face="Verdana"><font size=-1>The client does not have control of
+the location of the CodeBase server it connects to. The location of the
+CodeBase server that the client connects to is part of the WinProxy settings,
+and not controlled by the connection parameters of the client application.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>The client is built with CodeBase 6.5
+Release 3. Earlier releases of CodeBase will not work with proxy servers.</font></font></li>
+</ul>
+
+<p><br><font face="Verdana"><font size=-1>In WinProxy 2.1, create settings
+to redirect CodeBase client communication to the server. Open the <b>File</b>
+menu. Select <b>Advanced Properties</b>. Select the <b>Mapped Port</b>
+tab. Press the <b>New</b> button.</font></font>
+<ul><b><font face="Verdana"><font size=-1>Mapped Port Name</font></font></b><font face="Verdana"><font size=-1>
+— Enter "CodeBase client" or some other descriptor.</font></font></ul>
+
+<ul><font face="Verdana"><font size=-1><b>Proxy Port</b> — The port on
+which that the CodeBase server is listening. e.g. 23165</font></font>
+<br><font face="Verdana"><font size=-1><b>Destination</b> — the IP address
+of the computer where the CodeBase server is running</font></font>
+<br><font face="Verdana"><font size=-1><b>Destination Port</b> — The same
+as <i>Proxy Port</i></font></font>
+<br><font face="Verdana"><font size=-1><b>Mapped Port Type</b> — TCP</font></font>
+<br><font face="Verdana"><font size=-1><b>Mapped Port Direction</b> — Outgoing</font></font></ul>
+<font face="Verdana"><font size=-1>In the client application, when calling
+code4connect, do not directly connect to the CodeBase server. Instead,
+connect as though the CodeBase server is running on the proxy server computer.</font></font>
+<ul><font face="Verdana"><font size=-1>e.g. (C language)</font></font>
+<br><tt><strike>rc = code4connect( &amp;cb, "CBServer.network.com", "23165",
+"PUBLIC", "", 0);</strike></tt>
+<br><tt>rc = code4connect( &amp;cb, "proxy.local.com", "23165", "PUBLIC",
+"", 0);</tt></ul>
+</ul>
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="Files"></a><font face="Verdana"><font size=-1>What Files are used
+by CodeBase?</font></font></h4>
+
+<dl>
+<table BORDER >
+<tr>
+<td ROWSPAN="2" WIDTH="244">
+<center><b><font face="Verdana"><font size=-1>Description</font></font></b></center>
+</td>
+
+<td COLSPAN="3" WIDTH="490">
+<center><b><font face="Verdana"><font size=-1>File Extension</font></font></b></center>
+</td>
+</tr>
+
+<tr>
+<td WIDTH="151">
+<center><b><font face="Verdana"><font size=-1>FoxPro</font></font></b></center>
+</td>
+
+<td WIDTH="193">
+<center><b><font face="Verdana"><font size=-1>dBASE IV</font></font></b></center>
+</td>
+
+<td WIDTH="134">
+<center><b><font face="Verdana"><font size=-1>Clipper</font></font></b></center>
+</td>
+</tr>
+
+<tr>
+<td WIDTH="244"><font face="Verdana">Data File</font></td>
+
+<td WIDTH="151">
+<center><font face="Verdana"><font size=-1>DBF&nbsp;</font></font></center>
+</td>
+
+<td WIDTH="193">
+<center><font face="Verdana"><font size=-1>DBF&nbsp;</font></font></center>
+</td>
+
+<td WIDTH="134">
+<center><font face="Verdana"><font size=-1>DBF&nbsp;</font></font></center>
+</td>
+</tr>
+
+<tr>
+<td WIDTH="244"><font face="Verdana">Memo File</font></td>
+
+<td WIDTH="151">
+<center><font face="Verdana"><font size=-1>FPT&nbsp;</font></font></center>
+</td>
+
+<td WIDTH="193">
+<center><font face="Verdana"><font size=-1>DBT&nbsp;</font></font></center>
+</td>
+
+<td WIDTH="134">
+<center><font face="Verdana"><font size=-1>DBT&nbsp;</font></font></center>
+</td>
+</tr>
+
+<tr>
+<td WIDTH="244"><font face="Verdana">Index File</font></td>
+
+<td WIDTH="151">
+<center><font face="Verdana"><font size=-1>CDX&nbsp;</font></font></center>
+</td>
+
+<td WIDTH="193">
+<center><font face="Verdana"><font size=-1>MDX&nbsp;</font></font></center>
+</td>
+
+<td WIDTH="134">
+<center><font face="Verdana"><font size=-1>CGP, NTX&nbsp;</font></font></center>
+</td>
+</tr>
+</table>
+
+<p><font face="Verdana"><font size=-1><b>Data File:</b> A file with the
+DBF extension. It contains all the non-memo entries.</font></font>
+<p><font face="Verdana"><font size=-1><b>Memo File:</b> A file with either
+a DBT or FPT extension. It contains all memo entries.</font></font>
+<p><font face="Verdana"><font size=-1><b>Group File:</b>A file with a CGP
+extension. This file is unique to CodeBase and is used only in the Clipper
+case. It contains the names of the index files.</font></font>
+<p><font face="Verdana"><font size=-1><b>Index File:</b>A file with a CDX,
+MDX or NTX extension. This file contains the sort order of the data file.</font></font>
+<p><font face="Verdana"><font size=-1>For further information about the
+contents of the above files, please consult other questions in this document
+or the User's and Reference Guides.</font></font>
+</dl>
+
+<hr WIDTH="100%">
+<p><a NAME="ROExclusive"></a><b><font face="Verdana"><font size=-1>What
+is the difference between opening a file in read-only mode, and opening
+the file in exclusive mode?</font></font></b>
+<ul><font face="Verdana"><font size=-1>When a file is opened in read-only
+mode, other processes may have opened the same file at the same time. When
+a process opens the file in exclusive mode, no other processes may have
+open the same file at the same time. Also, no file locks are made. Opening
+a file in exclusive mode yields faster access times, and prevents other
+applications from accessing the file.</font></font></ul>
+
+<hr WIDTH="100%">
+<p><a NAME="Mode"></a><b><font face="Verdana"><font size=-1>How can files
+be opened in different modes?</font></font></b>
+<ul><font face="Verdana"><font size=-1>Suppose that we want to open four
+files using different modes:</font></font>
+<br>&nbsp;
+<table>
+<tr>
+<td>
+<table BORDER COLS=3 WIDTH="291" >
+<tr>
+<td><b><font face="Verdana">File Name</font></b></td>
+
+<td><b><font face="Verdana">Access Mode</font></b></td>
+
+<td>
+<center><b><font face="Verdana"><font size=-1>Read Only</font></font></b></center>
+</td>
+</tr>
+
+<tr>
+<td><font face="Verdana">FILE1.DBF</font></td>
+
+<td><font face="Verdana">Fully Shared</font></td>
+
+<td>
+<center><img SRC="Check1.gif" ALT="YES" height=15 width=20></center>
+</td>
+</tr>
+
+<tr>
+<td><font face="Verdana">FILE2.DBF</font></td>
+
+<td><font face="Verdana">Exclusive</font></td>
+
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><font face="Verdana">FILE3.DBF</font></td>
+
+<td><font face="Verdana">Deny Others Write</font></td>
+
+<td>&nbsp;</td>
+</tr>
+
+<tr>
+<td><font face="Verdana">FILE4.DBF</font></td>
+
+<td><font face="Verdana">Fully Shared</font></td>
+
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<p>&nbsp;</td>
+
+<td VALIGN=BOTTOM>
+<ul><font face="Verdana"><font size=-1>In order to do this, we need only
+change the CODE4 member values. In this particular case, the significant
+members are:&nbsp;</font></font></ul>
+
+<ul>
+<ul><font face="Verdana"><font size=-1>CODE4.readOnly&nbsp;</font></font>
+<br><font face="Verdana"><font size=-1>CODE4.accessMode</font></font></ul>
+</ul>
+</td>
+</tr>
+</table>
+<a href="examples.htm#ModeC"><img SRC="exc.gif" ALT="C Example" BORDER=0 height=16 width=128></a><a href="examples.htm#ModeCpp"><img SRC="excpp.gif" ALT="C++ Example" BORDER=0 height=16 width=128></a><a href="examples.htm#ModeVB"><img SRC="exvb.gif" ALT="Visual Basic Example" BORDER=0 height=16 width=128></a><a href="examples.htm#ModeDel"><img SRC="exdel.gif" ALT="Delphi Example" BORDER=0 height=16 width=128></a>
+</ul>
+<br>
+<hr WIDTH="100%">
+<p><a NAME="numFiles"></a><b><font face="Verdana"><font size=-1>I get an
+error after opening several files simultaneously. However, if I first close
+some files, and then open the rest, everything is fine.</font></font></b>
+<ul><font face="Verdana"><font size=-1>You are running into an OS limitation.
+Refer to the explanation for Error -20 and Error -30.</font></font>
+<p><font face="Verdana"><font size=-1><b>See Also:</b> Error -20, Error
+-30</font></font></ul>
+
+<hr WIDTH="100%">
+<p><a NAME="multi"></a><b><font face="Verdana"><font size=-1>When I change
+my database on one workstation, who do the changes not appear on another
+workstation and I receive errors?</font></font></b>
+<ul><font face="Verdana"><font size=-1>CodeBase, DOS and Windows sometimes
+buffer their output data. Therefore, when one application makes changes,
+the second may not be 'aware' of them since they were not flushed to the
+disk. In order to overcome this 'optimization,' the programmer must FLUSH
+the changes made. Although the process may be much more involved, the above
+advice will get you started.</font></font></ul>
+
+<hr WIDTH="100%">
+<p><a NAME="alias"></a><b><font face="Verdana"><font size=-1>Why do I have
+trouble with relations when I am using two files that have the same name,
+even if they are in different directories?</font></font></b>
+<ul><font face="Verdana"><font size=-1>This is because the two files have
+the same alias. An alias is the 'name' that CodeBase associates with a
+file. By default this 'name' is the same as the name of the file. Thus
+a file called FILE.DBF will, by default, have the alias 'FILE.' In
+order to get the name of the alias, you must make a call to d4alias. You
+may change the alias of any file with the d4aliasSet command. Thus, in
+order to open two files with the same name, you must open the first, change
+its alias, and only then open the next file.</font></font>
+<p><font face="Verdana"><font size=-1>Let us assume that we have two files
+called C:\DIR1\FILE.DBF and C:\DIR2\FILE.DBF. Click below for a short program
+segment that will open both files.</font></font></ul>
+<ul><p><a href="examples.htm#AliasC"><img SRC="exc.gif" ALT="C Example" BORDER=0 height=16 width=128></a><a href="examples.htm#AliasCpp"><img SRC="excpp.gif" ALT="C++ Example" BORDER=0 height=16 width=128></a><a href="examples.htm#AliasVB"><img SRC="exvb.gif" ALT="Visual Basic Example" BORDER=0 height=16 width=128></a><a href="examples.htm#AliasDel"><img SRC="exdel.gif" ALT="Delphi Example" BORDER=0 height=16 width=128></a>
+</p></ul>
+<ul><font face="Verdana"><font size=-1><b>See also:</b> Error -910</font></font></ul>
+
+<hr WIDTH="100%">
+<p><a NAME="Blob"></a><b><font face="Verdana"><font size=-1>What is a BLOB?</font></font></b>
+<ul><font face="Verdana"><font size=-1>ALL memo fields are considered as
+binary large objects (BLOBs) under the 'official' definition, as provided
+by Borland (BLOB is a registered trademark). However, the BLOB concept
+is usually reserved for memo fields that are larger than 64k.</font></font>
+<p><font face="Verdana"><font size=-1>The following information should
+be understood when using memo fields:</font></font>
+
+<ol>
+<li>
+<font face="Verdana"><font size=-1>S4CLIPPER memo fields can not store
+the '1A' character in any of their contents. This character is used to
+indicate the 'end of memo entry.' This is because the length of the
+memo is not stored explicitly. If the '1A' character must be stored in
+the memo field then it will be necessary to create a character sequence
+to denote it implicitly. However, each programmer must write their own
+routine since a standard convention does not exist.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>The size of the memo entry is not inherently
+limited to a specific size by the memo type format. However, the largest
+possible memo entry is always the maximum value of an 'unsigned integer.'&nbsp;
+Thus, the size of the memo entry is compiler dependent; this is summarized
+in the following two points:</font></font></li>
+
+<ul>
+<li>
+<font face="Verdana"><font size=-1>The size of an unsigned integer in a
+16 bit compiler is two bytes. Therefore, the maximum memo entry may be
+as large as 64k bytes (2^16) long.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>The size of an unsigned integer in a
+32 bit compiler is four bytes. Therefore, the maximum memo entry may be
+as large as 4G bytes (2^32) long.</font></font></li>
+</ul>
+
+<li>
+<font face="Verdana"><font size=-1>When a 16 bit CodeBase application encounters
+a memo entry that is greater than 64k bytes while compressing a memo file,
+it will correctly compress the memo entry. It does this by performing segmented
+partial reads on the memo file.</font></font></li>
+</ol>
+</ul>
+
+<hr WIDTH="100%">
+<p><a NAME="exactMatch"></a><font face="Verdana"><font size=-1><b>If I
+search for the string</b> "<tt>JOHN</tt>"<b>, I get a return code of 0
+(r4success in Appendix B), yet I am positioned on record </b>"<tt>JOHNSON</tt>"<b>.
+How do I perform an exact match and find only </b>"<tt>JOHN</tt>"
+<b>?</b></font></font>
+<ul><font face="Verdana"><font size=-1>Let's assume that your field can
+store seven characters, i.e. you defined it as "FIELD_NAME", r4str, 7,
+0. When a seek is performed on "<tt>JOHN</tt>", CodeBase looks for the
+first occurrence of "<tt>JOHN</tt>". This may be found in "<tt>JOHNSON</tt>".
+When you store "<tt>JOHN</tt>", xBASE (which includes CodeBase) stores
+the value as "<tt>JOHN&nbsp;&nbsp;&nbsp;</tt>" (that is JOHN with three trailing spaces).
+Therefore, if you want to do an "exact" seek to find JOHN, you will have
+to pass " <tt>JOHN&nbsp;&nbsp;&nbsp;</tt>" to the seeking command.</font></font></ul>
+
+<hr WIDTH="100%">
+<p><a NAME="UPPER"></a><b><font face="Verdana"><font size=-1>How can I
+perform a case-insensitive search?</font></font></b>
+<ul><font face="Verdana"><font size=-1>In this case, you do not change
+searching method; rather, you must change your indexing strategy. If you
+use the index expression: "<tt>UPPER(field_name)</tt>" then a search for
+"JOHN" will be case-insensitive: both "John" and "jOhN" will be found.</font></font></ul>
+
+<hr WIDTH="100%">
+<p><a NAME="tagindex"></a><b><font face="Verdana"><font size=-1>What is
+the difference between a TAG and an INDEX?</font></font></b>
+<ul><font face="Verdana"><font size=-1>A tag represents a particular sort
+order of the records in the database. An index is a file on disk that stores
+one or more tags.</font></font>
+<p><font face="Verdana"><font size=-1>Suppose we have a database with two
+fields, NAME and ID. If we want to sort the database according to the NAME
+field then we set up a TAG (sort order) based on the NAME field. Similarly,
+if we want to sort on the ID field we can create a TAG based on the ID
+field. If we want to search and skip through the database using the alphabetized
+name tag, we must select the NAME tag using the "tag select" command. We
+may do the same for the ID numbers.</font></font>
+<p><font face="Verdana"><font size=-1>In order to store the TAGs on disk,
+xBASE (which includes CodeBase) uses INDEX files. CDX and MDX INDEX files
+may contain several tags. However, NTX INDEX file only contain a single
+tag. Once we open an INDEX file, we have access to all the tags that are
+associated with the index.</font></font></ul>
+
+<hr WIDTH="100%">
+<p><a NAME="CGP"></a><b><font face="Verdana"><font size=-1>When I try to
+open my DBF, I get an error #-60: "Unable to open XXX.CGP." What
+is a .CGP file?</font></font></b>
+<ul><font face="Verdana"><font size=-1>To get a complete answer first read
+the question: <a href="#tagindex">What is the difference between a TAG
+and an INDEX</a>.</font></font>
+<p><font face="Verdana"><font size=-1>Also, please refer to "Group Files"
+in the CodeBase manuals.</font></font>
+<p><font face="Verdana"><font size=-1>CGP files are unique to CodeBase
+and exist only in the cases when S4CLIPPER is defined. Because Clipper
+(NTX) does not have multiple-tag index files, CodeBase implements a CGP
+file which emulates this functionality. A CGP file allows you to open your
+NTX files as if they are a part of a multiple index. For instance, if you
+have two NTX files called TAG1.NTX and TAG2.NTX, you may either open each
+individually, or use a CGP file and open the two files as if they were
+a single index file. Below is an example CGP file that contains a reference
+to the above index files:</font></font>
+<br>&nbsp;
+<ul><tt><font face="Verdana"><font size=-1>TAG1</font></font></tt>
+<br><tt><font face="Verdana"><font size=-1>TAG2</font></font></tt></ul>
+<font face="Verdana"><font size=-1>By inspection it becomes obvious that
+the CGP file is simply a text file that contains the names of the tags
+used by the data file. When a data file is opened, CodeBase automatically
+attempts to open the associated CGP file so that it will be able to open
+the separate index files. If the CGP file does not exist then a -60 error
+will result. Therefore, in order to avoid the aforementioned error, set
+CODE4.autoOpen variable to 0 (OFF), before opening the data file.</font></font>
+<p><font face="Verdana"><font size=-1>If a CGP file is not used then each
+index file must be opened manually. Refer to the example programs NOGROUP1
+and NOGROUP2 in the User's Guide.</font></font></ul>
+
+<hr WIDTH="100%">
+<p><a NAME="nonDefault"></a><b><font face="Verdana"><font size=-1>How are
+indexes in a non-default directory and indexes with non-standard name extensions
+used with CodeBase?</font></font></b>
+<ul><font face="Verdana"><font size=-1>CodeBase is able to create index
+files in a non-default directory. In order to do so, the index file must
+be created with a separate call from the data file creation call.</font></font></ul>
+<ul><p><a href="examples.htm#nonDefaultC"><img SRC="exc.gif" ALT="C Example" BORDER=0 height=16 width=128></a><a href="examples.htm#nonDefaultCpp"><img SRC="excpp.gif" ALT="C++ Example" BORDER=0 height=16 width=128></a><a href="examples.htm#nonDefaultVB"><img SRC="exvb.gif" ALT="Visual Basic Example" BORDER=0 height=16 width=128></a><a href="examples.htm#nonDefaultDel"><img SRC="exdel.gif" ALT="Delphi Example" BORDER=0 height=16 width=128></a>
+</p></ul>
+<ul><font face="Verdana"><font size=-1>If the index file's name extension
+is not specified in the call to i4create() or i4open() (Index4::create()
+or Index4::open() in C++), CodeBase will use the standard Clipper, dBASE
+or FoxPro extension, depending on the compatibility format set by the programmer
+(see also "<a href="#Files">What are the index and data file names of Clipper,
+dBASE and FoxPro?</a>").</font></font>
+<p><font face="Verdana"><font size=-1>For those using Clipper compatibility,
+the index file name passed to i4create() or i4open() (Index4::create()
+or Index4::open() in C++) is the name of the CGP file. The individual index
+files will still each have the .NTX file extension. To create Clipper indexes
+with a non-default extension, you can specify the extension name when defining
+the TAG4INFO.name element for any given index.</font></font>
+<p><font face="Verdana"><font size=-1>An alternate way to specify non-default
+Clipper extensions is to manually modify an existing CGP file and its associated
+index files.</font></font>
+<p><font face="Verdana"><font size=-1>For example, if the required file
+names are DATAFILE.ABC (instead of DATAFILE.CGP), TAG1.ABC (instead of
+TAG1.NTX), and TAG2.XYZ (instead of TAG2.NTX) you could perform the following
+steps:</font></font>
+<ol>
+<li>
+<font face="Verdana"><font size=-1>Rename DATAFILE.CGP to DATAFILE.ABC</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>Within DATAFILE.ABC modify the names
+of existing indexes found in the file. For example, change the entry 'TAG.NTX'
+to 'TAG1.ABC', etc.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>Rename the indexes themselves, to match
+the changes made to the index name entries in DATAFILE.ABC</font></font></li>
+</ol>
+<font face="Verdana"><font size=-1>For all cases (Clipper, dBASE and FoxPro),
+CodeBase will not be able to automatically open any index with a non-standard
+name extension. In order to do so, the CODE4.autoOpen member must be set
+to 0 (FALSE) before opening the file. The index must then be manually opened.</font></font></ul>
+<ul><p><a href="examples.htm#nonDefault2C"><img SRC="exc.gif" ALT="C Example" BORDER=0 height=16 width=128></a><a href="examples.htm#nonDefault2Cpp"><img SRC="excpp.gif" ALT="C++ Example" BORDER=0 height=16 width=128></a><a href="examples.htm#nonDefault2VB"><img SRC="exvb.gif" ALT="Visual Basic Example" BORDER=0 height=16 width=128></a><a href="examples.htm#nonDefault2Del"><img SRC="exdel.gif" ALT="Delphi Example" BORDER=0 height=16 width=128></a>
+</p></ul>
+<ul><br><font face="Verdana"><font size=-1>The above is true for Clipper, dBASE
+and FoxPro compatibility. However, in the Clipper case, each tag is stored
+separately and a distinct index file is created for it (see also: <a href="#CGP">What
+is a CGP file</a>). In this case, three possibilities exist:</font></font>
+<ol>
+<li>
+<font face="Verdana"><font size=-1>The CGP file has a different extension.</font></font></li>
+
+<ol><font face="Verdana"><font size=-1>The CGP must be opened as in the
+previous example program.</font></font></ol>
+
+<li>
+<font face="Verdana"><font size=-1>The index (NTX) files have a different
+extension.</font></font></li>
+
+<ol><font face="Verdana"><font size=-1>The CGP file must be edited and
+the name extensions should be added to the index file names. For example,
+suppose that an existing CGP file contains the following index files:</font></font></ol>
+
+<ol>
+<ol><tt><font face="Verdana"><font size=-1>TAG1</font></font></tt>
+<br><tt><font face="Verdana"><font size=-1>TAG2</font></font></tt></ol>
+<font face="Verdana"><font size=-1>In this case, CodeBase will attempt
+to open TAG1.NTX and TAG2.NTX. Therefore, if the desired index files are
+called TAG1.ABC and TAG2.XYZ, then the CGP file must be modified as follows:</font></font>
+<br>&nbsp;
+<ol><tt><font face="Verdana"><font size=-1>TAG1.ABC</font></font></tt>
+<br><tt><font face="Verdana"><font size=-1>TAG2.XYZ</font></font></tt></ol>
+<font face="Verdana"><font size=-1>Now when CodeBase opens the above CGP
+file, it will also open TAG1.ABC and TAG2.XYZ.</font></font></ol>
+
+<li>
+<font face="Verdana"><font size=-1>The CGP and/or index files are in separate
+directories.</font></font></li>
+
+<ol><font face="Verdana"><font size=-1>If the CGP and index files are in
+different directories then the path name must be added to the CGP file.
+For example, the above CGP file may be modified as follows:</font></font>
+<br>&nbsp;
+<ol><tt><font face="Verdana"><font size=-1>C:\DIR1\TAG1.ABC</font></font></tt>
+<br><tt><font face="Verdana"><font size=-1>C:\DIR2\TAG2.XYZ</font></font></tt></ol>
+<font face="Verdana"><font size=-1>When this CGP file is used in conjunction
+with the previous program, CodeBase will open DATAFILE.DBF in the default
+directory. It will then open C:\PROGRAMS\DATAFILE.ABC. Finally, CodeBase
+will open the index files C:\DIR1\TAG1.ABC and C:\DIR2\TAG2.XYZ.</font></font>
+<p><font face="Verdana"><font size=-1>If a CGP file is not used then t4open
+must be used instead. Remember that the path names must be included.</font></font></ol>
+</ol>
+</ul>
+<ul><p><a href="examples.htm#nonDefault3C"><img SRC="exc.gif" ALT="C Example" BORDER=0 height=16 width=128></a><a href="examples.htm#nonDefault3Cpp"><img SRC="excpp.gif" ALT="C++ Example" BORDER=0 height=16 width=128></a><a href="examples.htm#nonDefault3VB"><img SRC="exvb.gif" ALT="Visual Basic Example" BORDER=0 height=16 width=128></a><a href="examples.htm#nonDefault3Del"><img SRC="exdel.gif" ALT="Delphi Example" BORDER=0 height=16 width=128></a>
+</p></ul>
+<br>
+<hr WIDTH="100%">
+<p><a NAME="unique"></a><b><font face="Verdana"><font size=-1>Why are all
+unique tags set to r4uniqueContinue, even though they were created with
+the r4unique option?</font></font></b>
+
+<ul><p><font face="Verdana"><font size=-1>In the xBASE format, the only information
+stored to disk about a tag's uniqueness is a Boolean value that indicates
+whether the tag is unique or non-unique. There is no place in the tag to
+store more detailed information, such as whether unique tags should be
+handled in a fashion similar to r4unique vs. r4uniqueContinue.</font></font>
+<p><font face="Verdana"><font size=-1>In addition, the default behavior
+for dBASE, FoxPro and Clipper is to maintain unique tags in a manner similar
+to that used by CodeBase when the tag is set to r4uniqueContinue.</font></font>
+<p><font face="Verdana"><font size=-1>Consequently, in order to be compatible
+with their tag formats, CodeBase sets the default behavior for any unique
+tag to r4uniqueContinue, even if the tag was originally created with the
+r4unique setting. CodeBase accomplishes this be maintaining an internal
+structure for each tag. When the index file containing the tag is opened,
+CodeBase sets a specific 'unique' member of the structure to r4uniqueContinue.
+The possible values of this member are as follows:</font></font></p>
+</ul>
+
+<ul>
+<table BORDER CELLPADDING=2 >
+<tr>
+<td>
+<center><b><font face="Verdana"><font size=-1>Value</font></font></b></center>
+</td>
+
+<td>
+<center><b><font face="Verdana"><font size=-1>Explanation</font></font></b></center>
+</td>
+</tr>
+
+<tr>
+<td><font face="Verdana">0</font></td>
+
+<td><font face="Verdana">Duplicate keys are allowed in the tag.</font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">e4unique</font></td>
+
+<td><font face="Verdana">When a duplicate key is created, via the appending
+of a new record or the modification of an existing record, it is not added
+to the tag, and an e4unique error is generated by the CodeBase function
+that updated/appended the record. The record is not updated.</font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">r4unique</font></td>
+
+<td><font face="Verdana">Same as e4unique, except no error message is generated,
+and the CodeBase function returns r4unique instead of e4unique.</font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">r4uniqueContinue</font></td>
+
+<td><font face="Verdana">When a duplicate key is created via the addition
+or modification of a record, the key for that record is not added to the
+tag, although the record containing the duplicate key is allowed to be
+added/updated in the data file. The CodeBase function that created the
+duplicate key record returns r4unique to let you know that the key was
+a duplicate.</font></td>
+</tr>
+</table>
+</ul>
+
+<ul><p><font face="Verdana"><font size=-1>&nbsp;The default unique error-handling
+behavior for a tag is determined by the setting of the CODE4.errDefaultUnique
+member. If you wish to change the default setting for all tags that are
+opened, modify this member with one of the values listed above. The default
+value of this member is r4uniqueContinue.</font></font></p></ul>
+<ul><p><a href="examples.htm#uniqueC"><img SRC="exc.gif" ALT="C Example" BORDER=0 height=16 width=128></a><a href="examples.htm#uniqueCpp"><img SRC="excpp.gif" ALT="C++ Example" BORDER=0 height=16 width=128></a><a href="examples.htm#uniqueVB"><img SRC="exvb.gif" ALT="Visual Basic Example" BORDER=0 height=16 width=128></a><a href="examples.htm#uniqueDel"><img SRC="exdel.gif" ALT="Delphi Example" BORDER=0 height=16 width=128></a>
+</p></ul>
+<ul><p><font face="Verdana"><font size=-1><b>See also: </b>i4create (Index4::create()
+in C++).</font></font></p></ul>
+
+<hr WIDTH="100%">
+<br><a NAME="uniqueContinue"></a><b><font face="Verdana"><font size=-1>Why
+is my r4uniqueContinue tag not properly updated?</font></font></b>
+<ul><font face="Verdana"><font size=-1>My tag is indexed on the following
+data:</font></font>
+<table BORDER COLS=2 WIDTH="208" >
+<tr>
+<td WIDTH="129"><b><font face="Verdana">Record Number</font></b></td>
+
+<td WIDTH="67"><b><font face="Verdana">NAME</font></b></td>
+</tr>
+
+<tr>
+<td WIDTH="129"><font face="Verdana">1</font></td>
+
+<td WIDTH="67"><font face="Verdana">AAA</font></td>
+</tr>
+
+<tr>
+<td WIDTH="129"><font face="Verdana">2</font></td>
+
+<td WIDTH="67"><font face="Verdana">BBB</font></td>
+</tr>
+
+<tr>
+<td WIDTH="129"><font face="Verdana">3</font></td>
+
+<td WIDTH="67"><font face="Verdana">BBB</font></td>
+</tr>
+</table>
+
+<p><font face="Verdana"><font size=-1>The TAG4INFO settings used when the
+tag was created was as follows:</font></font>
+<table BORDER COLS=2 WIDTH="245" >
+<tr>
+<td WIDTH="117"><b><font face="Verdana">Name</font></b></td>
+
+<td WIDTH="116"><font face="Verdana">TAG_NAME</font></td>
+</tr>
+
+<tr>
+<td WIDTH="117"><b><font face="Verdana">Expression</font></b></td>
+
+<td WIDTH="116"><font face="Verdana">NAME</font></td>
+</tr>
+
+<tr>
+<td WIDTH="117"><b><font face="Verdana">Filter</font></b></td>
+
+<td WIDTH="116"><font face="Verdana"><font color="#FF6666">none</font></font></td>
+</tr>
+
+<tr>
+<td WIDTH="117"><b><font face="Verdana">Unique</font></b></td>
+
+<td WIDTH="116"><font face="Verdana">r4uniqueContinue</font></td>
+</tr>
+
+<tr>
+<td WIDTH="117"><b><font face="Verdana">Descending</font></b></td>
+
+<td WIDTH="116"><font face="Verdana">0</font></td>
+</tr>
+</table>
+
+<p><font face="Verdana"><font size=-1>In this case, the tag's uniqueness
+was set to 'r4uniqueContinue'. This setting tells CodeBase to allow the
+update or appending of a record with a duplicate key (such as record 3),
+but not to add an entry for that record in the index tag.</font></font>
+<p><font face="Verdana"><font size=-1>Therefore, based on the above data
+file, only keys for records 1 and 2 are included in the tag; there is no
+entry for record 3. Later, the NAME field of record 2 is changed to 'CCC'.
+At this point, the 'BBB' value in record 3 would no longer be a duplicate
+value, and you would expect all three records to appear in the index tag.
+But it is not. Record 3 does not have a tag entry.</font></font>
+<p><font face="Verdana"><font size=-1><b>Answer:</b> For performance reasons,
+it is not possible for CodeBase to scan the entire data file searching
+for a possible record that can now be included in the index due to the
+modification of an existing record.</font></font>
+<p><font face="Verdana"><font size=-1>The only available work-around to
+this problem would be to delete the duplicate-key record, and then re-append
+the information to the data file, thus updating the index file tag. The
+best solution to this problem is not to use r4uniqueContinue on indexes
+where this situation might occur; instead use r4unique or e4unique.</font></font>
+<p><font face="Verdana"><font size=-1>Note also, this if you do not update
+the index (by removing the record and adding it back in), you will end
+up with a corrupted index file.</font></font></ul>
+
+<hr WIDTH="100%">
+<br><a NAME="indexCount"></a><b><font face="Verdana"><font size=-1>How
+can I get the number of records that an index contains? For example, if
+an index has the '<tt>.NOT. DELETED()</tt>' filter, how do I find the number
+of undeleted records?</font></font></b>
+<ul><font face="Verdana"><font size=-1>Unfortunately, there is not a simple
+variable stored somewhere in the database that will keep count of the number
+of records in an index. Although it is not difficult to create such a variable
+and place it in the tag, it will not be xBase compatible. It is for this
+reason that we have not included this functionality.</font></font>
+<p><font face="Verdana"><font size=-1>To find out the number of records
+in an index, just select the required index, go to the top, and skip to
+the bottom. Count the number of skips and add one. This number will correspond
+to the number of valid records in the index.</font></font></ul>
+
+<hr WIDTH="100%">
+<br><a NAME="complexTag"></a><b><font face="Verdana"><font size=-1>How
+do I create a tag consisting of two numerical fields?</font></font></b>
+<ul><font face="Verdana"><font size=-1>If only one numerical field is used,
+you only have to specify that single field in the tag expression. However,
+if you need to use two fields, you must convert them to strings first,
+and then join them in the expression. For example, if you have two numerical
+fields defined as:</font></font></ul>
+
+<ul>&nbsp;
+<table BORDER COLS=4 WIDTH="286" >
+<tr>
+<td WIDTH="66"><b><font face="Verdana">Name</font></b></td>
+
+<td WIDTH="59"><b><font face="Verdana">Type</font></b></td>
+
+<td WIDTH="69"><b><font face="Verdana">Length</font></b></td>
+
+<td WIDTH="68"><b><font face="Verdana">Decimals</font></b></td>
+</tr>
+
+<tr>
+<td WIDTH="66"><font face="Verdana">AGE</font></td>
+
+<td WIDTH="59"><font face="Verdana">r4num</font></td>
+
+<td WIDTH="69"><font face="Verdana">2</font></td>
+
+<td WIDTH="68"><font face="Verdana">0</font></td>
+</tr>
+
+<tr>
+<td WIDTH="66"><font face="Verdana">WEIGHT</font></td>
+
+<td WIDTH="59"><font face="Verdana">r4num</font></td>
+
+<td WIDTH="69"><font face="Verdana">5</font></td>
+
+<td WIDTH="68"><font face="Verdana"><font color="#000000">1</font></font></td>
+</tr>
+</table>
+
+<p><font face="Verdana"><font size=-1>the tag expression to join the two
+would be:</font></font>
+<br>&nbsp;
+<ul><font face="Verdana"><font size=-1>"<tt>STR(AGE, 2, 0) + STR(WEIGHT,
+5, 1)</tt>"</font></font></ul>
+<font face="Verdana"><font size=-1>If a person is 6 years old and weighs
+50.3 pounds, you would seek the text "<tt> 6 50.3</tt>".</font></font>
+<p><font face="Verdana"><font size=-1>Take note of the spaces embedded
+in the search string above. These spaces are required to match the search
+value with the size of the two fields that make up the index key expression
+(2 + 5).</font></font>
+<p><font face="Verdana"><font size=-1>Note also that even though this is
+a character tag, which is normally left justified, because the expression
+is based on numerical fields -- which are always right justified -- the
+individual sub-expressions within the tag expression are also right justified.</font></font>
+<p><font face="Verdana"><font size=-1><b>See also</b>: Expression</font></font></ul>
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="seekUnicode"></a><font face="Verdana"><font size=-1>How do I seek
+for a Unicode string?</font></font></h4>
+
+<ul><font face="Verdana"><font size=-1>In C, C++ and Delphi, pass a pointer
+to your Unicode string to d4seekN (Data4::seek(char*, int) in C++). Remember
+that the <i>len</i> parameter is the length of the string, in bytes. So
+if the Unicode string that you are passing is 6 Unicode characters long,
+<i>len</i>
+will need to be 12.</font></font></ul>
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="seekDateTime"></a><font face="Verdana"><font size=-1>How do I
+seek for a value in a DateTime field?</font></font></h4>
+
+<ul><font face="Verdana"><font size=-1>Call d4seek or d4seekN (Data4::seek
+or Data4::seekN(char*, int) in C++) and pass a string in the format "CCYYMMDDhh:mm:ss:ttt"
+where CCYY is the year, MM is the month, DD is the day, hh is the hour,
+mm is the minute, ss is the second, and ttt is thousandths of the second.</font></font>
+<p><font face="Verdana"><font size=-1>For example, 2:51 pm on December
+6, 1999 would be formatted as "1999120614:51:00.000".</font></font></ul>
+
+<hr WIDTH="100%">
+<br><a NAME="filter"></a><b><font face="Verdana"><font size=-1>How can
+I filter out deleted records when browsing a data file?</font></font></b>
+<ul><font face="Verdana"><font size=-1>If you are using an index tag to
+navigate the data file, the easiest way to prevent deleted records from
+being encountered is to specify a filter condition when the tag is created.
+This can be accomplished by including the following dBASE expression in
+the TAG4INFO.filter member when the tag is created:</font></font>
+<br>&nbsp;
+<ul><font face="Verdana"><font size=-1>"<tt>.NOT. DELETED()</tt>"</font></font></ul>
+<font face="Verdana"><font size=-1>A second method to filter deleted records
+is to use the CodeBase relation functions to set up a similar filter condition.
+Refer to your User's Guide for more information on using relations.</font></font></ul>
+
+<hr WIDTH="100%">
+<br><a NAME="QO"></a><b><font face="Verdana"><font size=-1>What are the
+criteria for Query Optimization (QO) technology to be activated?</font></font></b>
+<ul><font face="Verdana"><font size=-1>Below are a few key points to help
+get the most out of your relate4 queries:</font></font>
+<p><font face="Verdana"><font size=-1>Let us assume the following tags
+have been defined:</font></font>
+<br>&nbsp;
+<table BORDER >
+<tr>
+<td><b><font face="Verdana">Name</font></b></td>
+
+<td><b><font face="Verdana">Expression</font></b></td>
+
+<td><b><font face="Verdana">Filter</font></b></td>
+
+<td><b><font face="Verdana">Unique</font></b></td>
+
+<td><b><font face="Verdana">Descending</font></b></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">TAG1</font></td>
+
+<td><font face="Verdana">FLD1</font></td>
+
+<td><font face="Verdana">""</font></td>
+
+<td><font face="Verdana">0</font></td>
+
+<td><font face="Verdana">0</font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">TAG2</font></td>
+
+<td><font face="Verdana">FLD2</font></td>
+
+<td><font face="Verdana">""</font></td>
+
+<td><font face="Verdana">0</font></td>
+
+<td><font face="Verdana">0</font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">TAG3</font></td>
+
+<td><font face="Verdana">FLD3</font></td>
+
+<td><font face="Verdana">".NOT. DELETED"</font></td>
+
+<td><font face="Verdana">0</font></td>
+
+<td><font face="Verdana">0</font></td>
+</tr>
+
+<tr VALIGN=TOP>
+<td><font face="Verdana">TAG4</font></td>
+
+<td><font face="Verdana">FLD4</font></td>
+
+<td><font face="Verdana">"DELETED() .OR. .NOT. DELETED()"</font></td>
+
+<td><font face="Verdana">0</font></td>
+
+<td><font face="Verdana">0</font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">TAG5</font></td>
+
+<td><font face="Verdana">FLD5</font></td>
+
+<td><font face="Verdana">""</font></td>
+
+<td><font face="Verdana">0</font></td>
+
+<td><font face="Verdana">r4descending</font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">TAG6</font></td>
+
+<td><font face="Verdana">FLD6+FLD7</font></td>
+
+<td><font face="Verdana">""</font></td>
+
+<td><font face="Verdana">0</font></td>
+
+<td><font face="Verdana">0</font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">TAG7</font></td>
+
+<td><font face="Verdana">FLD7</font></td>
+
+<td><font face="Verdana">""</font></td>
+
+<td><font face="Verdana"><font color="#000000">r4uniqueContinue</font></font></td>
+
+<td><font face="Verdana">0</font></td>
+</tr>
+</table>
+</ul>
+
+<ul>
+<ul>
+<li>
+<font face="Verdana"><font size=-1>Query Optimization (QO) technology will
+be used only when using the relate4 queries.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>QO uses tags previously created (check
+the index file). That is, if the following query is made:</font></font></li>
+
+<ul><font face="Verdana"><font size=-1>"<tt>(FLD1 10) .AND. (FLD2 = 'MALE')
+.OR. (FLD3 &lt; 5)</tt>"</font></font></ul>
+
+<li>
+<font face="Verdana"><font size=-1>then QO will automatically use TAG1
+and TAG2 to generate the query faster.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>TAG3 will not be used because it contains
+a filter.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>TAG4 will not be used because it contains
+a filter -- note that this filter is useless since it accepts all deleted
+and non-deleted records. Tags with filters are not used regardless of the
+filter result.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>TAG5 will be used since CodeBase is
+indifferent to the record ordering.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>TAG6 will not be used because more than
+one field is included.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>TAG7 will not be used since r4uniqueContinue
+acts as a filter. That is, non-unique records will be in the database,
+but not in the index.</font></font></li>
+</ul>
+<font face="Verdana"><font size=-1>Activation of QO also depends on the
+compiler. QO uses one bit to represent each record. Therefore the following
+restrictions apply:</font></font>
+<ul>
+<li>
+<font face="Verdana"><font size=-1>-A 16 bit compiler is only able to allocate
+memory locations up to 64K bytes (2^16). Since one bit is used per record,
+the maximum number of records that QO can handle is 524,288. Thus, if the
+data file has more than half a million records then the query will be made,
+but QO will not be used. In this case it may be advisable to use a 32 bit
+compiler.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>- A 32 bit compiler is able to allocate
+memory locations up to 4G bytes (2^32). Since one bit is used per record,
+the maximum number of records that QO can handle is 34,359,738,368.</font></font></li>
+</ul>
+</ul>
+
+<hr WIDTH="100%">
+<p><a NAME="QO2"></a><b><font face="Verdana"><font size=-1>Why can QO not
+use a r4uniqueContinue tag?</font></font></b>
+<ul><font face="Verdana"><font size=-1>To optimize a query, CodeBase can
+only use tags that have an entry for <i>every</i> record in the database.
+Since the unique type r4uniqueContinue has only one tag entry for each
+block of duplicate records, there may be tag entries missing for some records.</font></font>
+<p><font face="Verdana"><font size=-1><b>See Also</b>: Query Optimization,
+r4unique, r4uniqueContinue</font></font></ul>
+
+<hr WIDTH="100%">
+<br><a NAME="blankSlave"></a><b><font face="Verdana"><font size=-1>Why
+are some slaves in a relation set blank?</font></font></b>
+<blockquote><font face="Verdana"><font size=-1>When the relation matches
+master to slave, only one slave is matched to a master at one time.</font></font>
+<p><font face="Verdana"><font size=-1>Here is an example:</font></font>
+<br>&nbsp;
+<table BORDER WIDTH="50%" >
+<tr>
+<td COLSPAN="3" BGCOLOR="#CCFFFF">
+<div align=right><b><font face="Verdana"><font color="#000000"><font size=-1>name.dbf</font></font></font></b></div>
+</td>
+</tr>
+
+<tr>
+<td><b><font face="Verdana"><font size=-1>ID</font></font></b></td>
+
+<td><b><font face="Verdana"><font size=-1>F_NAME</font></font></b></td>
+
+<td><b><font face="Verdana"><font size=-1>L_NAME</font></font></b></td>
+</tr>
+
+<tr>
+<td><font face="Verdana"><font size=-1>1</font></font></td>
+
+<td><font face="Verdana"><font size=-1>JOHN</font></font></td>
+
+<td><font face="Verdana"><font size=-1>BROWN</font></font></td>
+</tr>
+</table>
+
+<table BORDER COLS=2 WIDTH="50%" >
+<tr>
+<td COLSPAN="2" BGCOLOR="#CCFFFF">
+<div align=right><b><font face="Verdana"><font size=-1>phone.dbf</font></font></b></div>
+</td>
+</tr>
+
+<tr>
+<td><b><font face="Verdana"><font size=-1>ID</font></font></b></td>
+
+<td><b><font face="Verdana"><font size=-1>PHONE_NUM</font></font></b></td>
+</tr>
+
+<tr>
+<td><font face="Verdana"><font size=-1>1</font></font></td>
+
+<td><font face="Verdana"><font size=-1>444-5555</font></font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana"><font size=-1>1</font></font></td>
+
+<td><font face="Verdana"><font size=-1>555-4444</font></font></td>
+</tr>
+</table>
+
+<table BORDER COLS=2 WIDTH="50%" >
+<tr>
+<td COLSPAN="2" BGCOLOR="#CCFFFF">
+<div align=right><b><font face="Verdana"><font size=-1>internet.dbf</font></font></b></div>
+</td>
+</tr>
+
+<tr>
+<td><b><font face="Verdana"><font size=-1>ID</font></font></b></td>
+
+<td><b><font face="Verdana"><font size=-1>E_MAIL</font></font></b></td>
+</tr>
+
+<tr>
+<td><font face="Verdana"><font size=-1>1</font></font></td>
+
+<td><font face="Verdana"><font size=-1>john@abc.com</font></font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana"><font size=-1>1</font></font></td>
+
+<td><font face="Verdana"><font size=-1>jbrown@xyz.com</font></font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana"><font size=-1>1</font></font></td>
+
+<td><font face="Verdana"><font size=-1>jb@isp.com</font></font></td>
+</tr>
+</table>
+
+<p><font face="Verdana"><font size=-1>Both <b>internet</b> and <b>phone</b>
+are slaves of <b>name</b>. So <b>name</b> relates to <b>phone</b>; and
+<b>name</b>
+relates to <b>internet</b>. But <b>internet</b> and <b>phone</b> do not
+relate to each other.</font></font>
+<p><font face="Verdana"><font size=-1>Assuming there is no query, as you
+skip through the relation, the records will look like this:</font></font>
+<br>&nbsp;
+<table BORDER COLS=3 WIDTH="60%" >
+<tr>
+<td><b><font face="Verdana"><font size=-1>NAME</font></font></b></td>
+
+<td><b><font face="Verdana"><font size=-1>PHONE_NUM</font></font></b></td>
+
+<td><b><font face="Verdana"><font size=-1>E_MAIL</font></font></b></td>
+</tr>
+
+<tr>
+<td><font face="Verdana"><font size=-1>JOHN BROWN</font></font></td>
+
+<td><font face="Verdana"><font size=-1>444-5555</font></font></td>
+
+<td BGCOLOR="#CCCCFF"><font face="Verdana"><font size=-1>&lt;BLANK></font></font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana"><font size=-1>JOHN BROWN</font></font></td>
+
+<td><font face="Verdana"><font size=-1>555-4444</font></font></td>
+
+<td BGCOLOR="#CCCCFF"><font face="Verdana"><font size=-1>&lt;BLANK></font></font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana"><font size=-1>JOHN BROWN</font></font></td>
+
+<td BGCOLOR="#CCCCFF"><font face="Verdana"><font size=-1>&lt;BLANK></font></font></td>
+
+<td><font face="Verdana"><font size=-1>john@abc.com</font></font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana"><font size=-1>JOHN BROWN</font></font></td>
+
+<td BGCOLOR="#CCCCFF"><font face="Verdana"><font size=-1>&lt;BLANK></font></font></td>
+
+<td><font face="Verdana"><font size=-1>jbrown@xyz.com</font></font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana"><font size=-1>JOHN BROWN</font></font></td>
+
+<td BGCOLOR="#CCCCFF"><font face="Verdana"><font size=-1>&lt;BLANK></font></font></td>
+
+<td><font face="Verdana"><font size=-1>jb@kkk.com</font></font></td>
+</tr>
+</table>
+
+<p><font face="Verdana"><font size=-1>If you create a query such as "<tt>PHONE_NUM
+= '444-5555' .AND. E_MAIL = 'john@abc.com'</tt>", you would not find any
+records.</font></font></blockquote>
+
+<hr WIDTH="100%">
+<br><a NAME="queryRecordCount"></a><b><font face="Verdana"><font size=-1>When
+a query that uses Query Optimization technology (QO) is made, how is it
+possible to find out the number of records that are returned?</font></font></b>
+<ul><font face="Verdana"><font size=-1>QO returns a bitmap which is used
+to indicate which records comply with a query. However, CodeBase does not
+have a function which will automatically count the number of records in
+the bit map. Consequently, a manual count must be made.</font></font></ul>
+<ul><p><a href="examples.htm#queryRecordCountC"><img SRC="exc.gif" ALT="C Example" BORDER=0 height=16 width=128></a><a href="examples.htm#queryRecordCountCpp"><img SRC="excpp.gif" ALT="C++ Example" BORDER=0 height=16 width=128></a><a href="examples.htm#queryRecordCountVB"><img SRC="exvb.gif" ALT="Visual Basic Example" BORDER=0 height=16 width=128></a><a href="examples.htm#queryRecordCountDel"><img SRC="exdel.gif" ALT="Delphi Example" BORDER=0 height=16 width=128></a>
+</p></ul>
+<hr WIDTH="100%">
+<p><a NAME="multiFileQuery"></a><b><font face="Verdana"><font size=-1>How
+can fields from different files be referenced in a query?</font></font></b>
+<ul><font face="Verdana"><font size=-1>When a query is made, the default
+database used is the Master. This means that a specified field will automatically
+be associated with the master data file. For example, suppose that we are
+using a master data file called FATHER.DBF and a slave data file called
+SON.DBF. Let us also assume that each file has a field called NAME. For
+these data files, a query such as:</font></font>
+<ul><font face="Verdana"><font size=-1>"<tt>FATHER->NAME = 'Ben Nyland'</tt>"</font></font></ul>
+<font face="Verdana"><font size=-1>would compare a field called NAME in
+FATHER.DBF with the string "Ben Nyland". Because FATHER.DBF is the master
+database, an equivalent query to the above would be:</font></font>
+<ul><font face="Verdana"><font size=-1>"<tt>NAME = 'Ben Nyland'</tt>"</font></font></ul>
+<font face="Verdana"><font size=-1>In order to check for the composite
+record that has Ben Nyland and his son Eric Nyland, the query would be:</font></font>
+<ul><font face="Verdana"><font size=-1>"<tt>FATHER->NAME = 'Ben Nyland'
+.AND. SON->NAME = 'Eric Nyland'</tt>"</font></font></ul>
+<font face="Verdana"><font size=-1>As before, the following query would
+be equivalent to the above:</font></font>
+<ul><font face="Verdana"><font size=-1>"<tt>NAME = 'Ben Nyland' .AND. SON->NAME
+= 'Eric Nyland'</tt>"</font></font></ul>
+<font face="Verdana"><font size=-1>In conclusion, to refer to fields in
+different data files, use the file's (alias) name followed by the arrow
+( <tt>-></tt> ) and the field name.</font></font></ul>
+
+<hr WIDTH="100%">
+<p><a NAME="masterSlave"></a><b><font face="Verdana"><font size=-1>Is it
+possible to have a master file with multiple relations to the same slave
+file?</font></font></b>
+<ul><font face="Verdana"><font size=-1>Yes. In order to do so, the slave
+file must be opened more than once (see d4openClone). If an expression
+needs to explicitly refer to either the original data file or one of the
+clones, then aliases must be used to guarantee accurate results. For example,
+if the slave file's alias is "EMPLOYEE" and d4openClone() is called, CodeBase
+does not know which file to resolve to when the expression "<tt>EMPLOYEE->NAME
+= 'SMITH'</tt>" is evaluated.</font></font></ul>
+
+<ul><font face="Verdana"><font size=-1>This can be rectified by calling
+d4aliasSet() (Data4.alias() in C++) after the first instance of EMPLOYEE.DBF
+is opened.</font></font>
+<p><font face="Verdana"><font size=-1><b>See also</b>: Alias, Query</font></font></ul>
+
+<hr WIDTH="100%">
+<br><a NAME="calcCreate"></a><b><font face="Verdana"><font size=-1>What
+is code4calcCreate() used for?</font></font></b>
+<ul><font face="Verdana"><font size=-1>Some expressions passed to expr4parse
+may be too long for CodeBase to parse properly. For instance, an expression
+may contain too many comparison operators. In this case, CodeBase responds
+with an error code of -440. In order to get around this limitation, code4calcCreate()
+may be used.</font></font>
+<p><font face="Verdana"><font size=-1>By using code4calcCreate, the ability
+to create longer expressions than would otherwise be possible is gained.</font></font></ul>
+<ul><p><a href="examples.htm#calcCreateC"><img SRC="exc.gif" ALT="C Example" BORDER=0 height=16 width=128></a><a href="examples.htm#calcCreateCpp"><img SRC="excpp.gif" ALT="C++ Example" BORDER=0 height=16 width=128></a><a href="examples.htm#calcCreateVB"><img SRC="exvb.gif" ALT="Visual Basic Example" BORDER=0 height=16 width=128></a><a href="examples.htm#calcCreateDel"><img SRC="exdel.gif" ALT="Delphi Example" BORDER=0 height=16 width=128></a>
+</p></ul>
+<ul><font face="Verdana"><font size=-1>Notice that the expression MYEXPR
+in this example is constructed from other dBASE expressions. Furthermore,
+notice that when it is used, a bracket pair always follows the expression
+name.</font></font>
+<p><font face="Verdana"><font size=-1>In this particular example, a -440
+error will be generated if the call to expr4parse is made with more than
+19 comparisons. That is, if the expression "<tt>FIELD1=1 .OR. FIELD1=2
+.OR. ... .OR. FIELD1=20</tt>" is passed, then the above error will be generated.
+Consequently, the code4calcCreate could be used for the first 19 comparisons
+and the query would be called as "MYEXPR() .OR. FIELD1 = 20."</font></font>
+<p><font face="Verdana"><font size=-1><b>See also</b>: expr4parse, relate4querySet,
+Error -440</font></font></ul>
+
+<hr WIDTH="100%">
+<br><a NAME="calcCreate2"></a><b><font face="Verdana"><font size=-1>How
+do I shorten an expression with code4calcCreate?</font></font></b>
+<ul><p><font face="Verdana"><font size=-1>In this example, there are three
+fields in the table: FNAME, LNAME, CITY and COUNTRY. The query expression
+is "LNAME + FNAME + COUNTRY + CITY". Here is the pseudocode that will break
+this up:</font></font>
+<p><tt><font face="Verdana"><font size=-1>exName = expr4parse(data,"LNAME
++ FNAME")</font></font></tt>
+<br><tt><font face="Verdana"><font size=-1>exPlace = expr4parse(data,"COUNTRY
++ CITY")</font></font></tt>
+<br><tt><font face="Verdana"><font size=-1>code4calcCreate(cb,exName,"NAME")</font></font></tt>
+<br><tt><font face="Verdana"><font size=-1>code4calcCreate(cb,exPlace,"PLACE")</font></font></tt>
+<br><tt><font face="Verdana"><font size=-1>relate4querySet(relate,"NAME()
++ PLACE()")</font></font></tt>
+<p><font face="Verdana"><font size=-1>The expression is now broken down
+into two smaller expressions which are each made into a dBASE function.
+The query expression uses those functions and is shorter than what we had
+before.</font></font>
+</p></ul>
+<hr WIDTH="100%">
+<br><a NAME="concatenate"></a><b><font face="Verdana"><font size=-1>How
+can fields be concatenated (linked together) into a meaningful expression?</font></font></b>
+<ul><font face="Verdana"><font size=-1>In order to concatenate two or more
+field expressions together into a meaningful dBASE expression, each field
+expression must first be converted to a character expression. Once converted
+to a string each field expression may be linked to the next with the '+'
+operator.</font></font></ul>
+
+<ul><font face="Verdana"><font size=-1>Suppose that our data file includes
+fields that were defined as follows:</font></font>
+<br>&nbsp;
+<table BORDER COLS=4 WIDTH="50" >
+<tr>
+<td><b><font face="Verdana">Name</font></b></td>
+
+<td><b><font face="Verdana">Type</font></b></td>
+
+<td><b><font face="Verdana">Length</font></b></td>
+
+<td><b><font face="Verdana">Decimals</font></b></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">NAME</font></td>
+
+<td><font face="Verdana">r4num</font></td>
+
+<td><font face="Verdana">10</font></td>
+
+<td><font face="Verdana">0</font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">BIRTH</font></td>
+
+<td><font face="Verdana">r4date</font></td>
+
+<td><font face="Verdana">8</font></td>
+
+<td><font face="Verdana"><font color="#000000">0</font></font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">WEIGHT</font></td>
+
+<td><font face="Verdana">r4num</font></td>
+
+<td><font face="Verdana">6</font></td>
+
+<td><font face="Verdana">2</font></td>
+</tr>
+
+<tr>
+<td><font face="Verdana">MARRIED</font></td>
+
+<td><font face="Verdana">r4log</font></td>
+
+<td><font face="Verdana">1</font></td>
+
+<td><font face="Verdana">0</font></td>
+</tr>
+</table>
+
+<p><font face="Verdana"><font size=-1>In order to concatenate any of the
+fields together, the rules below should be applied:</font></font>
+<li>
+<font face="Verdana"><font size=-1>Character fields (defined as 'C' or
+r4str) are already in string format; thus, they do not need any conversion.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>Date fields (defined as 'D' or r4date)
+must be converted to strings using the 'DTOS' dBASE expression. For example,
+in order to convert the BIRTH field to a string, we may use the following:</font></font></li>
+
+<ul><tt><font face="Verdana"><font size=-1>DTOS(BIRTH)</font></font></tt></ul>
+
+<li>
+<font face="Verdana"><font size=-1>Logical fields (defined as 'L' or r4log)
+must be converted to strings using the 'IIF' dBASE expression. For example,
+in order to convert the MARRIED field to a string, we may use the following:</font></font></li>
+
+<ul><tt><font face="Verdana"><font size=-1>IIF(MARRIED, 'T', 'F')</font></font></tt></ul>
+
+<li>
+<font face="Verdana"><font size=-1>Numeric fields (defined as 'N' or 'F'
+or r4num) must be converted to strings using the 'STR' dBASE expression.
+For example, in order to convert the WEIGHT field to a string, we may use
+the following:</font></font></li>
+
+<ul><tt><font face="Verdana"><font size=-1>STR(WEIGHT, 6, 2)</font></font></tt></ul>
+<font face="Verdana"><font size=-1>Hence, to concatenate any of the above
+fields with another in any type of expression whether in a query or tag,
+convert each field to a string with the appropriate dBASE expression, and
+add all the individual dBASE expressions together with the '<tt>+</tt>'
+symbol.</font></font>
+<p><font face="Verdana"><font size=-1>In order to create an expression
+which uses all of the above fields, the following sequence may be used:</font></font>
+<ul><font face="Verdana"><font size=-1>"<tt>NAME + STR(WEIGHT, 6, 2) +
+DTOS(BIRTH) + IIF(MARRIED, 'T', 'F')</tt>"</font></font></ul>
+</ul>
+
+<hr WIDTH="100%">
+<p><a NAME="queryDate"></a><b><font face="Verdana"><font size=-1>How is
+a query with a date field made?</font></font></b>
+<ul><font face="Verdana"><font size=-1>In order to perform a date query,
+it must be ensured that a comparison is made between two identical types.
+That is, the date field must first be converted to a string type before
+making a comparison. Alternatively, the string may be converted to a date.</font></font></ul>
+
+<ul><font face="Verdana"><font size=-1>Suppose we have a field defined
+as:</font></font>
+<br>&nbsp;
+<table BORDER COLS=2 WIDTH="216" >
+<tr>
+<td WIDTH="96"><b><font face="Verdana">Name</font></b></td>
+
+<td WIDTH="108"><font face="Verdana">DUE_DATE</font></td>
+</tr>
+
+<tr>
+<td WIDTH="96"><b><font face="Verdana">Type</font></b></td>
+
+<td WIDTH="108"><font face="Verdana">r4date</font></td>
+</tr>
+
+<tr>
+<td WIDTH="96"><b><font face="Verdana">Length</font></b></td>
+
+<td WIDTH="108"><font face="Verdana"><font color="#000000">8</font></font></td>
+</tr>
+
+<tr>
+<td WIDTH="96"><b><font face="Verdana">Decimals</font></b></td>
+
+<td WIDTH="108"><font face="Verdana">0</font></td>
+</tr>
+</table>
+
+<p><font face="Verdana"><font size=-1>To find all the records with a DUE_DATE
+of April 24, 2001, use one of the following queries:</font></font>
+<ul><tt><font face="Verdana"><font size=-1>relate4querySet( relation, "DTOS(DUE_DATE)
+= '20010424'" );</font></font></tt>
+<br><tt><font face="Verdana"><font size=-1>relate4querySet( relation, "DUE_DATE
+= STOD('20010424')" );</font></font></tt></ul>
+<font face="Verdana"><font size=-1>The above two queries yield identical
+results.</font></font>
+<p><font face="Verdana"><font size=-1><b>See also</b>: Expression</font></font></ul>
+
+<hr WIDTH="100%">
+<br><a NAME="appendSpeed"></a><b><font face="Verdana"><font size=-1>When
+I append many records to file, why does performance gradually degrade after
+the first few hundred records?</font></font></b>
+<ul><font face="Verdana"><font size=-1>The execution time is dependent
+on the time it takes to update the index file. Since you are appending
+many records, it will probably take less time to close the index, make
+the appends and then reindex.</font></font></ul>
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="fastServer"></a><font face="Verdana"><font size=-1>How can I ensure
+optimal performance of the CodeBase database server?</font></font></h4>
+
+<ul>
+<li>
+<font face="Verdana"><font size=-1>Run the server on as fast a machine
+as possible.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>Run the server from a local drive versus
+a network drive.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>Do not run any other applications on
+the server machine.</font></font></li>
+</ul>
+
+<hr WIDTH="100%">
+<br><a NAME="hostName"></a><b><font face="Verdana"><font size=-1>How do
+I know what host name to pass to code4connect()?</font></font></b>
+<ul><font face="Verdana"><font size=-1>A good utility for finding this
+information is PING. On the command line, issue the following command:</font></font>
+<ul><tt>PING -a xxx.xxx.xxx.xxx</tt></ul>
+<font face="Verdana"><font size=-1>Where <tt>xxx.xxx.xxx.xxx</tt> is the
+IP address of the machine that is to run the CodeBase server. You should
+get a response like this:</font></font>
+<blockquote>
+<pre>Pinging server5.network.com [217.53.30.5] with 32 bytes of data:
+
+Reply from 217.53.30.5: bytes=32 time&lt;10ms TTL=128
+Reply from 217.53.30.5: bytes=32 time&lt;10ms TTL=128
+Reply from 217.53.30.5: bytes=32 time&lt;10ms TTL=128
+Reply from 217.53.30.5: bytes=32 time&lt;10ms TTL=128</pre>
+</blockquote>
+</ul>
+
+<ul><font face="Verdana"><font size=-1>The host name in this example is
+"<tt>server5.network.com</tt>". That is the string to pass to the connect
+function.</font></font>
+<p><font face="Verdana"><font size=-1>If you do not get a host name before
+the IP address on the first line of the reply (<tt>server5.network.com</tt>
+in this example), PING cannot locate the necessary resources to resolve
+an IP address to a host name. See the Appendix on Protocols in your Getting
+Started book or contact your network administrator.</font></font></ul>
+
+<hr WIDTH="100%">
+<p><a NAME="slowReport"></a><b><font face="Verdana"><font size=-1>Can I
+speed up the time it takes to display a sorted report? I am using the Report
+| Sort Expression dialog box.</font></font></b>
+<ul><font face="Verdana"><font size=-1>A sort expression is slow because
+it does not use the speedy Query Optimization technology (QO). You should
+thus try to distance yourself, whenever possible, from using this expression.
+Instead, use the tags that you (may have) already created. To do this you
+must simply choose the Relate | Modify dialog box and click the right mouse
+button on the master data file. Then choose the appropriate tag. Your master
+data file will now be sorted according to your selected tag!</font></font></ul>
+
+<hr WIDTH="100%">
+<p><a NAME="hideTotal"></a><b><font face="Verdana"><font size=-1>How is
+it possible to calculate a total without showing it on the screen?</font></font></b>
+<ul><font face="Verdana"><font size=-1>Create an area and place the 'TOTAL'
+object inside the new area. Since the Total will always display, you will
+need to suppress the area output. Therefore, set the area suppression condition
+to '<tt>.TRUE.</tt>'.</font></font>
+<p><font face="Verdana"><font size=-1>Another possible solution is to set
+the font color of the 'TOTAL' object to be identical to the background
+color. However, this will not work for a DOS report.</font></font>
+<p><font face="Verdana"><font size=-1>Lastly, you may create the 'TOTAL'
+object and set the object size to 0.</font></font></ul>
+
+<hr WIDTH="100%">
+<br><a NAME="compileLaunch"></a><b><font face="Verdana"><font size=-1>How
+do I re-compile any of the launch utilities?</font></font></b>
+<ol><font face="Verdana"><font size=-1>To compile LAUNCH_W.C or LAUNCH_D.C,
+follow the steps below:</font></font>
+<li>
+<font face="Verdana"><font size=-1>Switch to the CODEREP\LAUNCH directory.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>COPY <tt>..\..\&lt;LANG>\SOURCE\*.H</tt></font></font></li>
+
+<ol><font face="Verdana"><font size=-1>Where &lt;LANG> is the 'C' or 'CPP'
+directory name.</font></font></ol>
+
+<li>
+<font face="Verdana"><font size=-1>Edit D4ALL.H and change the appropriate
+switches for the target application type.</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>Run the appropriate .MAK/.IDE file to
+compile the executable.</font></font></li>
+</ol>
+
+<hr WIDTH="100%">
+<br><a NAME="DSreport"></a><b><font face="Verdana"><font size=-1>Why are
+all reports printed from DOS double spaced and have extra blank pages in
+the middle and end?</font></font></b>
+<ul><font face="Verdana"><font size=-1>Your problem begins with the report
+design. All objects should be set to 12 points. A different size will cause
+too many roundoff problems.</font></font>
+<p><font face="Verdana"><font size=-1>The next step is done from the program
+itself. When printing reports from DOS, it is recommended that the page
+be reset. The following commands should be called before report4do:</font></font>
+<ul>
+<li>
+<font face="Verdana"><font size=-1>report4pageSize()</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>report4margins()</font></font></li>
+
+<li>
+<font face="Verdana"><font size=-1>report4output()</font></font></li>
+</ul>
+</ul>
+
+<hr WIDTH="100%">
+<br><a NAME="CRpageSize"></a><b><font face="Verdana"><font size=-1>How
+can I make my report page size on screen identical to the sheets I use
+for my printer?</font></font></b>
+<ul><font face="Verdana"><font size=-1>To set the page size of the report
+to the physical sheet of paper, use report4pageSize() and report4margins().
+Then, set the member REPORT4.screen_breaks to 1, which will display your
+report using the physical size of the paper instead of the screen size.</font></font></ul>
+<ul><p><a href="examples.htm#CRpageSizeC"><img SRC="exc.gif" ALT="C Example" BORDER=0 height=16 width=128></a><a href="examples.htm#CRpageSizeCpp"><img SRC="excpp.gif" ALT="C++ Example" BORDER=0 height=16 width=128></a><a href="examples.htm#CRpageSizeVB"><img SRC="exvb.gif" ALT="Visual Basic Example" BORDER=0 height=16 width=128></a><a href="examples.htm#CRpageSizeDel"><img SRC="exdel.gif" ALT="Delphi Example" BORDER=0 height=16 width=128></a>
+</p></ul>
+<hr WIDTH="100%">
+<h4>
+<a NAME="blankPage"></a><font face="Verdana"><font size=-1>After viewing
+one report with an invalid printer driver, why do subsequent reports also
+appear blank?</font></font></h4>
+
+<dl>
+<dt>
+<b><font face="Verdana"><font size=-1>Situation</font></font></b>
+</dt>
+
+<dd>
+<font face="Verdana"><font size=-1>The default printer is set in Windows
+to a printer with an invalid printer driver. CodeReporter is loaded and
+a report is opened. A print preview shows that the report is blank. This
+is correct because the printer does not exist (invalid device driver).
+A new printer is selected with a valid driver. The reports still display
+as blanks.</font></font>
+</dd>
+
+<dt>
+<b><font face="Verdana"><font size=-1>Answer</font></font></b></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>After selecting a legitimate printer,
+the report margins must be reset by the user to valid values. For instance,
+set all margins to one inch.</font></font></dd>
+
+<dt>
+<b><font face="Verdana"><font size=-1>Explanation</font></font></b></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>A device driver may be invalid because
+the printer is not connected. Therefore, a printer device context is not
+allocated. Consequently, the report margins are not valid. When another
+(valid) printer driver is selected, CodeReporter corrects its setup of
+the report. However, the margins are not changed since only the user may
+change them.</font></font></dd>
+</dl>
+
+<hr WIDTH="100%" size="6">
+<br><b><font face="Verdana"><font color="#FF0000"><font size=+0>Other CodeBase
+Errors</font></font></font></b>
+<h4>
+<a NAME="e4codeBase"></a><font face="Verdana"><font size=-1>Error Number:
+-1 or e4codeBase</font></font></h4>
+
+<dl>
+<dt>
+<font face="Verdana"><font size=-1>Possible Cause</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>A previous CodeBase error causes CodeBase
+function calls to return -1.</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Explanation</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>When a call to a CodeBase function fails,
+CODE4.errorCode is set to a particular error code. These codes may be found
+in the 'Error Codes' Appendix of the Reference Guide. When the error
+code is set to a number less than 0, each subsequent CodeBase function
+will simply return a -1, without executing the function. This is done for
+safety purposes.</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Solution</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>Set CODE4.errorCode to 0 after an error
+has occurred.</font></font></dd>
+<ul><p><a href="examples.htm#e4codeBaseC"><img SRC="exc.gif" ALT="C Example" BORDER=0 height=16 width=128></a><a href="examples.htm#e4codeBaseCpp"><img SRC="excpp.gif" ALT="C++ Example" BORDER=0 height=16 width=128></a><a href="examples.htm#e4codeBaseVB"><img SRC="exvb.gif" ALT="Visual Basic Example" BORDER=0 height=16 width=128></a><a href="examples.htm#e4codeBaseDel"><img SRC="exdel.gif" ALT="Delphi Example" BORDER=0 height=16 width=128></a>
+</p></ul>
+</dl>
+<hr WIDTH="100%">
+<p><a NAME="e4create"></a><b><font face="Verdana"><font size=-1>Error Number:
+-20</font></font></b>
+<dl>
+<dt>
+<font face="Verdana"><font size=-1>Description</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>Unable to create file</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Possible Cause #1</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>The specified file already exists.</font></font></dd>
+
+<dd>
+<font face="Verdana"><font size=-1>By default, when CodeBase attempts to
+create a data, index, or memo file, it does not over-write any existing
+file of the same name, and instead returns an error. This default behavior
+is specified by the value contained in the CODE4.safety member variable,
+which is set to 1 by default. To create a file if one by the same name
+already exists, set CODE4.safety to 0. See the example for CODE4.safety
+in the Reference Guide.</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Possible Cause #2</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>CodeBase ran out of valid file handles.</font></font></dd>
+
+<dd>
+<font face="Verdana"><font size=-1>Stand-alone 16-bit C/C++ applications</font></font></dd>
+
+<dl>
+<dd>
+<font face="Verdana"><font size=-1>By default, only 20 file handles are
+available to 16-bit applications at any one time, regardless of the settings
+in CONFIG.SYS. Five of these handles are used by default devices such as
+STDOUT, STDPRN, etc. This leaves 15 file handles available for the application.
+Opening one data file can use up to three handles if there is also an associated
+index and memo file. To overcome this limitation, refer to the CodeBase
+COMPILER.TXT file, found in the CodeBase compiler directory for your compiler
+(e.g. \MSC15). If the outlined procedure is not satisfactory, contact the
+maker of your compiler. It is important to understand that this limitation
+is due to both the operating system and the compiler, not CodeBase.</font></font></dd>
+</dl>
+</dl>
+
+<hr WIDTH="100%">
+<p><a NAME="e4len"></a><b><font face="Verdana"><font size=-1>Error Number:
+-30</font></font></b>
+<dl>
+<dt>
+<font face="Verdana"><font size=-1>Description</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>Determining File Length</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Possible Cause</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>CodeBase ran out of valid file handles.</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Explanation:</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>See <a href="#e4create">Error -20</a>.</font></font></dd>
+</dl>
+
+<hr WIDTH="100%">
+<p><a NAME="e4overFlow"></a><b><font face="Verdana"><font size=-1>Error
+Number: -440</font></font></b>
+<dl>
+<dt>
+<font face="Verdana"><font size=-1>Description</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>Overflow while evaluating expression</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Possible Cause</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>The expression passed to expr4parse
+is too long.</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Explanation:</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>The parsing algorithm limits the number
+of comparisons made in a query. Thus, very long expressions may not be
+parsed.</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Solution</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>Use <a href="#calcCreate">code4calcCreate</a>
+to "shorten" the expression.</font></font></dd>
+</dl>
+
+<hr WIDTH="100%">
+<p><a NAME="e4info"></a><b><font face="Verdana"><font size=-1>Error Number:
+-910</font></font></b>
+<dl>
+<dt>
+<font face="Verdana"><font size=-1>Description</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>Unexpected Information. Database file
+already open</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Possible Cause</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>The file that is being opened has been
+opened previously.</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Explanation</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>Each opened file is assigned an alias.
+Furthermore, no two files may share the same alias. The above error occurs
+when an attempt to open a file with an alias that already exists is made.</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Solution</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>Change the file's alias with d4aliasSet,
+or call d4openClone() which will give a new handle to the open data file
+with the same alias without generated the alias error. If you need specify
+the data alias via a function call or through an expression, it is not
+defined which data handle you will get, so use with caution.</font></font></dd>
+
+<p><font face="Verdana"><font size=-1><b>See also</b>: d4aliasSet, d4openClone</font></font>
+</dl>
+
+
+<hr WIDTH="100%">
+<h4>
+<a NAME="e4parm"></a><font face="Verdana"><font size=-1>Error Number: -930</font></font></h4>
+
+<dl>
+<dt>
+<font face="Verdana"><font size=-1>Description</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>Unexpected Parameter</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Possible Cause</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>A call to a CodeBase function included
+a parameter that was not valid.</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Explanation</font></font></dt>
+
+<dd>
+<font face="Verdana"><font size=-1>In some cases the programmer will forget
+to initialize some pointers.</font></font></dd>
+
+<dt>
+<font face="Verdana"><font size=-1>Solution</font></font></dt>
+
+<dd><font face="Verdana"><font size=-1>Initialize the appropriate pointer.</font></font></dt>
+</dl>
+
+<hr>
+<p><font face="Verdana"><font size=-1><a href="/support/">Back to the Sequiter
+Tech Support Page</a></font></font>
+<p><font face="Verdana"><font size=-1><a href="/">Sequiter Home Page</a></font></font>
+<br>
+<hr>
+</body>
+</html>

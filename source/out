@@ -1,0 +1,2250 @@
+b4block.c
+b4node.c
+c4.c
+c4baspas.c
+c4bcd.c
+c4blast.c
+c4buffer.c
+c4code.c
+c4com.c
+c4com2.c
+c4conect.c
+c4conlow.c
+c4const.c
+c4hook.c
+c4send.c
+c4set.c
+c4thread.c
+c4trans.c
+c4util.c
+d4append.c
+d4bottom.c
+d4close.c
+d4create.c
+d4data.c
+d4date.c
+d4extra.c
+d4field.c
+d4file.c
+d4flush.c
+d4fresh.c
+d4go.c
+d4index.c
+d4info.c
+d4inline.c
+d4lock.c
+d4modify.c
+d4open.c
+d4opt.c
+d4pack.c
+d4positi.c
+d4remove.c
+d4seek.c
+d4skip.c
+d4tag.c
+d4top.c
+d4unlock.c
+d4write.c
+d4zap.c
+df4lock.c
+df4unlok.c
+e4calc.c
+e4calc_2.c
+e4error.c
+e4expr.c
+e4event.c
+e4functi.c
+e4not_s.c
+e4parse.c
+e4string.c
+f4ass_f.c
+f4char.c
+f4close.c
+f4create.c
+f4double.c
+f4field.c
+f4file.c
+f4filese.c
+f4find.cpp
+f4flag.c
+f4flush.c
+f4info.c
+f4int.c
+f4lock.c
+f4long.c
+f4memo.c
+f4open.c
+f4opt.c
+f4ptr.c
+f4str.c
+f4temp.c
+f4true.c
+f4write.c
+f4wstr.c
+i4add.c
+i4addtag.c
+i4check.c
+i4conv.c
+i4create.c
+i4dump.c
+i4index.c
+i4info.c
+i4init.c
+i4key.c
+i4lock.c
+i4ntag.c
+i4positi.c
+i4remove.c
+i4tag.c
+i4thread.c
+l4link.c
+l4lock_c.c
+l4mutex.c
+m4check.c
+m4create.c
+m4file.c
+m4map.c
+m4memo.c
+m4memory.c
+o4opt.c
+r4area.c
+r4bit.c
+r4drive2.c
+r4driver.c
+r4group.c
+r4log.c
+r4obj.c
+r4regs.c
+r4reinde.c
+r4reindx.c
+r4relate.c
+r4report.c
+r4save.c
+r4save_2.c
+r4style.c
+r4total.c
+s4init.c
+s4initfr.c
+s4next.c
+s4quick.c
+s4sort.c
+s4signal.c
+sema4.c
+u4name.c
+u4util.c
+log5.cpp
+Microsoft (R) Incremental Linker Version 10.00.40219.01
+Copyright (C) Microsoft Corporation.  All rights reserved.
+
+user32.lib 
+gdi32.lib 
+comdlg32.lib 
+wsock32.lib 
+zlib.lib 
+"D:\codebase\source\b4block.obj" 
+"D:\codebase\source\b4node.obj" 
+"D:\codebase\source\c4.obj" 
+"D:\codebase\source\c4baspas.obj" 
+"D:\codebase\source\c4bcd.obj" 
+"D:\codebase\source\c4blast.obj" 
+"D:\codebase\source\c4buffer.obj" 
+"D:\codebase\source\c4code.obj" 
+"D:\codebase\source\c4com.obj" 
+"D:\codebase\source\c4com2.obj" 
+"D:\codebase\source\c4conect.obj" 
+"D:\codebase\source\c4conlow.obj" 
+"D:\codebase\source\c4const.obj" 
+"D:\codebase\source\c4hook.obj" 
+"D:\codebase\source\c4send.obj" 
+"D:\codebase\source\c4set.obj" 
+"D:\codebase\source\c4thread.obj" 
+"D:\codebase\source\c4trans.obj" 
+"D:\codebase\source\c4util.obj" 
+"D:\codebase\source\d4append.obj" 
+"D:\codebase\source\d4bottom.obj" 
+"D:\codebase\source\d4close.obj" 
+"D:\codebase\source\d4create.obj" 
+"D:\codebase\source\d4data.obj" 
+"D:\codebase\source\d4date.obj" 
+"D:\codebase\source\d4extra.obj" 
+"D:\codebase\source\d4field.obj" 
+"D:\codebase\source\d4file.obj" 
+"D:\codebase\source\d4flush.obj" 
+"D:\codebase\source\d4fresh.obj" 
+"D:\codebase\source\d4go.obj" 
+"D:\codebase\source\d4index.obj" 
+"D:\codebase\source\d4info.obj" 
+"D:\codebase\source\d4inline.obj" 
+"D:\codebase\source\d4lock.obj" 
+"D:\codebase\source\d4modify.obj" 
+"D:\codebase\source\d4open.obj" 
+"D:\codebase\source\d4opt.obj" 
+"D:\codebase\source\d4pack.obj" 
+"D:\codebase\source\d4positi.obj" 
+"D:\codebase\source\d4remove.obj" 
+"D:\codebase\source\d4seek.obj" 
+"D:\codebase\source\d4skip.obj" 
+"D:\codebase\source\d4tag.obj" 
+"D:\codebase\source\d4top.obj" 
+"D:\codebase\source\d4unlock.obj" 
+"D:\codebase\source\d4write.obj" 
+"D:\codebase\source\d4zap.obj" 
+"D:\codebase\source\df4lock.obj" 
+"D:\codebase\source\df4unlok.obj" 
+"D:\codebase\source\e4calc.obj" 
+"D:\codebase\source\e4calc_2.obj" 
+"D:\codebase\source\e4error.obj" 
+"D:\codebase\source\e4expr.obj" 
+"D:\codebase\source\e4event.obj" 
+"D:\codebase\source\e4functi.obj" 
+"D:\codebase\source\e4not_s.obj" 
+"D:\codebase\source\e4parse.obj" 
+"D:\codebase\source\e4string.obj" 
+"D:\codebase\source\f4ass_f.obj" 
+"D:\codebase\source\f4char.obj" 
+"D:\codebase\source\f4close.obj" 
+"D:\codebase\source\f4create.obj" 
+"D:\codebase\source\f4double.obj" 
+"D:\codebase\source\f4field.obj" 
+"D:\codebase\source\f4file.obj" 
+"D:\codebase\source\f4filese.obj" 
+"D:\codebase\source\f4find.obj" 
+"D:\codebase\source\f4flag.obj" 
+"D:\codebase\source\f4flush.obj" 
+"D:\codebase\source\f4info.obj" 
+"D:\codebase\source\f4int.obj" 
+"D:\codebase\source\f4lock.obj" 
+"D:\codebase\source\f4long.obj" 
+"D:\codebase\source\f4memo.obj" 
+"D:\codebase\source\f4open.obj" 
+"D:\codebase\source\f4opt.obj" 
+"D:\codebase\source\f4ptr.obj" 
+"D:\codebase\source\f4str.obj" 
+"D:\codebase\source\f4temp.obj" 
+"D:\codebase\source\f4true.obj" 
+"D:\codebase\source\f4write.obj" 
+"D:\codebase\source\f4wstr.obj" 
+"D:\codebase\source\i4add.obj" 
+"D:\codebase\source\i4addtag.obj" 
+"D:\codebase\source\i4check.obj" 
+"D:\codebase\source\i4conv.obj" 
+"D:\codebase\source\i4create.obj" 
+"D:\codebase\source\i4dump.obj" 
+"D:\codebase\source\i4index.obj" 
+"D:\codebase\source\i4info.obj" 
+"D:\codebase\source\i4init.obj" 
+"D:\codebase\source\i4key.obj" 
+"D:\codebase\source\i4lock.obj" 
+"D:\codebase\source\i4ntag.obj" 
+"D:\codebase\source\i4positi.obj" 
+"D:\codebase\source\i4remove.obj" 
+"D:\codebase\source\i4tag.obj" 
+"D:\codebase\source\i4thread.obj" 
+"D:\codebase\source\l4link.obj" 
+"D:\codebase\source\l4lock_c.obj" 
+"D:\codebase\source\l4mutex.obj" 
+"D:\codebase\source\m4check.obj" 
+"D:\codebase\source\m4create.obj" 
+"D:\codebase\source\m4file.obj" 
+"D:\codebase\source\m4map.obj" 
+"D:\codebase\source\m4memo.obj" 
+"D:\codebase\source\m4memory.obj" 
+"D:\codebase\source\o4opt.obj" 
+"D:\codebase\source\r4area.obj" 
+"D:\codebase\source\r4bit.obj" 
+"D:\codebase\source\r4drive2.obj" 
+"D:\codebase\source\r4driver.obj" 
+"D:\codebase\source\r4group.obj" 
+"D:\codebase\source\r4log.obj" 
+"D:\codebase\source\r4obj.obj" 
+"D:\codebase\source\r4regs.obj" 
+"D:\codebase\source\r4reinde.obj" 
+"D:\codebase\source\r4reindx.obj" 
+"D:\codebase\source\r4relate.obj" 
+"D:\codebase\source\r4report.obj" 
+"D:\codebase\source\r4save.obj" 
+"D:\codebase\source\r4save_2.obj" 
+"D:\codebase\source\r4style.obj" 
+"D:\codebase\source\r4total.obj" 
+"D:\codebase\source\s4init.obj" 
+"D:\codebase\source\s4initfr.obj" 
+"D:\codebase\source\s4next.obj" 
+"D:\codebase\source\s4quick.obj" 
+"D:\codebase\source\s4sort.obj" 
+"D:\codebase\source\s4signal.obj" 
+"D:\codebase\source\sema4.obj" 
+"D:\codebase\source\u4name.obj" 
+"D:\codebase\source\u4util.obj" 
+"D:\codebase\source\log5.obj" 
+
+Starting pass 1
+Processed /DEFAULTLIB:uuid.lib
+Processed /DEFAULTLIB:LIBCMT
+Processed /DEFAULTLIB:OLDNAMES
+
+Searching libraries
+    Searching user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\x64\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\x64\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\x64\wsock32.lib:
+    Searching zlib.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\x64\uuid.lib:
+    Searching D:\VisualStudio2010\VC\LIB\amd64\LIBCMT.lib:
+      Found __GSHandlerCheck
+        Referenced in r4reinde.obj
+        Referenced in s4quick.obj
+        Referenced in u4name.obj
+        Referenced in u4util.obj
+        Referenced in m4create.obj
+        Referenced in m4file.obj
+        Referenced in m4memo.obj
+        Referenced in m4memory.obj
+        Referenced in i4create.obj
+        Referenced in i4index.obj
+        Referenced in i4init.obj
+        Referenced in i4tag.obj
+        Referenced in f4temp.obj
+        Referenced in f4write.obj
+        Referenced in i4add.obj
+        Referenced in i4conv.obj
+        Referenced in f4file.obj
+        Referenced in f4filese.obj
+        Referenced in f4lock.obj
+        Referenced in f4memo.obj
+        Referenced in e4functi.obj
+        Referenced in e4parse.obj
+        Referenced in f4double.obj
+        Referenced in f4field.obj
+        Referenced in d4tag.obj
+        Referenced in d4zap.obj
+        Referenced in e4calc.obj
+        Referenced in e4error.obj
+        Referenced in d4open.obj
+        Referenced in d4opt.obj
+        Referenced in d4pack.obj
+        Referenced in d4seek.obj
+        Referenced in d4field.obj
+        Referenced in d4go.obj
+        Referenced in d4index.obj
+        Referenced in d4modify.obj
+        Referenced in c4trans.obj
+        Referenced in d4create.obj
+        Referenced in d4data.obj
+        Referenced in d4date.obj
+        Referenced in b4block.obj
+        Referenced in c4.obj
+        Referenced in c4baspas.obj
+        Referenced in c4code.obj
+        Loaded LIBCMT.lib(gshandler.obj)
+      Found __security_cookie
+        Referenced in r4reinde.obj
+        Referenced in s4quick.obj
+        Referenced in u4name.obj
+        Referenced in u4util.obj
+        Referenced in m4create.obj
+        Referenced in m4file.obj
+        Referenced in m4memo.obj
+        Referenced in m4memory.obj
+        Referenced in i4create.obj
+        Referenced in i4index.obj
+        Referenced in i4init.obj
+        Referenced in i4tag.obj
+        Referenced in f4temp.obj
+        Referenced in f4write.obj
+        Referenced in i4add.obj
+        Referenced in i4conv.obj
+        Referenced in f4file.obj
+        Referenced in f4filese.obj
+        Referenced in f4lock.obj
+        Referenced in f4memo.obj
+        Referenced in e4functi.obj
+        Referenced in e4parse.obj
+        Referenced in f4double.obj
+        Referenced in f4field.obj
+        Referenced in d4tag.obj
+        Referenced in d4zap.obj
+        Referenced in e4calc.obj
+        Referenced in e4error.obj
+        Referenced in d4open.obj
+        Referenced in d4opt.obj
+        Referenced in d4pack.obj
+        Referenced in d4seek.obj
+        Referenced in d4field.obj
+        Referenced in d4go.obj
+        Referenced in d4index.obj
+        Referenced in d4modify.obj
+        Referenced in c4trans.obj
+        Referenced in d4create.obj
+        Referenced in d4data.obj
+        Referenced in d4date.obj
+        Referenced in b4block.obj
+        Referenced in c4.obj
+        Referenced in c4baspas.obj
+        Referenced in c4code.obj
+        Loaded LIBCMT.lib(gs_cookie.obj)
+      Found _fltused
+        Referenced in o4opt.obj
+        Referenced in r4reinde.obj
+        Referenced in r4relate.obj
+        Referenced in i4conv.obj
+        Referenced in i4create.obj
+        Referenced in i4positi.obj
+        Referenced in m4map.obj
+        Referenced in f4int.obj
+        Referenced in f4long.obj
+        Referenced in f4opt.obj
+        Referenced in i4check.obj
+        Referenced in e4functi.obj
+        Referenced in e4parse.obj
+        Referenced in f4ass_f.obj
+        Referenced in f4double.obj
+        Referenced in d4pack.obj
+        Referenced in d4positi.obj
+        Referenced in d4seek.obj
+        Referenced in e4expr.obj
+        Referenced in d4file.obj
+        Referenced in d4index.obj
+        Referenced in d4lock.obj
+        Referenced in d4opt.obj
+        Referenced in c4set.obj
+        Referenced in d4append.obj
+        Referenced in d4create.obj
+        Referenced in d4date.obj
+        Referenced in b4block.obj
+        Referenced in c4.obj
+        Referenced in c4code.obj
+        Referenced in c4const.obj
+        Loaded LIBCMT.lib(_fpinit_.obj)
+      Found __security_check_cookie
+        Referenced in LIBCMT.lib(gshandler.obj)
+        Referenced in r4reinde.obj
+        Referenced in s4quick.obj
+        Referenced in u4name.obj
+        Referenced in u4util.obj
+        Referenced in m4create.obj
+        Referenced in m4file.obj
+        Referenced in m4memo.obj
+        Referenced in m4memory.obj
+        Referenced in i4create.obj
+        Referenced in i4index.obj
+        Referenced in i4init.obj
+        Referenced in i4tag.obj
+        Referenced in f4temp.obj
+        Referenced in f4write.obj
+        Referenced in i4add.obj
+        Referenced in i4conv.obj
+        Referenced in f4file.obj
+        Referenced in f4filese.obj
+        Referenced in f4lock.obj
+        Referenced in f4memo.obj
+        Referenced in e4functi.obj
+        Referenced in e4parse.obj
+        Referenced in f4double.obj
+        Referenced in f4field.obj
+        Referenced in d4tag.obj
+        Referenced in d4zap.obj
+        Referenced in e4calc.obj
+        Referenced in e4error.obj
+        Referenced in d4open.obj
+        Referenced in d4opt.obj
+        Referenced in d4pack.obj
+        Referenced in d4seek.obj
+        Referenced in d4field.obj
+        Referenced in d4go.obj
+        Referenced in d4index.obj
+        Referenced in d4modify.obj
+        Referenced in c4trans.obj
+        Referenced in d4create.obj
+        Referenced in d4data.obj
+        Referenced in d4date.obj
+        Referenced in b4block.obj
+        Referenced in c4.obj
+        Referenced in c4baspas.obj
+        Referenced in c4code.obj
+        Loaded LIBCMT.lib(amdsecgs.obj)
+      Found memset
+        Referenced in u4name.obj
+        Referenced in u4util.obj
+        Referenced in o4opt.obj
+        Referenced in r4reinde.obj
+        Referenced in s4init.obj
+        Referenced in s4sort.obj
+        Referenced in i4tag.obj
+        Referenced in m4create.obj
+        Referenced in m4map.obj
+        Referenced in m4memory.obj
+        Referenced in f4temp.obj
+        Referenced in i4add.obj
+        Referenced in i4conv.obj
+        Referenced in i4remove.obj
+        Referenced in f4field.obj
+        Referenced in f4filese.obj
+        Referenced in f4flag.obj
+        Referenced in f4open.obj
+        Referenced in e4functi.obj
+        Referenced in e4parse.obj
+        Referenced in f4close.obj
+        Referenced in f4create.obj
+        Referenced in d4modify.obj
+        Referenced in d4seek.obj
+        Referenced in e4error.obj
+        Referenced in e4expr.obj
+        Referenced in c4trans.obj
+        Referenced in d4data.obj
+        Referenced in d4date.obj
+        Referenced in d4go.obj
+        Referenced in b4block.obj
+        Referenced in c4.obj
+        Referenced in c4baspas.obj
+        Referenced in c4code.obj
+        Loaded LIBCMT.lib(memset.obj)
+      Found memcpy
+        Referenced in s4sort.obj
+        Referenced in u4name.obj
+        Referenced in u4util.obj
+        Referenced in o4opt.obj
+        Referenced in r4log.obj
+        Referenced in r4reinde.obj
+        Referenced in r4relate.obj
+        Referenced in i4init.obj
+        Referenced in i4tag.obj
+        Referenced in m4create.obj
+        Referenced in m4memo.obj
+        Referenced in i4addtag.obj
+        Referenced in i4check.obj
+        Referenced in i4conv.obj
+        Referenced in i4index.obj
+        Referenced in f4memo.obj
+        Referenced in f4str.obj
+        Referenced in f4write.obj
+        Referenced in i4add.obj
+        Referenced in f4ass_f.obj
+        Referenced in f4field.obj
+        Referenced in f4file.obj
+        Referenced in f4filese.obj
+        Referenced in e4calc.obj
+        Referenced in e4expr.obj
+        Referenced in e4functi.obj
+        Referenced in e4parse.obj
+        Referenced in d4modify.obj
+        Referenced in d4open.obj
+        Referenced in d4seek.obj
+        Referenced in d4write.obj
+        Referenced in d4data.obj
+        Referenced in d4date.obj
+        Referenced in d4fresh.obj
+        Referenced in d4go.obj
+        Referenced in c4const.obj
+        Referenced in c4set.obj
+        Referenced in c4trans.obj
+        Referenced in d4create.obj
+        Referenced in b4block.obj
+        Referenced in c4.obj
+        Referenced in c4baspas.obj
+        Referenced in c4code.obj
+        Loaded LIBCMT.lib(memcpy.obj)
+      Found memcmp
+        Referenced in r4relate.obj
+        Referenced in s4init.obj
+        Referenced in u4util.obj
+        Referenced in i4index.obj
+        Referenced in r4log.obj
+        Referenced in r4reinde.obj
+        Referenced in r4reinde.obj
+        Referenced in d4skip.obj
+        Referenced in d4write.obj
+        Referenced in e4functi.obj
+        Referenced in i4check.obj
+        Referenced in b4block.obj
+        Referenced in c4const.obj
+        Referenced in d4date.obj
+        Referenced in d4seek.obj
+        Loaded LIBCMT.lib(memcmp.obj)
+      Found atof
+        Referenced in c4.obj
+        Loaded LIBCMT.lib(atof.obj)
+      Found atoi
+        Referenced in c4.obj
+        Loaded LIBCMT.lib(atox.obj)
+      Found strchr
+        Referenced in c4.obj
+        Referenced in d4date.obj
+        Loaded LIBCMT.lib(strchr.obj)
+      Found strtoul
+        Referenced in c4.obj
+        Loaded LIBCMT.lib(strtol.obj)
+      Found _strlwr_s
+        Referenced in c4.obj
+        Loaded LIBCMT.lib(strlwr.obj)
+      Found _strupr_s
+        Referenced in c4.obj
+        Loaded LIBCMT.lib(strupr.obj)
+      Found _fcvt_s
+        Referenced in c4.obj
+        Loaded LIBCMT.lib(fcvt.obj)
+      Found clock
+        Referenced in c4code.obj
+        Loaded LIBCMT.lib(clock.obj)
+      Found _beginthread
+        Referenced in c4code.obj
+        Referenced in d4index.obj
+        Referenced in d4pack.obj
+        Referenced in i4create.obj
+        Loaded LIBCMT.lib(thread.obj)
+      Found sprintf_s
+        Referenced in c4code.obj
+        Referenced in d4create.obj
+        Loaded LIBCMT.lib(sprintf.obj)
+      Found strncpy_s
+        Referenced in c4set.obj
+        Referenced in d4date.obj
+        Referenced in f4file.obj
+        Loaded LIBCMT.lib(strncpy_s.obj)
+      Found strcpy_s
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Referenced in LIBCMT.lib(strupr.obj)
+        Referenced in e4parse.obj
+        Referenced in f4temp.obj
+        Referenced in m4create.obj
+        Referenced in u4name.obj
+        Referenced in c4trans.obj
+        Referenced in d4date.obj
+        Referenced in d4modify.obj
+        Referenced in e4error.obj
+        Loaded LIBCMT.lib(strcpy_s.obj)
+      Found isprint
+        Referenced in d4create.obj
+        Loaded LIBCMT.lib(_ctype.obj)
+      Found vsprintf_s
+        Referenced in d4go.obj
+        Loaded LIBCMT.lib(vsnprnc.obj)
+      Found __chkstk
+        Referenced in d4modify.obj
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Referenced in LIBCMT.lib(strupr.obj)
+        Loaded LIBCMT.lib(chkstk.obj)
+      Found _stat64i32
+        Referenced in d4open.obj
+        Loaded LIBCMT.lib(stati32.obj)
+      Found _stricmp
+        Referenced in d4tag.obj
+        Referenced in i4add.obj
+        Referenced in i4create.obj
+        Referenced in u4name.obj
+        Loaded LIBCMT.lib(stricmp.obj)
+      Found _memicmp
+        Referenced in e4calc.obj
+        Loaded LIBCMT.lib(memicmp.obj)
+      Found strncat_s
+        Referenced in e4error.obj
+        Loaded LIBCMT.lib(strncat_s.obj)
+      Found strcat_s
+        Referenced in e4error.obj
+        Referenced in u4name.obj
+        Loaded LIBCMT.lib(strcat_s.obj)
+      Found pow
+        Referenced in e4functi.obj
+        Loaded LIBCMT.lib(_pow_.obj)
+      Found strncmp
+        Referenced in e4parse.obj
+        Referenced in u4name.obj
+        Loaded LIBCMT.lib(strncmp.obj)
+      Found toupper
+        Referenced in e4parse.obj
+        Referenced in u4name.obj
+        Loaded LIBCMT.lib(toupper.obj)
+      Found _strnicmp
+        Referenced in e4parse.obj
+        Referenced in u4name.obj
+        Loaded LIBCMT.lib(strnicmp.obj)
+      Found _access
+        Referenced in f4create.obj
+        Loaded LIBCMT.lib(access.obj)
+      Found malloc
+        Referenced in LIBCMT.lib(strupr.obj)
+        Referenced in f4file.obj
+        Referenced in f4filese.obj
+        Referenced in s4init.obj
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Loaded LIBCMT.lib(malloc.obj)
+      Found free
+        Referenced in LIBCMT.lib(strupr.obj)
+        Referenced in LIBCMT.lib(thread.obj)
+        Referenced in LIBCMT.lib(stati32.obj)
+        Referenced in f4file.obj
+        Referenced in f4filese.obj
+        Referenced in s4init.obj
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Loaded LIBCMT.lib(free.obj)
+      Found _time64
+        Referenced in i4tag.obj
+        Loaded LIBCMT.lib(time64.obj)
+      Found wcscpy_s
+        Referenced in u4name.obj
+        Loaded LIBCMT.lib(wcscpy_s.obj)
+      Found _wcsicmp
+        Referenced in u4name.obj
+        Loaded LIBCMT.lib(wcsicmp.obj)
+      Found _getcwd
+        Referenced in u4name.obj
+        Loaded LIBCMT.lib(getcwd.obj)
+      Found _getdrive
+        Referenced in u4name.obj
+        Referenced in LIBCMT.lib(stati32.obj)
+        Referenced in LIBCMT.lib(getcwd.obj)
+        Loaded LIBCMT.lib(drive.obj)
+      Found getenv_s
+        Referenced in u4util.obj
+        Loaded LIBCMT.lib(getenv.obj)
+      Found remove
+        Referenced in u4util.obj
+        Loaded LIBCMT.lib(unlink.obj)
+      Found rename
+        Referenced in u4util.obj
+        Loaded LIBCMT.lib(rename.obj)
+      Found _DllMainCRTStartup
+        Loaded LIBCMT.lib(dllcrt0.obj)
+      Found _forcdecpt_l
+        Referenced in LIBCMT.lib(_fpinit_.obj)
+        Loaded LIBCMT.lib(cvt.obj)
+      Found _cfltcvt_tab
+        Referenced in LIBCMT.lib(_fpinit_.obj)
+        Loaded LIBCMT.lib(cmiscdat.obj)
+      Found __report_gsfailure
+        Referenced in LIBCMT.lib(amdsecgs.obj)
+        Loaded LIBCMT.lib(gs_report.obj)
+      Found __updatetmbcinfo
+        Referenced in LIBCMT.lib(strnicmp.obj)
+        Referenced in LIBCMT.lib(wcsicmp.obj)
+        Referenced in LIBCMT.lib(cvt.obj)
+        Referenced in LIBCMT.lib(_ctype.obj)
+        Referenced in LIBCMT.lib(stricmp.obj)
+        Referenced in LIBCMT.lib(memicmp.obj)
+        Referenced in LIBCMT.lib(toupper.obj)
+        Referenced in LIBCMT.lib(atof.obj)
+        Referenced in LIBCMT.lib(strtol.obj)
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Referenced in LIBCMT.lib(strupr.obj)
+        Loaded LIBCMT.lib(mbctype.obj)
+      Found __updatetlocinfo
+        Referenced in LIBCMT.lib(strnicmp.obj)
+        Referenced in LIBCMT.lib(wcsicmp.obj)
+        Referenced in LIBCMT.lib(cvt.obj)
+        Referenced in LIBCMT.lib(mbctype.obj)
+        Referenced in LIBCMT.lib(_ctype.obj)
+        Referenced in LIBCMT.lib(stricmp.obj)
+        Referenced in LIBCMT.lib(memicmp.obj)
+        Referenced in LIBCMT.lib(toupper.obj)
+        Referenced in LIBCMT.lib(atof.obj)
+        Referenced in LIBCMT.lib(strtol.obj)
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Referenced in LIBCMT.lib(strupr.obj)
+        Loaded LIBCMT.lib(localref.obj)
+      Found __globallocalestatus
+        Referenced in LIBCMT.lib(localref.obj)
+        Referenced in LIBCMT.lib(strnicmp.obj)
+        Referenced in LIBCMT.lib(wcsicmp.obj)
+        Referenced in LIBCMT.lib(cvt.obj)
+        Referenced in LIBCMT.lib(mbctype.obj)
+        Referenced in LIBCMT.lib(_ctype.obj)
+        Referenced in LIBCMT.lib(stricmp.obj)
+        Referenced in LIBCMT.lib(memicmp.obj)
+        Referenced in LIBCMT.lib(toupper.obj)
+        Referenced in LIBCMT.lib(atof.obj)
+        Referenced in LIBCMT.lib(strtol.obj)
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Referenced in LIBCMT.lib(strupr.obj)
+        Loaded LIBCMT.lib(glstatus.obj)
+      Found __ptlocinfo
+        Referenced in LIBCMT.lib(localref.obj)
+        Referenced in LIBCMT.lib(strnicmp.obj)
+        Referenced in LIBCMT.lib(wcsicmp.obj)
+        Referenced in LIBCMT.lib(cvt.obj)
+        Referenced in LIBCMT.lib(mbctype.obj)
+        Referenced in LIBCMT.lib(_ctype.obj)
+        Referenced in LIBCMT.lib(stricmp.obj)
+        Referenced in LIBCMT.lib(memicmp.obj)
+        Referenced in LIBCMT.lib(toupper.obj)
+        Referenced in LIBCMT.lib(atof.obj)
+        Referenced in LIBCMT.lib(strtol.obj)
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Referenced in LIBCMT.lib(strupr.obj)
+        Loaded LIBCMT.lib(nlsdata2.obj)
+      Found _getptd
+        Referenced in LIBCMT.lib(mbctype.obj)
+        Referenced in LIBCMT.lib(localref.obj)
+        Referenced in LIBCMT.lib(toupper.obj)
+        Referenced in LIBCMT.lib(strnicmp.obj)
+        Referenced in LIBCMT.lib(wcsicmp.obj)
+        Referenced in LIBCMT.lib(cvt.obj)
+        Referenced in LIBCMT.lib(thread.obj)
+        Referenced in LIBCMT.lib(_ctype.obj)
+        Referenced in LIBCMT.lib(stricmp.obj)
+        Referenced in LIBCMT.lib(memicmp.obj)
+        Referenced in LIBCMT.lib(atof.obj)
+        Referenced in LIBCMT.lib(strtol.obj)
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Referenced in LIBCMT.lib(strupr.obj)
+        Loaded LIBCMT.lib(tidtable.obj)
+      Found _fltin2
+        Referenced in LIBCMT.lib(atof.obj)
+        Loaded LIBCMT.lib(_cfin_.obj)
+      Found _isctype_l
+        Referenced in LIBCMT.lib(atof.obj)
+        Referenced in LIBCMT.lib(strtol.obj)
+        Referenced in LIBCMT.lib(_ctype.obj)
+        Referenced in LIBCMT.lib(toupper.obj)
+        Loaded LIBCMT.lib(isctype.obj)
+      Found _invalid_parameter_noinfo
+        Referenced in LIBCMT.lib(drive.obj)
+        Referenced in LIBCMT.lib(getenv.obj)
+        Referenced in LIBCMT.lib(cvt.obj)
+        Referenced in LIBCMT.lib(access.obj)
+        Referenced in LIBCMT.lib(wcscpy_s.obj)
+        Referenced in LIBCMT.lib(wcsicmp.obj)
+        Referenced in LIBCMT.lib(getcwd.obj)
+        Referenced in LIBCMT.lib(memicmp.obj)
+        Referenced in LIBCMT.lib(strncat_s.obj)
+        Referenced in LIBCMT.lib(strcat_s.obj)
+        Referenced in LIBCMT.lib(strnicmp.obj)
+        Referenced in LIBCMT.lib(strcpy_s.obj)
+        Referenced in LIBCMT.lib(vsnprnc.obj)
+        Referenced in LIBCMT.lib(stati32.obj)
+        Referenced in LIBCMT.lib(stricmp.obj)
+        Referenced in LIBCMT.lib(fcvt.obj)
+        Referenced in LIBCMT.lib(thread.obj)
+        Referenced in LIBCMT.lib(sprintf.obj)
+        Referenced in LIBCMT.lib(strncpy_s.obj)
+        Referenced in LIBCMT.lib(atof.obj)
+        Referenced in LIBCMT.lib(strtol.obj)
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Referenced in LIBCMT.lib(strupr.obj)
+        Loaded LIBCMT.lib(invarg.obj)
+      Found _errno
+        Referenced in LIBCMT.lib(getenv.obj)
+        Referenced in LIBCMT.lib(cvt.obj)
+        Referenced in LIBCMT.lib(mbctype.obj)
+        Referenced in LIBCMT.lib(wcscpy_s.obj)
+        Referenced in LIBCMT.lib(wcsicmp.obj)
+        Referenced in LIBCMT.lib(getcwd.obj)
+        Referenced in LIBCMT.lib(drive.obj)
+        Referenced in LIBCMT.lib(strnicmp.obj)
+        Referenced in LIBCMT.lib(access.obj)
+        Referenced in LIBCMT.lib(malloc.obj)
+        Referenced in LIBCMT.lib(free.obj)
+        Referenced in LIBCMT.lib(memicmp.obj)
+        Referenced in LIBCMT.lib(strncat_s.obj)
+        Referenced in LIBCMT.lib(strcat_s.obj)
+        Referenced in LIBCMT.lib(toupper.obj)
+        Referenced in LIBCMT.lib(strcpy_s.obj)
+        Referenced in LIBCMT.lib(vsnprnc.obj)
+        Referenced in LIBCMT.lib(stati32.obj)
+        Referenced in LIBCMT.lib(stricmp.obj)
+        Referenced in LIBCMT.lib(fcvt.obj)
+        Referenced in LIBCMT.lib(thread.obj)
+        Referenced in LIBCMT.lib(sprintf.obj)
+        Referenced in LIBCMT.lib(strncpy_s.obj)
+        Referenced in LIBCMT.lib(atof.obj)
+        Referenced in LIBCMT.lib(strtol.obj)
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Referenced in LIBCMT.lib(strupr.obj)
+        Loaded LIBCMT.lib(dosmap.obj)
+      Found __strgtold12_l
+        Referenced in LIBCMT.lib(atof.obj)
+        Referenced in LIBCMT.lib(_cfin_.obj)
+        Loaded LIBCMT.lib(_strgtold_.obj)
+      Found _strtoi64
+        Referenced in LIBCMT.lib(atox.obj)
+        Loaded LIBCMT.lib(strtoq.obj)
+      Found __locale_changed
+        Referenced in LIBCMT.lib(wcsicmp.obj)
+        Referenced in LIBCMT.lib(isctype.obj)
+        Referenced in LIBCMT.lib(strtoq.obj)
+        Referenced in LIBCMT.lib(stricmp.obj)
+        Referenced in LIBCMT.lib(memicmp.obj)
+        Referenced in LIBCMT.lib(toupper.obj)
+        Referenced in LIBCMT.lib(strnicmp.obj)
+        Referenced in LIBCMT.lib(strtol.obj)
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Referenced in LIBCMT.lib(strupr.obj)
+        Referenced in LIBCMT.lib(_ctype.obj)
+        Loaded LIBCMT.lib(setlocal.obj)
+      Found __crtLCMapStringA
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Referenced in LIBCMT.lib(strupr.obj)
+        Referenced in LIBCMT.lib(toupper.obj)
+        Referenced in LIBCMT.lib(mbctype.obj)
+        Loaded LIBCMT.lib(a_map.obj)
+      Found strnlen
+        Referenced in LIBCMT.lib(strlwr.obj)
+        Referenced in LIBCMT.lib(strupr.obj)
+        Referenced in LIBCMT.lib(getenv.obj)
+        Loaded LIBCMT.lib(strlen_s.obj)
+      Found _fptostr
+        Referenced in LIBCMT.lib(fcvt.obj)
+        Referenced in LIBCMT.lib(cvt.obj)
+        Loaded LIBCMT.lib(_fptostr.obj)
+      Found _fltout2
+        Referenced in LIBCMT.lib(fcvt.obj)
+        Referenced in LIBCMT.lib(cvt.obj)
+        Loaded LIBCMT.lib(_cfout_.obj)
+      Found _malloc_crt
+        Referenced in LIBCMT.lib(fcvt.obj)
+        Referenced in LIBCMT.lib(mbctype.obj)
+        Referenced in LIBCMT.lib(setlocal.obj)
+        Loaded LIBCMT.lib(crtheap.obj)
+      Found __C_specific_handler
+        Referenced in LIBCMT.lib(mbctype.obj)
+        Referenced in LIBCMT.lib(localref.obj)
+        Referenced in LIBCMT.lib(tidtable.obj)
+        Referenced in LIBCMT.lib(setlocal.obj)
+        Referenced in LIBCMT.lib(thread.obj)
+        Referenced in LIBCMT.lib(getcwd.obj)
+        Referenced in LIBCMT.lib(getenv.obj)
+        Referenced in LIBCMT.lib(dllcrt0.obj)
+        Loaded LIBCMT.lib(chandler.obj)
+      Found _XcptFilter
+        Referenced in LIBCMT.lib(thread.obj)
+        Loaded LIBCMT.lib(winxfltr.obj)
+      Found _exit
+        Referenced in LIBCMT.lib(thread.obj)
+        Loaded LIBCMT.lib(crt0dat.obj)
+      Found _flsbuf
+        Referenced in LIBCMT.lib(sprintf.obj)
+        Referenced in LIBCMT.lib(vsnprnc.obj)
+        Loaded LIBCMT.lib(_flsbuf.obj)
+      Found _output_l
+        Referenced in LIBCMT.lib(sprintf.obj)
+        Referenced in LIBCMT.lib(vsnprnc.obj)
+        Loaded LIBCMT.lib(output.obj)
+      Found _vsprintf_l
+        Referenced in LIBCMT.lib(sprintf.obj)
+        Loaded LIBCMT.lib(vsprintf.obj)
+      Found _output_s_l
+        Referenced in LIBCMT.lib(vsnprnc.obj)
+        Loaded LIBCMT.lib(outputs.obj)
+      Found _output_p_l
+        Referenced in LIBCMT.lib(vsnprnc.obj)
+        Referenced in LIBCMT.lib(vsprintf.obj)
+        Loaded LIBCMT.lib(outputp.obj)
+      Found strlen
+        Referenced in LIBCMT.lib(_fptostr.obj)
+        Referenced in LIBCMT.lib(output.obj)
+        Referenced in LIBCMT.lib(outputs.obj)
+        Referenced in LIBCMT.lib(outputp.obj)
+        Referenced in LIBCMT.lib(stati32.obj)
+        Referenced in LIBCMT.lib(getenv.obj)
+        Referenced in LIBCMT.lib(cvt.obj)
+        Referenced in LIBCMT.lib(setlocal.obj)
+        Loaded LIBCMT.lib(strlen.obj)
+      Found _fullpath
+        Referenced in LIBCMT.lib(stati32.obj)
+        Loaded LIBCMT.lib(fullpath.obj)
+      Found __dtoxmode
+        Referenced in LIBCMT.lib(stati32.obj)
+        Loaded LIBCMT.lib(stat.obj)
+      Found _close
+        Referenced in LIBCMT.lib(stati32.obj)
+        Referenced in LIBCMT.lib(stat.obj)
+        Loaded LIBCMT.lib(close.obj)
+      Found _fstat64i32
+        Referenced in LIBCMT.lib(stati32.obj)
+        Loaded LIBCMT.lib(fstati32.obj)
+      Found _sopen_s
+        Referenced in LIBCMT.lib(stati32.obj)
+        Referenced in LIBCMT.lib(stat.obj)
+        Loaded LIBCMT.lib(open.obj)
+      Found __loctotime64_t
+        Referenced in LIBCMT.lib(stati32.obj)
+        Referenced in LIBCMT.lib(fstati32.obj)
+        Loaded LIBCMT.lib(dtoxtm64.obj)
+      Found _mbctolower
+        Referenced in LIBCMT.lib(stati32.obj)
+        Referenced in LIBCMT.lib(stat.obj)
+        Loaded LIBCMT.lib(mbtolwr.obj)
+      Found _mbspbrk
+        Referenced in LIBCMT.lib(stati32.obj)
+        Referenced in LIBCMT.lib(stat.obj)
+        Loaded LIBCMT.lib(mbspbrk.obj)
+      Found _tolower_l
+        Referenced in LIBCMT.lib(stricmp.obj)
+        Referenced in LIBCMT.lib(memicmp.obj)
+        Referenced in LIBCMT.lib(strnicmp.obj)
+        Loaded LIBCMT.lib(tolower.obj)
+      Found _pow_special
+        Referenced in LIBCMT.lib(_pow_.obj)
+        Loaded LIBCMT.lib(_pow_special_.obj)
+      Found _isleadbyte_l
+        Referenced in LIBCMT.lib(outputp.obj)
+        Referenced in LIBCMT.lib(tolower.obj)
+        Referenced in LIBCMT.lib(toupper.obj)
+        Referenced in LIBCMT.lib(isctype.obj)
+        Referenced in LIBCMT.lib(output.obj)
+        Referenced in LIBCMT.lib(outputs.obj)
+        Loaded LIBCMT.lib(_wctype.obj)
+      Found _NMSG_WRITE
+        Referenced in LIBCMT.lib(malloc.obj)
+        Referenced in LIBCMT.lib(crt0dat.obj)
+        Loaded LIBCMT.lib(crt0msg.obj)
+      Found _crtheap
+        Referenced in LIBCMT.lib(malloc.obj)
+        Referenced in LIBCMT.lib(free.obj)
+        Loaded LIBCMT.lib(heapinit.obj)
+      Found _callnewh
+        Referenced in LIBCMT.lib(malloc.obj)
+        Loaded LIBCMT.lib(handler.obj)
+      Found _newmode
+        Referenced in LIBCMT.lib(malloc.obj)
+        Loaded LIBCMT.lib(_newmode.obj)
+      Found _towlower_l
+        Referenced in LIBCMT.lib(wcsicmp.obj)
+        Loaded LIBCMT.lib(towlower.obj)
+      Found calloc
+        Referenced in LIBCMT.lib(getcwd.obj)
+        Referenced in LIBCMT.lib(getenv.obj)
+        Referenced in LIBCMT.lib(fullpath.obj)
+        Loaded LIBCMT.lib(calloc.obj)
+      Found _unlock
+        Referenced in LIBCMT.lib(handler.obj)
+        Referenced in LIBCMT.lib(localref.obj)
+        Referenced in LIBCMT.lib(tidtable.obj)
+        Referenced in LIBCMT.lib(setlocal.obj)
+        Referenced in LIBCMT.lib(crt0dat.obj)
+        Referenced in LIBCMT.lib(getcwd.obj)
+        Referenced in LIBCMT.lib(drive.obj)
+        Referenced in LIBCMT.lib(getenv.obj)
+        Referenced in LIBCMT.lib(mbctype.obj)
+        Loaded LIBCMT.lib(mlock.obj)
+      Found __GSHandlerCheck_SEH
+        Referenced in LIBCMT.lib(drive.obj)
+        Referenced in LIBCMT.lib(fstati32.obj)
+        Loaded LIBCMT.lib(gshandlerseh.obj)
+      Found _mbsnbicoll
+        Referenced in LIBCMT.lib(getenv.obj)
+        Loaded LIBCMT.lib(mbsnbico.obj)
+      Found __wtomb_environ
+        Referenced in LIBCMT.lib(getenv.obj)
+        Loaded LIBCMT.lib(wtombenv.obj)
+      Found _ioterm
+        Referenced in LIBCMT.lib(dllcrt0.obj)
+        Loaded LIBCMT.lib(ioinit.obj)
+      Found _setenvp
+        Referenced in LIBCMT.lib(dllcrt0.obj)
+        Loaded LIBCMT.lib(stdenvp.obj)
+      Found _setargv
+        Referenced in LIBCMT.lib(dllcrt0.obj)
+        Loaded LIBCMT.lib(stdargv.obj)
+      Found __crtGetEnvironmentStringsA
+        Referenced in LIBCMT.lib(dllcrt0.obj)
+        Loaded LIBCMT.lib(a_env.obj)
+      Found _RTC_Initialize
+        Referenced in LIBCMT.lib(dllcrt0.obj)
+        Loaded LIBCMT.lib(_initsect_.obj)
+      Found __security_init_cookie
+        Referenced in LIBCMT.lib(dllcrt0.obj)
+        Loaded LIBCMT.lib(gs_support.obj)
+      Found strrchr
+        Referenced in LIBCMT.lib(cvt.obj)
+        Loaded LIBCMT.lib(strrchr.obj)
+      Found _atoflt_l
+        Referenced in LIBCMT.lib(cvt.obj)
+        Loaded LIBCMT.lib(atodbl.obj)
+      Found _outputformat
+        Referenced in LIBCMT.lib(cvt.obj)
+        Loaded LIBCMT.lib(outputformat.obj)
+      Found _fptrap
+        Referenced in LIBCMT.lib(cmiscdat.obj)
+        Loaded LIBCMT.lib(crt0fp.obj)
+      Found __crt_debugger_hook
+        Referenced in LIBCMT.lib(gs_report.obj)
+        Referenced in LIBCMT.lib(invarg.obj)
+        Loaded LIBCMT.lib(dbghook.obj)
+      Found __crtGetStringTypeA
+        Referenced in LIBCMT.lib(mbctype.obj)
+        Referenced in LIBCMT.lib(isctype.obj)
+        Referenced in LIBCMT.lib(setlocal.obj)
+        Loaded LIBCMT.lib(a_str.obj)
+      Found __free_lc_time
+        Referenced in LIBCMT.lib(localref.obj)
+        Loaded LIBCMT.lib(inittime.obj)
+      Found __free_lconv_num
+        Referenced in LIBCMT.lib(localref.obj)
+        Loaded LIBCMT.lib(initnum.obj)
+      Found __free_lconv_mon
+        Referenced in LIBCMT.lib(localref.obj)
+        Loaded LIBCMT.lib(initmon.obj)
+      Found __lconv_c
+        Referenced in LIBCMT.lib(localref.obj)
+        Referenced in LIBCMT.lib(nlsdata2.obj)
+        Referenced in LIBCMT.lib(initnum.obj)
+        Referenced in LIBCMT.lib(initmon.obj)
+        Loaded LIBCMT.lib(lconv.obj)
+      Found __newcumap
+        Referenced in LIBCMT.lib(nlsdata2.obj)
+        Loaded LIBCMT.lib(ctype.obj)
+      Found _ld12tod
+        Referenced in LIBCMT.lib(_cfin_.obj)
+        Referenced in LIBCMT.lib(atodbl.obj)
+        Loaded LIBCMT.lib(_intrncvt_.obj)
+      Found _pow10neg
+        Referenced in LIBCMT.lib(_strgtold_.obj)
+        Loaded LIBCMT.lib(_constpow_.obj)
+      Found __mtold12
+        Referenced in LIBCMT.lib(_strgtold_.obj)
+        Loaded LIBCMT.lib(_mantold_.obj)
+      Found __init_ctype
+        Referenced in LIBCMT.lib(setlocal.obj)
+        Loaded LIBCMT.lib(initctyp.obj)
+      Found __init_collate
+        Referenced in LIBCMT.lib(setlocal.obj)
+        Loaded LIBCMT.lib(initcoll.obj)
+      Found __mb_cur_max
+        Referenced in LIBCMT.lib(setlocal.obj)
+        Loaded LIBCMT.lib(nlsdata1.obj)
+      Found strcspn
+        Referenced in LIBCMT.lib(setlocal.obj)
+        Loaded LIBCMT.lib(strcspn.obj)
+      Found strcmp
+        Referenced in LIBCMT.lib(setlocal.obj)
+        Loaded LIBCMT.lib(strcmp.obj)
+      Found __get_qualified_locale
+        Referenced in LIBCMT.lib(setlocal.obj)
+        Loaded LIBCMT.lib(getqloc.obj)
+      Found strpbrk
+        Referenced in LIBCMT.lib(setlocal.obj)
+        Referenced in LIBCMT.lib(mbspbrk.obj)
+        Loaded LIBCMT.lib(strpbrk.obj)
+      Found $I10_OUTPUT
+        Referenced in LIBCMT.lib(_cfout_.obj)
+        Loaded LIBCMT.lib(_x10fout_.obj)
+      Found _calloc_impl
+        Referenced in LIBCMT.lib(crtheap.obj)
+        Referenced in LIBCMT.lib(calloc.obj)
+        Loaded LIBCMT.lib(calloc_impl.obj)
+      Found realloc
+        Referenced in LIBCMT.lib(crtheap.obj)
+        Loaded LIBCMT.lib(realloc.obj)
+      Found _recalloc
+        Referenced in LIBCMT.lib(crtheap.obj)
+        Loaded LIBCMT.lib(recalloc.obj)
+      Found __NLG_Return2
+        Referenced in LIBCMT.lib(chandler.obj)
+        Loaded LIBCMT.lib(jmpuwind.obj)
+      Found _IsNonwritableInCurrentImage
+        Referenced in LIBCMT.lib(chandler.obj)
+        Referenced in LIBCMT.lib(crt0dat.obj)
+        Loaded LIBCMT.lib(pesect.obj)
+      Found _initp_eh_hooks
+        Referenced in LIBCMT.lib(crt0dat.obj)
+        Loaded LIBCMT.lib(hooks.obj)
+      Found _initp_misc_winsig
+        Referenced in LIBCMT.lib(crt0dat.obj)
+        Loaded LIBCMT.lib(winsig.obj)
+      Found _initp_misc_rand_s
+        Referenced in LIBCMT.lib(crt0dat.obj)
+        Loaded LIBCMT.lib(rand_s.obj)
+      Found _initp_misc_purevirt
+        Referenced in LIBCMT.lib(crt0dat.obj)
+        Loaded LIBCMT.lib(inithelp.obj)
+      Found __xc_z
+        Referenced in LIBCMT.lib(crt0dat.obj)
+        Loaded LIBCMT.lib(crt0init.obj)
+Processed /DEFAULTLIB:kernel32.lib
+ Processed /DISALLOWLIB:libcmtd.lib
+ Processed /DISALLOWLIB:msvcrt.lib
+ Processed /DISALLOWLIB:msvcrtd.lib
+      Found atexit
+        Referenced in LIBCMT.lib(crt0dat.obj)
+        Loaded LIBCMT.lib(onexit.obj)
+      Found _lseeki64
+        Referenced in LIBCMT.lib(_flsbuf.obj)
+        Loaded LIBCMT.lib(lseeki64.obj)
+      Found _write
+        Referenced in LIBCMT.lib(_flsbuf.obj)
+        Referenced in LIBCMT.lib(open.obj)
+        Loaded LIBCMT.lib(write.obj)
+      Found _getbuf
+        Referenced in LIBCMT.lib(_flsbuf.obj)
+        Loaded LIBCMT.lib(_getbuf.obj)
+      Found _isatty
+        Referenced in LIBCMT.lib(_flsbuf.obj)
+        Referenced in LIBCMT.lib(write.obj)
+        Loaded LIBCMT.lib(isatty.obj)
+      Found __iob_func
+        Referenced in LIBCMT.lib(_flsbuf.obj)
+        Loaded LIBCMT.lib(_file.obj)
+      Found _fileno
+        Referenced in LIBCMT.lib(_flsbuf.obj)
+        Referenced in LIBCMT.lib(output.obj)
+        Referenced in LIBCMT.lib(outputs.obj)
+        Referenced in LIBCMT.lib(outputp.obj)
+        Loaded LIBCMT.lib(fileno.obj)
+      Found _get_printf_count_output
+        Referenced in LIBCMT.lib(output.obj)
+        Referenced in LIBCMT.lib(outputs.obj)
+        Referenced in LIBCMT.lib(outputp.obj)
+        Loaded LIBCMT.lib(printf.obj)
+      Found wctomb_s
+        Referenced in LIBCMT.lib(output.obj)
+        Referenced in LIBCMT.lib(outputs.obj)
+        Referenced in LIBCMT.lib(outputp.obj)
+        Loaded LIBCMT.lib(wctomb.obj)
+      Found _mbsicmp
+        Referenced in LIBCMT.lib(stat.obj)
+        Loaded LIBCMT.lib(mbsicmp.obj)
+      Found _mbsrchr
+        Referenced in LIBCMT.lib(stat.obj)
+        Loaded LIBCMT.lib(mbsrchr.obj)
+      Found _fstat32
+        Referenced in LIBCMT.lib(stat.obj)
+        Loaded LIBCMT.lib(fstat.obj)
+      Found __loctotime32_t
+        Referenced in LIBCMT.lib(stat.obj)
+        Referenced in LIBCMT.lib(fstat.obj)
+        Loaded LIBCMT.lib(dtoxtime.obj)
+      Found _free_osfhnd
+        Referenced in LIBCMT.lib(close.obj)
+        Referenced in LIBCMT.lib(open.obj)
+        Loaded LIBCMT.lib(osfinfo.obj)
+      Found _chsize_nolock
+        Referenced in LIBCMT.lib(open.obj)
+        Loaded LIBCMT.lib(chsize.obj)
+      Found _read_nolock
+        Referenced in LIBCMT.lib(open.obj)
+        Loaded LIBCMT.lib(read.obj)
+      Found _lseek_nolock
+        Referenced in LIBCMT.lib(open.obj)
+        Loaded LIBCMT.lib(lseek.obj)
+      Found _get_fmode
+        Referenced in LIBCMT.lib(open.obj)
+        Loaded LIBCMT.lib(setmode.obj)
+      Found _isindst
+        Referenced in LIBCMT.lib(dtoxtm64.obj)
+        Referenced in LIBCMT.lib(dtoxtime.obj)
+        Loaded LIBCMT.lib(tzset.obj)
+      Found _get_timezone
+        Referenced in LIBCMT.lib(dtoxtm64.obj)
+        Referenced in LIBCMT.lib(dtoxtime.obj)
+        Referenced in LIBCMT.lib(tzset.obj)
+        Loaded LIBCMT.lib(timeset.obj)
+      Found _days
+        Referenced in LIBCMT.lib(dtoxtm64.obj)
+        Referenced in LIBCMT.lib(dtoxtime.obj)
+        Referenced in LIBCMT.lib(tzset.obj)
+        Loaded LIBCMT.lib(days.obj)
+      Found _handle_errorf
+        Referenced in LIBCMT.lib(_pow_special_.obj)
+        Loaded LIBCMT.lib(_libm_error_.obj)
+      Found iswctype
+        Referenced in LIBCMT.lib(_wctype.obj)
+        Referenced in LIBCMT.lib(towlower.obj)
+        Loaded LIBCMT.lib(iswctype.obj)
+      Found __crtMessageBoxW
+        Referenced in LIBCMT.lib(crt0msg.obj)
+        Loaded LIBCMT.lib(crtmboxw.obj)
+      Found wcscat_s
+        Referenced in LIBCMT.lib(crt0msg.obj)
+        Loaded LIBCMT.lib(wcscat_s.obj)
+      Found wcsncpy_s
+        Referenced in LIBCMT.lib(crt0msg.obj)
+        Loaded LIBCMT.lib(wcsncpy_s.obj)
+      Found wcslen
+        Referenced in LIBCMT.lib(crt0msg.obj)
+        Loaded LIBCMT.lib(wcslen.obj)
+      Found _set_error_mode
+        Referenced in LIBCMT.lib(crt0msg.obj)
+        Loaded LIBCMT.lib(errmode.obj)
+      Found __crtLCMapStringW
+        Referenced in LIBCMT.lib(towlower.obj)
+        Loaded LIBCMT.lib(w_map.obj)
+      Found __crtCompareStringA
+        Referenced in LIBCMT.lib(mbsnbico.obj)
+        Loaded LIBCMT.lib(a_cmp.obj)
+      Found _strnicoll_l
+        Referenced in LIBCMT.lib(mbsnbico.obj)
+        Loaded LIBCMT.lib(strnicol.obj)
+      Found __crtsetenv
+        Referenced in LIBCMT.lib(wtombenv.obj)
+        Loaded LIBCMT.lib(setenv.obj)
+      Found _ismbblead
+        Referenced in LIBCMT.lib(stdargv.obj)
+        Loaded LIBCMT.lib(ismbbyte.obj)
+      Found _itoa_s
+        Referenced in LIBCMT.lib(getqloc.obj)
+        Loaded LIBCMT.lib(xtoas.obj)
+      Found _msize
+        Referenced in LIBCMT.lib(recalloc.obj)
+        Referenced in LIBCMT.lib(onexit.obj)
+        Loaded LIBCMT.lib(msize.obj)
+      Found abort
+        Referenced in LIBCMT.lib(hooks.obj)
+        Loaded LIBCMT.lib(abort.obj)
+      Found __crtGetLocaleInfoA
+        Referenced in LIBCMT.lib(inithelp.obj)
+        Loaded LIBCMT.lib(a_loc.obj)
+      Found _putwch_nolock
+        Referenced in LIBCMT.lib(write.obj)
+        Loaded LIBCMT.lib(putwch.obj)
+      Found mbtowc
+        Referenced in LIBCMT.lib(write.obj)
+        Loaded LIBCMT.lib(mbtowc.obj)
+      Found _fcloseall
+        Referenced in LIBCMT.lib(_file.obj)
+        Loaded LIBCMT.lib(closeall.obj)
+      Found _flushall
+        Referenced in LIBCMT.lib(_file.obj)
+        Loaded LIBCMT.lib(fflush.obj)
+      Found _ftbuf
+        Referenced in LIBCMT.lib(printf.obj)
+        Loaded LIBCMT.lib(_sftbuf.obj)
+      Found _vprintf_l
+        Referenced in LIBCMT.lib(printf.obj)
+        Loaded LIBCMT.lib(vprintf.obj)
+      Found _fmode
+        Referenced in LIBCMT.lib(setmode.obj)
+        Loaded LIBCMT.lib(txtmode.obj)
+      Found _set_errno_from_matherr
+        Referenced in LIBCMT.lib(_libm_error_.obj)
+        Loaded LIBCMT.lib(_fpexcept_.obj)
+      Found _matherr
+        Referenced in LIBCMT.lib(_libm_error_.obj)
+        Referenced in LIBCMT.lib(_fpexcept_.obj)
+        Loaded LIBCMT.lib(_matherr_.obj)
+      Found _ctrlfp
+        Referenced in LIBCMT.lib(_libm_error_.obj)
+        Referenced in LIBCMT.lib(_fpexcept_.obj)
+        Loaded LIBCMT.lib(_fpctrl_.obj)
+      Found wcsnlen
+        Referenced in LIBCMT.lib(w_map.obj)
+        Loaded LIBCMT.lib(wcslen_s.obj)
+      Found _strdup
+        Referenced in LIBCMT.lib(setenv.obj)
+        Loaded LIBCMT.lib(strdup.obj)
+      Found _mbschr
+        Referenced in LIBCMT.lib(setenv.obj)
+        Loaded LIBCMT.lib(mbschr.obj)
+      Found __initconout
+        Referenced in LIBCMT.lib(putwch.obj)
+        Loaded LIBCMT.lib(initcon.obj)
+      Found fclose
+        Referenced in LIBCMT.lib(closeall.obj)
+        Loaded LIBCMT.lib(fclose.obj)
+      Found _commit
+        Referenced in LIBCMT.lib(fflush.obj)
+        Loaded LIBCMT.lib(commit.obj)
+      Found _decomp
+        Referenced in LIBCMT.lib(_fpexcept_.obj)
+        Loaded LIBCMT.lib(_util_.obj)
+      Found _get_fpsr
+        Referenced in LIBCMT.lib(_fpctrl_.obj)
+        Loaded LIBCMT.lib(_fpsr_.obj)
+      Found _freebuf
+        Referenced in LIBCMT.lib(fclose.obj)
+        Loaded LIBCMT.lib(_freebuf.obj)
+    Searching D:\VisualStudio2010\VC\LIB\amd64\OLDNAMES.lib:
+    Searching kernel32.lib:
+    Searching user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\x64\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\x64\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\x64\wsock32.lib:
+    Searching zlib.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\x64\uuid.lib:
+
+Finished searching libraries
+
+Generating .exp file
+D:\codebase\source\c4dll32.def(1) : warning LNK4017: DESCRIPTION statement not supported for the target platform; ignored
+b4block.obj : warning LNK4197: export 'x4reverseShort' specified multiple times; using first specification
+c4.obj : warning LNK4197: export 'c4atod' specified multiple times; using first specification
+c4.obj : warning LNK4197: export 'c4atod2' specified multiple times; using first specification
+c4.obj : warning LNK4197: export 'c4atoi' specified multiple times; using first specification
+c4.obj : warning LNK4197: export 'c4atol' specified multiple times; using first specification
+c4.obj : warning LNK4197: export 'c4clip' specified multiple times; using first specification
+c4.obj : warning LNK4197: export 'c4encode' specified multiple times; using first specification
+c4.obj : warning LNK4197: export 'c4ltoa45' specified multiple times; using first specification
+c4.obj : warning LNK4197: export 'c4trimN' specified multiple times; using first specification
+c4.obj : warning LNK4197: export 'c4lower' specified multiple times; using first specification
+c4.obj : warning LNK4197: export 'c4upper' specified multiple times; using first specification
+c4.obj : warning LNK4197: export 'c4dtoa45' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4autoOpen' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4codePage' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4collatingSequence' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4compatibility' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4compressedMemos' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4createTemp' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4errCreate' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4errDefaultUnique' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4errorCode' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4errorCode2' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4accessMode' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4errExpr' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4errFieldName' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4fileFlush' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4errGo' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4hInst' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4hWnd' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4lockAttempts' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4lockAttemptsSingle' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4lockDelay' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4lockEnforce' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4log' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memExpandBlock' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memExpandData' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memExpandIndex' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memExpandLock' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memExpandTag' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memSizeBlock' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memSizeBuffer' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memSizeMemo' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memSizeMemoExpr' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memSizeSortBuffer' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memSizeSortPool' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memStartBlock' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memStartData' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memStartIndex' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memStartLock' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memStartTag' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4errOff' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4errOpen' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4optimize' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4optimizeWrite' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4readLock' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4readOnly' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4errRelate' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4safety' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4singleOpen' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4errSkip' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4errTagName' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4useGeneralTagsInRelate' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4initP' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4initVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'd4tagSelectP' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'expr4dataCB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'expr4freeCB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'expr4lenCB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'expr4typeCB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4seqReadInitVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4seqReadFreeVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4seqWriteInitVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4seqWriteFreeVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4createVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4openVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4closeVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4seqWriteRepeatP' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4compressCreateVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4compressOpenVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4seqReadVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4seqReadAllVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4seqWriteVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4seqWriteFlushVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4nameLenVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'file4nameVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 't4exprCB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 't4filterCB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 't4openCB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'd4lockVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'd4lockAllVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'd4lockAppendVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'd4lockFileVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'pipe4recvMessageVB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'd4versionCB' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'f4memoChanged' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 't4tagInfo' specified multiple times; using first specification
+c4baspas.obj : warning LNK4197: export 'code4memStartMax' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4connectionId' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4actionCode' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'expr4calcDelete' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4calcReset' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4close' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4data' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4serverOS' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4indexFormat' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4logCreate' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4logFileName' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4logOpen' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4logOpenOff' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4indexExtension' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'u4switch' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4collate' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4collateUnicode' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4validate' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4ping' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4swapLogFile' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4additionalFunctionOdbc' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4logInfoDo' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4encryptConnection' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4compress' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4compressConfigure' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4compressConfigureServer' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4unlockAutoCB' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4unlockAutoSetCB' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4initLow' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4allocLow' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4exit' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4initUndo' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4largeOn' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4encryptInit' specified multiple times; using first specification
+c4code.obj : warning LNK4197: export 'code4encryptFile' specified multiple times; using first specification
+c4com.obj : warning LNK4197: export 'code4timeout' specified multiple times; using first specification
+c4com.obj : warning LNK4197: export 'code4timeoutSet' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'code4autoIncrementStart' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setTransShared' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getAccessMode' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'code4indexBlockSize' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'code4indexBlockSizeSet' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getAutoOpen' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getCompatibility' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getCompressedMemos' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getCreateTemp' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getAppVerify' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getErrorCode' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getErrCreate' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getErrDefaultUnique' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getFileFlush' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setFileFlush' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getErrExpr' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getErrFieldName' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getErrGo' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getErrOff' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getErrOpen' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getErrRelate' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getErrSkip' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getErrTagName' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getLockAttempts' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getLockAttemptsSingle' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getLockDelay' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getLockEnforce' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getLog' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getOptimize' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getOptimizeWrite' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getReadLockDo' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getReadOnlyDo' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getSafety' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getSingleOpen' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 't4getExprSource' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setAccessMode' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setLogAccessMode' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setAutoOpen' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'code4verifySet' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setCompatibility' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setCompressedMemos' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setCreateTemp' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setErrorCode' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setErrCreate' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setErrExpr' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setErrFieldName' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setErrGo' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setErrOff' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setErrOpen' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setErrRelate' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setErrSkip' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setErrTagName' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setLockAttempts' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setLockAttemptsSingle' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setLockDelay' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setLockEnforce' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setLog' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setOptimize' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setOptimizeWrite' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setReadLockDo' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setReadOnlyDo' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setSafety' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setSingleOpen' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setErrDefaultUnique' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setCodePage' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getCodePage' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setOdbc' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setShareCloneLocks' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getTimeout' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4getDecimals' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'c4setDecimals' specified multiple times; using first specification
+c4set.obj : warning LNK4197: export 'code4limitKeySizeSet' specified multiple times; using first specification
+c4trans.obj : warning LNK4197: export 'code4lock' specified multiple times; using first specification
+c4trans.obj : warning LNK4197: export 'code4lockClear' specified multiple times; using first specification
+c4trans.obj : warning LNK4197: export 'code4tranStatusCB' specified multiple times; using first specification
+c4trans.obj : warning LNK4197: export 'code4tranStatusSetCB' specified multiple times; using first specification
+c4trans.obj : warning LNK4197: export 'code4tranStart' specified multiple times; using first specification
+c4trans.obj : warning LNK4197: export 'code4tranRollback' specified multiple times; using first specification
+c4trans.obj : warning LNK4197: export 'code4tranCommit' specified multiple times; using first specification
+d4append.obj : warning LNK4197: export 'd4append' specified multiple times; using first specification
+d4append.obj : warning LNK4197: export 'd4appendStart' specified multiple times; using first specification
+d4append.obj : warning LNK4197: export 'D4appendDirect' specified multiple times; using first specification
+d4append.obj : warning LNK4197: export 'd4appendBlank' specified multiple times; using first specification
+d4bottom.obj : warning LNK4197: export 'd4bottom' specified multiple times; using first specification
+d4close.obj : warning LNK4197: export 'd4close' specified multiple times; using first specification
+d4create.obj : warning LNK4197: export 'd4compress' specified multiple times; using first specification
+d4create.obj : warning LNK4197: export 'd4create' specified multiple times; using first specification
+d4create.obj : warning LNK4197: export 'd4createTemp' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4alias' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4aliasSet' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4blank' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4bof' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4delete' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4deleted' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4eof' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4fileName' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4logStatusCB' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4log' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4numFields' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4recall' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4recCountDo2' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4recNoLow' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4recordLow' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4recWidthLow' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4codePage' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4versionNumber' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4compatibilityExport' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4readBufferConfigure' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4readBuffer' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4indexList' specified multiple times; using first specification
+d4data.obj : warning LNK4197: export 'd4recCountDo' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'code4dateFormat' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'code4dateFormatSet' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'date4isLeap' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'date4assignLow' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'date4cmonth' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'date4init' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'date4long' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'date4timeNow' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'date4today' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'date4dow' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'date4format' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'date4formatMdx' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'date4formatMdx2' specified multiple times; using first specification
+d4date.obj : warning LNK4197: export 'date4cdow' specified multiple times; using first specification
+d4field.obj : warning LNK4197: export 'd4fieldJ' specified multiple times; using first specification
+d4field.obj : warning LNK4197: export 'd4fieldNumber' specified multiple times; using first specification
+d4field.obj : warning LNK4197: export 'f4nullable' specified multiple times; using first specification
+d4field.obj : warning LNK4197: export 'd4field' specified multiple times; using first specification
+d4file.obj : warning LNK4197: export 'd4fullPath' specified multiple times; using first specification
+d4flush.obj : warning LNK4197: export 'd4changed' specified multiple times; using first specification
+d4flush.obj : warning LNK4197: export 'd4flush' specified multiple times; using first specification
+d4flush.obj : warning LNK4197: export 'code4flush' specified multiple times; using first specification
+d4fresh.obj : warning LNK4197: export 'd4refreshRecord' specified multiple times; using first specification
+d4fresh.obj : warning LNK4197: export 'd4refresh' specified multiple times; using first specification
+d4go.obj : warning LNK4197: export 'd4goEof' specified multiple times; using first specification
+d4go.obj : warning LNK4197: export 'd4goLow' specified multiple times; using first specification
+d4index.obj : warning LNK4197: export 'd4freeBlocks' specified multiple times; using first specification
+d4index.obj : warning LNK4197: export 'd4index' specified multiple times; using first specification
+d4index.obj : warning LNK4197: export 'd4reindex' specified multiple times; using first specification
+d4index.obj : warning LNK4197: export 'd4reindexWithProgress' specified multiple times; using first specification
+d4lock.obj : warning LNK4197: export 'd4lockAddAppend' specified multiple times; using first specification
+d4lock.obj : warning LNK4197: export 'd4lockAddAll' specified multiple times; using first specification
+d4lock.obj : warning LNK4197: export 'd4lockAddFile' specified multiple times; using first specification
+d4lock.obj : warning LNK4197: export 'd4lockAdd' specified multiple times; using first specification
+d4lock.obj : warning LNK4197: export 'd4lockAppendInternal' specified multiple times; using first specification
+d4lock.obj : warning LNK4197: export 'd4lockAppend' specified multiple times; using first specification
+d4lock.obj : warning LNK4197: export 'd4lockTest' specified multiple times; using first specification
+d4lock.obj : warning LNK4197: export 'd4lockInternal' specified multiple times; using first specification
+d4lock.obj : warning LNK4197: export 'd4lockAllInternal' specified multiple times; using first specification
+d4lock.obj : warning LNK4197: export 'd4lockFile' specified multiple times; using first specification
+d4lock.obj : warning LNK4197: export 'd4lock' specified multiple times; using first specification
+d4lock.obj : warning LNK4197: export 'd4lockAll' specified multiple times; using first specification
+d4modify.obj : warning LNK4197: export 'd4fieldsAdd' specified multiple times; using first specification
+d4modify.obj : warning LNK4197: export 'd4fieldsRemove' specified multiple times; using first specification
+d4open.obj : warning LNK4197: export 'd4open' specified multiple times; using first specification
+d4open.obj : warning LNK4197: export 'd4openClone' specified multiple times; using first specification
+d4opt.obj : warning LNK4197: export 'code4optSuspend' specified multiple times; using first specification
+d4opt.obj : warning LNK4197: export 'd4optimize' specified multiple times; using first specification
+d4opt.obj : warning LNK4197: export 'd4optimizeWrite' specified multiple times; using first specification
+d4opt.obj : warning LNK4197: export 'code4optStart' specified multiple times; using first specification
+d4opt.obj : warning LNK4197: export 'code4optAll' specified multiple times; using first specification
+d4pack.obj : warning LNK4197: export 'd4pack' specified multiple times; using first specification
+d4pack.obj : warning LNK4197: export 'd4packWithProgress' specified multiple times; using first specification
+d4positi.obj : warning LNK4197: export 'd4position' specified multiple times; using first specification
+d4positi.obj : warning LNK4197: export 'd4position2' specified multiple times; using first specification
+d4positi.obj : warning LNK4197: export 'd4positionSet' specified multiple times; using first specification
+d4remove.obj : warning LNK4197: export 'd4remove' specified multiple times; using first specification
+d4seek.obj : warning LNK4197: export 'd4seekNextN' specified multiple times; using first specification
+d4seek.obj : warning LNK4197: export 'd4seekN' specified multiple times; using first specification
+d4seek.obj : warning LNK4197: export 'd4seekDouble' specified multiple times; using first specification
+d4seek.obj : warning LNK4197: export 'd4seekLongLong' specified multiple times; using first specification
+d4seek.obj : warning LNK4197: export 'd4seekNextLongLong' specified multiple times; using first specification
+d4seek.obj : warning LNK4197: export 'd4seekNextDouble' specified multiple times; using first specification
+d4seek.obj : warning LNK4197: export 'd4seek' specified multiple times; using first specification
+d4seek.obj : warning LNK4197: export 'd4seekNext' specified multiple times; using first specification
+d4skip.obj : warning LNK4197: export 'd4skip' specified multiple times; using first specification
+d4skip.obj : warning LNK4197: export 'd4tagSync' specified multiple times; using first specification
+d4tag.obj : warning LNK4197: export 'd4tagDefault' specified multiple times; using first specification
+d4tag.obj : warning LNK4197: export 'd4tagNext' specified multiple times; using first specification
+d4tag.obj : warning LNK4197: export 'd4tagPrev' specified multiple times; using first specification
+d4tag.obj : warning LNK4197: export 'd4tagSelect' specified multiple times; using first specification
+d4tag.obj : warning LNK4197: export 'd4tagSelected' specified multiple times; using first specification
+d4tag.obj : warning LNK4197: export 'd4tag' specified multiple times; using first specification
+d4top.obj : warning LNK4197: export 'd4top' specified multiple times; using first specification
+d4top.obj : warning LNK4197: export 'd4goBof' specified multiple times; using first specification
+d4unlock.obj : warning LNK4197: export 'd4unlockAppendInternal' specified multiple times; using first specification
+d4unlock.obj : warning LNK4197: export 'd4unlockAppend' specified multiple times; using first specification
+d4unlock.obj : warning LNK4197: export 'd4unlock' specified multiple times; using first specification
+d4unlock.obj : warning LNK4197: export 'code4unlock' specified multiple times; using first specification
+d4write.obj : warning LNK4197: export 'd4writeBuffer' specified multiple times; using first specification
+d4write.obj : warning LNK4197: export 'd4writeLow' specified multiple times; using first specification
+d4write.obj : warning LNK4197: export 'D4writeDirect' specified multiple times; using first specification
+d4zap.obj : warning LNK4197: export 'd4zap' specified multiple times; using first specification
+e4calc.obj : warning LNK4197: export 'expr4calcMassage' specified multiple times; using first specification
+e4calc.obj : warning LNK4197: export 'code4calcCreate' specified multiple times; using first specification
+e4calc.obj : warning LNK4197: export 'expr4calcLookup' specified multiple times; using first specification
+e4calc.obj : warning LNK4197: export 'expr4calcNameChange' specified multiple times; using first specification
+e4error.obj : warning LNK4197: export 'error4file' specified multiple times; using first specification
+e4error.obj : warning LNK4197: export 'error4callback' specified multiple times; using first specification
+e4error.obj : warning LNK4197: export 'error4set' specified multiple times; using first specification
+e4error.obj : warning LNK4197: export 'error4describeExecute' specified multiple times; using first specification
+e4error.obj : warning LNK4197: export 'error4exitTest' specified multiple times; using first specification
+e4error.obj : warning LNK4197: export 'error4default' specified multiple times; using first specification
+e4error.obj : warning LNK4197: export 'error4describeDefault' specified multiple times; using first specification
+e4expr.obj : warning LNK4197: export 'collate4convertCharToKey' specified multiple times; using first specification
+e4expr.obj : warning LNK4197: export 'expr4nullLow' specified multiple times; using first specification
+e4expr.obj : warning LNK4197: export 'expr4source' specified multiple times; using first specification
+e4expr.obj : warning LNK4197: export 'expr4vary' specified multiple times; using first specification
+e4expr.obj : warning LNK4197: export 'expr4double' specified multiple times; using first specification
+e4expr.obj : warning LNK4197: export 'expr4str' specified multiple times; using first specification
+e4expr.obj : warning LNK4197: export 'expr4true' specified multiple times; using first specification
+e4expr.obj : warning LNK4197: export 'expr4double2' specified multiple times; using first specification
+e4expr.obj : warning LNK4197: export 'expr4key' specified multiple times; using first specification
+e4functi.obj : warning LNK4197: export 'expr4functions' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'mem4checkMemory' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'mem4freeCheck' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'error4hook' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'relate4lock' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'file4temp' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'relate4unlock' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'code4infoRetrieve' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 't4openLow' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'code4connect' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 't4exprLow' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 't4filterLow' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'code4info' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'code4serverName' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'u4writeErr' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'code4lineNo' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'code4fileName' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'code4lineNoSet' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'code4fileNameSet' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'l4firstLow' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'l4lastLow' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'l4nextLow' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'l4popLow' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'l4addLow' specified multiple times; using first specification
+e4not_s.obj : warning LNK4197: export 'c4setAcceptTimeOut' specified multiple times; using first specification
+e4parse.obj : warning LNK4197: export 'expr4parseLow' specified multiple times; using first specification
+e4string.obj : warning LNK4197: export 'error4lastDescription' specified multiple times; using first specification
+e4string.obj : warning LNK4197: export 'error4text' specified multiple times; using first specification
+e4string.obj : warning LNK4197: export 'error4number2' specified multiple times; using first specification
+f4ass_f.obj : warning LNK4197: export 'f4assignField' specified multiple times; using first specification
+f4char.obj : warning LNK4197: export 'f4assignChar' specified multiple times; using first specification
+f4char.obj : warning LNK4197: export 'f4char' specified multiple times; using first specification
+f4close.obj : warning LNK4197: export 'file4close' specified multiple times; using first specification
+f4create.obj : warning LNK4197: export 'file4createInternal' specified multiple times; using first specification
+f4create.obj : warning LNK4197: export 'file4create' specified multiple times; using first specification
+f4create.obj : warning LNK4197: export 'file4compressCreate' specified multiple times; using first specification
+f4double.obj : warning LNK4197: export 'f4assignFloat' specified multiple times; using first specification
+f4double.obj : warning LNK4197: export 'f4assignDouble' specified multiple times; using first specification
+f4double.obj : warning LNK4197: export 'f4float' specified multiple times; using first specification
+f4double.obj : warning LNK4197: export 'f4double' specified multiple times; using first specification
+f4double.obj : warning LNK4197: export 'f4double2' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4data' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4decimals' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4len' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4name' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4number' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4type' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4currency' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4null' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4dateTime' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4accessMode' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4lockEnforce' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4assignNotNull' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4assignPtr' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4blank' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4assignCurrency' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4assignNull' specified multiple times; using first specification
+f4field.obj : warning LNK4197: export 'f4assignDateTime' specified multiple times; using first specification
+f4file.obj : warning LNK4197: export 'u4filelength' specified multiple times; using first specification
+f4file.obj : warning LNK4197: export 'file4lenLow' specified multiple times; using first specification
+f4file.obj : warning LNK4197: export 'file4lenLow2' specified multiple times; using first specification
+f4file.obj : warning LNK4197: export 'file4nameLow' specified multiple times; using first specification
+f4file.obj : warning LNK4197: export 'file4readError' specified multiple times; using first specification
+f4file.obj : warning LNK4197: export 'file4alloc' specified multiple times; using first specification
+f4file.obj : warning LNK4197: export 'file4free' specified multiple times; using first specification
+f4file.obj : warning LNK4197: export 'file4lenSetLow2' specified multiple times; using first specification
+f4file.obj : warning LNK4197: export 'file4replace' specified multiple times; using first specification
+f4file.obj : warning LNK4197: export 'file4read' specified multiple times; using first specification
+f4file.obj : warning LNK4197: export 'file4readAll' specified multiple times; using first specification
+f4filese.obj : warning LNK4197: export 'file4seqRead' specified multiple times; using first specification
+f4filese.obj : warning LNK4197: export 'file4seqReadAll' specified multiple times; using first specification
+f4filese.obj : warning LNK4197: export 'file4seqReadAlloc' specified multiple times; using first specification
+f4filese.obj : warning LNK4197: export 'file4seqReadFree' specified multiple times; using first specification
+f4filese.obj : warning LNK4197: export 'file4seqWriteFlush' specified multiple times; using first specification
+f4filese.obj : warning LNK4197: export 'file4seqWrite' specified multiple times; using first specification
+f4filese.obj : warning LNK4197: export 'file4seqWriteRepeat' specified multiple times; using first specification
+f4filese.obj : warning LNK4197: export 'file4seqWriteAlloc' specified multiple times; using first specification
+f4filese.obj : warning LNK4197: export 'file4seqWriteFree' specified multiple times; using first specification
+f4filese.obj : warning LNK4197: export 'file4seqReadInit' specified multiple times; using first specification
+f4filese.obj : warning LNK4197: export 'file4seqWriteInit' specified multiple times; using first specification
+f4flag.obj : warning LNK4197: export 'f4flagInit' specified multiple times; using first specification
+f4flag.obj : warning LNK4197: export 'f4flagSet' specified multiple times; using first specification
+f4flag.obj : warning LNK4197: export 'f4flagIsSet' specified multiple times; using first specification
+f4flush.obj : warning LNK4197: export 'file4flush' specified multiple times; using first specification
+f4flush.obj : warning LNK4197: export 'file4refresh' specified multiple times; using first specification
+f4info.obj : warning LNK4197: export 'd4fieldInfo' specified multiple times; using first specification
+f4int.obj : warning LNK4197: export 'f4assignInt' specified multiple times; using first specification
+f4int.obj : warning LNK4197: export 'f4int' specified multiple times; using first specification
+f4lock.obj : warning LNK4197: export 'code4lockFileName' specified multiple times; using first specification
+f4lock.obj : warning LNK4197: export 'code4lockItem' specified multiple times; using first specification
+f4lock.obj : warning LNK4197: export 'code4lockNetworkId' specified multiple times; using first specification
+f4lock.obj : warning LNK4197: export 'code4lockUserId' specified multiple times; using first specification
+f4lock.obj : warning LNK4197: export 'file4lockInternal' specified multiple times; using first specification
+f4lock.obj : warning LNK4197: export 'file4unlockInternal' specified multiple times; using first specification
+f4long.obj : warning LNK4197: export 'f4assignLong' specified multiple times; using first specification
+f4long.obj : warning LNK4197: export 'f4assignLongLong' specified multiple times; using first specification
+f4long.obj : warning LNK4197: export 'f4long' specified multiple times; using first specification
+f4long.obj : warning LNK4197: export 'f4longLong' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoFree' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoReadPart' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoWriteFinish' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoWritePart' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoAssignFile' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoFile' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4isMemo' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoLenMax' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoResetExport' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoLen' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoPtr' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoStr' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoNcpy' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoSetLen' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoAssignN' specified multiple times; using first specification
+f4memo.obj : warning LNK4197: export 'f4memoAssign' specified multiple times; using first specification
+f4open.obj : warning LNK4197: export 'file4open' specified multiple times; using first specification
+f4open.obj : warning LNK4197: export 'file4openTest' specified multiple times; using first specification
+f4open.obj : warning LNK4197: export 'file4compressOpen' specified multiple times; using first specification
+f4opt.obj : warning LNK4197: export 'file4optimizeWrite' specified multiple times; using first specification
+f4opt.obj : warning LNK4197: export 'file4optimizeLow' specified multiple times; using first specification
+f4ptr.obj : warning LNK4197: export 'f4ptr' specified multiple times; using first specification
+f4str.obj : warning LNK4197: export 'f4assignN' specified multiple times; using first specification
+f4str.obj : warning LNK4197: export 'f4ncpy' specified multiple times; using first specification
+f4str.obj : warning LNK4197: export 'f4str' specified multiple times; using first specification
+f4str.obj : warning LNK4197: export 'f4assign' specified multiple times; using first specification
+f4true.obj : warning LNK4197: export 'f4true' specified multiple times; using first specification
+f4write.obj : warning LNK4197: export 'file4write' specified multiple times; using first specification
+f4wstr.obj : warning LNK4197: export 'f4memoAssignUnicode' specified multiple times; using first specification
+f4wstr.obj : warning LNK4197: export 'f4assignUnicode' specified multiple times; using first specification
+i4add.obj : warning LNK4197: export 'i4tagAdd' specified multiple times; using first specification
+i4add.obj : warning LNK4197: export 'i4tagRemove' specified multiple times; using first specification
+i4check.obj : warning LNK4197: export 'd4check' specified multiple times; using first specification
+i4create.obj : warning LNK4197: export 'i4create' specified multiple times; using first specification
+i4create.obj : warning LNK4197: export 'I4createOpen' specified multiple times; using first specification
+i4index.obj : warning LNK4197: export 'i4fileName' specified multiple times; using first specification
+i4index.obj : warning LNK4197: export 'i4tag' specified multiple times; using first specification
+i4index.obj : warning LNK4197: export 'i4open' specified multiple times; using first specification
+i4index.obj : warning LNK4197: export 'i4close' specified multiple times; using first specification
+i4info.obj : warning LNK4197: export 'tfile4isDescending' specified multiple times; using first specification
+i4info.obj : warning LNK4197: export 't4alias' specified multiple times; using first specification
+i4info.obj : warning LNK4197: export 't4descending' specified multiple times; using first specification
+i4info.obj : warning LNK4197: export 'i4tagInfo' specified multiple times; using first specification
+i4key.obj : warning LNK4197: export 'tfile4key' specified multiple times; using first specification
+i4key.obj : warning LNK4197: export 't4getKey' specified multiple times; using first specification
+i4ntag.obj : warning LNK4197: export 't4close' specified multiple times; using first specification
+i4positi.obj : warning LNK4197: export 'tfile4position' specified multiple times; using first specification
+i4positi.obj : warning LNK4197: export 'tfile4positionSet' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 't4getTagFile' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 'tfile4exprKeyExport' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 'tfile4eof' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 'tfile4recNo' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 't4versionCheckExport' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 't4unique' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 't4seekN' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 'tfile4skipCache' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 't4readBuffer' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 't4uniqueSet' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 'tfile4top' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 'tfile4bottom' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 'tfile4skip' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 'tfile4go' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 'tfile4seek' specified multiple times; using first specification
+i4tag.obj : warning LNK4197: export 'tfile4count' specified multiple times; using first specification
+l4link.obj : warning LNK4197: export 'l4addAfter' specified multiple times; using first specification
+l4link.obj : warning LNK4197: export 'l4addBefore' specified multiple times; using first specification
+l4link.obj : warning LNK4197: export 'l4prev' specified multiple times; using first specification
+l4link.obj : warning LNK4197: export 'l4remove' specified multiple times; using first specification
+m4map.obj : warning LNK4197: export 'relate4optimizeable' specified multiple times; using first specification
+m4memo.obj : warning LNK4197: export 'code4memoCompress' specified multiple times; using first specification
+m4memo.obj : warning LNK4197: export 'd4memoCompress' specified multiple times; using first specification
+m4memory.obj : warning LNK4197: export 'mem4createDefault' specified multiple times; using first specification
+m4memory.obj : warning LNK4197: export 'mem4freeDefault' specified multiple times; using first specification
+m4memory.obj : warning LNK4197: export 'u4allocDefault' specified multiple times; using first specification
+m4memory.obj : warning LNK4197: export 'u4allocErDefault' specified multiple times; using first specification
+m4memory.obj : warning LNK4197: export 'u4freeDefault' specified multiple times; using first specification
+m4memory.obj : warning LNK4197: export 'mem4createAllocDefault' specified multiple times; using first specification
+m4memory.obj : warning LNK4197: export 'mem4release' specified multiple times; using first specification
+m4memory.obj : warning LNK4197: export 'mem4allocDefault' specified multiple times; using first specification
+r4reinde.obj : warning LNK4197: export 'code4status' specified multiple times; using first specification
+r4reinde.obj : warning LNK4197: export 'i4reindex' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4querySetCallbackInit' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4querySetCallbackInitUndo' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4callbackInit' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4callbackInitUndo' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4eof' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4next' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4sortSetTag' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4readBuffer' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4changed' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4errorAction' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4freeRelate' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4free' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4init' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4lockAdd' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4matchLen' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4querySet' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4skipEnable' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4sortSet' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4type' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4retain' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4createSlave' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4bottom' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4doAll' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4doOne' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4skip' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4top' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4count' specified multiple times; using first specification
+r4relate.obj : warning LNK4197: export 'relate4skipMaster' specified multiple times; using first specification
+s4init.obj : warning LNK4197: export 'sort4alloc' specified multiple times; using first specification
+s4init.obj : warning LNK4197: export 'sort4assignCmp2' specified multiple times; using first specification
+s4init.obj : warning LNK4197: export 'sort4free2' specified multiple times; using first specification
+s4init.obj : warning LNK4197: export 'sort4init' specified multiple times; using first specification
+s4init.obj : warning LNK4197: export 'sort4getInit' specified multiple times; using first specification
+s4sort.obj : warning LNK4197: export 'sort4free' specified multiple times; using first specification
+s4sort.obj : warning LNK4197: export 'sort4get' specified multiple times; using first specification
+s4sort.obj : warning LNK4197: export 'sort4put' specified multiple times; using first specification
+u4name.obj : warning LNK4197: export 'u4nameExt' specified multiple times; using first specification
+u4name.obj : warning LNK4197: export 'u4namePiece' specified multiple times; using first specification
+u4name.obj : warning LNK4197: export 'u4nameChar' specified multiple times; using first specification
+u4name.obj : warning LNK4197: export 'u4nameCurrent' specified multiple times; using first specification
+u4util.obj : warning LNK4197: export 'u4allocFreeDefault' specified multiple times; using first specification
+u4util.obj : warning LNK4197: export 'u4delayHundredth' specified multiple times; using first specification
+u4util.obj : warning LNK4197: export 'u4ncpy' specified multiple times; using first specification
+u4util.obj : warning LNK4197: export 'u4yymmdd' specified multiple times; using first specification
+u4util.obj : warning LNK4197: export 'u4remove' specified multiple times; using first specification
+u4util.obj : warning LNK4197: export 'u4allocAgainDefault' specified multiple times; using first specification
+   Creating library c4dll.lib and object c4dll.exp
+
+Finished generating .exp file
+
+Searching libraries
+    Searching user32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\x64\gdi32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\x64\comdlg32.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\x64\wsock32.lib:
+    Searching zlib.lib:
+    Searching C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\lib\x64\uuid.lib:
+    Searching D:\VisualStudio2010\VC\LIB\amd64\LIBCMT.lib:
+    Searching D:\VisualStudio2010\VC\LIB\amd64\OLDNAMES.lib:
+    Searching kernel32.lib:
+
+Finished searching libraries
+
+Finished pass 1
+
+c4baspas.obj : error LNK2019: unresolved external symbol __imp_GetWindowLongPtrA referenced in function code4initP
+c4code.obj : error LNK2019: unresolved external symbol __imp_InitializeCriticalSection referenced in function DllMain
+f4file.obj : error LNK2001: unresolved external symbol __imp_InitializeCriticalSection
+m4memory.obj : error LNK2001: unresolved external symbol __imp_InitializeCriticalSection
+c4code.obj : error LNK2019: unresolved external symbol __imp_GetProcAddress referenced in function "int __cdecl c4getFuncPtr(struct HINSTANCE__ *,char const *,void * *)" (?c4getFuncPtr@@YAHPEAUHINSTANCE__@@PEBDPEAPEAX@Z)
+LIBCMT.lib(crt0dat.obj) : error LNK2001: unresolved external symbol __imp_GetProcAddress
+LIBCMT.lib(rand_s.obj) : error LNK2001: unresolved external symbol __imp_GetProcAddress
+LIBCMT.lib(crtmboxw.obj) : error LNK2001: unresolved external symbol __imp_GetProcAddress
+c4code.obj : error LNK2019: unresolved external symbol __imp_FreeLibrary referenced in function code4additionalFunctionOdbc
+LIBCMT.lib(rand_s.obj) : error LNK2001: unresolved external symbol __imp_FreeLibrary
+LIBCMT.lib(commit.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(osfinfo.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(chsize.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(read.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(lseek.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(lseeki64.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(write.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(wctomb.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(fstat.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(realloc.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(winsig.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(rand_s.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(inithelp.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(stat.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(close.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(fstati32.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(open.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(unlink.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(rename.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(tidtable.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(fullpath.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(access.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(free.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(getcwd.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(drive.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+f4open.obj : error LNK2001: unresolved external symbol __imp_GetLastError
+f4write.obj : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(thread.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+LIBCMT.lib(stati32.obj) : error LNK2001: unresolved external symbol __imp_GetLastError
+c4code.obj : error LNK2019: unresolved external symbol __imp_GetLastError referenced in function code4additionalFunctionOdbc
+e4error.obj : error LNK2001: unresolved external symbol __imp_GetLastError
+f4file.obj : error LNK2001: unresolved external symbol __imp_GetLastError
+f4lock.obj : error LNK2001: unresolved external symbol __imp_GetLastError
+c4code.obj : error LNK2019: unresolved external symbol __imp_LoadLibraryA referenced in function code4additionalFunctionOdbc
+LIBCMT.lib(thread.obj) : error LNK2001: unresolved external symbol __imp_CloseHandle
+LIBCMT.lib(close.obj) : error LNK2001: unresolved external symbol __imp_CloseHandle
+LIBCMT.lib(open.obj) : error LNK2001: unresolved external symbol __imp_CloseHandle
+LIBCMT.lib(initcon.obj) : error LNK2001: unresolved external symbol __imp_CloseHandle
+c4code.obj : error LNK2019: unresolved external symbol __imp_CloseHandle referenced in function code4initLow
+f4close.obj : error LNK2001: unresolved external symbol __imp_CloseHandle
+f4create.obj : error LNK2001: unresolved external symbol __imp_CloseHandle
+sema4.obj : error LNK2001: unresolved external symbol __imp_CloseHandle
+o4opt.obj : error LNK2001: unresolved external symbol __imp_Sleep
+u4util.obj : error LNK2001: unresolved external symbol __imp_Sleep
+LIBCMT.lib(crtheap.obj) : error LNK2001: unresolved external symbol __imp_Sleep
+f4file.obj : error LNK2001: unresolved external symbol __imp_Sleep
+f4filese.obj : error LNK2001: unresolved external symbol __imp_Sleep
+f4write.obj : error LNK2001: unresolved external symbol __imp_Sleep
+i4create.obj : error LNK2001: unresolved external symbol __imp_Sleep
+c4code.obj : error LNK2019: unresolved external symbol __imp_Sleep referenced in function code4initLow
+d4index.obj : error LNK2001: unresolved external symbol __imp_Sleep
+d4opt.obj : error LNK2001: unresolved external symbol __imp_Sleep
+d4pack.obj : error LNK2001: unresolved external symbol __imp_Sleep
+c4code.obj : error LNK2019: unresolved external symbol __imp_CreateEventA referenced in function code4initLow
+LIBCMT.lib(mlock.obj) : error LNK2001: unresolved external symbol __imp_LeaveCriticalSection
+LIBCMT.lib(_file.obj) : error LNK2001: unresolved external symbol __imp_LeaveCriticalSection
+LIBCMT.lib(osfinfo.obj) : error LNK2001: unresolved external symbol __imp_LeaveCriticalSection
+c4code.obj : error LNK2019: unresolved external symbol __imp_LeaveCriticalSection referenced in function code4initLow
+e4expr.obj : error LNK2001: unresolved external symbol __imp_LeaveCriticalSection
+f4file.obj : error LNK2001: unresolved external symbol __imp_LeaveCriticalSection
+m4memory.obj : error LNK2001: unresolved external symbol __imp_LeaveCriticalSection
+LIBCMT.lib(mlock.obj) : error LNK2001: unresolved external symbol __imp_EnterCriticalSection
+LIBCMT.lib(_file.obj) : error LNK2001: unresolved external symbol __imp_EnterCriticalSection
+LIBCMT.lib(osfinfo.obj) : error LNK2001: unresolved external symbol __imp_EnterCriticalSection
+c4code.obj : error LNK2019: unresolved external symbol __imp_EnterCriticalSection referenced in function code4initLow
+e4expr.obj : error LNK2001: unresolved external symbol __imp_EnterCriticalSection
+f4file.obj : error LNK2001: unresolved external symbol __imp_EnterCriticalSection
+m4memory.obj : error LNK2001: unresolved external symbol __imp_EnterCriticalSection
+c4code.obj : error LNK2019: unresolved external symbol __imp_GetThreadPriority referenced in function code4initLow
+c4code.obj : error LNK2019: unresolved external symbol __imp_GetCurrentThread referenced in function code4initLow
+LIBCMT.lib(tidtable.obj) : error LNK2001: unresolved external symbol __imp_GetCurrentThread
+c4code.obj : error LNK2019: unresolved external symbol __imp_WaitForSingleObject referenced in function "int __cdecl code4initUndo2(struct CODE4St *,int)" (?code4initUndo2@@YAHPEAUCODE4St@@H@Z)
+f4file.obj : error LNK2001: unresolved external symbol __imp_WaitForSingleObject
+f4write.obj : error LNK2001: unresolved external symbol __imp_WaitForSingleObject
+c4code.obj : error LNK2019: unresolved external symbol __imp_SetEvent referenced in function "int __cdecl code4initUndo2(struct CODE4St *,int)" (?code4initUndo2@@YAHPEAUCODE4St@@H@Z)
+f4file.obj : error LNK2001: unresolved external symbol __imp_SetEvent
+f4write.obj : error LNK2001: unresolved external symbol __imp_SetEvent
+c4code.obj : error LNK2019: unresolved external symbol __imp_FatalAppExitA referenced in function code4exit
+e4error.obj : error LNK2001: unresolved external symbol __imp_FatalAppExitA
+LIBCMT.lib(mlock.obj) : error LNK2001: unresolved external symbol __imp_FatalAppExitA
+m4create.obj : error LNK2019: unresolved external symbol __imp_GetLocalTime referenced in function memo4fileCreate
+u4util.obj : error LNK2001: unresolved external symbol __imp_GetLocalTime
+c4trans.obj : error LNK2001: unresolved external symbol __imp_GetLocalTime
+d4date.obj : error LNK2001: unresolved external symbol __imp_GetLocalTime
+d4modify.obj : error LNK2001: unresolved external symbol __imp_GetLocalTime
+f4temp.obj : error LNK2001: unresolved external symbol __imp_GetLocalTime
+d4data.obj : error LNK2019: unresolved external symbol __imp_SetFileTime referenced in function dfile4versionIncrement
+d4data.obj : error LNK2019: unresolved external symbol __imp_SystemTimeToFileTime referenced in function dfile4versionIncrement
+d4data.obj : error LNK2019: unresolved external symbol __imp_GetSystemTime referenced in function dfile4versionIncrement
+d4date.obj : error LNK2001: unresolved external symbol __imp_GetSystemTime
+d4data.obj : error LNK2019: unresolved external symbol __imp_GetFileTime referenced in function d4versionNumber
+d4date.obj : error LNK2019: unresolved external symbol __imp_OemToCharA referenced in function date4format
+e4error.obj : error LNK2001: unresolved external symbol __imp_OemToCharA
+d4modify.obj : error LNK2019: unresolved external symbol __imp_CopyFileA referenced in function d4copyTable
+d4opt.obj : error LNK2019: unresolved external symbol __imp_GlobalMemoryStatusEx referenced in function code4memStartMaxSet
+d4opt.obj : error LNK2019: unresolved external symbol __imp_GetDiskFreeSpaceA referenced in function code4optRestart
+e4error.obj : error LNK2019: unresolved external symbol __imp_MessageBoxA referenced in function error4out
+LIBCMT.lib(write.obj) : error LNK2001: unresolved external symbol __imp_WideCharToMultiByte
+LIBCMT.lib(wctomb.obj) : error LNK2001: unresolved external symbol __imp_WideCharToMultiByte
+LIBCMT.lib(tzset.obj) : error LNK2001: unresolved external symbol __imp_WideCharToMultiByte
+LIBCMT.lib(a_loc.obj) : error LNK2001: unresolved external symbol __imp_WideCharToMultiByte
+e4functi.obj : error LNK2019: unresolved external symbol __imp_WideCharToMultiByte referenced in function "void __cdecl e4wideToStr(void)" (?e4wideToStr@@YAXXZ)
+LIBCMT.lib(a_map.obj) : error LNK2001: unresolved external symbol __imp_WideCharToMultiByte
+LIBCMT.lib(wtombenv.obj) : error LNK2001: unresolved external symbol __imp_WideCharToMultiByte
+LIBCMT.lib(a_env.obj) : error LNK2001: unresolved external symbol __imp_WideCharToMultiByte
+e4functi.obj : error LNK2019: unresolved external symbol __imp_CharUpperA referenced in function "void __cdecl e4upper(void)" (?e4upper@@YAXXZ)
+f4create.obj : error LNK2019: unresolved external symbol __imp_CreateFileA referenced in function "int __cdecl file4createLow(struct FILE4St *,struct CODE4St *,char const *)" (?file4createLow@@YAHPEAUFILE4St@@PEAUCODE4St@@PEBD@Z)
+f4open.obj : error LNK2001: unresolved external symbol __imp_CreateFileA
+LIBCMT.lib(open.obj) : error LNK2001: unresolved external symbol __imp_CreateFileA
+LIBCMT.lib(closeall.obj) : error LNK2001: unresolved external symbol __imp_DeleteCriticalSection
+f4file.obj : error LNK2019: unresolved external symbol __imp_DeleteCriticalSection referenced in function "void __cdecl critical4sectionInitUndo(struct CRITICAL4SECTION *)" (?critical4sectionInitUndo@@YAXPEAUCRITICAL4SECTION@@@Z)
+m4memory.obj : error LNK2001: unresolved external symbol __imp_DeleteCriticalSection
+LIBCMT.lib(mlock.obj) : error LNK2001: unresolved external symbol __imp_DeleteCriticalSection
+LIBCMT.lib(ioinit.obj) : error LNK2001: unresolved external symbol __imp_DeleteCriticalSection
+LIBCMT.lib(gs_support.obj) : error LNK2001: unresolved external symbol __imp_GetCurrentThreadId
+f4file.obj : error LNK2019: unresolved external symbol __imp_GetCurrentThreadId referenced in function "void __cdecl critical4sectionEnter(struct CRITICAL4SECTION *)" (?critical4sectionEnter@@YAXPEAUCRITICAL4SECTION@@@Z)
+f4write.obj : error LNK2001: unresolved external symbol __imp_GetCurrentThreadId
+LIBCMT.lib(dllcrt0.obj) : error LNK2001: unresolved external symbol __imp_GetCurrentThreadId
+LIBCMT.lib(tidtable.obj) : error LNK2001: unresolved external symbol __imp_GetCurrentThreadId
+f4file.obj : error LNK2019: unresolved external symbol __imp_GetFileSize referenced in function u4filelength
+f4file.obj : error LNK2019: unresolved external symbol __imp_SetEndOfFile referenced in function "int __cdecl file4lenSetLowDo(struct FILE4St *,union FILE4LONG)" (?file4lenSetLowDo@@YAHPEAUFILE4St@@TFILE4LONG@@@Z)
+LIBCMT.lib(chsize.obj) : error LNK2001: unresolved external symbol __imp_SetEndOfFile
+f4file.obj : error LNK2019: unresolved external symbol __imp_SetFilePointer referenced in function "int __cdecl file4lenSetLowDo(struct FILE4St *,union FILE4LONG)" (?file4lenSetLowDo@@YAHPEAUFILE4St@@TFILE4LONG@@@Z)
+f4write.obj : error LNK2001: unresolved external symbol __imp_SetFilePointer
+LIBCMT.lib(lseeki64.obj) : error LNK2001: unresolved external symbol __imp_SetFilePointer
+LIBCMT.lib(lseek.obj) : error LNK2001: unresolved external symbol __imp_SetFilePointer
+f4file.obj : error LNK2019: unresolved external symbol __imp_ReadFile referenced in function "unsigned int __cdecl file4readLowPhysical(struct FILE4St *,union FILE4LONG,void *,unsigned int)" (?file4readLowPhysical@@YAIPEAUFILE4St@@TFILE4LONG@@PEAXI@Z)
+LIBCMT.lib(read.obj) : error LNK2001: unresolved external symbol __imp_ReadFile
+f4file.obj : error LNK2019: unresolved external symbol __imp_ResetEvent referenced in function file4advanceReadMain
+f4write.obj : error LNK2001: unresolved external symbol __imp_ResetEvent
+f4flush.obj : error LNK2019: unresolved external symbol __imp_FlushFileBuffers referenced in function "int __cdecl file4lowFlush(struct FILE4St *)" (?file4lowFlush@@YAHPEAUFILE4St@@@Z)
+LIBCMT.lib(commit.obj) : error LNK2001: unresolved external symbol __imp_FlushFileBuffers
+f4lock.obj : error LNK2019: unresolved external symbol __imp_LockFile referenced in function "int __cdecl file4lockLow(struct FILE4St *,unsigned long,long,unsigned long,long)" (?file4lockLow@@YAHPEAUFILE4St@@KJKJ@Z)
+f4lock.obj : error LNK2019: unresolved external symbol __imp_UnlockFile referenced in function file4unlockInternal
+f4open.obj : error LNK2019: unresolved external symbol __imp_GetFileAttributesA referenced in function "int __cdecl file4openLow(struct FILE4St *,struct CODE4St *,char const *)" (?file4openLow@@YAHPEAUFILE4St@@PEAUCODE4St@@PEBD@Z)
+LIBCMT.lib(access.obj) : error LNK2001: unresolved external symbol __imp_GetFileAttributesA
+f4temp.obj : error LNK2019: unresolved external symbol __imp_GetTempFileNameA referenced in function file4tempLow
+f4write.obj : error LNK2019: unresolved external symbol __imp_WriteFile referenced in function file4writeLowDoInternal
+LIBCMT.lib(crt0msg.obj) : error LNK2001: unresolved external symbol __imp_WriteFile
+LIBCMT.lib(write.obj) : error LNK2001: unresolved external symbol __imp_WriteFile
+m4memory.obj : error LNK2019: unresolved external symbol __imp_GlobalLock referenced in function u4allocDefault
+m4memory.obj : error LNK2019: unresolved external symbol __imp_GlobalAlloc referenced in function u4allocDefault
+m4memory.obj : error LNK2019: unresolved external symbol __imp_GlobalFree referenced in function u4freeDefault
+m4memory.obj : error LNK2019: unresolved external symbol __imp_GlobalUnlock referenced in function u4freeDefault
+r4relate.obj : error LNK2019: unresolved external symbol __imp_GetTickCount referenced in function "void __cdecl relate4suspendInit(struct RELATE4SUSPEND *,struct RELATE4St *)" (?relate4suspendInit@@YAXPEAURELATE4SUSPEND@@PEAURELATE4St@@@Z)
+LIBCMT.lib(gs_support.obj) : error LNK2001: unresolved external symbol __imp_GetTickCount
+sema4.obj : error LNK2019: unresolved external symbol __imp_CreateSemaphoreA referenced in function semaphore4init
+LIBCMT.lib(clock.obj) : error LNK2019: unresolved external symbol __imp_GetSystemTimeAsFileTime referenced in function clock
+LIBCMT.lib(time64.obj) : error LNK2001: unresolved external symbol __imp_GetSystemTimeAsFileTime
+LIBCMT.lib(gs_support.obj) : error LNK2001: unresolved external symbol __imp_GetSystemTimeAsFileTime
+LIBCMT.lib(thread.obj) : error LNK2019: unresolved external symbol __imp_ExitThread referenced in function _endthread
+LIBCMT.lib(thread.obj) : error LNK2019: unresolved external symbol __imp_ResumeThread referenced in function _beginthread
+LIBCMT.lib(thread.obj) : error LNK2019: unresolved external symbol __imp_CreateThread referenced in function _beginthread
+LIBCMT.lib(stati32.obj) : error LNK2019: unresolved external symbol __imp_FindClose referenced in function _stat64i32
+LIBCMT.lib(stat.obj) : error LNK2001: unresolved external symbol __imp_FindClose
+LIBCMT.lib(stati32.obj) : error LNK2019: unresolved external symbol __imp_FileTimeToSystemTime referenced in function _stat64i32
+LIBCMT.lib(stat.obj) : error LNK2001: unresolved external symbol __imp_FileTimeToSystemTime
+LIBCMT.lib(fstati32.obj) : error LNK2001: unresolved external symbol __imp_FileTimeToSystemTime
+LIBCMT.lib(fstat.obj) : error LNK2001: unresolved external symbol __imp_FileTimeToSystemTime
+LIBCMT.lib(stati32.obj) : error LNK2019: unresolved external symbol __imp_FileTimeToLocalFileTime referenced in function _stat64i32
+LIBCMT.lib(stat.obj) : error LNK2001: unresolved external symbol __imp_FileTimeToLocalFileTime
+LIBCMT.lib(fstati32.obj) : error LNK2001: unresolved external symbol __imp_FileTimeToLocalFileTime
+LIBCMT.lib(fstat.obj) : error LNK2001: unresolved external symbol __imp_FileTimeToLocalFileTime
+LIBCMT.lib(stati32.obj) : error LNK2019: unresolved external symbol __imp_GetDriveTypeA referenced in function _stat64i32
+LIBCMT.lib(stat.obj) : error LNK2001: unresolved external symbol __imp_GetDriveTypeA
+LIBCMT.lib(stati32.obj) : error LNK2019: unresolved external symbol __imp_FindFirstFileExA referenced in function _stat64i32
+LIBCMT.lib(stat.obj) : error LNK2001: unresolved external symbol __imp_FindFirstFileExA
+LIBCMT.lib(malloc.obj) : error LNK2019: unresolved external symbol __imp_HeapAlloc referenced in function _heap_alloc
+LIBCMT.lib(calloc_impl.obj) : error LNK2001: unresolved external symbol __imp_HeapAlloc
+LIBCMT.lib(chsize.obj) : error LNK2001: unresolved external symbol __imp_HeapAlloc
+LIBCMT.lib(free.obj) : error LNK2019: unresolved external symbol __imp_HeapFree referenced in function free
+LIBCMT.lib(chsize.obj) : error LNK2001: unresolved external symbol __imp_HeapFree
+LIBCMT.lib(getcwd.obj) : error LNK2019: unresolved external symbol __imp_GetDriveTypeW referenced in function _validdrive
+LIBCMT.lib(getcwd.obj) : error LNK2019: unresolved external symbol __imp_GetFullPathNameA referenced in function _getdcwd_nolock
+LIBCMT.lib(fullpath.obj) : error LNK2001: unresolved external symbol __imp_GetFullPathNameA
+LIBCMT.lib(drive.obj) : error LNK2019: unresolved external symbol __imp_GetCurrentDirectoryW referenced in function _getdrive
+LIBCMT.lib(drive.obj) : error LNK2019: unresolved external symbol __imp_SetCurrentDirectoryW referenced in function _chdrive
+LIBCMT.lib(unlink.obj) : error LNK2019: unresolved external symbol __imp_DeleteFileA referenced in function remove
+LIBCMT.lib(rename.obj) : error LNK2019: unresolved external symbol __imp_MoveFileA referenced in function rename
+LIBCMT.lib(dllcrt0.obj) : error LNK2019: unresolved external symbol __imp_FlsSetValue referenced in function _CRT_INIT
+LIBCMT.lib(tidtable.obj) : error LNK2001: unresolved external symbol __imp_FlsSetValue
+LIBCMT.lib(dllcrt0.obj) : error LNK2019: unresolved external symbol __imp_GetCommandLineA referenced in function _CRT_INIT
+LIBCMT.lib(crtmboxw.obj) : error LNK2001: unresolved external symbol __imp_EncodePointer
+LIBCMT.lib(hooks.obj) : error LNK2001: unresolved external symbol __imp_EncodePointer
+LIBCMT.lib(winsig.obj) : error LNK2001: unresolved external symbol __imp_EncodePointer
+LIBCMT.lib(rand_s.obj) : error LNK2001: unresolved external symbol __imp_EncodePointer
+LIBCMT.lib(onexit.obj) : error LNK2019: unresolved external symbol __imp_EncodePointer referenced in function _onexit_nolock
+LIBCMT.lib(cmiscdat.obj) : error LNK2001: unresolved external symbol __imp_EncodePointer
+LIBCMT.lib(tidtable.obj) : error LNK2001: unresolved external symbol __imp_EncodePointer
+LIBCMT.lib(invarg.obj) : error LNK2001: unresolved external symbol __imp_EncodePointer
+LIBCMT.lib(handler.obj) : error LNK2001: unresolved external symbol __imp_EncodePointer
+LIBCMT.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_TerminateProcess referenced in function __report_gsfailure
+LIBCMT.lib(invarg.obj) : error LNK2001: unresolved external symbol __imp_TerminateProcess
+LIBCMT.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_GetCurrentProcess referenced in function __report_gsfailure
+LIBCMT.lib(invarg.obj) : error LNK2001: unresolved external symbol __imp_GetCurrentProcess
+LIBCMT.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_UnhandledExceptionFilter referenced in function __report_gsfailure
+LIBCMT.lib(invarg.obj) : error LNK2001: unresolved external symbol __imp_UnhandledExceptionFilter
+LIBCMT.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_SetUnhandledExceptionFilter referenced in function __report_gsfailure
+LIBCMT.lib(invarg.obj) : error LNK2001: unresolved external symbol __imp_SetUnhandledExceptionFilter
+LIBCMT.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_IsDebuggerPresent referenced in function __report_gsfailure
+LIBCMT.lib(invarg.obj) : error LNK2001: unresolved external symbol __imp_IsDebuggerPresent
+LIBCMT.lib(gs_report.obj) : error LNK2019: unresolved external symbol RtlVirtualUnwind referenced in function __report_gsfailure
+LIBCMT.lib(invarg.obj) : error LNK2001: unresolved external symbol RtlVirtualUnwind
+LIBCMT.lib(gs_report.obj) : error LNK2019: unresolved external symbol RtlLookupFunctionEntry referenced in function __report_gsfailure
+LIBCMT.lib(invarg.obj) : error LNK2001: unresolved external symbol RtlLookupFunctionEntry
+LIBCMT.lib(gs_report.obj) : error LNK2019: unresolved external symbol __imp_RtlCaptureContext referenced in function __report_gsfailure
+LIBCMT.lib(invarg.obj) : error LNK2001: unresolved external symbol __imp_RtlCaptureContext
+LIBCMT.lib(mbctype.obj) : error LNK2019: unresolved external symbol __imp_GetCPInfo referenced in function "void __cdecl setSBUpLow(struct threadmbcinfostruct *)" (?setSBUpLow@@YAXPEAUthreadmbcinfostruct@@@Z)
+LIBCMT.lib(initctyp.obj) : error LNK2001: unresolved external symbol __imp_GetCPInfo
+LIBCMT.lib(a_cmp.obj) : error LNK2001: unresolved external symbol __imp_GetCPInfo
+LIBCMT.lib(mbctype.obj) : error LNK2019: unresolved external symbol __imp_GetACP referenced in function "int __cdecl getSystemCP(int)" (?getSystemCP@@YAHH@Z)
+LIBCMT.lib(getqloc.obj) : error LNK2001: unresolved external symbol __imp_GetACP
+LIBCMT.lib(mbctype.obj) : error LNK2019: unresolved external symbol __imp_GetOEMCP referenced in function "int __cdecl getSystemCP(int)" (?getSystemCP@@YAHH@Z)
+LIBCMT.lib(mbctype.obj) : error LNK2019: unresolved external symbol __imp_IsValidCodePage referenced in function _setmbcp_nolock
+LIBCMT.lib(getqloc.obj) : error LNK2001: unresolved external symbol __imp_IsValidCodePage
+LIBCMT.lib(tidtable.obj) : error LNK2019: unresolved external symbol __imp_FlsGetValue referenced in function __fls_getvalue
+LIBCMT.lib(tidtable.obj) : error LNK2019: unresolved external symbol __imp_FlsFree referenced in function _mtterm
+LIBCMT.lib(tidtable.obj) : error LNK2019: unresolved external symbol __imp_SetLastError referenced in function _getptd_noexit
+LIBCMT.lib(tidtable.obj) : error LNK2019: unresolved external symbol __imp_FlsAlloc referenced in function _mtinit
+LIBCMT.lib(rand_s.obj) : error LNK2001: unresolved external symbol __imp_DecodePointer
+LIBCMT.lib(onexit.obj) : error LNK2001: unresolved external symbol __imp_DecodePointer
+LIBCMT.lib(crtmboxw.obj) : error LNK2001: unresolved external symbol __imp_DecodePointer
+LIBCMT.lib(outputp.obj) : error LNK2001: unresolved external symbol __imp_DecodePointer
+LIBCMT.lib(handler.obj) : error LNK2001: unresolved external symbol __imp_DecodePointer
+LIBCMT.lib(hooks.obj) : error LNK2019: unresolved external symbol __imp_DecodePointer referenced in function "void __cdecl _inconsistency(void)" (?_inconsistency@@YAXXZ)
+LIBCMT.lib(winsig.obj) : error LNK2001: unresolved external symbol __imp_DecodePointer
+LIBCMT.lib(invarg.obj) : error LNK2001: unresolved external symbol __imp_DecodePointer
+LIBCMT.lib(crt0dat.obj) : error LNK2001: unresolved external symbol __imp_DecodePointer
+LIBCMT.lib(output.obj) : error LNK2001: unresolved external symbol __imp_DecodePointer
+LIBCMT.lib(outputs.obj) : error LNK2001: unresolved external symbol __imp_DecodePointer
+LIBCMT.lib(a_map.obj) : error LNK2019: unresolved external symbol __imp_LCMapStringW referenced in function "int __cdecl __crtLCMapStringA_stat(struct localeinfo_struct *,unsigned long,unsigned long,char const *,int,char *,int,int,int)" (?__crtLCMapStringA_stat@@YAHPEAUlocaleinfo_struct@@KKPEBDHPEADHHH@Z)
+LIBCMT.lib(w_map.obj) : error LNK2001: unresolved external symbol __imp_LCMapStringW
+LIBCMT.lib(mbtowc.obj) : error LNK2001: unresolved external symbol __imp_MultiByteToWideChar
+LIBCMT.lib(a_map.obj) : error LNK2019: unresolved external symbol __imp_MultiByteToWideChar referenced in function "int __cdecl __crtLCMapStringA_stat(struct localeinfo_struct *,unsigned long,unsigned long,char const *,int,char *,int,int,int)" (?__crtLCMapStringA_stat@@YAHPEAUlocaleinfo_struct@@KKPEBDHPEADHHH@Z)
+LIBCMT.lib(a_str.obj) : error LNK2001: unresolved external symbol __imp_MultiByteToWideChar
+LIBCMT.lib(read.obj) : error LNK2001: unresolved external symbol __imp_MultiByteToWideChar
+LIBCMT.lib(a_cmp.obj) : error LNK2001: unresolved external symbol __imp_MultiByteToWideChar
+LIBCMT.lib(chandler.obj) : error LNK2019: unresolved external symbol __imp_RtlUnwindEx referenced in function __C_specific_handler
+LIBCMT.lib(crt0dat.obj) : error LNK2019: unresolved external symbol __imp_GetModuleHandleW referenced in function __crtCorExitProcess
+LIBCMT.lib(crt0dat.obj) : error LNK2019: unresolved external symbol __imp_ExitProcess referenced in function __crtExitProcess
+LIBCMT.lib(fstati32.obj) : error LNK2019: unresolved external symbol __imp_GetFileInformationByHandle referenced in function _fstat64i32
+LIBCMT.lib(fstat.obj) : error LNK2001: unresolved external symbol __imp_GetFileInformationByHandle
+LIBCMT.lib(fstati32.obj) : error LNK2019: unresolved external symbol __imp_PeekNamedPipe referenced in function _fstat64i32
+LIBCMT.lib(fstat.obj) : error LNK2001: unresolved external symbol __imp_PeekNamedPipe
+LIBCMT.lib(osfinfo.obj) : error LNK2001: unresolved external symbol __imp_GetFileType
+LIBCMT.lib(fstati32.obj) : error LNK2019: unresolved external symbol __imp_GetFileType referenced in function _fstat64i32
+LIBCMT.lib(open.obj) : error LNK2001: unresolved external symbol __imp_GetFileType
+LIBCMT.lib(ioinit.obj) : error LNK2001: unresolved external symbol __imp_GetFileType
+LIBCMT.lib(fstat.obj) : error LNK2001: unresolved external symbol __imp_GetFileType
+LIBCMT.lib(crt0msg.obj) : error LNK2019: unresolved external symbol __imp_GetStdHandle referenced in function _NMSG_WRITE
+LIBCMT.lib(ioinit.obj) : error LNK2001: unresolved external symbol __imp_GetStdHandle
+LIBCMT.lib(crt0msg.obj) : error LNK2019: unresolved external symbol __imp_GetModuleFileNameW referenced in function _NMSG_WRITE
+LIBCMT.lib(heapinit.obj) : error LNK2019: unresolved external symbol __imp_HeapSetInformation referenced in function _heap_init
+LIBCMT.lib(heapinit.obj) : error LNK2019: unresolved external symbol __imp_GetVersion referenced in function _heap_init
+LIBCMT.lib(heapinit.obj) : error LNK2019: unresolved external symbol __imp_HeapCreate referenced in function _heap_init
+LIBCMT.lib(heapinit.obj) : error LNK2019: unresolved external symbol __imp_HeapDestroy referenced in function _heap_term
+LIBCMT.lib(mlock.obj) : error LNK2019: unresolved external symbol __imp_InitializeCriticalSectionAndSpinCount referenced in function _mtinitlocks
+LIBCMT.lib(ioinit.obj) : error LNK2001: unresolved external symbol __imp_InitializeCriticalSectionAndSpinCount
+LIBCMT.lib(osfinfo.obj) : error LNK2001: unresolved external symbol __imp_InitializeCriticalSectionAndSpinCount
+LIBCMT.lib(ioinit.obj) : error LNK2019: unresolved external symbol __imp_SetHandleCount referenced in function _ioinit
+LIBCMT.lib(ioinit.obj) : error LNK2019: unresolved external symbol __imp_GetStartupInfoW referenced in function _ioinit
+LIBCMT.lib(stdargv.obj) : error LNK2019: unresolved external symbol __imp_GetModuleFileNameA referenced in function _setargv
+LIBCMT.lib(a_env.obj) : error LNK2019: unresolved external symbol __imp_FreeEnvironmentStringsW referenced in function __crtGetEnvironmentStringsA
+LIBCMT.lib(a_env.obj) : error LNK2019: unresolved external symbol __imp_GetEnvironmentStringsW referenced in function __crtGetEnvironmentStringsA
+LIBCMT.lib(gs_support.obj) : error LNK2019: unresolved external symbol __imp_QueryPerformanceCounter referenced in function __security_init_cookie
+LIBCMT.lib(gs_support.obj) : error LNK2019: unresolved external symbol __imp_GetCurrentProcessId referenced in function __security_init_cookie
+LIBCMT.lib(a_str.obj) : error LNK2019: unresolved external symbol __imp_GetStringTypeW referenced in function "int __cdecl __crtGetStringTypeA_stat(struct localeinfo_struct *,unsigned long,char const *,int,unsigned short *,int,int,int)" (?__crtGetStringTypeA_stat@@YAHPEAUlocaleinfo_struct@@KPEBDHPEAGHHH@Z)
+LIBCMT.lib(iswctype.obj) : error LNK2001: unresolved external symbol __imp_GetStringTypeW
+LIBCMT.lib(getqloc.obj) : error LNK2019: unresolved external symbol __imp_GetUserDefaultLCID referenced in function GetLcidFromDefault
+LIBCMT.lib(getqloc.obj) : error LNK2019: unresolved external symbol __imp_GetLocaleInfoW referenced in function ProcessCodePage
+LIBCMT.lib(inithelp.obj) : error LNK2001: unresolved external symbol __imp_GetLocaleInfoW
+LIBCMT.lib(a_loc.obj) : error LNK2001: unresolved external symbol __imp_GetLocaleInfoW
+LIBCMT.lib(getqloc.obj) : error LNK2019: unresolved external symbol __imp_GetLocaleInfoA referenced in function CountryEnumProc
+LIBCMT.lib(getqloc.obj) : error LNK2019: unresolved external symbol __imp_EnumSystemLocalesA referenced in function GetLcidFromCountry
+LIBCMT.lib(getqloc.obj) : error LNK2019: unresolved external symbol __imp_IsValidLocale referenced in function __get_qualified_locale
+LIBCMT.lib(realloc.obj) : error LNK2019: unresolved external symbol __imp_HeapReAlloc referenced in function realloc
+LIBCMT.lib(jmpuwind.obj) : error LNK2019: unresolved external symbol RtlUnwindEx referenced in function _local_unwind
+LIBCMT.lib(winsig.obj) : error LNK2019: unresolved external symbol __imp_SetConsoleCtrlHandler referenced in function signal
+LIBCMT.lib(rand_s.obj) : error LNK2019: unresolved external symbol __imp_LoadLibraryW referenced in function rand_s
+LIBCMT.lib(crtmboxw.obj) : error LNK2001: unresolved external symbol __imp_LoadLibraryW
+LIBCMT.lib(write.obj) : error LNK2019: unresolved external symbol __imp_GetConsoleCP referenced in function _write_nolock
+LIBCMT.lib(write.obj) : error LNK2019: unresolved external symbol __imp_GetConsoleMode referenced in function _write_nolock
+LIBCMT.lib(osfinfo.obj) : error LNK2019: unresolved external symbol __imp_SetStdHandle referenced in function _set_osfhnd
+LIBCMT.lib(chsize.obj) : error LNK2019: unresolved external symbol __imp_GetProcessHeap referenced in function _chsize_nolock
+LIBCMT.lib(tzset.obj) : error LNK2019: unresolved external symbol __imp_GetTimeZoneInformation referenced in function _tzset_nolock
+LIBCMT.lib(a_cmp.obj) : error LNK2019: unresolved external symbol __imp_CompareStringW referenced in function "int __cdecl __crtCompareStringA_stat(struct localeinfo_struct *,unsigned long,unsigned long,char const *,int,char const *,int,int)" (?__crtCompareStringA_stat@@YAHPEAUlocaleinfo_struct@@KKPEBDH1HH@Z)
+LIBCMT.lib(setenv.obj) : error LNK2019: unresolved external symbol __imp_SetEnvironmentVariableA referenced in function __crtsetenv
+LIBCMT.lib(msize.obj) : error LNK2019: unresolved external symbol __imp_HeapSize referenced in function _msize
+LIBCMT.lib(putwch.obj) : error LNK2019: unresolved external symbol __imp_WriteConsoleW referenced in function _putwch_nolock
+LIBCMT.lib(_fpexcept_.obj) : error LNK2019: unresolved external symbol __imp_RaiseException referenced in function _raise_exc_ex
+LIBCMT.lib(initcon.obj) : error LNK2019: unresolved external symbol __imp_CreateFileW referenced in function __initconout
+c4dll.dll : fatal error LNK1120: 128 unresolved externals
+

@@ -1,0 +1,713 @@
+<!doctype html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+<!-- time stamp = Tuesday January 13, 2015 3:03 PM -->
+<!-- user_agent stamp = Mozilla/5.0 (Windows NT 6.1; WOW64; rv:34.0) Gecko/20100101 Firefox/34.0 -->
+
+<html>
+<head>
+      <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+      <meta name="keywords" content="sequiter, codebase, consulting, database, support, tech, technical, ole,
+      code, codecontrols, code controls, code base, customer, application, help, bug, bugs, fix, upgrade,
+      download, odbc, programmer, assistance, hints, tips">
+      <meta name="description" content="CodeBase Software's technical support staff are here to answer your questions about
+      CodeBase, and help you with your database development problems. CodeBase hints, upgrades, and the latest bug
+      fixes.">
+      <meta name="robots" CONTENT="index,follow">
+
+      <title>CodeBase 6.5 Release 3 Bug Fixes</title>
+
+      
+      <LINK HREF="/layout/stylesheet-common.css" type="text/css" rel="stylesheet">
+      <LINK HREF="/layout/stylesheet-msie.css" type="text/css" rel="stylesheet">
+
+      
+</head>
+
+
+<body >
+
+
+<TABLE border="0" cellspacing="0" cellpadding="0" width="100%" align="center">
+<TR>
+   <TD width="132" valign="TOP"><A href="http://www.codebase.com/">
+      <img src="/images/cblogo-2s.jpg" border="0" ALT="CodeBase Database Tools For Programmers"></A></TD>
+
+   <td ALIGN="RIGHT" VALIGN="bottom">
+      <!-- mini search form begin -->
+
+   <form method="get" action="http://www.codebase.com/searchzoom/">
+         Search&nbsp;
+         <input size="20" maxlength="35" name="zoom_query">&nbsp;
+         <input type=submit value="Go">
+         <input type="hidden" name="zoom_per_page" value="10">
+         <input type="hidden" name="zoom_and" value="0">
+   <br><a href="http://www.codebase.com/searchzoom/">Advanced&nbsp;Search</a>
+   </form>
+
+      <!-- mini search form end -->
+   </td>
+</tr>
+</table>
+
+<table border="1" cellspacing="0" cellpadding="0" width="100%" align="center">
+
+<tr bgcolor="#000077">
+   <TD width="100%" valign="TOP" align="right">
+      <b><span class="xs">
+      <a href="http://www.codebase.com/products/windows/" class="nav">products</a>&nbsp;&nbsp;
+      <a href="http://www.codebase.com/order/" class="nav">order</a>&nbsp;&nbsp;
+      <a href="http://www.codebase.com/news/" class="nav">reviews</a>&nbsp;&nbsp;
+      <a href="http://www.codebase.com/downloads/" class="nav">downloads</a>&nbsp;&nbsp;
+      <a href="http://www.codebase.com/links/" class="nav">links</a>&nbsp;&nbsp;
+      <a href="http://www.codebase.com/support/" class="nav">support</a>&nbsp;&nbsp;
+      <a href="http://www.codebase.com/contact/" class="nav">contact</a>&nbsp;&nbsp;
+      <a href="http://www.codebase.com/company/about/" class="nav">about&nbsp;us&nbsp;</a>&nbsp;&nbsp;
+      <a href="http://www.codebase.com/" class="nav">home</a>&nbsp;&nbsp;
+      </span></b>
+   </td>
+</tr>
+
+<tr>
+   <td>
+      <TABLE width="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+      <TR valign="top">
+
+         <TD width="150" bgcolor="#000077"><table border="1" width="100%" cellpadding="5" cellspacing="0">
+<tr align="left">
+   <td>
+      <p class="lnav-head"><span class="xs">Other Products</span></p>
+      <a href="http://www.codebase.com/products/subscription/" class="nav">&#149; Support Subscription</a><br>
+      <a href="http://www.codebase.com/products/3rdparty/sandage/cbfiler/" class="nav">&#149; CodeBase File Utility</a><br>
+      <a href="http://www.codebase.com/products/3rdparty/" class="nav">&#149; 3rd Party Tools</a>
+   </td>
+</tr></table>
+</TD>
+         <TD rowspan="2">
+
+
+<!-- BEGINNING OF HTML BODY TEXT --------------------------------------------------->
+<table width="100%" cellpadding="10">
+<tr>
+   <td>
+
+      <h2 class="title">CodeBase 6.5 Bug Fixes since:
+
+<body>
+
+<style>
+   .description
+   {
+      font-family: Verdana, Arial, Helvetica, Sans-Serif;
+      font-size: 1.0em;
+   }
+   .changed
+   {
+      color: DarkRed;
+   }
+   pre
+   {
+      background-color: #F0F8FF ;
+      color:#000 ;
+      font-family: monospace;
+   }
+</style>
+
+Latest&nbsp;CodeBase&nbsp;Build
+</h2>
+
+<P>See also:<UL>
+<LI><a href="cb65r3bugs.php?version=release3">bugs and fixes since CodeBase 6.5 Release 3</a></LI>
+<LI><a href="cb65bugs.html">bugs in CodeBase 6.50 fixed by Release 3</a></LI>
+<LI><a href="changes60.txt">bug fixes in CodeBase 6.0 through 6.4</a></LI>
+</UL>
+
+<p>The source code line numbers referenced in this list are approximate and
+may not exactly match the line numbers in your version of the source code.
+
+<!-- BUG FIXES BEGIN HERE -->
+
+<!-- Please DO NOT use an HTML editor to add bug fixed to this file. HTML
+editors will change the formatting and make the source very difficult to read.
+
+AS Jan 5/04 - This file has been updated to be in PHP format.  It now selectively displays
+bugs based on the maintenance pack build.  This means that every time a maintenance pack is
+built, this file must be updated to exclude bugs which have been fixed by the maintenance build.
+If you are updating all implementations of a maintenance build, simply move the appropriate PHP
+selector line.  Alternately you may have to create a new maintenance build name and set up the
+subscription page to correctly link to this file.  You can copy an existing example of the php
+selector.  You need to include both the selector if section and a closing brace section (at the end of this file)
+
+Fixed bugs should be added in this format:
+
+<a NAME="**NUMBER**"><hr /></a>
+<ol><li value="**NUMBER**" class="description">
+<p>Date Fixed: **DATE (Mmm DD/YY)<br />
+Product: <b>**PRODUCT DETAILS</b><br />
+**DESCRIPTION**</p>
+<p>
+<b>FILE:</b> **FILE NAME**<br />
+<b>FUNCTION:</b> **FUNCTION and LINE NUMBER<br />
+<b>FROM:</b><br />
+<pre>
+   **indent 3 spaces, then ORIGINAL SOURCE CODE - if line is longer than 100 chars then split it up for display purposes**
+</pre><b>TO:</b> **EXTRA TEXT e.g. (add lines)**<br />
+<pre>
+   **indent 3 spaces, then NEW SOURCE CODE - if line is longer than 100 chars then split it up for display purposes**
+</pre></p>
+</li></ol>
+
+-->
+
+
+<a NAME="181"><hr /></a>
+<ol><li value="181" class="description">
+<p>Date Fixed: Jan 13/15<br />
+When adding an index tag to an existing index, the r4candidate flag is lost.</p>
+<p>
+<b>FILE:</b> i4add.c<br />
+<b>FUNCTION:</b> i4addOneTag() (line 686)<br />
+<b>FROM:</b><br />
+<pre>
+   #ifdef S4FOX
+      for ( ; rc == 0 ; )
+      {
+         tagFile-&gt;header.typeCode  = 0x60 ;  /* compact */
+         if ( tagData[0].unique )
+         {
+            tagFile-&gt;header.typeCode += 0x01 ;
+            tagPtr-&gt;errUnique = tagData[0].unique ;
+</pre><b>TO:</b> (add lines)<br />
+<pre>
+   #ifdef S4FOX
+      for ( ; rc == 0 ; )
+      {
+         tagFile-&gt;header.typeCode  = 0x60 ;  /* compact */
+         if ( tagData[0].unique )
+         {
+            <b>#ifdef S4FOX
+               if ( tagData[0].unique == r4candidate || tagData[0].unique == e4candidate )
+                  tagFile-&gt;header.typeCode += 0x04 ;
+               else
+            #endif</b>
+
+            tagFile-&gt;header.typeCode += 0x01 ;
+            tagPtr-&gt;errUnique = tagData[0].unique ;
+</pre></p>
+</li></ol>
+
+
+<a NAME="180"><hr /></a>
+<ol><li value="180" class="description">
+<p>Date Fixed: Jul 15/14<br />
+Product: <b>CodeBase API</b><br />
+When writing to a memo file that is near or over 4 GB, the memo file might appear corrupt and CodeBase will generate error -1110.</p>
+<p>
+<b>FILE:</b> m4file.c<br />
+<b>FUNCTION:</b> memo4fileReadPart (line 217)<br />
+<b>FROM:</b><br />
+<pre>
+   if ( avail &gt; 0x7FFFFFF0 ||
+      (uncompress == 0 && avail &gt; file4longGetLo( file4lenLow( &f4memo-&gt;file ) )) ||
+      (uncompress == 1 && toReadLength &gt; file4longGetLo( file4lenLow( &f4memo-&gt;file ) ))
+      )
+   {
+      error4set( f4memo-&gt;file.codeBase, 0 ) ;
+      return error4( f4memo-&gt;file.codeBase, e4memoCorrupt, E95210 ) ;
+   }
+</pre><b>TO:</b> (modify 'if' statement)<br />
+<pre>
+   if
+   ( avail &gt; 0x7FFFFFF0 ||
+      file4longGetHi( file4lenLow( &f4memo-&gt;file )) == 0 &&
+      (
+         (uncompress == 0 && avail &gt; file4longGetLo( file4lenLow( &f4memo-&gt;file ) )) ||
+         (uncompress == 1 && toReadLength &gt; file4longGetLo( file4lenLow( &f4memo-&gt;file ) ))
+      )
+   )
+   {
+      error4set( f4memo-&gt;file.codeBase, 0 ) ;
+      return error4( f4memo-&gt;file.codeBase, e4memoCorrupt, E95210 ) ;
+   }
+</pre></p>
+</li></ol>
+
+
+<a NAME="179"><hr /></a>
+<ol><li value="179" class="description">
+<p>Date Fixed: Dec 17/13<br />
+Product: <b>CodeBase API</b><br />
+Trailing space characters were incorrectly written to r4unicode fields.</p>
+<p>
+<b>FILE:</b> f4field.c<br />
+<b>FUNCTION:</b> f4blank (line 83)<br />
+<b>FROM:</b><br />
+<pre>
+   case r5wstr:
+   case r5wstrLen:
+      {
+         char *fptr = f4assignPtr( field ) ;
+         int onChar = 0 ;
+         for ( int loop = 0 ; loop &lt; field->len/2 ; loop ++ )
+         {
+            fptr[onChar] = 0x00 ;
+            onChar++ ;
+            fptr[onChar] = 0x20 ;
+            onChar++ ;
+         }
+      }
+      break ;
+</pre><b>TO:</b> (modify lines)<br />
+<pre>
+   case r5wstr:
+   case r5wstrLen:
+      {
+         char *fptr = f4assignPtr( field ) ;
+         int onChar = 0 ;
+         for ( int loop = 0 ; loop &lt; field->len/2 ; loop ++ )
+         {
+            <span class="changed">*((wchar_t*)(&amp;(fptr[onChar]))) = L' ' ;</span>
+            <span class="changed">onChar++ ;</span>
+            <span class="changed">onChar++ ;</span>
+         }
+      }
+      break ;
+</pre></p>
+</li></ol>
+
+<a NAME="178"><hr /></a>
+<ol><li value="178" class="description">
+<p>Date Fixed: Nov 6/13<br />
+Product: <b>CodeBase API for VB.NET</b><br />
+Functions that were returning database content as binary or Unicode were returning incorrect results.</p>
+<p>
+<b>FILE:</b> codebase.vb<br />
+<b>FUNCTION:</b> f4binary (line 1383)<br />
+<b>FROM:</b><br />
+<pre>
+   ReDim buffer((fLen + 1)) ' 1 greater because f4ncpy null-terminates the buffer
+   fLen = f4ncpyBinary(field, buffer(1), fLen + 1)
+   ReDim Preserve buffer(fLen)
+</pre><b>TO:</b> (change values)<br />
+<pre>
+   ReDim buffer((fLen + 1)) ' 1 greater because f4ncpy null-terminates the buffer
+   fLen = f4ncpyBinary(field, <span class="changed">buffer(0)</span>, fLen + 1)
+   ReDim Preserve buffer(<span class="changed">fLen - 1</span>)
+</pre></p>
+</li></ol>
+
+<a NAME="177"><hr /></a>
+<ol><li value="177" class="description">
+<p>Date Fixed: Nov 5/13<br />
+Product: <b>All CodeBase products</b><br />
+Operations that cause CodeBase to generate temporary files may be unnecessarily slow.</p>
+<p>
+<b>FILE:</b> u4util.c<br />
+<b>FUNCTION:</b> u4remove (line 1116)<br />
+<b>FROM:</b><br />
+<pre>
+   int rc = remove( ptr ) ;
+   u4delayHundredth( 5 ) ;
+   return rc ;
+</pre><b>TO:</b> (add lines)<br />
+<pre>
+   int rc = remove( ptr ) ;
+   <span class="changed">if ( strlen( ptr ) &gt; 4 )
+   {
+      if ( stricmp( ptr + strlen(ptr) - 4, ".tmp" ) == 0 )  // temp file just return now
+         return rc ;
+   }</span>
+   u4delayHundredth( 5 ) ;
+   return rc ;
+</pre></p>
+</li></ol>
+
+<a NAME="176"><hr /></a>
+<ol><li value="176" class="description">
+<p>Date Fixed: Sep 19/13<br />
+Product: <b>CodeBase for Windows</b><br />
+Passing a seek string that is longer than the index key can result in a heap corruption.</p>
+<p>
+<b>FILE:</b> d4seek.c<br />
+<b>FUNCTION:</b> tfile4stok (line 33)<br />
+<b>FROM:</b><br />
+<pre>
+   if ( t4-&gt;indexFile-&gt;dataFile-&gt;compatibility == 30 )
+   {
+      if ( expr4nullLow( t4-&gt;expr, 0 ) )
+      {
+         if ( len == 0 )   /* seek for null */
+         {
+            *ptr = 0 ;
+            return 1 ;
+         }
+         *ptr = (char)0x80 ;
+         ptr++ ;
+         hasNull = 1 ;
+      }
+   }
+</pre><b>TO:</b> (add lines)<br />
+<pre>
+   if ( t4-&gt;indexFile-&gt;dataFile-&gt;compatibility == 30 )
+   {
+      if ( expr4nullLow( t4-&gt;expr, 0 ) )
+      {
+         if ( len == 0 )   /* seek for null */
+         {
+            *ptr = 0 ;
+            return 1 ;
+         }
+         *ptr = (char)0x80 ;
+         ptr++ ;
+         hasNull = 1 ;
+         <span class="changed">if ( len == t4-&gt;header.keyLen )
+            len-- ;</span>
+      }
+   }
+</pre></p>
+</li></ol>
+
+
+<a NAME="175"><hr /></a>
+<ol><li value="175" class="description">
+<p>Date Fixed: Aug 8/12<br />
+Product: <b>CodeBase for Windows, all versions</b><br />
+If using memo compression there is the possibility, if you have only a small number (perhaps 1 or 2) large memos, you will get an error when trying to read the memo.
+In particular, if the size of the memo (uncompressed) is larger than the size of the physical memo file itself, an error will occur.
+</p>
+<p>
+<b>FILE:</b> m4file.c (line 217)<br />
+<b>FROM:</b><br />
+<pre>
+   if ( avail > 0x7FFFFFF0 || avail > file4longGetLo( file4lenLow( &f4memo->file ) )))
+   {
+      error4set( f4memo->file.codeBase, 0 ) ;
+      return error4( f4memo->file.codeBase, e4memoCorrupt, E95210 ) ;
+   }
+</pre><b>TO:</b> (modify values)<br />
+<pre>
+   if ( avail > 0x7FFFFFF0 ||
+      <span class="changed">(uncompress == 0 && avail > file4longGetLo( file4lenLow( &f4memo->file ) )) ||
+      (uncompress == 1 && toReadLength > file4longGetLo( file4lenLow( &f4memo->file ) ))
+      )</span>
+   {
+      error4set( f4memo->file.codeBase, 0 ) ;
+      return error4( f4memo->file.codeBase, e4memoCorrupt, E95210 ) ;
+   }
+</pre></p>
+</li></ol>
+
+
+
+<a NAME="174"><hr /></a>
+<ol><li value="174" class="description">
+<p>Date Fixed: Aug 1/12<br />
+Product: <b>CodeBase for Windows CE, C# API</b><br />
+After configuring a relation to have a scan relationship, the records returned are different than expected.</p>
+<p>
+<b>FILE:</b> codebase.cs<br />
+<b>CLASS:</b> Error4 (line 59)<br />
+<b>FROM:</b><br />
+<pre>
+   public const int relate4approx = 109;
+   public const int relate4scan = 110;
+</pre><b>TO:</b> (modify values)<br />
+<pre>
+   public const int relate4approx = 110;
+   public const int relate4scan = <span class="changed">109</span>;
+</pre></p>
+</li></ol>
+
+<a NAME="173"><hr /></a>
+<ol><li value="173" class="description">
+<p>Date Fixed: May 5/11<br />
+Product: <b>CodeBase API</b><br />
+When compiling the CodeBase library and S4CLIENT and S4OFF_THREAD are defined, compile errors are generated.</p>
+<p>
+<b>FILE:</b> d4data.h<br />
+<b>STRUCTURE:</b> CODE4 (line 2587)<br />
+<b>FROM:</b><br />
+<pre>
+   #ifdef S4COMPRESS
+      NET4MESSAGE *extraReadMessage ;
+      Bool5 extraReadMessageAvail ;
+   #endif
+</pre><b>TO:</b> (change preprocessor condition)<br />
+<pre>
+   <span class="changed">#if !defined(S4OFF_THREAD) && defined(S4COMPRESS)</span>
+      NET4MESSAGE *extraReadMessage ;
+      Bool5 extraReadMessageAvail ;
+   #endif
+</pre></p>
+<p>
+<b>FILE:</b> d4defs.h<br />
+<b>FROM:</b><br />
+<pre>
+   #if defined( S4WIN32 ) && !defined( S4OFF_THREAD ) && defined( S4CLIENT )
+      #define CON4LOW_ACCEPT_INTERVAL 2
+   #endif
+</pre><b>TO:</b> (change preprocessor condition)<br />
+<pre>
+   <span class="changed">#if defined( S4WIN32 ) && defined( S4CLIENT )</span>
+      #define CON4LOW_ACCEPT_INTERVAL 2
+   #endif
+</pre></p>
+<p>
+<b>FILE:</b> c4code.c<br />
+<b>FUNCTION:</b> code4initUndo2 (line 2339)<br />
+<b>FROM:</b><br />
+<pre>
+   #ifndef S4STAND_ALONE
+      if ( c4->extraReadMessage )
+         u4free( c4->extraReadMessage ) ;
+   #endif
+</pre><b>TO:</b> (change preprocessor condition)<br />
+<pre>
+   <span class="changed">#if !defined(S4STAND_ALONE) && !defined(S4OFF_THREAD) && defined(S4COMPRESS)</span>
+      if ( c4->extraReadMessage )
+         u4free( c4->extraReadMessage ) ;
+   #endif
+</pre></p>
+<p>
+<b>FILE:</b> c4buffer.c<br />
+<b>FUNCTION:</b> connect4bufferReceive (line 1769)<br />
+<b>FROM:</b><br />
+<pre>
+   #ifdef S4OFF_THREAD
+      int rc = connect4lowRead( connect4bufferLowGet( connectBuffer ), (char *)data, dataLen ) ;
+      if ( rc < 0 )
+</pre><b>TO:</b> (add arguments)<br />
+<pre>
+   #ifdef S4OFF_THREAD
+      int rc = connect4lowRead( connect4bufferLowGet( connectBuffer ), (char *)data, dataLen, <span class="changed">WAIT4EVER, c4getCompress( c4 )</span> ) ;
+      if ( rc < 0 )
+</pre></p>
+<p>
+<b>FILE:</b> c4buffer.c<br />
+<b>FUNCTION:</b> connect4bufferSendFlush (line 2190)<br />
+<b>FROM:</b><br />
+<pre>
+   rc = connect4lowWrite( connect4bufferLowGet( connectBuffer ), connectBuffer->workingWriteBuffer,
+         connectBuffer->workingWritePos, c4->doCompress ) ;
+   if ( rc )
+   {
+      connect4bufferDisconnect( connectBuffer ) ;
+</pre><b>TO:</b> (change c4->doCompress to c4->doCompression)<br />
+<pre>
+   rc = connect4lowWrite( connect4bufferLowGet( connectBuffer ), connectBuffer->workingWriteBuffer,
+         connectBuffer->workingWritePos, <span class="changed">c4->doCompression</span> ) ;
+   if ( rc )
+   {
+      connect4bufferDisconnect( connectBuffer ) ;
+</pre></p>
+</li></ol>
+
+<a NAME="172"><hr /></a>
+<ol><li value="172" class="description">
+<p>Date Fixed: Mar 11/11<br />
+Product: <b>CodeBase API</b><br />
+Doing a partial seek on FoxPro general collation tags could result in a memory access violation error.
+</p>
+<p>
+<b>FILE:</b> d4seek.c<br />
+<b>FUNCTION:</b> d4seekMatch(line 550)<br />
+<b>FROM:</b><br />
+<pre>
+         char *outputKey2 = c4->fieldBuffer2 ;
+         tfile4stok( tfile, outputKey2, inputKey, tfile->header.keyLen / (collate->keySizeCharPerCharAdd + 1) ) ;
+         // need to to a true memcmp here, not a u4 one...
+         int rc = r4success ;
+         if ( memcmp( dbfKey, outputKey2, matchLen ) != 0 ) // not found
+//            return r4after ;
+            rc = r4after ;
+         u4free( dbfKey ) ;
+         return rc ;
+</pre><b>TO:</b> (add lines)<br />
+<pre>
+         char *outputKey2 = c4->fieldBuffer2 ;
+         // AS Mar 9/11 - the change from Dec 17/04 causes possible memory
+         // access errors since the input key may not actually be large enough
+         // and is being accessed...try undoing and see what happens the solution
+         // is we need another buffer large enough for the full key.
+         const char *tempKey ;
+         char *allocatedTempKey ;
+         tempKey = 0 ;
+         allocatedTempKey = 0 ;
+         if ( matchLen != (tfile->header.keyLen / (collate->keySizeCharPerCharAdd + 1)) )
+         {
+            allocatedTempKey = (char *)u4alloc( tfile->header.keyLen / (collate->keySizeCharPerCharAdd + 1) ) ;
+            if ( !allocatedTempKey )
+            {
+               u4free( dbfKey ) ;
+               return e4memory ;
+            }
+            // set the key to nulls by default; we need to ensure that the key creation
+            // doesn't trim off the blanks (which it does by default), which will mess
+            // up the results since we need to have the blank converted as well.
+            memset( allocatedTempKey, 0, tfile->header.keyLen / (collate->keySizeCharPerCharAdd + 1) ) ;
+            memcpy( allocatedTempKey, inputKey, matchLen ) ;
+            tempKey = allocatedTempKey ;
+         }
+         else
+            tempKey = inputKey ;
+
+         tfile4stok( tfile, outputKey2, tempKey, tfile->header.keyLen / (collate->keySizeCharPerCharAdd + 1) ) ;
+
+         // need to to a true memcmp here, not a u4 one...
+         int rc = r4success ;
+         if ( memcmp( dbfKey, outputKey2, matchLen ) != 0 ) // not found
+            rc = r4after ;
+
+         u4free( dbfKey ) ;
+         if ( allocatedTempKey != 0 )
+            u4free( allocatedTempKey ) ;
+         return rc ;
+</pre></p>
+</li></ol>
+
+<a NAME="171"><hr /></a>
+<ol><li value="171" class="description">
+<p>Date Fixed: Oct 22/10)<br />
+Product: <b>CodeBase C++ API</b><br />
+After creating a Date4 object by passing a date string and date picture to the
+constructor, the .ptr() method may return a string that is not null-terminated.</p>
+<p>
+<b>FILE:</b> s4str.cpp<br />
+<b>FUNCTION:</b> Date4 constructor (line 911)<br />
+<b>FROM:</b><br />
+<pre>
+   Date4::Date4(const char *p, char *pict )
+   {
+      date4init( dt, p, pict ) ;
+   }
+</pre><b>TO:</b> (add lines)<br />
+<pre>
+   Date4::Date4(const char *p, char *pict )
+   {
+      date4init( dt, p, pict ) ;
+      dt[8] = 0 ;
+   }
+</pre></p>
+</li></ol>
+
+<a NAME="170"><hr /></a>
+<ol><li value="170" class="description">
+<p>Date Fixed: Aug 8/10<br />
+Product: <b>CodeBase CSharp API</b><br />
+Field4.dateTime() was not correctly returning the value of a r4dateTimeMilli field.</p>
+<p>
+<b>FILE:</b> c4baspas.c<br />
+<b>FUNCTION:</b> f4dateTimeW (line 2166)<br />
+<b>FROM:</b><br />
+<pre>
+   int lenToCopy = strlen( ptr ) + 1 ;
+   if ( lenToCopy > 16 )
+      lenToCopy = 16 ;
+   memcpy( buff, ptr, lenToCopy ) ;
+</pre><b>TO:</b> (change 16 to 20)<br />
+<pre>
+   int lenToCopy = strlen( ptr ) + 1 ;
+   if ( lenToCopy > 20 )
+      lenToCopy = 20 ;
+   memcpy( buff, ptr, lenToCopy ) ;
+</pre></p>
+<p>
+<b>FILE:</b> codebase.cs<br />
+<b>FUNCTION:</b> Field4.dateTime (line 2076)<br />
+<b>FROM:</b><br />
+<pre>
+   StringBuilder buff = new StringBuilder( 16 ) ;
+   f4dateTimeW( field, buff ) ;
+   return buff.ToString() ;
+</pre><b>TO:</b><br />
+<pre>
+   StringBuilder buff = new StringBuilder( 21 ) ;
+   f4dateTimeW( field, buff ) ;
+   return buff.ToString(0, Math.Min(20, buff.Length)).TrimEnd('\0');
+</pre></p>
+</li></ol>
+
+<a NAME="169"><hr /></a>
+<ol><li value="169" class="description">
+<p>Date Fixed: Apr 30/10<br />
+Product: <b>CodeBase low level API</b><br />
+Application hanging was possible when performing a reindex or pack/zap command.  Generally this only occured on multi-processor or multi-core computers,
+ often when a lot of other simultaneous activity was ocurring at the same time (or when the focus of application was lost, resulting in the system decreasing the priority of the application)
+<p>
+<b>FILE:</b> f4write.c<br />
+<b>FUNCTION:</b> file4writeDelay (line 1339)<br />
+<b>FROM:</b><br />
+<pre>
+   if ( file4longLessEqLong( pos, writeDelay->pos ) && file4longLessEqLong( tLong, tLong2 ) )
+      writeDelay->status = 0 ;
+   else
+      writeDelay->status = file4writeLow( writeDelay->file, writeDelay->pos, writeDelay->data, writeDelay->len, 0, 1, 1 ) ;
+</pre><b>TO:</b> (change file4writeLow argument)<br />
+<pre>
+   if ( file4longLessEqLong( pos, writeDelay->pos ) && file4longLessEqLong( tLong, tLong2 ) )
+      writeDelay->status = 0 ;
+   else
+      writeDelay->status = file4writeLow( writeDelay->file, writeDelay->pos, writeDelay->data, writeDelay->len, 0, 1, 0 ) ;
+</pre></p>
+<b>FUNCTION:</b> file4writeDelayFlush (line 1433)<br />
+<b>FROM:</b><br />
+<pre>
+   if ( doWrite == 1 )
+   {
+      file4longAssignLong( tLong, writeDelay->pos ) ;
+      writeDelay->status = file4writeLow( writeDelay->file, tLong, writeDelay->data, writeDelay->len, 0, 1, 1 ) ;
+   }
+</pre><b>TO:</b> (change file4writeLow argument)<br />
+<pre>
+   if ( doWrite == 1 )
+   {
+      file4longAssignLong( tLong, writeDelay->pos ) ;
+      writeDelay->status = file4writeLow( writeDelay->file, tLong, writeDelay->data, writeDelay->len, 0, 1, 0 ) ;
+   }
+</pre></p>
+</li></ol>
+
+
+<a NAME="168"><hr /></a>
+<ol><li value="168" class="description">
+<p>Date Fixed: Nov 4/09<br />
+Product: <b>CodeBase low level API</b><br />
+relate4free() may throw an unhandled exception error if the relate4querySet() expression does not resolve to a logical outcome (which is required or generates an error)
+<p>
+<b>FILE:</b> r4relate.c<br />
+<b>FUNCTION:</b> relate4changed (line 1126)<br />
+<b>FROM:</b><br />
+<pre>
+      for( j = relation->log.expr->infoN; --j >= 0; )
+      {
+         E4INFO_REPORT *info_ptr = relation->log.infoReport + j ;
+         // AS Sept 10/01 - info_ptr is occasionally null, so consider this instance
+         if ( info_ptr != 0 && info_ptr->relateDataList != 0 )
+         {
+            u4free( (info_ptr->relateDataList->pointers) ) ;
+            mem4free( c4->dataListMemory, info_ptr->relateDataList ) ;
+         }
+      }
+</pre><b>TO:</b><br />
+<pre>
+      for( j = relation->log.expr->infoN; --j >= 0; )
+      {
+         if ( relation->log.infoReport != 0 )
+         {
+            E4INFO_REPORT *info_ptr = relation->log.infoReport + j ;
+            // AS Sept 10/01 - info_ptr is occasionally null, so consider this instance
+            if ( info_ptr != 0 && info_ptr->relateDataList != 0 )
+            {
+               u4free( (info_ptr->relateDataList->pointers) ) ;
+               mem4free( c4->dataListMemory, info_ptr->relateDataList ) ;
+            }
+         }
+      }
+</pre></p>
+</li></ol>
+
+
+
+
+</body>
+</html>
+</tr>
+</table>

@@ -1,0 +1,898 @@
+<html>
+
+<head>
+<meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<meta NAME="Author" CONTENT="Cam Stobbe">
+<meta NAME="GENERATOR" CONTENT="Microsoft FrontPage 3.0">
+<title>FAQ Examples</title>
+</head>
+
+<body>
+
+<table border="0" width="100%">
+  <tr>
+    <td width="10%"></td>
+    <td><h2><small><font face="Verdana" color="#FF0000"><small>This page contains examples for
+    the questions in the <a HREF="/support/hints/">CodeBase Hints page</a>.</small></font></small></h2>
+    <p><a NAME="ModeC"></a></p>
+    <p><strong><small><font face="Verdana">How can files be opened in different modes? (C
+    Example</font></small> )</strong><ul>
+      <tt><p>#include &quot;d4all.h&quot;</tt> </p>
+      <p><tt>#ifdef __BORLANDC__</tt> <br>
+      <tt>&nbsp;&nbsp; extern unsigned _stklen = 15000;&nbsp;&nbsp; /* Borland only */</tt> <br>
+      <tt>#endif</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; CODE4 cb;</tt> <br>
+      <tt>&nbsp;&nbsp; DATA4 *file1, *file2, *file3, *file4;</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4init (&amp;cb);</tt> </p>
+      <p><tt>&nbsp;&nbsp; /* Non-exclusive, with read access only */</tt> <br>
+      <tt>&nbsp;&nbsp; cb.accessMode = OPEN4DENY_NONE ;</tt> <br>
+      <tt>&nbsp;&nbsp; cb.readOnly = 1;</tt> <br>
+      <tt>&nbsp;&nbsp; file1 = d4open (&amp;cb, &quot;file1&quot;);</tt> </p>
+      <p><tt>&nbsp;&nbsp; /* Exclusive access with read/write */</tt> <br>
+      <tt>&nbsp;&nbsp; cb.accessMode = OPEN4DENY_RW;</tt> <br>
+      <tt>&nbsp;&nbsp; cb.readOnly = 0;</tt> <br>
+      <tt>&nbsp;&nbsp; file2 = d4open (&amp;cb, &quot;file2&quot;);</tt> </p>
+      <p><tt>&nbsp;&nbsp; /*&nbsp; Non-Exclusive, we can r/w, others can only read */</tt> <br>
+      <tt>&nbsp;&nbsp; cb.accessMode = OPEN4DENY_WRITE;</tt> <br>
+      <tt>&nbsp;&nbsp; file3 = d4open (&amp;cb, &quot;file3&quot;);</tt> </p>
+      <p><tt>&nbsp;&nbsp; /* Non-Exclusive, we can r/w as can other users */</tt> <br>
+      <tt>&nbsp;&nbsp; cb.accessMode = OPEN4DENY_NONE;</tt> <br>
+      <tt>&nbsp;&nbsp; file4 = d4open (&amp;cb, &quot;file4&quot;);</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4close(&amp;cb);</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4initUndo(&amp;cb);</tt> </p>
+      <p><tt>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* void main */</tt> <br>
+      &nbsp;</p>
+    </ul>
+    <h4><a NAME="ModeCpp"></a><small><font face="Verdana">How can files be opened in different
+    modes? (C++ Example)</font></small></h4>
+    <ul>
+      <tt><p>#include &quot;d4all.hpp&quot;</tt> </p>
+      <p><tt>#ifdef __BORLANDC__</tt> <br>
+      <tt>&nbsp;&nbsp; extern unsigned _stklen = 15000;&nbsp;&nbsp; /* Borland only */</tt> <br>
+      <tt>#endif</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> </p>
+      <p><tt>&nbsp;&nbsp; Code4 cb ;</tt> <br>
+      <tt>&nbsp;&nbsp; Data4 file1, file2, file3, file4 ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; /* Non-exclusive, with read access only */</tt> <br>
+      <tt>&nbsp;&nbsp; cb.accessMode = OPEN4DENY_NONE;</tt> <br>
+      <tt>&nbsp;&nbsp; cb.readOnly = 1;</tt> <br>
+      <tt>&nbsp;&nbsp; file1.open( cb, &quot;FILE1&quot; ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; /* Exclusive access with read/write */</tt> <br>
+      <tt>&nbsp;&nbsp; cb.accessMode = OPEN4DENY_RW</tt> <br>
+      <tt>&nbsp;&nbsp; cb.readOnly = 0;</tt> <br>
+      <tt>&nbsp;&nbsp; file2.open( cb, &quot;FILE2&quot; ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; /* Non-Exclusive, we can r/w, others can only read */</tt> <br>
+      <tt>&nbsp;&nbsp; cb.accessMode = OPEN4DENY_WRITE;</tt> <br>
+      <tt>&nbsp;&nbsp; file3.open( cb, &quot;FILE3&quot;);</tt> </p>
+      <p><tt>&nbsp;&nbsp; /* Non-Exclusive, we can r/w as can other users */</tt> <br>
+      <tt>&nbsp;&nbsp; cb.accessMode = OPEN4DENY_NONE;</tt> <br>
+      <tt>&nbsp;&nbsp; file4.open( cb, &quot;FILE4&quot;);</tt> </p>
+      <p><tt>&nbsp;&nbsp; cb.closeAll();</tt> </p>
+      <p><tt>&nbsp;&nbsp; cb.initUndo();</tt> </p>
+      <p><tt>}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; /* void main */</tt> <br>
+      &nbsp;</p>
+    </ul>
+    <h4><small><a NAME="ModeVB"></a><font face="Verdana">How can files be opened in different
+    modes? (Visual Basic Exampl</font></small>e)</h4>
+    <ul>
+      <tt><p>Sub OpenTest()</tt> </p>
+      <p><tt>&nbsp;&nbsp; Dim cb as long</tt> <br>
+      <tt>&nbsp;&nbsp; Dim file1 as Long, file2 As Long, file3 As Long, file4 As Long</tt> <br>
+      <tt>&nbsp;&nbsp; Dim rc As Integer</tt> </p>
+      <p><tt>&nbsp;&nbsp; cb = code4init()</tt> </p>
+      <p><tt>&nbsp;&nbsp; ' Non-exclusive, with read access only</tt> <br>
+      <tt>&nbsp;&nbsp; rc = code4accessMode( cb, OPEN4DENY_NONE )</tt> <br>
+      <tt>&nbsp;&nbsp; rc = code4readOnly( cb, 1 )</tt> <br>
+      <tt>&nbsp;&nbsp; file1 = d4open (cb, &quot;file1&quot;)</tt> </p>
+      <p><tt>&nbsp;&nbsp; ' Exclusive access with read/write</tt> <br>
+      <tt>&nbsp;&nbsp; rc = code4accessMode( cb, OPEN4DENY_RW )</tt> <br>
+      <tt>&nbsp;&nbsp; rc = code4readOnly( cb,&nbsp; 0 )</tt> <br>
+      <tt>&nbsp;&nbsp; file2 = d4open (cb, &quot;file2&quot;)</tt> </p>
+      <p><tt>&nbsp;&nbsp; ' Non-Exclusive, we can r/w, others can only read</tt> <br>
+      <tt>&nbsp;&nbsp; rc = code4accessMode( cb, OPEN4DENY_WRITE )</tt> <br>
+      <tt>&nbsp;&nbsp; file3 = d4open (cb, &quot;file3&quot;)</tt> </p>
+      <p><tt>&nbsp;&nbsp; ' Non-Exclusive, we can r/w as can other users</tt> <br>
+      <tt>&nbsp;&nbsp; rc = code4accessMode( cb, OPEN4DENY_NONE )</tt> <br>
+      <tt>&nbsp;&nbsp; file4 = d4open (cb, &quot;file4&quot;)</tt> </p>
+      <p><tt>&nbsp;&nbsp; rc = code4close ( cb )</tt> </p>
+      <p><tt>&nbsp;&nbsp; rc = code4initUndo( cb )</tt> </p>
+      <p><tt>End Sub</tt></p>
+    </ul>
+    <h4><a NAME="ModeDel"></a><small><font face="Verdana">How can files be opened in different
+    modes? (Delphi Example)</font></small></h4>
+    <ul>
+      <tt><p>Procedure OpenTest;</tt> </p>
+      <p><tt>var</tt> <br>
+      <tt>&nbsp;&nbsp; cb : CODE4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; file1, file2, file3, file4 : DATA4 ;</tt> </p>
+      <p><tt>begin</tt> </p>
+      <p><tt>&nbsp;&nbsp; cb := code4init ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; { Non-exclusive, with read access only }</tt> <br>
+      <tt>&nbsp;&nbsp; code4accessMode( cb, OPEN4DENY_NONE ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; code4readOnly( cb, 1 ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; file1 := d4open (cb, &quot;file1&quot;);</tt> </p>
+      <p><tt>&nbsp;&nbsp; { Exclusive access with read/write }</tt> <br>
+      <tt>&nbsp;&nbsp; code4accessMode( cb, OPEN4DENY_RW ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; code4readOnly( cb,&nbsp; 0 ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; file2 := d4open (cb, &quot;file2&quot;);</tt> </p>
+      <p><tt>&nbsp;&nbsp; {&nbsp; Non-Exclusive, we can r/w, others can only read }</tt> <br>
+      <tt>&nbsp;&nbsp; code4accessMode( cb, OPEN4DENY_WRITE ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; file3 := d4open (cb, &quot;file3&quot;) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; { Non-Exclusive, we can r/w as can other users }</tt> <br>
+      <tt>&nbsp;&nbsp; code4accessMode( cb, OPEN4DENY_NONE ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; file4 := d4open (cb, &quot;file4&quot;) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4close( cb ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4initUndo( cb ) ;</tt> </p>
+      <p><tt>end;</tt></p>
+    </ul>
+    <hr WIDTH="100%">
+    <h4><a NAME="AliasC"></a><small><font face="Verdana">Why do I have trouble with relations
+    when I am using two files that have the same name, even if they are in different
+    directories? (C Example</font></small>)</h4>
+    <ul>
+      <tt><p>CODE4 cb;</tt> <br>
+      <tt>DATA4 file1;</tt> <br>
+      <tt>DATA4 file2;</tt> </p>
+      <p><tt>code4init (&amp;cb);</tt> <br>
+      <tt>file1 = d4open (&amp;cb, &quot;c:\\dir1\\file&quot;);</tt> <br>
+      <tt>d4aliasSet (file1, &quot;new_name&quot;);</tt> <br>
+      <tt>file2 = d4open (&amp;cb, &quot;c:\\dir2\\file&quot;);</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt></p>
+    </ul>
+    <h4><a NAME="AliasCpp"></a><small><font face="Verdana">Why do I have trouble with
+    relations when I am using two files that have the same name, even if they are in different
+    directories? (C++ Example)</font></small></h4>
+    <ul>
+      <tt><p>Code4 cb;</tt> <br>
+      <tt>Data4 file1, file2;</tt> </p>
+      <p><tt>file1.open( cb, &quot;c:\\dir1\\file&quot; ) ;</tt> <br>
+      <tt>file1.alias( &quot;newName&quot; ) ;</tt> <br>
+      <tt>file2.open( cb, &quot;c:\\dir2\\file&quot; ) ;</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt></p>
+    </ul>
+    <h4><a NAME="AliasVB"></a><small><font face="Verdana">Why do I have trouble with relations
+    when I am using two files that have the same name, even if they are in different
+    directories? (Visual Basic Example</font></small>)</h4>
+    <ul>
+      <tt><p>Dim cb as long</tt> <br>
+      <tt>Dim file1 as long, file2 as Long</tt> </p>
+      <p><tt>file1 = d4open( cb, &quot;c:\dir1\file&quot; )</tt> <br>
+      <tt>call d4aliasSet( file1, &quot;newName&quot; )</tt> <br>
+      <tt>file2 = d4open( cb, &quot;c:\dir2\file&quot; )</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt></p>
+    </ul>
+    <h4><a NAME="AliasDel"></a><small><font face="Verdana">Why do I have trouble with
+    relations when I am using two files that have the same name, even if they are in different
+    directories? (Delphi Example)</font></small></h4>
+    <ul>
+      <tt><p>var</tt> <br>
+      <tt>&nbsp;&nbsp; cb : CODE4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; file1, file2 : DATA4 ;</tt> </p>
+      <p><tt>begin</tt> <br>
+      <tt>&nbsp;&nbsp; cb := code4init ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; file1 := d4open( cb, &quot;c:\dir1\file&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; d4aliasSet( file1, &quot;newName&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; file2 := d4open( cb, &quot;c:\dir2\file&quot; ) ;</tt> <ul>
+        <tt><p>.</tt> <br>
+        <tt>.</tt> <br>
+        <tt>.</tt></p>
+      </ul>
+    </ul>
+    <hr WIDTH="100%">
+    <p><a NAME="nonDefaultC"></a><strong><small><font face="Verdana">How are indexes in a
+    non-default directory and indexes with non-standard name extensions used with CodeBase? (C
+    Example)</font></small> </strong><ul>
+      <tt><p>#include &quot;d4all.h&quot;</tt> </p>
+      <p><tt>#ifdef __BORLANDC__</tt> <br>
+      <tt>&nbsp;&nbsp; extern unsigned _stklen = 15000;&nbsp;&nbsp; /* Borland only */</tt> <br>
+      <tt>#endif</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; CODE4 cb;</tt> <br>
+      <tt>&nbsp;&nbsp; DATA4 *file;</tt> <br>
+      <tt>&nbsp;&nbsp; FIELD4INFO fieldInfo [] =</tt> <br>
+      <tt>&nbsp;&nbsp; {</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&quot;FIELD1&quot;, r4str, 4, 0},</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&quot;FIELD2&quot;, r4str, 5, 0},</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {0, 0, 0, 0},</tt> <br>
+      <tt>&nbsp;&nbsp; };</tt> <br>
+      <tt>&nbsp;&nbsp; TAG4INFO tagInfo [] =</tt> <br>
+      <tt>&nbsp;&nbsp; {</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&quot;TAG1&quot;, &quot;FIELD1&quot;, 0, 0, 0},</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&quot;TAG2&quot;, &quot;FIELD2&quot;, 0, 0, 0},</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {0, 0, 0, 0, 0},</tt> <br>
+      <tt>&nbsp;&nbsp; };</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4init (&amp;cb);</tt> <br>
+      <tt>&nbsp;&nbsp; file = d4create (&amp;cb, &quot;datafile&quot;, fieldInfo, 0);</tt> <br>
+      <tt>&nbsp;&nbsp; i4create(file, &quot;c:\\programs\\datafile&quot;, tagInfo);</tt> <br>
+      <tt>&nbsp;&nbsp; code4close (&amp;cb);</tt> <br>
+      <tt>}</tt></p>
+    </ul>
+    <h4><a NAME="nonDefaultCpp"></a><small><font face="Verdana">How are indexes in a
+    non-default directory and indexes with non-standard name extensions used with CodeBase?
+    (C++ Example)</font></small></h4>
+    <ul>
+      <tt><p>#include &quot;d4all.hpp&quot;</tt> </p>
+      <p><tt>#ifdef __BORLANDC__</tt> <br>
+      <tt>extern unsigned _stklen = 15000;&nbsp;&nbsp; /* Borland only */</tt> <br>
+      <tt>#endif</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; Code4 cb ;</tt> <br>
+      <tt>&nbsp;&nbsp; Data4 file ;</tt> <br>
+      <tt>&nbsp;&nbsp; Index4 index ;</tt> <br>
+      <tt>&nbsp;&nbsp; FIELD4INFO fieldInfo [] =</tt> <br>
+      <tt>&nbsp;&nbsp; {</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&quot;FIELD1&quot;, r4str, 4, 0},</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&quot;FIELD2&quot;, r4str, 5, 0},</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {0, 0, 0, 0},</tt> <br>
+      <tt>&nbsp;&nbsp; };</tt> <br>
+      <tt>&nbsp;&nbsp; TAG4INFO tagInfo [] =</tt> <br>
+      <tt>&nbsp;&nbsp; {</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&quot;TAG1&quot;, &quot;FIELD1&quot;, 0, 0, 0},</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {&quot;TAG2&quot;, &quot;FIELD2&quot;, 0, 0, 0},</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {0, 0, 0, 0, 0},</tt> <br>
+      <tt>&nbsp;&nbsp; };</tt> </p>
+      <p><tt>&nbsp;&nbsp; file.create ( &quot;datafile&quot;, fieldInfo, 0 ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; index.create( file, &quot;c:\\programs\\datafile&quot;, tagInfo) ;</tt> <br>
+      <tt>&nbsp;&nbsp; cb.initUndo() ;</tt> <br>
+      <tt>}</tt></p>
+    </ul>
+    <h4><a NAME="nonDefaultVB"></a><small><font face="Verdana">How are indexes in a
+    non-default directory and indexes with non-standard name extensions used with CodeBase?
+    (Visual Basic Example</font></small>)</h4>
+    <ul>
+      <tt><p>Sub CreateTest()</tt> <br>
+      <tt>&nbsp;&nbsp; Dim cb As Long, db As Long, index as long</tt> <br>
+      <tt>&nbsp;&nbsp; ReDim fldInfo(1 to 1) As FIELD4INFO</tt> <br>
+      <tt>&nbsp;&nbsp; ReDim tagInfo(1 to 1) As TAG4INFO</tt> </p>
+      <p><tt>&nbsp;&nbsp; fldInfo(1).fname = &quot;FIELD1&quot; : fldInfo(1).ftype =
+      &quot;C&quot;</tt> <br>
+      <tt>&nbsp;&nbsp; fldInfo(1).flength = 10</tt> </p>
+      <p><tt>&nbsp;&nbsp; tagInfo(1).name = &quot;TAG1&quot; : tagInfo(1).expr =
+      &quot;FIELD1&quot;</tt> </p>
+      <p><tt>&nbsp;&nbsp; db = d4create( cb, &quot;c:\datafile&quot; )</tt> <br>
+      <tt>&nbsp;&nbsp; ind = i4create( db, &quot;c:\programs\datafile&quot;, tagInfo() )</tt> </p>
+      <p><tt>&nbsp;&nbsp; call code4initUndo( cb )</tt> <br>
+      <tt>End Sub</tt></p>
+    </ul>
+    <h4><a NAME="nonDefaultDel"></a><small><font face="Verdana">How are indexes in a
+    non-default directory and indexes with non-standard name extensions used with CodeBase?
+    (Delphi Example)</font></small></h4>
+    <ul>
+      <tt><p>Procedure CreateTest;</tt> </p>
+      <p><tt>const</tt> <br>
+      <tt>&nbsp;&nbsp; fieldInfo : array[1..2] of FIELD4INFO =</tt> <br>
+      <tt>&nbsp;&nbsp; (</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (name:'FLD1' ; atype:integer('C') ; len:10&nbsp; ;
+      dec:0),</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (name:nil&nbsp;&nbsp;&nbsp; ;
+      atype:0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ; len: 0 ;
+      dec:0)</tt> <br>
+      <tt>&nbsp;&nbsp; ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; tagInfo&nbsp; : array[1..2] of TAG4INFO =</tt> <br>
+      <tt>&nbsp;&nbsp; (</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (name:'TAG1'; expression:'FLD1'; filter:nil; unique:0;
+      descending:0),</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (name:nil&nbsp;&nbsp; ; expression:nil&nbsp;&nbsp; ;
+      filter:nil; unique:0; descending:0)</tt> <br>
+      <tt>&nbsp;&nbsp; ) ;</tt> </p>
+      <p><tt>var</tt> <br>
+      <tt>&nbsp;&nbsp; cb : CODE4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; db : DATA4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; index : INDEX4 ;</tt> </p>
+      <p><tt>begin</tt> <br>
+      <tt>&nbsp;&nbsp; cb := code4init ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; db = d4create( cb, &quot;datafile&quot;, @fieldInfo, nil ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; index = i4create( db, &quot;c:\programs\datafile&quot;, @tagInfo ) ;</tt>
+      </p>
+      <p><tt>&nbsp;&nbsp; code4initUndo( cb ) ;</tt> <br>
+      <tt>end;</tt></p>
+    </ul>
+    <hr WIDTH="100%">
+    <h4><a NAME="nonDefault2C"></a><small><font face="Verdana">How are indexes in a
+    non-default directory and indexes with non-standard name extensions used with CodeBase? (C
+    Example</font></small>)</h4>
+    <ul>
+      <tt><p>#include &quot;d4all.h&quot;</tt> </p>
+      <p><tt>#ifdef __BORLANDC__</tt> <br>
+      <tt>&nbsp;&nbsp; extern unsigned _stklen = 15000;&nbsp;&nbsp; /* Borland only */</tt> <br>
+      <tt>#endif</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; CODE4 codeBase;</tt> <br>
+      <tt>&nbsp;&nbsp; DATA4 *file;</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4init(&amp;codeBase);</tt> <br>
+      <tt>&nbsp;&nbsp; codeBase.autoOpen = 0;</tt> <br>
+      <tt>&nbsp;&nbsp; file = d4open(&amp;codeBase, &quot;datafile&quot;);</tt> <br>
+      <tt>&nbsp;&nbsp; i4open(file, &quot;c:\\programs\\datafile.abc&quot;);</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; code4initUndo(&amp;codeBase);</tt> <br>
+      <tt>}</tt></p>
+    </ul>
+    <h4><a NAME="nonDefault2Cpp"></a><small><font face="Verdana">How are indexes in a
+    non-default directory and indexes with non-standard name extensions used with CodeBase?
+    (C++ Example)</font></small></h4>
+    <ul>
+      <tt><p>#include &quot;d4all.hpp&quot;</tt> </p>
+      <p><tt>#ifdef __BORLANDC__</tt> <br>
+      <tt>&nbsp;&nbsp; extern unsigned _stklen = 15000;&nbsp;&nbsp; /* Borland only */</tt> <br>
+      <tt>#endif</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; Code4 codeBase;</tt> <br>
+      <tt>&nbsp;&nbsp; Data4 file;</tt> <br>
+      <tt>&nbsp;&nbsp; Index4 index;</tt> </p>
+      <p><tt>&nbsp;&nbsp; codeBase.autoOpen = 0;</tt> <br>
+      <tt>&nbsp;&nbsp; file.open( codeBase, &quot;datafile&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; index.open( file, &quot;c:\\programs\\datafile.abc&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; codeBase.initUndo() ;</tt> <br>
+      <tt>}</tt></p>
+    </ul>
+    <h4><a NAME="nonDefault2VB"></a><small><font face="Verdana">How are indexes in a
+    non-default directory and indexes with non-standard name extensions used with CodeBase?
+    (Visual Basic Example</font></small>)</h4>
+    <ul>
+      <tt><p>Sub Test()</tt> <br>
+      <tt>&nbsp;&nbsp; Dim cb As Long, file As Long</tt> </p>
+      <p><tt>&nbsp;&nbsp; cb = code4init()</tt> <br>
+      <tt>&nbsp;&nbsp; call code4autoOpen( cb, 0 )</tt> </p>
+      <p><tt>&nbsp;&nbsp; db = d4open( cb, &quot;datafile&quot; )</tt> <br>
+      <tt>&nbsp;&nbsp; index = i4open( db, &quot;c:\programs\datafile.abc&quot; )</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; call code4initUndo( cb )</tt> <br>
+      <tt>End Sub</tt></p>
+    </ul>
+    <h4><a NAME="nonDefault2Del"></a><small><font face="Verdana">How are indexes in a
+    non-default directory and indexes with non-standard name extensions used with CodeBase?
+    (Delphi Example)</font></small></h4>
+    <ul>
+      <tt><p>Procedure Test;</tt> </p>
+      <p><tt>var</tt> <br>
+      <tt>&nbsp;&nbsp; cb : CODE4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; db : DATA4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; index : INDEX4 ;</tt> </p>
+      <p><tt>begin</tt> <br>
+      <tt>&nbsp;&nbsp; cb := code4init ;</tt> <br>
+      <tt>&nbsp;&nbsp; code4autoOpen( cb, 0 ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; db = d4open( cb, &quot;datafile&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; index = i4open( db, &quot;c:\programs\datafile.abc&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; code4initUndo( cb ) ;</tt> <br>
+      <tt>end ;</tt></p>
+    </ul>
+    <hr WIDTH="100%">
+    <p><a NAME="nonDefault3C"></a><strong><small><font face="Verdana">How are indexes in a
+    non-default directory and indexes with non-standard name extensions used with CodeBase? (C
+    Example)</font></small> </strong><ul>
+      <tt><p>#include &quot;d4all.h&quot;</tt> </p>
+      <p><tt>#ifdef __BORLANDC__</tt> <br>
+      <tt>&nbsp;&nbsp; extern unsigned _stklen = 15000;&nbsp;&nbsp; /* Borland only */</tt> <br>
+      <tt>#endif</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; CODE4 codeBase;</tt> <br>
+      <tt>&nbsp;&nbsp; DATA4 *db;</tt> <br>
+      <tt>&nbsp;&nbsp; TAG4&nbsp; *tag1, *tag2;</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4init( &amp;codeBase );</tt> <br>
+      <tt>&nbsp;&nbsp; codeBase.autoOpen = 0;</tt> </p>
+      <p><tt>&nbsp;&nbsp; db = d4open ( &amp;codeBase, &quot;datafile&quot;) ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; tag1 = t4open ( db, NULL, &quot;C:\\DIR1\\TAG1.ABC&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; tag1 = t4open ( db, NULL, &quot;C:\\DIR2\\TAG2.XYZ&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; code4initUndo( &amp;codeBase ) ;</tt> <br>
+      <tt>}</tt></p>
+    </ul>
+    <h4><a NAME="nonDefault3Cpp"></a><small><font face="Verdana">How are indexes in a
+    non-default directory and indexes with non-standard name extensions used with CodeBase?
+    (C++ Example)</font></small></h4>
+    <ul>
+      <tt><p>#include &quot;d4all.hpp&quot;</tt> </p>
+      <p><tt>#ifdef __BORLANDC__</tt> <br>
+      <tt>&nbsp;&nbsp; extern unsigned _stklen = 15000;&nbsp;&nbsp; /* Borland only */</tt> <br>
+      <tt>#endif</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; Code4 codeBase ;</tt> <br>
+      <tt>&nbsp;&nbsp; Data4 db ;</tt> <br>
+      <tt>&nbsp;&nbsp; Tag4&nbsp; tag1, tag2 ;</tt> <br>
+      <tt>&nbsp;&nbsp; codeBase.autoOpen = 0;</tt> </p>
+      <p><tt>&nbsp;&nbsp; db.open( codeBase, &quot;datafile&quot;) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; tag1.open( db, &quot;C:\\DIR1\\TAG1.ABC&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; tag2.open( db, &quot;C:\\DIR2\\TAG2.XYZ&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; codeBase.initUndo() ;</tt> <br>
+      <tt>}</tt></p>
+    </ul>
+    <h4><a NAME="nonDefault3VB"></a><small><font face="Verdana">How are indexes in a
+    non-default directory and indexes with non-standard name extensions used with CodeBase?
+    (Visual Basic Example</font></small>)</h4>
+    <ul>
+      <tt><p>Sub Test()</tt> <br>
+      <tt>&nbsp;&nbsp; Dim cb As Long, db As Long, tag1 As Long, tag2 As Long</tt> </p>
+      <p><tt>&nbsp;&nbsp; cb = code4init()</tt> <br>
+      <tt>&nbsp;&nbsp; call code4autoOpen( cb, 0 )</tt> </p>
+      <p><tt>&nbsp;&nbsp; db = d4open( cb, &quot;datafile&quot; )</tt> </p>
+      <p><tt>&nbsp;&nbsp; tag1 = t4open( db, &quot;c:\dir1\tag1.abc&quot; )</tt> <br>
+      <tt>&nbsp;&nbsp; tag2 = t4open( db, &quot;c:\dir2\tag2.xyz&quot; )</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; rc = code4initUndo( cb )</tt> <br>
+      <tt>End Sub</tt></p>
+    </ul>
+    <h4><a NAME="nonDefault3Del"></a><small><font face="Verdana">How are indexes in a
+    non-default directory and indexes with non-standard name extensions used with CodeBase?
+    (Delphi Example)</font></small></h4>
+    <ul>
+      <tt><p>Procedure Test;</tt> </p>
+      <p><tt>var</tt> <br>
+      <tt>&nbsp;&nbsp; cb : CODE4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; db : DATA4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; tag1, tag2 : TAG4 ;</tt> </p>
+      <p><tt>begin</tt> <br>
+      <tt>&nbsp;&nbsp; cb := code4init ;</tt> <br>
+      <tt>&nbsp;&nbsp; code4autoOpen( cb, 0 ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; db := d4open( cb, &quot;datafile&quot; ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; tag1 := t4open( db, &quot;c:\dir1\tag1.abc&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; tag2 := t4open( db, &quot;c:\dir2\tag2.xyz&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; code4initUndo( cb ) ;</tt> <br>
+      <tt>end ;</tt></p>
+    </ul>
+    <hr WIDTH="100%">
+    <h4><a NAME="uniqueC"></a><small><font face="Verdana">Why are all unique tags set to
+    r4uniqueContinue, even though they were created with the r4unique option? (C Example</font></small>)</h4>
+    <ul>
+      <tt><p>CODE4 codeBase;</tt> <br>
+      <tt>DATA4 *file;</tt> <br>
+      <tt>TAG4 *tag;</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>file = d4open (&amp;codeBase, &quot;datafile&quot;);</tt> <br>
+      <tt>tag = d4tag (file, &quot;tagName&quot;);</tt> </p>
+      <p><tt>/* The tags unique-error handling status is now set to */</tt> <br>
+      <tt>/* r4uniqueContinue, so let's change it to a different value. */</tt> <br>
+      <tt>t4uniqueSet( tag, r4unique ) ;</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt></p>
+    </ul>
+    <h4><a NAME="uniqueCpp"></a><small><font face="Verdana">Why are all unique tags set to
+    r4uniqueContinue, even though they were created with the r4unique option? (C++ Example)</font></small></h4>
+    <ul>
+      <tt><p>Code4 codeBase;</tt> <br>
+      <tt>Dat4&nbsp; file;</tt> <br>
+      <tt>Tag4&nbsp; tag;</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>file.open( codeBase, &quot;datafile&quot; ) ;</tt> <br>
+      <tt>tag.init( file, &quot;tagName&quot; ) ;</tt> </p>
+      <p><tt>// tag-uniqueError is now set to r4uniqueContinue, so let's</tt> <br>
+      <tt>// change it to a different value.</tt> <br>
+      <tt>tag.unique( r4unique ) ;</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt></p>
+    </ul>
+    <h4><a NAME="uniqueVB"></a><small><font face="Verdana">Why are all unique tags set to
+    r4uniqueContinue, even though they were created with the r4unique option? (Visual Basic
+    Example</font></small>)</h4>
+    <ul>
+      <tt><p>Dim cb As Long, db As Long, tag As Long, rc As Integer</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>db = d4open ( cb, &quot;datafile&quot;)</tt> <br>
+      <tt>tag = d4tag ( db, &quot;tagName&quot;)</tt> </p>
+      <p><tt>' The tags unique-error handling status is now set to</tt> <br>
+      <tt>' r4uniqueContinue, so let's change it to a different value.</tt> <br>
+      <tt>rc = t4uniqueSet( tag, r4unique ) ;</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt></p>
+    </ul>
+    <h4><small><font face="Verdana"><a NAME="uniqueDel"></a>Why are all unique tags set to
+    r4uniqueContinue, even though they were created with the r4unique option? (Delphi Example)</font></small></h4>
+    <ul>
+      <tt><p>var</tt> <br>
+      <tt>cb : CODE4 ;</tt> <br>
+      <tt>db : DATA4 ;</tt> <br>
+      <tt>tag : TAG4 ;</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>db := d4open ( cb, &quot;datafile&quot;) ;</tt> <br>
+      <tt>tag := d4tag ( db, &quot;tagName&quot;) ;</tt> </p>
+      <p><tt>' The tags unique-error handling status is now set to</tt> <br>
+      <tt>' r4uniqueContinue, so let's change it to a different value.</tt> <br>
+      <tt>t4uniqueSet( tag, r4unique ) ;</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt></p>
+    </ul>
+    <hr WIDTH="100%">
+    <h4><a NAME="queryRecordCountC"></a><small><font face="Verdana">When a query that uses
+    Query Optimization technology (QO) is made, how is it possible to find out the number of
+    records that are returned? (C Example)</font></small></h4>
+    <ul>
+      <tt><p>#include &quot;d4all.h&quot;</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; CODE4 cb;</tt> <br>
+      <tt>&nbsp;&nbsp; DATA4 *file;</tt> <br>
+      <tt>&nbsp;&nbsp; RELATE4 *relation;</tt> <br>
+      <tt>&nbsp;&nbsp; int count = 0;</tt> <br>
+      <tt>&nbsp;&nbsp; int record;</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4init(&amp;cb);</tt> <br>
+      <tt>&nbsp;&nbsp; file = d4open(&amp;cb, &quot;DATAFILE&quot;);</tt> </p>
+      <p><tt>&nbsp;&nbsp; relation = relate4init(file);</tt> <br>
+      <tt>&nbsp;&nbsp; relate4querySet(relation, &quot;FIELD1 = 10&quot;);</tt> <br>
+      <tt>&nbsp;&nbsp; record = relate4top(relation);</tt> </p>
+      <p><tt>&nbsp;&nbsp; while (record == r4success)</tt> <br>
+      <tt>&nbsp;&nbsp; {</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count ++;</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; record = relate4skip(relation, 1L);</tt> <br>
+      <tt>&nbsp;&nbsp; }</tt> </p>
+      <p><tt>&nbsp;&nbsp; printf(&quot;Number of records returned by query = %d\n&quot;, count);</tt>
+      </p>
+      <p><tt>&nbsp;&nbsp; code4initUndo(&amp;cb);</tt> <br>
+      <tt>}</tt></p>
+    </ul>
+    <h4><small><font face="Verdana"><a NAME="queryRecordCountCpp"></a>When a query that uses
+    Query Optimization technology (QO) is made, how is it possible to find out the number of
+    records that are returned? (C++ Example)</font></small></h4>
+    <ul>
+      <tt><p>#include &quot;d4all.hpp&quot;</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; Code4 cb;</tt> <br>
+      <tt>&nbsp;&nbsp; Data4 file;</tt> <br>
+      <tt>&nbsp;&nbsp; Relate4set relation;</tt> <br>
+      <tt>&nbsp;&nbsp; int record, count = 0;</tt> </p>
+      <p><tt>&nbsp;&nbsp; file.open( &quot;DATAFILE&quot; ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; relation.init( file ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; relation.querySet ( &quot;FIELD1 = 10&quot; ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; record = relation.top() ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; while ( record == r4success )</tt> <br>
+      <tt>&nbsp;&nbsp; {</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count ++;</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; record = relation.skip( 1L ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; }</tt> </p>
+      <p><tt>&nbsp;&nbsp; cout &lt;&lt; &quot;Number of records returned by query = &quot;
+      &lt;&lt; count &lt;&lt; endl;</tt> </p>
+      <p><tt>&nbsp;&nbsp; cb.initUndo();</tt> <br>
+      <tt>}</tt></p>
+    </ul>
+    <h4><a NAME="queryRecordCountVB"></a><small><font face="Verdana">When a query that uses
+    Query Optimization technology (QO) is made, how is it possible to find out the number of
+    records that are returned? (Visual Basic Example</font></small>)</h4>
+    <ul>
+      <tt><p>Sub Test()</tt> <br>
+      <tt>&nbsp;&nbsp; Dim cb As Long, db As Long, relation As Long</tt> <br>
+      <tt>&nbsp;&nbsp; Dim record As Integer, count As Integer</tt> </p>
+      <p><tt>&nbsp;&nbsp; cb = code4init()</tt> </p>
+      <p><tt>&nbsp;&nbsp; db = d4open( cb, &quot;datafile&quot; )</tt> </p>
+      <p><tt>&nbsp;&nbsp; relation = relate4init( db )</tt> </p>
+      <p><tt>&nbsp;&nbsp; call relate4querySet( relation, &quot;FIELD1 = 10&quot; )</tt> </p>
+      <p><tt>&nbsp;&nbsp; record = relate4top( relateion )</tt> </p>
+      <p><tt>&nbsp;&nbsp; Do While record &lt;&gt; r4success</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count = count + 1</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; record = relate4skip( relation, 1 )</tt> <br>
+      <tt>&nbsp;&nbsp; Loop</tt> </p>
+      <p><tt>&nbsp;&nbsp; Form1.Print &quot;Number of records in query = &quot; + Str$(count)</tt>
+      </p>
+      <p><tt>&nbsp;&nbsp; call code4initUndo( cb )</tt> <br>
+      <tt>End Sub</tt></p>
+    </ul>
+    <h4><a NAME="queryRecordCountDel"></a><small><font face="Verdana">When a query that uses
+    Query Optimization technology (QO) is made, how is it possible to find out the number of
+    records that are returned? (Delphi Example)</font></small></h4>
+    <ul>
+      <tt><p>Procedure Test;</tt> </p>
+      <p><tt>var</tt> <br>
+      <tt>&nbsp;&nbsp; cb : CODE4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; db : DATA4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; relation : RELATE4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; recount, count : Integer ;</tt> </p>
+      <p><tt>begin</tt> <br>
+      <tt>&nbsp;&nbsp; cb := code4init ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; db := d4open( cb, &quot;datafile&quot; ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; relation := relate4init( db ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; relate4querySet( relation, &quot;FIELD1 = 10&quot; ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; record := relate4top( relation ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; while record &lt;&gt; r4success do</tt> <br>
+      <tt>&nbsp;&nbsp; begin</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; count := count + 1 ;</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; record := relate4skip( relation, 1 ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; end ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; writeln( 'Number of records in query = ', count ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4initUndo( cb ) ;</tt> <br>
+      <tt>end ;</tt></p>
+    </ul>
+    <hr WIDTH="100%">
+    <p><a NAME="calcCreateC"></a><strong><small><font face="Verdana">What is code4calcCreate()
+    used for? (C Example)</font></small> </strong><ul>
+      <tt><p>#include &quot;d4all.h&quot;</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; CODE4 cb;</tt> <br>
+      <tt>&nbsp;&nbsp; DATA4 *file;</tt> <br>
+      <tt>&nbsp;&nbsp; EXPR4 *expr;</tt> <br>
+      <tt>&nbsp;&nbsp; RELATE4 *relation;</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4init (&amp;cb);</tt> <br>
+      <tt>&nbsp;&nbsp; file = d4open (&amp;cb, &quot;DATAFILE&quot;);</tt> </p>
+      <p><tt>&nbsp;&nbsp; expr = expr4parse (file, &quot;FIELD1 = 1 .OR. FIELD1 = 2&quot;);</tt>
+      <br>
+      <tt>&nbsp;&nbsp; code4calcCreate (&amp;cb, expr, &quot;MYEXPR&quot;);</tt> </p>
+      <p><tt>&nbsp;&nbsp; relation = relate4init (file);</tt> <br>
+      <tt>&nbsp;&nbsp; relate4querySet (relation, &quot;MYEXPR() .OR. FIELD1 = 19&quot;);</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; d4initUndo(&amp;cb);</tt> <br>
+      <tt>}</tt></p>
+    </ul>
+    <h4><a NAME="calcCreateCpp"></a><small><font face="Verdana">What is code4calcCreate() used
+    for? (C++ Example)</font></small></h4>
+    <ul>
+      <tt><p>#include &quot;d4all.h&quot;</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; Code4 cb ;</tt> <br>
+      <tt>&nbsp;&nbsp; Data4 file ;</tt> <br>
+      <tt>&nbsp;&nbsp; Expr4 expr ;</tt> <br>
+      <tt>&nbsp;&nbsp; Relate4set relation ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; file.open( &quot;DATAFILE&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; expr.parse( file, &quot;FIELD1 = 1 .OR. FIELD1 = 2&quot; ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; cb.calcCreate( expr, &quot;MYEXPR&quot; ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; relation.init( file ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; relation.querySet( &quot;MYEXPR() .OR. FIELD1 = 19&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; cb.initUndo() ;</tt> <br>
+      <tt>}</tt></p>
+    </ul>
+    <h4><a NAME="calcCreateVB"></a><small><font face="Verdana">What is code4calcCreate() used
+    for? (Visual Basic Example</font></small>)</h4>
+    <ul>
+      <tt><p>Sub Test</tt> <br>
+      <tt>&nbsp;&nbsp; Dim cb As Long, db As Long, expr As Long, relation As Long</tt> </p>
+      <p><tt>&nbsp;&nbsp; cb = code4init()</tt> </p>
+      <p><tt>&nbsp;&nbsp; db = d4open( cb, &quot;datafile&quot; )</tt> <br>
+      <tt>&nbsp;&nbsp; expr = expr4parse( db, &quot;FIELD1 = 1 .OR. FIELD1 = 2&quot; )</tt> </p>
+      <p><tt>&nbsp;&nbsp; call code4calcCreate( expr, &quot;MYEXPR&quot; )</tt> </p>
+      <p><tt>&nbsp;&nbsp; relation = relate4init( db )</tt> <br>
+      <tt>&nbsp;&nbsp; rc = relate4querySet( relation, &quot;MYEXPR() .OR. FIELD1 = 19&quot; )</tt>
+      <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; call code4initUndo( cb )</tt> <br>
+      <tt>End Sub</tt></p>
+    </ul>
+    <h4><a NAME="calcCreateDel"></a><small><font face="Verdana">What is code4calcCreate() used
+    for? (Delphi Example)</font></small></h4>
+    <ul>
+      <tt><p>Procedure Test;</tt> </p>
+      <p><tt>var</tt> <br>
+      <tt>&nbsp;&nbsp; cb : CODE4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; db : DATA4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; expr : EXPR4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; relation : RELATE4 ;</tt> </p>
+      <p><tt>begin</tt> <br>
+      <tt>&nbsp;&nbsp; cb := code4init ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; db := d4open( cb, &quot;datafile&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; expr := expr4parse( db, &quot;FIELD1 = 1 .OR. FIELD2 = 2&quot; ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4calcCreate( expr, &quot;MYEXPR&quot; ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; relation := relate4init( db ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; relate4querySet( relation, &quot;MYEXPR() .OR. FIELD1 = 19&quot; ) ;</tt>
+      <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; code4initUndo( cb ) ;</tt> <br>
+      <tt>end ;</tt></p>
+    </ul>
+    <hr WIDTH="100%">
+    <p><a NAME="CRpageSizeC"></a><strong><small><font face="Verdana">How can I make my report
+    page size on screen identical to the sheets I use for my printer? (C Example)</font></small>
+    </strong><ul>
+      <tt><p>CODE4 cb;</tt> <br>
+      <tt>REPORT4 *report;</tt> </p>
+      <p><tt>code4init(&amp;cb);</tt> <br>
+      <tt>report = report4retrieve(&amp;cb, &quot;MY_REP&quot;, 1, NULL);</tt> <br>
+      <tt>report4pageSize(report, 11000, 8500, 0);</tt> <br>
+      <tt>report4margins(report, 500, 500, 500, 500, 0);</tt> <br>
+      <tt>report-&gt;screen_breaks = 1;</tt> <br>
+      <tt>report4do(report);</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt></p>
+    </ul>
+    <h4><a NAME="CRpageSizeCpp"></a><small><font face="Verdana">How can I make my report page
+    size on screen identical to the sheets I use for my printer? (C++ Example)</font></small></h4>
+    <ul>
+      <tt><p>Code4 cb;</tt> <br>
+      <tt>REPORT4 *report;</tt> </p>
+      <p><tt>report = report4retrieve( cb, &quot;MY_REP&quot;, 1, NULL);</tt> <br>
+      <tt>report4pageSize(report, 11000, 8500, 0);</tt> <br>
+      <tt>report4margins(report, 500, 500, 500, 500, 0);</tt> <br>
+      <tt>report-&gt;screen_breaks = 1;</tt> <br>
+      <tt>report4do(report);</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt></p>
+    </ul>
+    <h4><a NAME="CRpageSizeVB"></a><small><font face="Verdana">How can I make my report page
+    size on screen identical to the sheets I use for my printer? (Visual Basic Example</font></small>)</h4>
+    <ul>
+      <tt><p>Dim cb As Long, report As Long</tt> </p>
+      <p><tt>cb = code4init()</tt> <br>
+      <tt>report = report4retrieve( cb, &quot;MY_REP&quot;, 1, 0 )</tt> </p>
+      <p><tt>call report4pageSize( report, 11000, 8500, 0 )</tt> <br>
+      <tt>call report4margins( report, 500, 500, 500, 500, 0 )</tt> <br>
+      <tt>call report4screenBreaks( report, 1 )</tt> <br>
+      <tt>call report4do( report )</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt> <br>
+      <tt>.</tt></p>
+    </ul>
+    <h4><a NAME="CRpageSizeDel"></a><small><font face="Verdana">How can I make my report page
+    size on screen identical to the sheets I use for my printer? (Delphi Example)</font></small></h4>
+    <ul>
+      <tt><p>var</tt> <br>
+      <tt>&nbsp;&nbsp; cb : CODE4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; report : REPORT4 ;</tt> </p>
+      <p><tt>begin</tt> <br>
+      <tt>&nbsp;&nbsp; cb := code4init ;</tt> <br>
+      <tt>&nbsp;&nbsp; report := report4retrieve( cb, &quot;MY_REP&quot;, 1, 0 ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; report4pageSize( report, 11000, 8500, 0 ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; report4margins( report, 500, 500, 500, 500, 0 ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; report4screenBreaks( report, 1 ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; report4do( report ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt> <br>
+      <tt>&nbsp;&nbsp; .</tt></p>
+    </ul>
+    <hr WIDTH="100%">
+    <h4><a NAME="e4codeBaseC"></a><small><font face="Verdana">Error Number: -1 or e4codeBase
+    (C Example</font></small>)</h4>
+    <ul>
+      <tt><p>#include &quot;d4all.h&quot;</tt> </p>
+      <p><tt>#ifdef __BORLANDC__</tt> <br>
+      <tt>&nbsp;&nbsp; extern unsigned _stklen = 15000;&nbsp;&nbsp; /* Borland only */</tt> <br>
+      <tt>#endif</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; CODE4 cb;</tt> <br>
+      <tt>&nbsp;&nbsp; DATA4 *file1;</tt> <br>
+      <tt>&nbsp;&nbsp; DATA4 *file2;</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4init (&amp;cb);</tt> <br>
+      <tt>&nbsp;&nbsp; file1 = d4open (&amp;cb, &quot;DATAFILE&quot;);</tt> <br>
+      <tt>&nbsp;&nbsp; printf (&quot;\nA call to d4top returns %d&quot;, d4top (file1));</tt> </p>
+      <p><tt>&nbsp;&nbsp; file2 = d4open (&amp;cb, &quot;DATAFILE&quot;);&nbsp;&nbsp; // Error
+      -910 is returned</tt> <br>
+      <tt>&nbsp;&nbsp; printf (&quot;\nA call to d4top returns %d&quot;, d4top (file1));</tt> </p>
+      <p><tt>&nbsp;&nbsp; printf (&quot;\nThe error code is now set to %d&quot;, cb.errorCode);</tt>
+      </p>
+      <p><tt>&nbsp;&nbsp; cb.errorCode = 0;</tt> <br>
+      <tt>&nbsp;&nbsp; printf (&quot;\nA call to d4top returns %d&quot;, d4top (file1));</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4initUndo(&amp;cb);</tt> <br>
+      <tt>}</tt></p>
+    </ul>
+    <h4><a NAME="e4codeBaseCpp"></a><small><font face="Verdana">Error Number: -1 or e4codeBase
+    (C++ Example)</font></small></h4>
+    <ul>
+      <tt><p>#include &quot;d4all.hpp&quot;</tt> </p>
+      <p><tt>#ifdef __BORLANDC__</tt> <br>
+      <tt>&nbsp;&nbsp; extern unsigned _stklen = 15000;&nbsp;&nbsp; /* Borland only */</tt> <br>
+      <tt>#endif</tt> </p>
+      <p><tt>void main (void)</tt> <br>
+      <tt>{</tt> <br>
+      <tt>&nbsp;&nbsp; Code4 cb;</tt> <br>
+      <tt>&nbsp;&nbsp; Data4 file1, file2 ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; file1.open( &quot;DATAFILE&quot; ) ;&nbsp;&nbsp;&nbsp; // assume file
+      exists</tt> <br>
+      <tt>&nbsp;&nbsp; cout &lt;&lt; &quot;A call to d4top returns &quot; &lt;&lt; d4top(file1)
+      &lt;&lt; endl;</tt> </p>
+      <p><tt>&nbsp;&nbsp; file1.open( &quot;DATAFILE&quot; ) ;&nbsp;&nbsp;&nbsp; // Error -910
+      is returned</tt> <br>
+      <tt>&nbsp;&nbsp; cout &lt;&lt; &quot;A call to d4top returns &quot; &lt;&lt; d4top(file1)
+      &lt;&lt; endl;</tt> </p>
+      <p><tt>&nbsp;&nbsp; cout &lt;&lt; &quot;The error code is now set to &quot; &lt;&lt;
+      cb.errorCode &lt;&lt; endl;</tt> </p>
+      <p><tt>&nbsp;&nbsp; cb.errorCode = 0;</tt> <br>
+      <tt>&nbsp;&nbsp; cout &lt;&lt; &quot;A call to d4top returns &quot; &lt;&lt; d4top(file1)
+      &lt;&lt; endl;</tt> </p>
+      <p><tt>&nbsp;&nbsp; cb.initUndo() ;</tt> <br>
+      <tt>}</tt></p>
+    </ul>
+    <h4><a NAME="e4codeBaseVB"></a><small><font face="Verdana">Error Number: -1 or e4codeBase
+    (Visual Basic Example</font></small>)</h4>
+    <ul>
+      <tt><p>Sub Test()</tt> <br>
+      <tt>Dim cb As Long, db1 As Long, db2 As Long</tt> <br>
+      <tt>&nbsp;&nbsp; cb = code4init()</tt> </p>
+      <p><tt>&nbsp;&nbsp; 'Assume datafile.dbf exists</tt> <br>
+      <tt>&nbsp;&nbsp; db1 = d4open( cb, &quot;datafile&quot; )</tt> <br>
+      <tt>&nbsp;&nbsp; form1.print &quot;Calling d4top returns: &quot; + Str$( d4top(db1) )</tt>
+      </p>
+      <p><tt>&nbsp;&nbsp; 'Force a -910 error by attempting to open twice</tt> <br>
+      <tt>&nbsp;&nbsp; db2 = d4open( cb, &quot;datafile&quot; )</tt> <br>
+      <tt>&nbsp;&nbsp; form1.print &quot;Calling d4top returns: &quot; + Str$( d4top(db2) )</tt>
+      </p>
+      <p><tt>&nbsp;&nbsp; 'Display the existing error code, and reset to zero as well</tt> <br>
+      <tt>&nbsp;&nbsp; form1.print &quot;Error code is now: Str$( code4errorCode(cb, 0) )</tt> </p>
+      <p><tt>&nbsp;&nbsp; form1.print &quot;Calling d4top returns: &quot; + Str$(d4top(db))</tt>
+      </p>
+      <p><tt>&nbsp;&nbsp; call code4initUndo( cb )</tt> <br>
+      <tt>End Sub</tt></p>
+    </ul>
+    <h4><a NAME="e4codeBaseDel"></a><small><font face="Verdana">Error Number: -1 or e4codeBase
+    (Delphi Example)</font></small></h4>
+    <ul>
+      <tt><p>Procedure Test;</tt> </p>
+      <p><tt>var</tt> <br>
+      <tt>&nbsp;&nbsp; cb : CODE4 ;</tt> <br>
+      <tt>&nbsp;&nbsp; db1, db2 : DATA4</tt> </p>
+      <p><tt>begin</tt> <br>
+      <tt>&nbsp;&nbsp; cb := code4init ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; { Assume datafile.dbf exists }</tt> <br>
+      <tt>&nbsp;&nbsp; db1 := d4open( cb, &quot;datafile&quot; )</tt> <br>
+      <tt>&nbsp;&nbsp; writeln( 'Calling d4top returns: ', d4top( db1 ) ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; { Force a -910 error by attempting to open twice }</tt> <br>
+      <tt>&nbsp;&nbsp; db2 := d4open( cb, &quot;datafile&quot; ) ;</tt> <br>
+      <tt>&nbsp;&nbsp; writeln ( 'Calling d4top returns: ', d4top(db2) ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; { Display the existing error code, and reset to zero as well }</tt> <br>
+      <tt>&nbsp;&nbsp; writeln( 'Error code is now: ', code4errorCode(cb, 0) ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; writeln( 'Calling d4top returns: ', d4top( db1 ) ) ;</tt> </p>
+      <p><tt>&nbsp;&nbsp; code4initUndo( cb ) ;</tt> <br>
+      <tt>end ;</tt></p>
+    </ul>
+    <p>&nbsp; </td>
+    <td width="10%"></td>
+  </tr>
+</table>
+
+<hr>
+
+<p><a href="/support/hints/"><small><font face="Verdana">Back to the Hints Page</font></small></a></p>
+
+<p><a href="/support/"><small><font face="Verdana">Back to the Sequiter Technical
+Support Page</font></small></a></p>
+
+<p><a href="/"><small><font face="Verdana">Back to Sequiter's Home Page</font></small></a></p>
+
+<hr>
+
+<p>&nbsp;</p>
+</body>
+</html>

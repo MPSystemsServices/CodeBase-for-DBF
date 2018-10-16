@@ -1,0 +1,18 @@
+//ex153.cpp
+#include "d4all.hpp"
+extern unsigned _stklen = 10000 ;
+
+void main( )
+{
+   Str4len str("123.5", 5 ) ;
+   double d1 = (double) str  ;            // d1 becomes 123.5
+   double d2 = (double) Str4ptr( "14.7"); // d2 becomes 14.7
+   str.assign( "15" ) ;
+   double d3 = (double) str  ;            // d3 becomes 15.0
+   str.assign( "21a.4") ;
+   double d4 = (double) str ;             // d4 becomes 21.0
+   cout << d1 << endl ;
+   cout << d2 << endl ;
+   cout << d3 << endl ;
+   cout << d4 << endl ;
+}
