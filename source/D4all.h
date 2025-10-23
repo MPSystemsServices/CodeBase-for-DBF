@@ -21,39 +21,40 @@
 /**********            USER SWITCH SETTINGS AREA            ***********/
 
 /* CodeBase configuration */
-/* #define S4CLIENT */
-#define S4STAND_ALONE
+//#define S4CLIENT
+ #define S4STAND_ALONE
 
 /* Index File compatibility options */
-#ifndef S4CLIENT
+
 /* #define S4CLIPPER */
 #define S4FOX
 /* #define S4MDX     */
-#endif
 
 /* Output selection (alternatives to default) */
 /* #define S4CONSOLE */
 
 /* Specify Library Type (choose one) */
-/* #define S4STATIC */
-#define S4DLL
+#define S4STATIC 
+//#define S4DLL
 
 /* Choose Operating System */
 #define S4WIN32       /* for Windows NT and Windows 95 */
 /* #define S4WINCE      */   /* for Windows CE */
 /* #define S4UNIX       */   /* requires CodeBase Portability version */
 /* #define S4MACINTOSH  */   /* requires CodeBase Mac version */
-/* #define S4WIN64     */   /* for IA-64 Windows */
+ //#define S4WIN64        /* for IA-64 Windows */
 
 /* Selected default communications option */
 /* #define S4BERKSOCK */
 /* #define S4MAC_TCP  */
 /* #define S4MACOT_TCP */
-   #define S4WINSOCK
-
-/* Alterable CodeBase Global Defines */
+#define S4WINSOCK
 #define DEF4SERVER_ID "localhost"
 #define DEF4PROCESS_ID "23165"
+
+/* Alterable CodeBase Global Defines */
+//#define DEF4SERVER_ID "localhost"
+//#define DEF4PROCESS_ID "23165"
 
 /* General Configuration Options */
 /* #define S4LOCK_HOOK    */
@@ -71,10 +72,10 @@
 /* Error Configuration Options */
 /* #define E4ANALYZE    */
 /* #define E4DEBUG      */
-/* #define E4HOOK       */
+ #define E4HOOK       
 /* #define E4LINK       */
 /* #define E4MISC       */
-   #define E4VBASIC
+ //  #define E4VBASIC
 /* #define E4OFF        */
 /* #define E4OFF_STRING */
    #define E4PARM_HIGH
@@ -120,10 +121,10 @@
    /* #define S4SCANDINAVIAN */
    /* #define S4SWEDISH      */
 #endif
-
+//#define S4OFF_COMPRESS
 #ifndef S4OFF_COMPRESS
    #define S4COMPRESS_ZLIB
-   //#define S4COMPRESS_QUICKLZ
+  // #define S4COMPRESS_QUICKLZ
 #endif
 
 #ifdef S4MACINTOSH

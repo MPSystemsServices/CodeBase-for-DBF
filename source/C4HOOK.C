@@ -15,6 +15,8 @@
 /* c4hook.c   (c)Copyright Sequiter Software Inc., 1988-2001.  All rights reserved. */
 
 #include "d4all.h"
+#include "rust-error.h"
+#include "rust-utils.h"
 #ifndef S4UNIX
    #ifdef __TURBOC__
       #pragma hdrstop
@@ -44,11 +46,11 @@ int code4lockHook( CODE4 *c4, const char *fileName, const char *userId, const ch
 #ifdef E4HOOK
 /* Uncomment and add alternative error display code here.
    Function error4hook() may be placed in your own separate source code
-   file, but ensure that the same function prototype as below is used.
+   file, but ensure that the same function prototype as below is used.*/
 void S4FUNCTION error4hook( CODE4 *c4, int errCode, long errCode2, const char *desc1, const char *desc2, const char *desc3 )
 {
-   return ;
+    error_hook(c4, errCode, errCode2, desc1);
 }
-*/
+
 #endif
 #endif

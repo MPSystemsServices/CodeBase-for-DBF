@@ -2125,8 +2125,8 @@
 #ifdef S4FOX
    #define I4MULTIPLY       1
    #define B4DO_BACK_LEVEL  3
-   #define I4MAX_KEY_SIZE 240
-   #define I4MAX_KEY_SIZE_COMPATIBLE 240
+   #define I4MAX_KEY_SIZE 511
+   #define I4MAX_KEY_SIZE_COMPATIBLE 511
    #define F4MAX_NUMERIC   20
    #define F4MAX_DECIMAL   19
    #define F4DECIMAL_OFFSET 1
@@ -2199,7 +2199,7 @@
    #define I4MAX_EXPR_SIZE 220
 #endif
 #ifdef S4FOX
-   #define I4MAX_EXPR_SIZE 255
+   #define I4MAX_EXPR_SIZE 511
 #endif
 #ifdef S4CLIPPER
    #define I4MAX_EXPR_SIZE 255
@@ -2837,10 +2837,9 @@
 // AS Feb 17/04 - compression should always be available now, evein in stand/alone
 // #if !defined( S4STAND_ALONE ) && defined( S4WIN32 ) && !defined( S4COMPRESS )
 // AS Dec 6/06 - allow to turn compression off in stand-alone
-#if defined( S4WIN32 ) && !defined( S4WIN64 ) && !defined( S4COMPRESS ) && !defined( S4OFF_COMPRESS )
+
    // always use compressed messages if possible
    #define S4COMPRESS
-#endif
 
 #ifdef S4COMPRESS
    // AS Jul 16/03 - declaration was missing for client/server (resides in c4code.c)
