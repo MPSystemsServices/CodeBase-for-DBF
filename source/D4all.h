@@ -13,7 +13,7 @@
 /* *********************************************************************************************** */
 
 /* d4all.h   (c)Copyright Sequiter Software Inc., 1988-2001.  All rights reserved. */
-
+#define WINDOWS_IGNORE_PACKING_MISMATCH
 #ifndef D4ALL_INC
 #define D4ALL_INC
 
@@ -22,27 +22,27 @@
 
 /* CodeBase configuration */
 //#define S4CLIENT
- #define S4STAND_ALONE
+ //#define S4STAND_ALONE
 
 /* Index File compatibility options */
 
 /* #define S4CLIPPER */
-#define S4FOX
+//#define S4FOX
 /* #define S4MDX     */
 
 /* Output selection (alternatives to default) */
 /* #define S4CONSOLE */
 
 /* Specify Library Type (choose one) */
-#define S4STATIC 
-//#define S4DLL
+//#define S4STATIC 
+#define S4DLL
 
 /* Choose Operating System */
-#define S4WIN32       /* for Windows NT and Windows 95 */
+//#define S4WIN32       /* for Windows NT and Windows 95 */
 /* #define S4WINCE      */   /* for Windows CE */
 /* #define S4UNIX       */   /* requires CodeBase Portability version */
 /* #define S4MACINTOSH  */   /* requires CodeBase Mac version */
- //#define S4WIN64        /* for IA-64 Windows */
+// #define S4WIN64        /* for IA-64 Windows */
 
 /* Selected default communications option */
 /* #define S4BERKSOCK */

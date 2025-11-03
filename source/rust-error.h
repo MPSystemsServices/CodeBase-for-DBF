@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-void error_hook(CODE4 *cb, int code1, long code2, const char *message);
+extern void error_hook(CODE4 *cb, int code1, long code2, const char *message);
 
 #ifdef __cplusplus
 }
