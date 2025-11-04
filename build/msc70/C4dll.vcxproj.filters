@@ -476,22 +476,15 @@
     <ClInclude Include="..\..\source\rust-utils.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\source\rust-error.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\source\c4dll32.def">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="..\..\lib\sa\dll32\zlib.dll" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="..\..\source\c4dll.res">
       <Filter>Resource Files</Filter>
     </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="zlib.lib" />
   </ItemGroup>
 </Project>

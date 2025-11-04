@@ -119,10 +119,14 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='debug.client|Win32'">.\..\source\</IntDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='debug.standalone|x64'">.\..\source\</IntDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='debug.client|x64'">.\..\source\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug.standalone|Win32'">true</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug.client|Win32'">true</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug.standalone|x64'">true</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug.client|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug.standalone|Win32'">
+    </LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug.client|Win32'">
+    </LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug.standalone|x64'">
+    </LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='debug.client|x64'">
+    </LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='release.standalone|Win32'">.\.\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='release.client|Win32'">.\.\</OutDir>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='release.standalone|x64'">.\.\</OutDir>
@@ -131,10 +135,14 @@
     <IntDir Condition="'$(Configuration)|$(Platform)'=='release.client|Win32'">.\..\source\</IntDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='release.standalone|x64'">.\..\source\</IntDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='release.client|x64'">.\..\source\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release.standalone|Win32'">false</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release.client|Win32'">false</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release.standalone|x64'">false</LinkIncremental>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release.client|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release.standalone|Win32'">
+    </LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release.client|Win32'">
+    </LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release.standalone|x64'">
+    </LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='release.client|x64'">
+    </LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug.standalone|x64'">
     <TargetName>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64'))</TargetName>
@@ -146,6 +154,18 @@
     <TargetName>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64'))</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release.client|x64'">
+    <TargetName>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64'))</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug.client|Win32'">
+    <TargetName>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64'))</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='debug.standalone|Win32'">
+    <TargetName>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64'))</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release.client|Win32'">
+    <TargetName>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64'))</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='release.standalone|Win32'">
     <TargetName>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64'))</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug.standalone|Win32'">
@@ -168,15 +188,16 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
+      <AdditionalDependencies>wsock32.lib;$(ProjectDir)zlib.$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>..\..\source\c4dll32.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
-      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+      <ImportLibrary>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
+      <ForceFileOutput>
+      </ForceFileOutput>
     </Link>
     <Midl>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -189,6 +210,10 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0409</Culture>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug.client|Win32'">
     <ClCompile>
@@ -210,15 +235,16 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
+      <AdditionalDependencies>wsock32.lib;$(ProjectDir)zlib.$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>..\..\source\c4dll32.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
-      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+      <ImportLibrary>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
+      <ForceFileOutput>
+      </ForceFileOutput>
     </Link>
     <Midl>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -231,6 +257,10 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0409</Culture>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug.standalone|x64'">
     <ClCompile>
@@ -251,15 +281,16 @@
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
+      <AdditionalDependencies>wsock32.lib;$(ProjectDir)zlib.$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>..\..\source\c4dll32.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
-      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+      <ImportLibrary>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
+      <ForceFileOutput>
+      </ForceFileOutput>
     </Link>
     <Midl>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -271,6 +302,10 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0409</Culture>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='debug.client|x64'">
     <ClCompile>
@@ -291,15 +326,16 @@
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
+      <AdditionalDependencies>wsock32.lib;$(ProjectDir)zlib.$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>..\..\source\c4dll32.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
-      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+      <ImportLibrary>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
+      <ForceFileOutput>
+      </ForceFileOutput>
     </Link>
     <Midl>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -311,6 +347,10 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0409</Culture>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release.standalone|Win32'">
     <ClCompile>
@@ -333,14 +373,15 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
+      <AdditionalDependencies>wsock32.lib;$(ProjectDir)zlib.$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>..\..\source\c4dll32.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
-      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+      <ImportLibrary>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
+      <ForceFileOutput>
+      </ForceFileOutput>
     </Link>
     <Midl>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -353,6 +394,10 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0409</Culture>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release.client|Win32'">
     <ClCompile>
@@ -375,14 +420,15 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
+      <AdditionalDependencies>wsock32.lib;$(ProjectDir)zlib.$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>..\..\source\c4dll32.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
-      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+      <ImportLibrary>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
+      <ForceFileOutput>
+      </ForceFileOutput>
     </Link>
     <Midl>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -395,6 +441,10 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0409</Culture>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release.standalone|x64'">
     <ClCompile>
@@ -416,14 +466,15 @@
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
+      <AdditionalDependencies>wsock32.lib;$(ProjectDir)zlib.$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>..\..\source\c4dll32.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
-      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+      <ImportLibrary>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
+      <ForceFileOutput>
+      </ForceFileOutput>
     </Link>
     <Midl>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -435,6 +486,10 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0409</Culture>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='release.client|x64'">
     <ClCompile>
@@ -456,14 +511,15 @@
       <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
+      <AdditionalDependencies>wsock32.lib;$(ProjectDir)zlib.$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <ModuleDefinitionFile>..\..\source\c4dll32.def</ModuleDefinitionFile>
-      <ProgramDatabaseFile>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>.\./codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
-      <ForceFileOutput>UndefinedSymbolOnly</ForceFileOutput>
+      <ImportLibrary>codebase.$(Configuration).$([System.String]::Copy('$(Platform)').Replace('Win32','32').Replace('x64','64')).lib</ImportLibrary>
+      <ForceFileOutput>
+      </ForceFileOutput>
     </Link>
     <Midl>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -475,6 +531,10 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Culture>0x0409</Culture>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>
+      </Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\source\B4block.c" />
@@ -630,19 +690,14 @@
     <ClInclude Include="..\..\source\R4reinde.h" />
     <ClInclude Include="..\..\source\R4relate.h" />
     <ClInclude Include="..\..\source\R4report.h" />
-    <ClInclude Include="..\..\source\rust-error.h" />
     <ClInclude Include="..\..\source\rust-utils.h" />
     <ClInclude Include="..\..\source\S4sort.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\lib\sa\dll32\zlib.dll" />
     <None Include="..\..\source\c4dll32.def" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="..\..\source\c4dll.res" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="zlib.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,7 +1,4 @@
-DESCRIPTION    'CodeBase 6 32-Bit Dll for Windows'
-
 EXPORTS
-
    bmp4FindDIBBits
    bmp4GetDIB
    bmp4PaletteSize

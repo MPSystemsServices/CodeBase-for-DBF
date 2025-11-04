@@ -15,7 +15,6 @@
 /* c4hook.c   (c)Copyright Sequiter Software Inc., 1988-2001.  All rights reserved. */
 
 #include "d4all.h"
-#include "rust-error.h"
 #include "rust-utils.h"
 #ifndef S4UNIX
    #ifdef __TURBOC__
@@ -49,7 +48,9 @@ int code4lockHook( CODE4 *c4, const char *fileName, const char *userId, const ch
    file, but ensure that the same function prototype as below is used.*/
 void S4FUNCTION error4hook( CODE4 *c4, int errCode, long errCode2, const char *desc1, const char *desc2, const char *desc3 )
 {
-    error_hook(c4, errCode, errCode2, desc1);
+    if (c4 && c4->errorCallback) {
+        c4->errorCallback(c4, (short)errCode, errCode2, desc1, desc2, desc3);
+    }
 }
 
 #endif

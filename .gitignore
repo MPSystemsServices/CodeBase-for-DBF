@@ -46,6 +46,7 @@ bld/
 *.lib
 *.exp
 *.map
+*.recipe
 
 # Visual Studio cache/options directory
 .vs/
