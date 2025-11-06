@@ -40,6 +40,7 @@ EXPORTS
    code4info
    code4initLow
    code4initUndo
+   code4_initw
    code4limitKeySizeSet
    code4lineNo
    code4lineNoSet
@@ -369,7 +370,9 @@ EXPORTS
    t4close
    t4descending
    t4exprLow
+   t4exprw
    t4filterLow
+   t4filterw
    t4getKey
    t4getTagFile
    t4readBuffer

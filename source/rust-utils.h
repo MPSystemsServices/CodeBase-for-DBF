@@ -7,15 +7,15 @@
 extern "C" {
 #endif
 
-int code4_initw(CODE4 *cb) {
+S4EXPORT int code4_initw(CODE4 *cb) {
     return code4init(cb);
 }
 
-const char *t4filterw( TAG4 *tag ) {
+S4EXPORT const char *t4filterw( TAG4 *tag ) {
     return t4filter(tag);
 }
 
-const char *t4exprw( TAG4 *tag ) {
+S4EXPORT const char *t4exprw( TAG4 *tag ) {
     return t4expr(tag);
 }
 

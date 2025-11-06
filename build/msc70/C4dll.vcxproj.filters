@@ -478,7 +478,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\source\c4dll32.def">
+    <None Include="..\..\source\c4dll_standalone.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="..\..\source\c4dll_client.def">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>

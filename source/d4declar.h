@@ -2650,7 +2650,7 @@ S4EXPORT DATA4 * S4FUNCTION d4compress( DATA4 S4PTR *data, const char S4PTR *com
       #endif
       S4EXPORT COLLATE4 * S4FUNCTION collation4getExport( enum Collate4name ) ;
       S4EXPORT enum Collate4name S4FUNCTION t4getCollateName( TAG4 *tag ) ;
-      int tfile4type( TAG4FILE * ) ;
+      S4EXPORT int tfile4type( TAG4FILE * ) ;
       int tfile4up( TAG4FILE * ) ;
       int tfile4update( TAG4FILE * ) ;
       int tfile4upToRoot( TAG4FILE * ) ;
