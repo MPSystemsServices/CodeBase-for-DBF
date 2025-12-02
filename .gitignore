@@ -364,3 +364,9 @@ FodyWeavers.xsd
 !*.vcxproj
 !*.vcxproj.filters
 !*.vcxproj.user
+
+# Exception: track zlib_static_crt folder and all its contents
+!zlib_static_crt/
+!zlib_static_crt/**
+!zlib_static_crt/x64/
+!zlib_static_crt/x64/**
