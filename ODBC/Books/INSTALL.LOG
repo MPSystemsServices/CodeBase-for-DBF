@@ -1,0 +1,16 @@
+***  Installation Started 03/05/2020 15:33  ***
+Title: CodeBase SQL Documentation
+Source: D:\CodeBaseProject\codebaseTest2015\InstallersAndMasters2014\WORK\ODBCHELP.EXE
+Made Dir: C:\CodeBase
+Made Dir: C:\CodeBase\ODBC
+Made Dir: C:\CodeBase\ODBC\Books
+File Copy: C:\CodeBase\ODBC\Books\UNWISE.EXE
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\CodeBase SQL Documentation
+RegDB Val: CodeBase SQL Documentation
+RegDB Name: DisplayName
+RegDB Root: 2
+RegDB Key: Software\Microsoft\Windows\CurrentVersion\Uninstall\CodeBase SQL Documentation
+RegDB Val: C:\CodeBase\ODBC\Books\UNWISE.EXE C:\CodeBase\ODBC\Books\INSTALL.LOG
+RegDB Name: UninstallString
+RegDB Root: 2
+File Copy: C:\CodeBase\ODBC\Books\codebasesql.chm

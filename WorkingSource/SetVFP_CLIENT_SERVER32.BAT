@@ -1,0 +1,1 @@
+copy HDR_VFP_SERVER_CLIENT_32\d4all.h .

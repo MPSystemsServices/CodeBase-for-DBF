@@ -1,0 +1,8 @@
+user32.lib
+gdi32.lib
+wsock32.lib
+uuid.lib
+advapi32.lib
+comdlg32.lib
+shell32.lib
+zlib.lib

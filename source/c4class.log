@@ -1,0 +1,26 @@
+﻿D:\VisualStudio2022\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(1133,5): warning MSB4211: The property "GetTargetPathDependsOn" is being set to a value for the first time, but it was already consumed at "D:\VisualStudio2022\MSBuild\Current\Bin\amd64\Microsoft.Common.CurrentVersion.targets (2243,5)".
+  D4data_p.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\winnt.h(2597,40): error C2338: static_assert failed: 'Windows headers require the default packing option. Changing this can lead to memory corruption. This diagnostic can be disabled by building with WINDOWS_IGNORE_PACKING_MISMATCH defined.'
+  (compiling source file '../../source/D4data_p.cpp')
+  
+  F4info_p.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\winnt.h(2597,40): error C2338: static_assert failed: 'Windows headers require the default packing option. Changing this can lead to memory corruption. This diagnostic can be disabled by building with WINDOWS_IGNORE_PACKING_MISMATCH defined.'
+  (compiling source file '../../source/F4info_p.cpp')
+  
+  F4seq.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\winnt.h(2597,40): error C2338: static_assert failed: 'Windows headers require the default packing option. Changing this can lead to memory corruption. This diagnostic can be disabled by building with WINDOWS_IGNORE_PACKING_MISMATCH defined.'
+  (compiling source file '../../source/F4seq.cpp')
+  
+  S4str.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\winnt.h(2597,40): error C2338: static_assert failed: 'Windows headers require the default packing option. Changing this can lead to memory corruption. This diagnostic can be disabled by building with WINDOWS_IGNORE_PACKING_MISMATCH defined.'
+  (compiling source file '../../source/S4str.cpp')
+  
+  S4string.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\winnt.h(2597,40): error C2338: static_assert failed: 'Windows headers require the default packing option. Changing this can lead to memory corruption. This diagnostic can be disabled by building with WINDOWS_IGNORE_PACKING_MISMATCH defined.'
+  (compiling source file '../../source/S4string.cpp')
+  
+  T4info.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\um\winnt.h(2597,40): error C2338: static_assert failed: 'Windows headers require the default packing option. Changing this can lead to memory corruption. This diagnostic can be disabled by building with WINDOWS_IGNORE_PACKING_MISMATCH defined.'
+  (compiling source file '../../source/T4info.cpp')
+  
+  Generating Code...

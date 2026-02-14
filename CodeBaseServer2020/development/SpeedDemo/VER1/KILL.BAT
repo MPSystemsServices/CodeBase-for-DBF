@@ -1,0 +1,2 @@
+del *.dbf
+del *.cdx

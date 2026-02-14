@@ -1,0 +1,220 @@
+//Microsoft Developer Studio generated resource script.
+//
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#define APSTUDIO_HIDDEN_SYMBOLS
+#include "windows.h"
+#undef APSTUDIO_HIDDEN_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+DLGABOUT DIALOG DISCARDABLE  92, 70, 169, 190
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION
+CAPTION "CodeBase Database Server Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,108,5,50,14
+    LTEXT           "CodeBase 6.5",110,29,31,60,8
+    LTEXT           "Clients Connected :",102,30,55,124,8
+    LTEXT           "File Compatibility :",103,30,155,124,10
+    LTEXT           "Physical Memory Avail:",104,30,70,124,10
+    LTEXT           "System Resources :",105,30,95,124,8
+    CONTROL         "",111,"Static",SS_BLACKFRAME,29,47,125,2
+    CONTROL         "",112,"Static",SS_BLACKFRAME,29,87,125,2
+    ICON            "ICON_SERVER",115,6,22,21,20
+    LTEXT           "Maximum Sockets Available :",109,30,125,114,8
+    LTEXT           "Large File Support :",106,30,110,106,8
+    LTEXT           "Port Number :",107,30,140,125,10
+//    LTEXT           "Auto Recovery:",121,30,155,125,10
+END
+
+DLGABOUTLICENCE DIALOG DISCARDABLE  70, 50, 303, 209
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION |
+    WS_SYSMENU
+CAPTION "About CodeBase Database Server"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,250,0,50,14
+    LTEXT           "CodeBase 6.5",116,35,19,244,9
+    LTEXT           "© Sequiter Software Inc., 1988-2002. All rights reserved",
+                    117,35,45,244,9
+    CONTROL         "",113,"Static",SS_BLACKFRAME,35,61,244,2
+    ICON            "ICON_SERVER",118,6,30,21,20
+    LTEXT           "Build ",124,35,29,244,9
+    LTEXT           "LICENCE",119,35,72,244,76
+    LTEXT           "Organization (or Person) :",107,35,175,244,9
+    LTEXT           "CodeBase",108,35,190,244,8
+    CONTROL         "",114,"Static",SS_BLACKFRAME,34,155,244,2
+    LTEXT           "Information",120,35,160,244,8
+END
+
+DLGSTARTCONFIG DIALOG DISCARDABLE  90, 0, 283, 95
+STYLE DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_VISIBLE | WS_CAPTION |
+    WS_SYSMENU
+CAPTION "Server Configuragtion Information"
+FONT 8, "MS Sans Serif"
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,229,1,50,14
+    EDITTEXT        125,13,29,247,14,ES_AUTOHSCROLL
+    EDITTEXT        126,13,61,247,14,ES_AUTOHSCROLL
+    LTEXT           "Company Name:",122,13,16,121,8
+    LTEXT           "CodeBase Serial Number:",123,13,48,119,8,NOT WS_GROUP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+ICON_SERVER             ICON    DISCARDABLE     "S4SERVER.ICO"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+MENU_MAIN MENU DISCARDABLE
+BEGIN
+    POPUP "&Help"
+    BEGIN
+        MENUITEM "&About",                      102
+        MENUITEM "&Server Information",         110
+    END
+END
+
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE
+BEGIN
+    "#define APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "#include ""windows.h""\r\n"
+    "#undef APSTUDIO_HIDDEN_SYMBOLS\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE
+BEGIN
+    "\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE
+BEGIN
+    "DLGABOUTLICENCE", DIALOG
+    BEGIN
+        RIGHTMARGIN, 300
+        BOTTOMMARGIN, 202
+    END
+
+    "DLGSTARTCONFIG", DIALOG
+    BEGIN
+        LEFTMARGIN, 2
+        RIGHTMARGIN, 279
+        TOPMARGIN, 1
+        BOTTOMMARGIN, 91
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,1
+ PRODUCTVERSION 1,0,0,1
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x40004L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "\0"
+            VALUE "CompanyName", "Sequiter Software Inc.\0"
+            VALUE "FileDescription", "CodeBase Database Server\0"
+            VALUE "FileVersion", "1, 0, 0, 1\0"
+            VALUE "InternalName", "s4server\0"
+            VALUE "LegalCopyright", "Copyright © 2002\0"
+            VALUE "LegalTrademarks", "\0"
+            VALUE "OriginalFilename", "s4server.exe\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "CodeBase\0"
+            VALUE "ProductVersion", "6.5\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

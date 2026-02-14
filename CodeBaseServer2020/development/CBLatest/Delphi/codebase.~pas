@@ -1,0 +1,1732 @@
+{codebase.pas (c)Copyright Sequiter Software Inc., 1988-1999.  All rights reserved.}
+
+{CBCD -- CB Components Remark}
+{* Please note modifications marked with CBCD were necessary to implement CB Comps *}
+
+{********************************************************************}
+{ Use The 80x87 Numeric Coprocessor }
+{********************************************************************}
+
+{$N+}
+
+{********************************************************************}
+{ Define The CodeBase Unit }
+{********************************************************************}
+
+unit CodeBase ;
+
+{CBCD -- Determine the compiler}
+{$IFDEF VER80}
+  {Delphi 1}
+  {$DEFINE DELPHI}
+{$ENDIF}
+{$IFDEF VER90}
+  {Delphi 2}
+  {$DEFINE DELPHI}
+{$ENDIF}
+{$IFDEF VER93}
+  {C++ Builder 1}
+  {$DEFINE CBUILDER}
+{$ENDIF}
+{$IFDEF VER100}
+  {Delphi 3}
+  {$DEFINE DELPHI}
+  {$WARNINGS OFF}
+{$ENDIF}
+{$IFDEF VER110}
+  {C++ Builder 3}
+  {$DEFINE CBUILDER}
+  {$WARNINGS OFF}
+{$ENDIF}
+{$IFDEF VER120}
+  {Delphi 4}
+  {$DEFINE DELPHI}
+  {$WARNINGS OFF}
+{$ENDIF}
+{$IFDEF VER125}
+  {C++ Builder 4}
+  {$DEFINE CBUILDER}
+  {$WARNINGS OFF}
+{$ENDIF}
+{$IFDEF VER130}
+  {Delphi 5}
+  {$WARNINGS OFF}
+  {$DEFINE DELPHI}
+  {$WARNINGS OFF}
+{$ENDIF}
+
+{********************************************************************}
+{ Beginning Of Interface Section }
+{********************************************************************}
+
+interface
+
+{$ifndef WIN32}
+   uses WinCrt, WinTypes ;
+{$else}
+   uses Windows ;
+{$endif}
+
+const
+
+{********************************************************************}
+{ Set CBDLL to the specified DLL }
+{********************************************************************}
+
+  CBDLL = 'C4DLL.DLL';      { CodeBase DLL name }
+
+{$IFNDEF WM_USER}      {Delphi does not define this on its own}
+
+  {CBCD -- WM_USER _is_ defined in C++ Builder}
+  {$IFNDEF CBUILDER}
+     WM_USER =           1024;
+  {$ENDIF}
+
+{$ENDIF}
+
+S4VERSION = 6500 ; { For use by some internal functions }
+
+{*********************************************************************}
+{ Field Types }
+{*********************************************************************}
+
+r4bin       = integer('B') ; { binary field - when using dBASE IV }
+r4double    = integer('B') ; { Double field - when using FoxPro }
+r4str       = integer('C') ; { character field }
+r4date      = integer('D') ; { date field }
+r4float     = integer('F') ; { Floating point field }
+r4gen       = integer('G') ; { General field }
+r4int       = integer('I') ; { Integer field }
+r4log       = integer('L') ; { Logical field }
+r4memo      = integer('M') ; { Memo field }
+r4num       = integer('N') ; { Numeric or Floating Point field }
+r4dateTime  = integer('T') ; { DateTime field }
+r4memoBin   = integer('X') ; { Memo (binary) field }
+r4currency  = integer('Y') ; { Currency field }
+r4charBin   = integer('Z') ; { Character (binary) field }
+r4dateDoub  = integer('d') ; { A date is formatted as a C double }
+r4numDoub   = integer('n') ; { A numeric value is formatted as a C double }
+r4unicode   = integer('W') ; { Unicode character field }
+
+r4check     = -5 ; { Used for checking the value of CodeBase members }
+
+{********************************************************************}
+{ Return Codes }
+{********************************************************************}
+r4success        =   0;
+r4same           =   0;
+r4found          =   1;  { Primary Key Match }
+r4down           =   1;
+r4after          =   2;
+r4complete       =   2;
+r4eof            =   3;
+r4bof            =   4;
+r4entry          =   5;  { No index file entry or no record (go) }
+r4descending     =  10;
+r4unique         =  20;  { Key is not unique, do not write/append }
+r4uniqueContinue =  25;  { Key is not unique, write/append anyway }
+r4locked         =  50;
+r4noCreate       =  60;  { Could not create file }
+r4noOpen         =  70;  { Could not open file }
+r4noTag          =  80;  { DataIndex::seek, with no default tag }
+r4terminate      =  90;  { no relation match with terminate set }
+r4inactive       = 110;
+r4active         = 120;
+r4authorize      = 140;
+r4connected      = 150;
+r4logOpen        = 170;
+r4logOff         = 180;
+r4null           = 190;
+r4autoIncrement  = 195;
+
+{ code4actionCode }
+ACTION4NONE         = 0;
+ACTION4REINDEX      = 1;
+ACTION4INITIALIZING = 32767;
+{********************************************************************}
+{ Error Codes }
+{********************************************************************}
+
+{ General Disk Access Errors }
+
+e4close   = -10 ;
+e4create  = -20 ;
+e4len     = -30 ;
+e4lenSet  = -40 ;
+e4lock    = -50 ;
+e4open    = -60 ;
+e4permiss = -61 ;
+e4access  = -62 ;
+e4numFiles = -63 ;
+e4fileFind = -64 ;
+e4instance = -69 ;
+e4read    = -70 ;
+e4remove  = -80 ;
+e4rename  = -90 ;
+e4unlock  = -110 ;
+e4write   = -120 ;
+
+{ Database Specific Errors }
+
+e4data      = -200 ;
+e4fieldName = -210 ;    { Invalid field name }
+e4fieldType = -220 ;
+e4recordLen = -230 ;
+e4append    = -240 ;
+e4seek      = -250 ;
+
+{ Index File Specific Errors }
+
+e4entry   = -300 ;    { Tag entry not located }
+e4index   = -310 ;
+e4tagName = -330 ;
+e4unique  = -340 ;    { Key is not unique }
+e4tagInfo = -350 ;
+
+{ Expression Evaluation Errors }
+
+e4commaExpected = -400 ;
+e4complete      = -410 ;
+e4dataName      = -420 ;
+e4lengthErr     = -422 ;
+e4notConstant   = -425 ;
+e4numParms      = -430 ;
+e4overflow      = -440 ; { Overflow while evaluating expression }
+e4rightMissing  = -450 ;
+e4typeSub       = -460 ;
+e4unrecFunction = -470 ;
+e4unrecOperator = -480 ;
+e4unrecValue    = -490 ;
+e4unterminated  = -500 ;
+e4tagExpr       = -510 ;
+
+{ Optimization Errors }
+
+e4opt        = -610 ;
+e4optSuspend = -620 ;
+e4optFlush   = -630 ;
+
+{ Relation Errors }
+
+e4relate    = -710 ;
+e4lookupErr = -720 ;
+e4relateRefer = -730 ;
+
+{ Report Errors  }
+
+e4report      = -810 ;
+e4styleCreate = -811 ;
+e4styleSelect = -812 ;
+e4styleIndex  = -813 ;
+e4areaCreate  = -814 ;
+e4groupCreate = -815 ;
+e4groupExpr   = -816 ;
+e4totalCreate = -817 ;
+e4objCreate   = -818 ;
+e4repWin      = -819 ;
+e4repOut      = -820 ;
+e4repSave     = -821 ;
+e4repRet      = -822 ;
+e4repData     = -823 ;
+
+{ Severe Errors }
+
+e4info          = -910 ; { Unexpected information in internal variable }
+e4memory        = -920 ; { Out of memory }
+e4parm          = -930 ; { Unexpected parameter }
+e4parmNull      = -935 ; { NULL input parameter unexpected }
+e4demo          = -940 ; { Exceeded maximum record number for demo }
+e4result        = -950 ; { Unexpected result }
+e4verify        = -960 ; { Structure Verification Failure }
+e4struct        = -970 ; {data structure corrupt or not initialized }
+
+e4notIindex  = -1010 ; { S4OFF_INDEX  }
+e4notMemo    = -1020 ; { S4OFF_MEMO   }
+e4notRename  = -1030 ; { S4NO_RENAME  }
+e4notWrite   = -1040 ; { S4OFF_WRITE  }
+e4notClipper = -1050 ; { S4CLIPPER    }
+e4notLock    = -1060 ; { S4LOCK_HOOK  }
+e4notHook    = -1070 ; { S4ERROR_HOOK }
+
+{ Not Supported Errors }
+e4notSupported  = -1090 ; { function unsupported }
+e4version       = -1095 ; { application/library version mismatch }
+
+{ Memo Errors }
+e4memoCorrupt = -1110 ; { memo file corrupt }
+e4memoCreate  = -1120 ; { error creating memo file }
+
+{ Transaction Errors }
+e4transViolation   = -1200 ;
+e4trans            = -1210 ;
+e4rollback         = -1220 ;
+e4commit           = -1230 ;
+e4transAppend      = -1240 ;
+
+{ Communication Errors }
+e4corrupt    = -1300 ;
+e4connection = -1310 ;
+e4socket     = -1312 ;
+e4net        = -1330 ;
+e4loadlib    = -1340 ;
+e4timeOut    = -1350 ;
+e4message    = -1360 ;
+e4packetLen  = -1370 ;
+e4packet     = -1380 ;
+
+{ Miscellaneous Errors }
+
+e4max       = -1400 ;
+e4codeBase  = -1410 ;
+e4name      = -1420 ;
+e4authorize = -1430 ;
+
+{ Server Failure Errors }
+
+e4server = -2100 ;
+e4config = -2110 ;
+e4cat    = -2120 ;
+
+{ END of errors }
+
+{ internal returns }
+
+relate4filterRecord = 101 ;
+relate4doRemove     = 102 ;
+relate4skipped      = 104 ;
+relate4blank        = 105 ;
+relate4skipRec      = 106 ;
+relate4terminate    = 107 ;
+relate4exact        = 108 ;
+relate4scan         = 109 ;
+relate4approx       = 110 ;
+relate4sortSkip     = 120 ;
+relate4sortDone     = 121 ;
+
+{********************************************************************}
+{ Error codes for use in error4 functions. }
+{********************************************************************}
+
+E4_MESSAG_EXI    = 'EXITING APPLICATION';
+E4_ERROR         = 'Error'              ;
+E4_MEMORY_ERR    = 'Memory Error'       ;
+E4_ERROR_NUM     = 'Error Number'       ;
+
+{ These are equivalent to the values defined in e4defs.h }
+
+E80101 = 80101   ;     { already connected }
+E80102 = 80102   ;     { part number out of sequence }
+
+E90101 = 90101   ;     { connection4initUndo }
+E90102 = 90102   ;     { socket4initUndo }
+E90103 = 90103   ;     { socket4init }
+E90104 = 90104   ;     { connection4init }
+E90105 = 90105   ;     { connection4setStatus }
+E90106 = 90106   ;     { connection4assign }
+E90107 = 90107   ;     { socket4connected }
+E90108 = 90108   ;     { socket4connect }
+E90109 = 90109   ;     { socket4alloc }
+E90110 = 90110   ;     { connection4alloc }
+E90111 = 90111   ;     { connection4disconnect }
+E90112 = 90112   ;     { connection4type }
+E90113 = 90113   ;     { connection4status }
+E90114 = 90114   ;     { connection4setLen }
+E90115 = 90115   ;     { connection4len }
+E90116 = 90116   ;     { connection4dataOffset }
+E90117 = 90117   ;     { connection4receive }
+E90118 = 90118   ;     { socket4receive }
+E90119 = 90119   ;     { connection4send }
+E90120 = 90120   ;     { connection4clear }
+E90121 = 90121   ;     { connection4addData }
+E90122 = 90122   ;     { d4socket }
+E90123 = 90123   ;     { connection4clientId }
+E90124 = 90124   ;     { connection4id }
+E90125 = 90125   ;     { connection4serverId }
+E90126 = 90126   ;     { connection4readLock }
+E90127 = 90127   ;     { connection4enforceLock }
+
+
+{********************************************************************}
+{ other defines }
+{********************************************************************}
+CP0             = 0;
+CP437           = 1;
+CP850           = 2;
+CP1252          = 3;
+
+LOCK4OFF        = 0;
+LOCK4ALL        = 1;
+LOCK4DATA       = 2;
+LOCK4APPEND     = 10;
+LOCK4FILE       = 20;
+LOCK4RECORD     = 30;
+
+
+OPEN4DENY_NONE  = 0;
+OPEN4DENY_RW    = 1;
+OPEN4DENY_WRITE = 2;
+
+OPT4EXCLUSIVE   = -1;
+OPT4OFF         = 0;
+OPT4ALL         = 1;
+OPT4OTHER       = 3;
+
+LOG4ALWAYS      = 2;
+LOG4ON          = 1;
+LOG4TRANS       = 0;
+
+SORT4MACHINE    = 0;
+SORT4GENERAL    = 1;
+
+collate4machine = 1;
+collate4general = 1001;
+collate4special = 1002;
+
+WAIT4EVER       = -1;
+
+{********************************************************************}
+{ Client-Server switches }
+{********************************************************************}
+
+DEF4SERVER_ID = 'localhost';  { replace with appropriate value }
+DEF4PROCESS_ID = '23165'; { replace with appropriate value }
+DEF4PROTOCOL = 'S4SOCK.DLL';
+
+{********************************************************************}
+{ End of constants }
+{********************************************************************}
+
+type
+
+{********************************************************************}
+{ Define pointers to common types }
+{********************************************************************}
+
+PDouble           = ^Double ;
+PLong             = ^Longint ;
+PInt              = ^Integer ;
+PPChar            = ^PChar ;
+PVoid             = PChar ;
+PPVoid            = ^PVoid ;
+PWord             = ^Word ;
+PByte             = ^Byte ;
+
+{ Borland Pascal lacks type COLORREF }
+COLORREF4         = Longint;
+
+{ Borland Pascal lacks type HINSTANCE }
+HINSTANCE4        = Longint;
+
+{ LY 00/12/28 }
+R4LOGFONT         = ^LOGFONT ;
+{********************************************************************}
+{ Define CodeBase structure pointers }
+{********************************************************************}
+
+AREA4            = pointer ;
+CODE4            = pointer ;
+DATA4            = pointer ;
+EXPR4            = pointer ;
+EXPR4CALC        = pointer ;
+FIELD4           = pointer ;
+FILE4            = pointer ;
+FILE4SEQREADPTR  = pointer ;
+FILE4SEQWRITEPTR = pointer ;
+GROUP4           = pointer ;
+INDEX4           = pointer ;
+LIST4            = pointer ;
+MEMO4FILE        = pointer ;
+OBJ4             = pointer ;
+OBJECT4          = pointer ;
+OPT4             = pointer ;
+RELATE4          = pointer ;
+PRELATE4         = ^RELATE4 ;
+REPORT4          = pointer ;
+STYLE4           = pointer ;
+TAG4             = pointer ;
+TAG4FILE         = pointer ;
+TOTAL4           = pointer ;
+
+{********************************************************************}
+{ Declare the FIELD4INFO and TAG4INFO structure }
+{********************************************************************}
+
+FIELD4INFO = Record
+   name  : PChar;
+   {$ifdef WIN32}
+      atype : SmallInt ;
+   {$else}
+      atype : Integer;
+   {$endif}
+   len   : Word;
+   dec   : Word;
+  nulls  : Word;
+end;
+
+PFIELD4INFO = ^FIELD4INFO;
+
+TAG4INFO = Record
+   name       : PChar;
+   expression : PChar;
+   filter     : PChar;
+   {$ifdef WIN32}
+      unique     : SmallInt;
+   {$else}
+      unique     : Integer;
+   {$endif}
+   descending : Word;
+end;
+
+PTAG4INFO = ^TAG4INFO;
+
+{********************************************************************}
+{ CODE4 members }
+
+{ not supported : code4hInst, code4hInstVal }
+{ not supported : code4hWnd,  code4hWndVal  }
+
+
+{********************************************************************}
+{  CODE4 members                                                     }
+{********************************************************************}
+
+Function  code4accessMode         ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Procedure code4autoIncrementStart ( p1 : CODE4; p2 : Double ) ; stdcall ;
+Function  code4autoOpen           ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4codePage           ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4collatingSequence  ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4createTemp         ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4errCreate          ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4errDefaultUnique   ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4errExpr            ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4errFieldName       ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4errGo              ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4errOff             ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4errOpen            ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4errorCode          ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4errRelate          ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4errSkip            ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4errTagName         ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4fileFlush          ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4hInst              ( p1 : CODE4; p2 : Integer ) : Integer; stdcall ;
+Function  code4hWnd               ( p1 : CODE4; p2 : HWND ) : HWND; stdcall ;
+Function  code4lockAttempts       ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4lockAttemptsSingle ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4lockDelay          ( p1 : CODE4; p2 : Longint ) : Longint; stdcall ;
+Function  code4lockEnforce        ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4log                ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4memExpandBlock     ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4memExpandData      ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4memExpandIndex     ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4memExpandLock      ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4memExpandTag       ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4memSizeBlock       ( p1 : CODE4; p2 : Longint ) : Longint; stdcall ;
+Function  code4memSizeBuffer      ( p1 : CODE4; p2 : Longint ) : Longint; stdcall ;
+Function  code4memSizeMemo        ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4memSizeMemoExpr    ( p1 : CODE4; p2 : Longint ) : Longint; stdcall ;
+Function  code4memSizeSortBuffer  ( p1 : CODE4; p2 : Longint ) : Longint; stdcall ;
+Function  code4memSizeSortPool    ( p1 : CODE4; p2 : Longint ) : Longint; stdcall ;
+Function  code4memStartBlock      ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4memStartLock       ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4memStartMax        ( p1 : CODE4; p2 : Longint ) : Longint; stdcall ;
+Function  code4memStartData       ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4memStartIndex      ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4memStartTag        ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4optimize           ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4readLock           ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4readOnly           ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4safety             ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4singleOpen         ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4timeout            ( p1 : CODE4 ) : Longint ; stdcall ;
+Procedure code4timeoutSet         ( p1 : CODE4; p2 : Longint ) ; stdcall ;
+Function  code4optimizeWrite      ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+Function  code4useGeneralTagsInRelate   ( p1 : CODE4; p2 : Smallint ) : Smallint; stdcall ;
+
+{********************************************************************}
+{  CODE4 functions                                                   }
+{********************************************************************}
+Function  code4actionCode         ( p1: CODE4 ): Integer ; stdcall ;
+Function  code4calcCreate         ( p1: CODE4; p2: EXPR4; p3: PChar ) : EXPR4CALC; stdcall ;
+Procedure code4calcReset          ( p1: CODE4 ); stdcall ;
+Function  code4close              ( p1: CODE4 ) : Integer; stdcall ;
+Function  code4collate            ( p1: CODE4; p2: Smallint ) : Smallint; stdcall ;
+Function  code4collateUnicode     ( p1: CODE4; p2: Smallint ) : Smallint; stdcall ;
+Function  code4compatibility      ( p1: CODE4; p2: Smallint ) : Smallint; stdcall ;
+Function  code4compressConfigureServer  ( p1: CODE4; p2: Word; p3: Word; p4: Word ) : Integer; stdcall ;
+Function  code4connect            ( p1: CODE4; p2: PChar; p3: PChar; p4: PChar; p5: PChar; p6: PChar ) : Integer; stdcall ;
+Function  code4data               ( p1: CODE4; p2: PChar ) : DATA4; stdcall ;
+Function  code4dateFormat         ( p1: CODE4 ) : PChar ; stdcall ;
+Function  code4dateFormatSet      ( p1: CODE4; p2 : PChar ) : Integer; stdcall ;
+Function  code4encryptInit        ( p1: CODE4; p2: PChar; p3: Word ) : Integer; stdcall ;
+Procedure code4encryptFile        ( p1: CODE4; p2: Word ); stdcall ;
+Procedure code4exit               ( p1: CODE4 ); stdcall ;
+Function  code4flush              ( p1: CODE4 ) : Integer; stdcall ;
+Function  code4indexBlockSize     ( p1: CODE4 ) : Smallint; stdcall ;
+Function  code4indexBlockSizeSet  ( p1: CODE4 ) : Smallint; stdcall ;
+Function  code4indexExtension     ( p1: CODE4 ) : PChar; stdcall ;
+
+Function  code4init               : CODE4; stdcall ;
+Function  code4initUndo           ( p1: CODE4 ) : Integer; stdcall ;
+
+Procedure code4largeOn            ( p1: CODE4 ); stdcall ;
+Function  code4lock               ( p1: CODE4 ) : Integer; stdcall ;
+Procedure code4lockClear          ( p1: CODE4 ); stdcall ;
+Function  code4lockFileName       ( p1: CODE4 ) : PChar; stdcall ;
+Function  code4lockNetworkId      ( p1: CODE4 ) : PChar; stdcall ;
+Function  code4lockUserId         ( p1: CODE4 ) : PChar; stdcall ;
+Function  code4lockItem           ( p1: CODE4 ) : Longint; stdcall ;
+Function  code4logCreate          ( p1: CODE4; p2: PChar; p3: PChar ) : Integer; stdcall ;
+Function  code4logFileName        ( p1: CODE4 ) : PChar; stdcall ;
+Function  code4logOpen            ( p1: CODE4; p2: PChar; p3: PChar ) : Integer; stdcall ;
+Procedure code4logOpenOff         ( p1: CODE4 ); stdcall ;
+Function  code4memoCompress       ( p1: CODE4; p2: Word ) : Integer; stdcall ;
+Function  code4optAll             ( p1: CODE4 ) : Integer; stdcall ;
+Function  code4optStart           ( p1: CODE4 ) : Integer; stdcall ;
+Function  code4optSuspend         ( p1: CODE4 ) : Integer; stdcall ;
+Function  code4tranCommit         ( p1: CODE4 ) : Integer; stdcall ;
+Function  code4tranRollback       ( p1: CODE4 ) : Integer; stdcall ;
+Function  code4tranStart          ( p1: CODE4 ) : Integer; stdcall ;
+Function  code4tranStatus         ( p1: CODE4 ) : Integer; stdcall ;
+Function  code4unlock             ( p1: CODE4 ) : Integer; stdcall ;
+Function  code4unlockAuto         ( p1: CODE4 ) : Integer; stdcall ;
+Procedure code4unlockAutoSet      ( p1: CODE4; p2: Integer ); stdcall ;
+Procedure code4verifySet          ( p1: CODE4; p2: PChar); stdcall ;
+
+{********************************************************************}
+{ Data File Functions }
+{********************************************************************}
+
+Function  d4alias           ( p1 : DATA4 ) : PChar; stdcall ;
+Procedure d4aliasSet        ( p1 : DATA4; p2 : PChar ); stdcall ;
+Function  d4append          ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4appendBlank     ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4appendStart     ( p1 : DATA4; p2 : Smallint ) : Smallint; stdcall ;
+Procedure d4blank           ( p1 : DATA4 ); stdcall ;
+Function  d4bof             ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4bottom          ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4changed         ( p1 : DATA4; p2 : Integer ) : Integer; stdcall ;
+Function  d4check           ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4close           ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4codePage        ( p1 : DATA4 ) : Smallint; stdcall ;
+Function  d4compress        ( p1 : DATA4; p2 : PChar; p3 : Integer ) : DATA4; stdcall ;
+Function  d4create          ( p1 : CODE4; p2 : PChar; p3 : PFIELD4INFO; p4 : PTAG4INFO ) : DATA4; stdcall ;
+Procedure d4delete          ( p1 : DATA4 ); stdcall ;
+Function  d4deleted         ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4eof             ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4field           ( p1 : DATA4; p2 : PChar ) : FIELD4; stdcall ;
+Function  d4fieldInfo       ( p1 : DATA4 ) : PFIELD4INFO; stdcall ;
+Function  d4fieldJ          ( p1 : DATA4; p2 : Integer ) : FIELD4; stdcall ;
+Function  d4fieldNumber     ( p1 : DATA4; p2 : PChar ) : Integer; stdcall ;
+Function  d4fieldsAdd       ( p1 : DATA4; p2 : SmallInt; p3 : PFIELD4INFO ) : DATA4; stdcall ;
+Function  d4fileName        ( p1 : DATA4 ) : PChar; stdcall ;
+Function  d4flush           ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4freeBlocks      ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4go              ( p1 : DATA4; p2 : Longint ) : Integer; stdcall ;
+Function  d4goBof           ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4goEof           ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4index           ( p1 : DATA4; p2 : PChar ) : INDEX4; stdcall ;
+Function  d4lock            ( p1 : DATA4; p2 : Longint ) : Integer; stdcall ;
+Function  d4lockAdd         ( p1 : DATA4; p2 : Longint ) : Integer; stdcall ;
+Function  d4lockAddAll      ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4lockAddAppend   ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4lockAddFile     ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4lockAll         ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4lockAppend      ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4lockFile        ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4log             ( p1 : DATA4; p2: Integer ) : Integer; stdcall ;
+Function  d4logStatus       ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4memoCompress    ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4modifyStructure ( p1 : DATA4; p3 : PFIELD4INFO; p4 : PTAG4INFO ) : DATA4; stdcall ;
+Function  d4numFields       ( p1 : DATA4 ) : SmallInt; stdcall ;
+Function  d4open            ( p1 : CODE4; p2 : PChar ) : DATA4; stdcall ;
+Function  d4openClone       ( p1: DATA4 ) : DATA4; stdcall ;
+Function  d4optimize        ( p1 : DATA4; p2 : Integer ) : Integer; stdcall ;
+Function  d4optimizeWrite   ( p1 : DATA4; p2 : Integer ) : Integer; stdcall ;
+Function  d4pack            ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4packWithProgress ( p1 : DATA4; p2: Pointer; p3: Longint ) : Integer; stdcall ;
+Function  d4position        ( p1 : DATA4 ) : Double; stdcall ;
+Function  d4positionSet     ( p1 : DATA4; p2 : Double ) : Integer; stdcall ;
+Procedure d4recall          ( p1 : DATA4 ); stdcall ;
+Function  d4recCount        ( p1 : DATA4 ) : Longint; stdcall ;
+Function  d4recCountDo      ( p1 : DATA4 ) : LongInt; stdcall ;
+Function  d4recNo           ( p1 : DATA4 ) : Longint; stdcall ;
+Function  d4record          ( p1 : DATA4 ) : PChar; stdcall ;
+Function  d4recWidth        ( p1 : DATA4 ) : Cardinal; stdcall ;
+Function  d4refresh         ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4refreshRecord   ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4reindex         ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4reindexWithProgress ( p1 : DATA4; p2: Pointer; p3: Longint ) : Integer; stdcall ;
+Function  d4remove          ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4seek            ( p1 : DATA4; p2 : PChar ) : Integer; stdcall ;
+Function  d4seekDouble      ( p1 : DATA4; p2 : Double ) : Integer; stdcall ;
+Function  d4seekN           ( p1 : DATA4; p2 : PChar; p3: Integer ) : Integer; stdcall ;
+Function  d4seekNext        ( p1 : DATA4; p2 : PChar ) : Integer; stdcall ;
+Function  d4seekNextDouble  ( p1 : DATA4; p2 : Double ) : Integer; stdcall ;
+Function  d4seekNextN       ( p1 : DATA4; p2 : PChar; p3: Integer ) : Integer; stdcall ;
+Function  d4skip            ( p1 : DATA4; p2 : Longint ) : Integer; stdcall ;
+Function  d4tag             ( p1 : DATA4; p2 : PChar ) : TAG4; stdcall ;
+Function  d4tagDefault      ( p1 : DATA4 ) : TAG4; stdcall ;
+Function  d4tagNext         ( p1 : DATA4; p2 : TAG4 ) : TAG4; stdcall ;
+Function  d4tagPrev         ( p1 : DATA4; p2 : TAG4 ) : TAG4; stdcall ;
+Function  d4tagSelect       ( p1 : DATA4; p2 : TAG4 ) : Integer; stdcall ;
+Function  d4tagSelected     ( p1 : DATA4 ) : TAG4; stdcall ;
+Function  d4tagSync         ( p1 : DATA4; p2 : TAG4 ) : Integer; stdcall ;
+Function  d4top             ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4unlock          ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4write           ( p1 : DATA4; p2 : Longint ) : Integer; stdcall ;
+Function  d4writeLow        ( p1 : DATA4; p2 : Longint; p3 : Integer; p4 : Integer ) : Integer; stdcall ;
+Function  d4zap             ( p1 : DATA4; p2, p3 : Longint ) : Integer; stdcall ;
+
+{********************************************************************}
+{ Date Functions }
+{********************************************************************}
+
+Procedure date4assign    ( p1 : PChar; p2 : Longint ); stdcall ;
+Function  date4cdow      ( p1 : PChar ) : PChar; stdcall ;
+Function  date4cmonth    ( p1 : PChar ) : PChar; stdcall ;
+Function  date4day       ( p1 : PChar ) : Integer; stdcall ;
+Function  date4dow       ( p1 : PChar ) : Integer; stdcall ;
+Procedure date4format    ( p1 : PChar; p2 : PChar; p3 : PChar ); stdcall ;
+Procedure date4initP     ( p1 : PChar; p2 : PChar; p3 : PChar ); stdcall ;
+Function  date4isLeap    ( p1 : PChar ) : Integer; stdcall ;
+Function  date4long      ( p1 : PChar ) : Longint; stdcall ;
+Function  date4month     ( p1 : PChar ) : Integer; stdcall ;
+Procedure date4today     ( p1 : PChar ); stdcall ;
+Function  date4year      ( p1 : PChar ) : Integer; stdcall ;
+
+{********************************************************************}
+{ Error Functions }
+{********************************************************************}
+
+Function  error4         ( p1 : CODE4; p2 : Integer; p3 : Longint ) : Integer; stdcall ;
+Function  error4describe ( p1 : CODE4; P2 : Integer; p3 : Longint; p4 : PChar; p5 : PChar; p6: PChar) : Integer; stdcall ;
+Procedure error4exitTest ( p1 : CODE4 ); stdcall ;
+Function  error4file     ( p1 : CODE4; p2 : PChar; p3: Integer) : Integer; stdcall ;
+Function  error4hook     ( p1 : CODE4; p2 : Integer ) : Integer; stdcall ;
+Function  error4lastDescription( p1: CODE4 ) : PChar ; stdcall ;
+Function  error4set     ( p1 : CODE4; p2 : Integer ): Integer; stdcall ;
+Function  error4text     ( p1 : CODE4; P2 : Longint ) : PChar; stdcall ;
+
+{********************************************************************}
+{ Expression Evaluation Functions }
+{********************************************************************}
+
+Function  expr4data       ( p1 : EXPR4 ) : DATA4; stdcall ;
+Function  expr4double     ( p1 : EXPR4 ) : Double; stdcall ;
+Procedure expr4free       ( p1 : EXPR4 ); stdcall ;
+Function  expr4len        ( p1 : EXPR4 ) : Longint; stdcall ;
+Function  expr4null       ( p1 : EXPR4 ) : Smallint; stdcall ;
+Function  expr4parse      ( p1 : DATA4; p2 : PChar ) : EXPR4; stdcall ;
+Function  expr4source     ( p1 : EXPR4 ) : PChar; stdcall ;
+Function  expr4str        ( p1 : EXPR4 ) : PChar; stdcall ;
+Function  expr4true       ( p1 : EXPR4 ) : Integer; stdcall ;
+Function  expr4type       ( p1 : EXPR4 ) : Integer; stdcall ;
+
+{********************************************************************}
+{ Field Functions }
+{********************************************************************}
+
+Procedure f4assign       ( p1 : FIELD4; p2 : PChar ); stdcall ;
+Procedure f4assignChar   ( p1 : FIELD4; p2 : Integer ); stdcall ;
+Procedure f4assignCurrency( p1 : FIELD4; p2 : PChar ); stdcall ;
+Procedure f4assignDateTime( p1 : FIELD4; p2 : PChar ); stdcall ;
+Procedure f4assignDouble ( p1 : FIELD4; p2 : Double ); stdcall ;
+Procedure f4assignField  ( p1 : FIELD4; p2 : FIELD4 ); stdcall ;
+Procedure f4assignInt    ( p1 : FIELD4; p2 : Integer ); stdcall ;
+Procedure f4assignLong   ( p1 : FIELD4; p2 : Longint ); stdcall ;
+Procedure f4assignN      ( p1 : FIELD4; p2 : PChar; p3 : Cardinal ); stdcall ;
+Procedure f4assignNull   ( p1 : FIELD4 ); stdcall ;
+Procedure f4assignUnicode( p1 : FIELD4; p2 : PWideChar ); stdcall ;
+Procedure f4blank        ( p1 : FIELD4 ); stdcall ;
+Function  f4char         ( p1 : FIELD4 ) : Integer; stdcall ;
+Function  f4currency     ( p1 : FIELD4; p2 : Integer ) : PChar; stdcall ;
+Function  f4data         ( p1 : FIELD4 ) : DATA4; stdcall ;
+Function  f4dateTime     ( p1 : FIELD4 ) : PChar; stdcall ;
+Function  f4decimals     ( p1 : FIELD4 ) : Integer; stdcall ;
+Function  f4double       ( p1 : FIELD4 ) : Double; stdcall ;
+Function  f4int          ( p1 : FIELD4 ) : Integer; stdcall ;
+Function  f4len          ( p1 : FIELD4 ) : Cardinal; stdcall ;
+Function  f4long         ( p1 : FIELD4 ) : Longint; stdcall ;
+
+Function  f4memoAssign   ( p1 : FIELD4; p2 : PChar ) : Integer; stdcall ;
+Function  f4memoAssignN  ( p1 : FIELD4; p2 : PChar; p3 : Integer ) : Integer; stdcall ;
+Function  f4memoAssignUnicode( p1 : FIELD4; p2 : PWideChar ) : Smallint; stdcall ;
+Function  f4memoFree     ( p1 : FIELD4 ) : Integer; stdcall ;
+Function  f4memoLen      ( p1 : FIELD4 ) : Cardinal; stdcall ;
+Function  f4memoPtr      ( p1 : FIELD4 ) : PChar; stdcall ;
+Function  f4memoStr      ( p1 : FIELD4 ) : PChar; stdcall ;
+
+Function  f4name         ( p1 : FIELD4 ) : PChar; stdcall ;
+Function  f4null         ( p1 : FIELD4 ) : Integer; stdcall ;
+Function  f4number       ( p1 : FIELD4 ) : Integer; stdcall ;
+Function  f4ptr          ( p1 : FIELD4 ) : PVoid; stdcall ;
+Function  f4str          ( p1 : FIELD4 ) : PChar; stdcall ;
+Function  f4true         ( p1 : FIELD4 ) : Integer; stdcall ;
+Function  f4type         ( p1 : FIELD4 ) : Integer; stdcall ;
+
+
+{********************************************************************}
+{  FILE4 functions                                                   }
+{********************************************************************}
+Function  file4close              ( p1: FILE4 ) : Integer; stdcall ;
+Function  file4compressCreate     ( p1: FILE4; p2 : PChar; p3 : Integer ) : FILE4 ; stdcall ;
+Function  file4compressOpen       ( p1: CODE4; p2 : PChar ) : FILE4 ; stdcall ;
+Function  file4create             ( p1: CODE4; p2 : PChar ) : FILE4 ; stdcall ;
+Function  file4flush              ( p1: FILE4 ) : Integer ; stdcall ;
+Function  file4isValid            ( p1: FILE4 ) : Integer ; stdcall ;
+Function  file4len                ( p1: FILE4 ) : Longword ; stdcall ;
+Function  file4lenSet             ( p1: FILE4; p2 : Longword ) : Integer ; stdcall ;
+Function  file4lock               ( p1: FILE4; p2 : Longword; p3 : Longword ) : Integer ; stdcall ;
+Function  file4name               ( p1: FILE4 ) : PChar ; stdcall ;
+Function  file4open               ( p1: CODE4; p2 : PChar ) : FILE4 ; stdcall ;
+Function  file4optimize           ( p1: FILE4; p2: Integer; p3: Integer ) : Integer ; stdcall ;
+Function  file4optimizeWrite      ( p1: FILE4; p2: Integer ) : Integer ; stdcall ;
+Function  file4read               ( p1: FILE4; p2: Longword; p3: PChar; p4: Longword ) : Integer ; stdcall ;
+Function  file4readAll            ( p1: FILE4; p2: Longword; p3: PChar; p4: Longword ) : Integer ; stdcall ;
+Function  file4refresh            ( p1: FILE4 ) : Integer ; stdcall ;
+Function  file4replace            ( p1: FILE4; p2: FILE4 ) : Integer ; stdcall ;
+Function  file4unlock             ( p1: FILE4; p2: Longword; p3: Longword ) : Integer ; stdcall ;
+Function  file4write              ( p1: FILE4; p2: Longword; p3: PChar; p4: Longword ) : Integer ; stdcall ;
+
+Function  file4seqRead            ( p1: FILE4SEQREADPTR; p2: PChar; p3: Longword ) : Integer ; stdcall ;
+Function  file4seqReadAll         ( p1: FILE4SEQREADPTR; p2: PChar; p3: Longword ) : Integer ; stdcall ;
+Procedure file4seqReadFree        ( p1: FILE4SEQREADPTR ) ; stdcall ;
+Function  file4seqReadInit        ( p1: FILE4; p2: Longword; p3: Longword ) : FILE4SEQREADPTR ; stdcall ;
+
+Function  file4seqWrite           ( p1: FILE4SEQWRITEPTR; p2: PChar; p3: Longword ) : Integer ; stdcall ;
+Procedure file4seqWriteFree       ( p1: FILE4SEQWRITEPTR ) ; stdcall ;
+Function  file4seqWriteFlush      ( p1: FILE4SEQWRITEPTR ) : Integer ; stdcall ;
+Function  file4seqWriteInit       ( p1: FILE4; p2: Longword; p3: Longword ) : FILE4SEQWRITEPTR ; stdcall ;
+Function  file4seqWriteRepeat     ( p1: FILE4SEQWRITEPTR; p2: Longword; p3: Char ) : Integer ; stdcall ;
+
+
+{********************************************************************}
+{ Index Functions }
+{********************************************************************}
+
+Function  i4close     ( p1 : INDEX4 ) : Integer; stdcall ;
+Function  i4create    ( p1 : DATA4; p2 : PChar; p3 : PTAG4INFO ) : INDEX4; {0 name -> productn} stdcall ;
+Function  i4fileName  ( p1 : INDEX4 ) : PChar; stdcall ;
+Function  i4open      ( p1 : DATA4; p2 : PChar ) : INDEX4; stdcall ;
+Function  i4reindex   ( p1 : INDEX4 ) : Integer; stdcall ;
+Function  i4tag       ( p1 : INDEX4; p2 : PChar ) : TAG4; stdcall ;
+Function  i4tagAdd    ( p1 : INDEX4; p2: PTAG4INFO ) : Integer;  { only available for .CDX and .MDX } stdcall ;
+Function  i4tagInfo   ( p1 : INDEX4 ) : PTAG4INFO; stdcall ;
+Function  i4tagRemove ( p1 : TAG4 ) : Integer ; stdcall ;
+
+{********************************************************************}
+{ Relation Functions }
+{********************************************************************}
+
+Function  relate4bottom      ( p1 : RELATE4 ) : Integer; stdcall ;
+Procedure relate4changed     ( p1 : RELATE4 ); stdcall ;
+Function  relate4count       ( p1 : RELATE4 ) : Longint; stdcall ;
+Function  relate4createSlave ( p1 : RELATE4; p2 : DATA4; p3 : PChar; p4 : TAG4 ) : RELATE4; stdcall ;
+Function  relate4data        ( p1 : RELATE4 ) : DATA4; stdcall ;
+Function  relate4dataTag     ( p1 : RELATE4 ) : TAG4; stdcall ;
+Function  relate4doAll       ( p1 : RELATE4 ) : Integer; stdcall ;
+Function  relate4doOne       ( p1 : RELATE4 ) : Integer; stdcall ;
+Function  relate4eof         ( p1 : RELATE4 ) : Integer; stdcall ;
+Function  relate4errorAction ( p1 : RELATE4; p2 : Integer ) : Integer; stdcall ;
+Function  relate4free        ( p1 : RELATE4; p2 : Integer ) : Integer; stdcall ;
+Function  relate4init        ( p1 : DATA4 ) : RELATE4; stdcall ;
+Function  relate4lockAdd     ( p1 : RELATE4 ) : Integer; stdcall ;
+Function  relate4master      ( p1 : RELATE4 ) : RELATE4; stdcall ;
+Function  relate4masterExpr  ( p1 : RELATE4 ) : PChar; stdcall ;
+Function  relate4matchLen    ( p1 : RELATE4; p2 : Integer ) : Integer; stdcall ;
+Function  relate4next        ( p1 : PRELATE4 ) : Integer; stdcall ;
+Function  relate4optimizeable( p1 : RELATE4 ) : Integer; stdcall ;
+Function  relate4querySet    ( p1 : RELATE4; p2 : PChar ) : Integer; stdcall ;
+Function  relate4retain      ( p1 : RELATE4; p2 : Integer ) : Integer; stdcall ;
+Function  relate4skip        ( p1 : RELATE4; p2 : Longint ) : Integer; stdcall ;
+Function  relate4skipEnable  ( p1 : RELATE4; p2 : Integer ) : Integer; stdcall ;
+Function  relate4skipMaster  ( p1 : RELATE4; p2 : Longint ) : Integer; stdcall ;
+Function  relate4sortSet     ( p1 : RELATE4; p2 : PChar ) : Integer; stdcall ;
+Function  relate4top         ( p1 : RELATE4 ) : Integer; stdcall ;
+Function  relate4type        ( p1 : RELATE4; p2 : Integer ) : Integer; stdcall ;
+
+{ from CODEREPORTER manual : }
+
+Function  relate4retrieve ( p1 : CODE4  ; p2 : PChar; p3 : Integer; p4 : PChar ) : RELATE4; stdcall ;
+Function  relate4save     ( p1 : RELATE4; p2 : PChar; p3 : Integer ) : Integer; stdcall ;
+
+{********************************************************************}
+{ TAG4 functions }
+{********************************************************************}
+
+Function  t4alias          ( p1 : TAG4 ) : PChar; stdcall ;
+Function  t4expr           ( p1 : TAG4 ) : PChar; stdcall ;
+Function  t4filter         ( p1 : TAG4 ) : PChar; stdcall ;
+Function  t4getKey         ( p1 : TAG4 ) : PChar; stdcall ;
+Function  t4unique         ( p1 : TAG4 ) : Integer; stdcall ;
+Function  t4uniqueSet      ( p1 : TAG4; p2 : Integer ) : Integer; stdcall ;
+Function  t4open           ( p1 : DATA4; p2 : PChar ) : TAG4; stdcall ;
+Function  t4close          ( p1 : TAG4 ) : Integer; stdcall ;
+Function  t4seekN          ( p1 : TAG4; p2 : PChar; p3 : Integer; p4 : Integer ) : Integer; stdcall ;
+
+{********************************************************************}
+{ Utility Functions }
+{********************************************************************}
+
+Procedure u4free       ( p1 : PVoid ); stdcall ;
+
+{********************************************************************}
+{ REPORT4 Functions }
+{********************************************************************}
+
+Function  report4caption        ( p1 : REPORT4; p2 : PChar ) : Integer; stdcall ;
+
+Function  report4currency       ( p1 : REPORT4; p2 : PChar ) : Integer; stdcall ;
+Function  report4dataDo         ( p1 : REPORT4 ) : Integer; stdcall ;
+Function  report4dataFileSet    ( p1 : REPORT4; p2 : PChar ) : Integer; stdcall ;
+Function  report4dataGroup      ( p1 : REPORT4; p2 : GROUP4 ) : Integer; stdcall ;
+Function  report4dateFormat     ( p1 : REPORT4; p2 : PChar ) : Integer; stdcall ;
+Function  report4decimal        ( p1 : REPORT4; p2 : Char ) : Integer; stdcall ;
+Function  report4do             ( p1 : REPORT4 ) : Integer; stdcall ;
+Procedure report4free           ( p1 : REPORT4; p2 : Integer; p3 : Integer ); stdcall ;
+Function  report4groupFirst     ( p1 : REPORT4 ) : GROUP4; stdcall ;
+Function  report4groupLast      ( p1 : REPORT4 ) : GROUP4; stdcall ;
+Function  report4groupLookup    ( p1 : REPORT4; p2 : PChar ) : GROUP4; stdcall ;
+Function  report4groupNext      ( p1 : REPORT4; p2 : GROUP4 ) : GROUP4; stdcall ;
+Function  report4groupPrev      ( p1 : REPORT4; p2 : GROUP4 ) : GROUP4; stdcall ;
+Function  report4hardResets     ( p1 : REPORT4; p2 : Integer ) : Integer; stdcall ;
+
+Function  report4init           ( p1 : RELATE4 ) : REPORT4; stdcall ;
+Function  report4margins        ( p1 : REPORT4; p2, p3, p4, p5 : Longint; p6 : Integer ) : Integer; stdcall ;
+Function  report4numGroups      ( p1 : REPORT4 ) : Integer; stdcall ;
+Function  report4numStyles      ( p1 : REPORT4 ) : Integer; stdcall ;
+Function  report4output                 ( p1 : REPORT4; p2, p3 : Integer ) : Integer; stdcall ;
+Function  report4pageHeaderFooter ( p1 : REPORT4 ) : GROUP4; stdcall ;
+Function  report4pageInit       ( p1 : REPORT4 ) : Integer; stdcall ;
+Function  report4pageSize       ( p1 : REPORT4; p2 : Longint; p3 : Longint; p4 : Integer ) : Integer; stdcall ;
+
+Function  report4parent         ( p1 : REPORT4; p2 : HWND ) : Integer; stdcall ;
+Function  report4printerDC      ( p1 : REPORT4; p2 : HDC ) : HDC; stdcall ;
+Function  report4printerSelect  ( p1 : REPORT4 ) : Shortint; stdcall ;
+
+Function  report4querySet       ( p1 : REPORT4; p2 : PChar ) : Integer; stdcall ;
+Function  report4relate         ( p1 : REPORT4 ) : RELATE4; stdcall ;
+Function  report4retrieve       ( p1 : CODE4; p2 : PChar; p3 : Integer; p4 : PChar ) : REPORT4; stdcall ;
+Function  report4screenBreaks   ( p1 : REPORT4; p2 : Integer ) : Integer; stdcall ;
+Function  report4save           ( p1 : REPORT4; p2 : PChar; p3 : Integer ) : Integer; stdcall ;
+Function  report4separator      ( p1 : REPORT4; p2 : Char ) : Integer; stdcall ;
+Function  report4sortSet        ( p1 : REPORT4; p2 : PChar ) : Integer; stdcall ;
+Function  report4styleFirst     ( p1 : REPORT4 ) : STYLE4; stdcall ;
+Function  report4styleLast      ( p1 : REPORT4 ) : STYLE4; stdcall ;
+Function  report4styleNext      ( p1 : REPORT4; p2 : STYLE4 ) : STYLE4; stdcall ;
+Function  report4stylePrev      ( p1 : REPORT4; p2 : STYLE4 ) : STYLE4; stdcall ;
+Function  report4styleSelect    ( p1 : REPORT4; p2 : STYLE4 ) : Integer; stdcall ;
+Function  report4styleSelected  ( p1 : REPORT4 ) : STYLE4; stdcall ;
+Function  report4styleSheetLoad ( p1 : REPORT4; p2 : PChar ; p3 : Integer ) : Integer; stdcall ;
+Function  report4styleSheetSave ( p1 : REPORT4; p2 : PChar ) : Integer; stdcall ;
+
+Function  report4titlePage      ( p1 : REPORT4; p2 : Integer ) : Integer; stdcall ;
+Function  report4titleSummary   ( p1 : REPORT4 ) : GROUP4; stdcall ;
+Function  report4toScreen       ( p1 : REPORT4; p2 : Integer ) : Integer; stdcall ;
+
+Function  area4create           ( p1 : GROUP4; p2 : Longint; p3 : Shortint; p4 : PChar ) : AREA4; stdcall ;
+Procedure area4free             ( p1 : AREA4 ); stdcall ;
+Function  area4numObjects       ( p1 : AREA4 ) : Integer; stdcall ;
+Function  area4objFirst         ( p1 : AREA4 ) : OBJ4; stdcall ;
+Function  area4objLast          ( p1 : AREA4 ) : OBJ4; stdcall ;
+Function  area4objNext          ( p1 : AREA4 ) : OBJ4; stdcall ;
+Function  area4objPrev          ( p1 : AREA4 ) : OBJ4; stdcall ;
+Function  area4pageBreak        ( p1 : AREA4; p2 : Integer ) : Integer ; stdcall ;
+
+Function  group4create          ( p1 : REPORT4; p2, p3 : PChar ) : GROUP4; stdcall ;
+Function  group4footerFirst     ( p1 : GROUP4 ) : AREA4; stdcall ;
+Function  group4footerNext      ( p1 : GROUP4; p2 : AREA4 ) : AREA4; stdcall ;
+Function  group4footerPrev      ( p1 : GROUP4; p2 : AREA4 ) : AREA4; stdcall ;
+Procedure group4free            ( p1 : GROUP4 ) ; stdcall ;
+Function  group4headerFirst     ( p1 : GROUP4 ) : AREA4; stdcall ;
+Function  group4headerNext      ( p1 : GROUP4; p2 : AREA4 ) : AREA4; stdcall ;
+Function  group4headerPrev      ( p1 : GROUP4; p2 : AREA4 ) : AREA4; stdcall ;
+Function  group4numFooters      ( p1 : GROUP4 ) : Integer; stdcall ;
+Function  group4numHeaders      ( p1 : GROUP4 ) : Integer; stdcall ;
+Function  group4repeatHeader    ( p1 : GROUP4; p2 : Integer ) : Integer; stdcall ;
+Function  group4resetExprSet    ( p1 : GROUP4; p2 : PChar ) : Integer; stdcall ;
+Function  group4resetPage       ( p1 : GROUP4; p2 : Integer ) : Integer; stdcall ;
+Function  group4resetPageNum    ( p1 : GROUP4; p2 : Integer ) : Integer; stdcall ;
+Function  group4swapFooter      ( p1 : GROUP4; p2 : Integer ) : Integer; stdcall ;
+Function  group4swapHeader      ( p1 : GROUP4; p2 : Integer ) : Integer; stdcall ;
+
+Function  obj4bitmapFieldCreate ( p1 : AREA4; p2 : FIELD4; p3, p4, p5, p6 : Longint ) : OBJ4; stdcall ;
+Procedure obj4bitmapFieldFree   ( p1 : OBJ4 ); stdcall ;
+Function  obj4bitmapFileCreate  ( p1 : AREA4; p2 : PChar; p3, p4, p5, p6 : Longint ) : OBJ4; stdcall ;
+Procedure obj4bitmapFileFree    ( p1 : OBJ4 ); stdcall ;
+Function  obj4bitmapStaticCreate ( p1 : AREA4; p2 : Longint; p3, p4, p5, p6 : Longint ) : OBJ4; stdcall ;
+Procedure obj4bitmapStaticFree  ( p1 : OBJ4 ); stdcall ;
+Function  obj4brackets          ( p1 : OBJ4; p2 : Integer ) : Integer; stdcall ;
+Function  obj4calcCreate        ( p1 : AREA4; p2 : EXPR4CALC; p3, p4, p5, p6 : Longint ) : OBJ4; stdcall ;
+Procedure obj4calcFree          ( p1 : OBJ4 ); stdcall ;
+Function  obj4dataFieldSet      ( p1 : OBJ4; p2 : PChar; p3 : Shortint; p4, p5 : Integer ) : Integer; stdcall ;
+Function  obj4dateFormat        ( p1 : OBJ4; p2 : PChar ) : Integer; stdcall ;
+Function  obj4decimals          ( p1 : OBJ4; p2 : Integer ) : Integer; stdcall ;
+Procedure obj4delete            ( p1 : OBJ4 ); stdcall ;
+Function  obj4displayOnce       ( p1 : OBJ4; p2 : PChar ) : Integer; stdcall ;
+Function  obj4displayZero       ( p1 : OBJ4; p2 : Integer ) : Integer; stdcall ;
+Function  obj4exprCreate        ( p1 : AREA4; p2 : EXPR4; p3, p4, p5, p6 : Longint ) : OBJ4; stdcall ;
+Procedure obj4exprFree          ( p1 : OBJ4 ); stdcall ;
+Function  obj4fieldCreate       ( p1 : AREA4; p2 : FIELD4; p3, p4, p5, p6 : Longint ) : OBJ4; stdcall ;
+Procedure obj4fieldFree         ( p1 : OBJ4 ); stdcall ;
+Function  obj4frameCorners      ( p1 : OBJ4; p2 : Integer ) : Integer; stdcall ;
+Function  obj4frameCreate       ( p1 : AREA4; p2, p3, p4, p5 : Longint ) : OBJ4; stdcall ;
+Function  obj4frameFill         ( p1 : OBJ4; p2 : Integer ) : Integer; stdcall ;
+Procedure obj4frameFree         ( p1 : OBJ4 ); stdcall ;
+Function  obj4justify           ( p1 : OBJ4; p2 : Integer ) : Integer; stdcall ;
+Function  obj4leadingZero       ( p1 : OBJ4; p2 : Integer ) : Integer; stdcall ;
+Function  obj4lineCreate        ( p1 : AREA4; p2 : Integer; p3, p4, p5 : Longint ) : OBJ4; stdcall ;
+Procedure obj4lineFree          ( p1 : OBJ4 ); stdcall ;
+Function  obj4lineWidth         ( p1 : OBJ4; p2 : Longint ) : Integer; stdcall ;
+Function  obj4lookAhead         ( p1 : OBJ4; p2 : Integer ) : Integer; stdcall ;
+Function  obj4numericType       ( p1 : OBJ4; p2 : Integer ) : Integer; stdcall ;
+Procedure obj4remove            ( p1 : OBJ4 ); stdcall ;
+Function  obj4style             ( p1 : OBJ4; p2 : STYLE4 ) : Integer; stdcall ;
+Function  obj4textCreate        ( p1 : AREA4; p2 : PChar; p3, p4, p5, p6 : Longint ) : OBJ4; stdcall ;
+Procedure obj4textFree          ( p1 : OBJ4 ); stdcall ;
+Function  obj4totalCreate       ( p1 : AREA4; p2 : TOTAL4; p3, p4, p5, p6 : Longint ) : OBJ4; stdcall ;
+Procedure obj4totalFree         ( p1 : OBJ4 ); stdcall ;
+
+Function  style4color           ( p1 : STYLE4; p2 : COLORREF4 ) : Integer; stdcall ;
+Function  style4create          ( p1 : REPORT4; p2 : R4LOGFONT; p3 : PChar; p4 : COLORREF4; p5 : Integer ) : STYLE4; stdcall ;
+Function  style4delete          ( p1 : REPORT4; p2 : PChar ) : Integer; stdcall ;
+Function  style4free            ( p1 : REPORT4; p2 : STYLE4 ) : Integer; stdcall ;
+Function  style4index           ( p1 : REPORT4; p2 : Integer ) : STYLE4; stdcall ;
+Function  style4lookup          ( p1 : REPORT4; p2 : PChar ) : STYLE4; stdcall ;
+
+Function  total4addCondition    ( p1 : TOTAL4; p2 : PChar; p3 : Integer ) : Integer; stdcall ;
+Function  total4create          ( p1 : REPORT4; p2, p3 : PChar; p4: Integer; p5 : PChar ) : Integer; stdcall ;
+{********************************************************************}
+{ Non-User Functions }
+{********************************************************************}
+Function  c4atol                ( p1 : PChar; p2 : Integer ): Longint; stdcall ;
+
+Function  code4initP            : CODE4; stdcall ;
+
+Function date4assignLow         ( p1 : PChar; p2 : Longint; p3 : Integer ): Integer; stdcall ;
+Procedure date4init             ( p1 : PChar; p2 : PChar ; p3 : PChar ) ; stdcall ;
+
+Function  d4goLow               ( p1 : DATA4; p2 : Longint; p3 : Smallint ) : Integer; stdcall ;
+Function  d4lockInternal        ( p1 : DATA4; p2 : Longint; p3 : Byte; p4 : Integer ): Integer ; stdcall ;
+Function  d4lockAllInternal     ( p1 : DATA4; p2 : Byte ): Integer ; stdcall ;
+Function  d4lockAppendInternal  ( p1 : DATA4; p2 : Byte ): Integer ; stdcall ;
+
+Function  error4out             ( p1 : CODE4; p2 : Integer; p3 : PChar; p4 : PChar; p5 : PChar ) : Integer; stdcall ;
+
+Function  expr4double2          ( p1 : EXPR4; p2 : PDouble ) : Integer; stdcall ;
+Function  expr4parseLow         ( p1 : DATA4; p2 : PChar; p3 : TAG4FILE ) : EXPR4; stdcall ;
+Function  expr4typeCB           ( p1 : EXPR4 ) : Shortint; stdcall ;
+
+Function  f4double2             ( p1 : FIELD4; p2 : PDouble ) : Integer; stdcall ;
+Function  d4position2           ( p1 : DATA4; p2 : PDouble ) : Integer; stdcall ;
+
+Procedure report4freeLow        ( p1 : REPORT4; p2 : Integer; p3 : Integer; p4 : Integer ); stdcall ;
+
+Function  u4switch              : Longint; stdcall ;
+
+{CBCD -- 32-Bit Interface Declarations of DLL functions referenced by Name BEGIN}
+Function  code4tranStatusCB       ( p1: CODE4 ) : Integer; stdcall ;
+Function  code4unlockAutoCB       ( p1: CODE4 ) : Integer; stdcall ;
+Procedure code4unlockAutoSetCB    ( p1: CODE4; p2: Integer ); stdcall ;
+Function  d4logStatusCB           ( p1 : DATA4 ) : Integer; stdcall ;
+Function  d4recNoLow              ( p1 : DATA4 ) : Longint; stdcall ;
+Function  d4recordLow             ( p1 : DATA4 ) : PChar; stdcall ;
+Function  d4recWidthLow           ( p1 : DATA4 ) : Cardinal; stdcall ;
+Function  d4tagSelectP            ( p1 : DATA4; p2 : TAG4 ) : Integer; stdcall ;
+Function  error4default           ( p1 : CODE4; p2 : Integer; p3 : Longint ) : Integer; stdcall ;
+Function  error4describeDefault   ( p1 : CODE4; P2 : Integer; p3 : Longint; p4 : PChar; p5 :
+   PChar; p6: PChar) : Integer; stdcall ;
+Function  expr4dataCB             ( p1 : EXPR4 ) : DATA4; stdcall ;
+{Procedure u4freeDefault           ( p1 : PVoid ); stdcall ;}
+Procedure expr4freeCB             ( p1 : EXPR4 ); stdcall ;
+Function  expr4lenCB              ( p1 : EXPR4 ) : Longint; stdcall ;
+Function  expr4nullLow            ( p1 : EXPR4 ) : Integer; stdcall ;
+Function  relate4dataCB           ( p1 : RELATE4 ) : DATA4; stdcall ;
+Function  relate4dataTagCB        ( p1 : RELATE4 ) : TAG4; stdcall ; stdcall ;
+Function  relate4masterCB         ( p1 : RELATE4 ) : RELATE4; stdcall ;
+Function  relate4masterExprCB     ( p1 : RELATE4 ) : PChar; stdcall ;
+Function  report4doCB             ( p1 : REPORT4 ) : Integer; stdcall ;
+Function  t4openCB                ( p1 : DATA4; p2 : PChar ) : TAG4; stdcall ;
+Function  t4exprCB                ( p1 : TAG4 ) : PChar; stdcall ;
+Function  t4filterCB              ( p1 : TAG4 ) : PChar; stdcall ;
+
+{********************************************************************}
+{ End Of Interface Section }
+{********************************************************************}
+
+{********************************************************************}
+{ Beginning Of Implementation Section }
+{********************************************************************}
+
+implementation
+
+Function  c4atol                    ; external CBDLL;
+
+{********************************************************************}
+{ CODE4 members }
+{********************************************************************}
+Function  code4accessMode           ; external CBDLL;
+{$ifndef WIN32}
+Function  code4allocLow             ; external CBDLL;
+{$endif}
+Procedure code4autoIncrementStart   ; external CBDLL;
+Function  code4autoOpen             ; external CBDLL;
+Function  code4codePage             ; external CBDLL;
+Function  code4collatingSequence    ; external CBDLL;
+Function  code4createTemp           ; external CBDLL;
+Function  code4errCreate            ; external CBDLL;
+Function  code4errDefaultUnique     ; external CBDLL;
+Function  code4errExpr              ; external CBDLL;
+Function  code4errFieldName         ; external CBDLL;
+Function  code4errGo                ; external CBDLL;
+Function  code4errOff               ; external CBDLL;
+Function  code4errOpen              ; external CBDLL;
+Function  code4errorCode            ; external CBDLL;
+Function  code4errRelate            ; external CBDLL;
+Function  code4errSkip              ; external CBDLL;
+Function  code4errTagName           ; external CBDLL;
+Function  code4fileFlush            ; external CBDLL;
+Function  code4hInst                ; external CBDLL;
+Function  code4hWnd                 ; external CBDLL;
+Function  code4lockAttempts         ; external CBDLL;
+Function  code4lockAttemptsSingle   ; external CBDLL;
+Function  code4lockDelay            ; external CBDLL;
+Function  code4lockEnforce          ; external CBDLL;
+Function  code4log                  ; external CBDLL;
+Function  code4memExpandBlock       ; external CBDLL;
+Function  code4memExpandData        ; external CBDLL;
+Function  code4memExpandIndex       ; external CBDLL;
+Function  code4memExpandLock        ; external CBDLL;
+Function  code4memExpandTag         ; external CBDLL;
+Function  code4memSizeBlock         ; external CBDLL;
+Function  code4memSizeBuffer        ; external CBDLL;
+Function  code4memSizeMemo          ; external CBDLL;
+Function  code4memSizeMemoExpr      ; external CBDLL;
+Function  code4memSizeSortBuffer    ; external CBDLL;
+Function  code4memSizeSortPool      ; external CBDLL;
+Function  code4memStartBlock        ; external CBDLL;
+Function  code4memStartLock         ; external CBDLL;
+Function  code4memStartMax          ; external CBDLL;
+Function  code4memStartData         ; external CBDLL;
+Function  code4memStartIndex        ; external CBDLL;
+Function  code4memStartTag          ; external CBDLL;
+Function  code4optimize             ; external CBDLL;
+Function  code4readLock             ; external CBDLL;
+Function  code4readOnly             ; external CBDLL;
+Function  code4safety               ; external CBDLL;
+Function  code4singleOpen           ; external CBDLL;
+Function  code4timeout              ; external CBDLL;
+Procedure code4timeoutSet           ; external CBDLL;
+Function  code4optimizeWrite        ; external CBDLL;
+Function  code4useGeneralTagsInRelate    ; external CBDLL;
+
+{*********************************************************************}
+{ CODE4 functions                                                     }
+{*********************************************************************}
+Function  code4actionCode           ; external CBDLL;
+Function  code4calcCreate           ; external CBDLL;
+Procedure code4calcReset            ; external CBDLL;
+Function  code4close                ; external CBDLL;
+Function  code4collate              ; external CBDLL;
+{$ifdef WIN32}
+Function  code4collateUnicode       ; external CBDLL;
+{$endif}
+Function  code4compatibility        ; external CBDLL;
+Function  code4compressConfigureServer  ; external CBDLL;
+Function  code4connect              ; external CBDLL;
+Function  code4data                 ; external CBDLL;
+Function  code4dateFormat           ; external CBDLL;
+Function  code4dateFormatSet        ; external CBDLL;
+Function  code4encryptInit          ; external CBDLL;
+Procedure code4encryptFile          ; external CBDLL;
+Procedure code4exit                 ; external CBDLL;
+Function  code4flush                ; external CBDLL;
+Function  code4indexBlockSize       ; external CBDLL;
+Function  code4indexBlockSizeSet    ; external CBDLL;
+Function  code4indexExtension       ; external CBDLL;
+Function  code4initP                ; external CBDLL;
+Function  code4initUndo             ; external CBDLL;
+{$ifdef WIN32}
+Procedure code4largeOn              ; external CBDLL;
+{$endif}
+Function  code4lock                 ; external CBDLL;
+Procedure code4lockClear            ; external CBDLL;
+Function  code4lockFileName         ; external CBDLL;
+Function  code4lockItem             ; external CBDLL;
+Function  code4lockNetworkId        ; external CBDLL;
+Function  code4lockUserId           ; external CBDLL;
+Function  code4logCreate            ; external CBDLL;
+Function  code4logFileName          ; external CBDLL;
+Function  code4logOpen              ; external CBDLL;
+Procedure code4logOpenOff           ; external CBDLL;
+Function  code4memoCompress         ; external CBDLL;
+Function  code4optAll               ; external CBDLL;
+Function  code4optStart             ; external CBDLL;
+Function  code4optSuspend           ; external CBDLL;
+Function  code4tranCommit           ; external CBDLL;
+Function  code4tranRollback         ; external CBDLL;
+Function  code4tranStart            ; external CBDLL;
+Function  code4tranStatus           ; external CBDLL name 'code4tranStatusCB';
+Function  code4unlock               ; external CBDLL;
+Function  code4unlockAuto           ; external CBDLL name 'code4unlockAutoCB';
+Procedure code4unlockAutoSet        ; external CBDLL name 'code4unlockAutoSetCB';
+Procedure code4verifySet            ; external CBDLL;
+
+{********************************************************************}
+{ Data File Functions }
+{********************************************************************}
+Function  d4alias                   ; external CBDLL;
+Procedure d4aliasSet                ; external CBDLL;
+Function  d4append                  ; external CBDLL;
+Function  d4appendBlank             ; external CBDLL;
+Function  d4appendStart             ; external CBDLL;
+Procedure d4blank                   ; external CBDLL;
+Function  d4bof                     ; external CBDLL;
+Function  d4bottom                  ; external CBDLL;
+Function  d4changed                 ; external CBDLL;
+Function  d4check                   ; external CBDLL;
+Function  d4close                   ; external CBDLL;
+Function  d4codePage                ; external CBDLL;
+Function  d4compress                ; external CBDLL;
+Function  d4create                  ; external CBDLL;
+Procedure d4delete                  ; external CBDLL;
+Function  d4deleted                 ; external CBDLL;
+Function  d4eof                     ; external CBDLL;
+Function  d4field                   ; external CBDLL;
+Function  d4fieldInfo               ; external CBDLL;
+Function  d4fieldJ                  ; external CBDLL;
+Function  d4fieldNumber             ; external CBDLL;
+Function  d4fieldsAdd               ; external CBDLL;
+Function  d4fileName                ; external CBDLL;
+Function  d4flush                   ; external CBDLL;
+Function  d4freeBlocks              ; external CBDLL;
+Function  d4goLow                   ; external CBDLL;
+Function  d4goBof                   ; external CBDLL;
+Function  d4goEof                   ; external CBDLL;
+Function  d4index                   ; external CBDLL;
+Function  d4lockInternal            ; external CBDLL;
+Function  d4lockAllInternal         ; external CBDLL;
+Function  d4lockAppendInternal      ; external CBDLL;
+Function  d4lockFile                ; external CBDLL;
+Function  d4lockAdd                 ; external CBDLL;
+Function  d4lockAddAll              ; external CBDLL;
+Function  d4lockAddAppend           ; external CBDLL;
+Function  d4lockAddFile             ; external CBDLL;
+Function  d4log                     ; external CBDLL;
+Function  d4logStatus               ; external CBDLL name 'd4logStatusCB';
+Function  d4memoCompress            ; external CBDLL;
+Function  d4modifyStructure         ; external CBDLL;
+Function  d4numFields               ; external CBDLL;
+Function  d4open                    ; external CBDLL;
+Function  d4openClone               ; external CBDLL;
+Function  d4optimize                ; external CBDLL;
+Function  d4optimizeWrite           ; external CBDLL;
+Function  d4pack                    ; external CBDLL;
+Function  d4packWithProgress        ; external CBDLL;
+Function  d4position2               ; external CBDLL;
+Function  d4positionSet             ; external CBDLL;
+Procedure d4recall                  ; external CBDLL;
+Function  d4recCount                ; external CBDLL name 'd4recCountDo';
+Function  d4recCountDo              ; external CBDLL;
+Function  d4recNo                   ; external CBDLL name 'd4recNoLow';
+Function  d4record                  ; external CBDLL name 'd4recordLow';
+Function  d4recWidth                ; external CBDLL name 'd4recWidthLow';
+Function  d4refresh                 ; external CBDLL;
+Function  d4refreshRecord           ; external CBDLL;
+Function  d4reindex                 ; external CBDLL;
+Function  d4reindexWithProgress     ; external CBDLL;
+Function  d4remove                  ; external CBDLL;
+Function  d4seek                    ; external CBDLL;
+Function  d4seekDouble              ; external CBDLL;
+Function  d4seekN                   ; external CBDLL;
+Function  d4seekNext                ; external CBDLL;
+Function  d4seekNextDouble          ; external CBDLL;
+Function  d4seekNextN               ; external CBDLL;
+Function  d4skip                    ; external CBDLL;
+Function  d4tag                     ; external CBDLL;
+Function  d4tagDefault              ; external CBDLL;
+Function  d4tagSelect               ; external CBDLL name 'd4tagSelectP';
+Function  d4tagNext                 ; external CBDLL;
+Function  d4tagPrev                 ; external CBDLL;
+Function  d4tagSelected             ; external CBDLL;
+Function  d4tagSync                 ; external CBDLL;
+Function  d4top                     ; external CBDLL;
+Function  d4unlock                  ; external CBDLL;
+Function  d4writeLow                ; external CBDLL;
+Function  d4zap                     ; external CBDLL;
+
+{********************************************************************}
+{ Date Functions }
+{********************************************************************}
+Function  date4assignLow            ; external CBDLL;
+Function  date4cdow                 ; external CBDLL;
+Function  date4cmonth               ; external CBDLL;
+Function  date4dow                  ; external CBDLL;
+Procedure date4format               ; external CBDLL;
+Function  date4isLeap               ; external CBDLL;
+Function  date4long                 ; external CBDLL;
+Procedure date4today                ; external CBDLL;
+Procedure date4initP                ; external CBDLL name 'date4init';
+
+{********************************************************************}
+{ Error Functions }
+{********************************************************************}
+Function  error4                    ; external CBDLL name 'error4default';
+Function  error4describe            ; external CBDLL name 'error4describeDefault';
+Procedure error4exitTest            ; external CBDLL;
+Function  error4file                ; external CBDLL;
+Function  error4hook                ; external CBDLL;
+Function  error4lastDescription     ; external CBDLL;
+Function  error4out                 ; external CBDLL;
+Function  error4set                 ; external CBDLL;
+Function  error4text                ; external CBDLL;
+
+{********************************************************************}
+{ Expression Evaluation Functions }
+{********************************************************************}
+Function  expr4data                 ; external CBDLL name 'expr4dataCB';
+Function  expr4double2              ; external CBDLL;
+{Procedure expr4free                 ; external CBDLL name 'u4freeDefault';}
+{Procedure expr4free                 ; external CBDLL name 'expr4freeCB';}
+Function  expr4len                  ; external CBDLL name 'expr4lenCB';
+Function  expr4null                 ; external CBDLL name 'expr4nullLow';
+Function  expr4parseLow             ; external CBDLL;
+Function  expr4source               ; external CBDLL;
+Function  expr4str                  ; external CBDLL;
+Function  expr4true                 ; external CBDLL;
+Function  expr4typeCB               ; external CBDLL;
+
+{********************************************************************}
+{ Field Functions }
+{********************************************************************}
+Procedure f4assign                  ; external CBDLL;
+Procedure f4assignChar              ; external CBDLL;
+Procedure f4assignCurrency          ; external CBDLL;
+Procedure f4assignDateTime          ; external CBDLL;
+Procedure f4assignDouble            ; external CBDLL;
+Procedure f4assignField             ; external CBDLL;
+Procedure f4assignInt               ; external CBDLL;
+Procedure f4assignLong              ; external CBDLL;
+Procedure f4assignN                 ; external CBDLL;
+Procedure f4assignNull              ; external CBDLL;
+{$ifdef WIN32}
+Procedure f4assignUnicode           ; external CBDLL;
+{$endif}
+Procedure f4blank                   ; external CBDLL;
+Function  f4char                    ; external CBDLL;
+Function  f4currency                ; external CBDLL;
+Function  f4data                    ; external CBDLL;
+Function  f4dateTime                ; external CBDLL;
+Function  f4decimals                ; external CBDLL;
+Function  f4double2                 ; external CBDLL;
+Function  f4int                     ; external CBDLL;
+Function  f4len                     ; external CBDLL;
+Function  f4long                    ; external CBDLL;
+Function  f4memoAssign              ; external CBDLL;
+Function  f4memoAssignN             ; external CBDLL;
+{$ifdef WIN32}
+Function  f4memoAssignUnicode       ; external CBDLL;
+{$endif}
+Function  f4memoFree                ; external CBDLL;
+Function  f4memoLen                 ; external CBDLL;
+Function  f4memoPtr                 ; external CBDLL;
+Function  f4memoStr                 ; external CBDLL;
+Function  f4ptr                     ; external CBDLL;
+Function  f4name                    ; external CBDLL;
+Function  f4null                    ; external CBDLL;
+Function  f4number                  ; external CBDLL;
+Function  f4str                     ; external CBDLL;
+Function  f4true                    ; external CBDLL;
+Function  f4type                    ; external CBDLL;
+
+{*********************************************************************}
+{ FILE4 functions                                                     }
+{*********************************************************************}
+Function  file4close                ; external CBDLL name 'file4closeVB';
+Function  file4compressCreate       ; external CBDLL name 'file4compressCreateVB';
+Function  file4compressOpen         ; external CBDLL name 'file4compressOpenVB';
+Function  file4create               ; external CBDLL name 'file4createVB';
+Function  file4flush                ; external CBDLL;
+Function  file4isValid              ; external CBDLL;
+Function  file4len                  ; external CBDLL name 'file4lenLow2';
+Function  file4lenSet               ; external CBDLL;
+Function  file4lock                 ; external CBDLL name 'file4lockVB';
+Function  file4name                 ; external CBDLL;
+Function  file4open                 ; external CBDLL name 'file4openVB';
+Function  file4optimize             ; external CBDLL;
+Function  file4optimizeWrite        ; external CBDLL;
+Function  file4read                 ; external CBDLL;
+Function  file4readAll              ; external CBDLL;
+Function  file4refresh              ; external CBDLL;
+Function  file4replace              ; external CBDLL;
+Function  file4unlock               ; external CBDLL;
+Function  file4write                ; external CBDLL;
+
+Function  file4seqRead              ; external CBDLL name 'file4seqReadVB';
+Function  file4seqReadAll           ; external CBDLL name 'file4seqReadAllVB';
+Procedure file4seqReadFree          ; external CBDLL name 'file4seqReadFreeVB';
+Function  file4seqReadInit          ; external CBDLL name 'file4seqReadInitVB';
+
+Function  file4seqWrite             ; external CBDLL name 'file4seqWriteVB';
+Procedure file4seqWriteFree         ; external CBDLL name 'file4seqWriteFreeVB';
+Function  file4seqWriteFlush        ; external CBDLL name 'file4seqWriteFlushVB';
+Function  file4seqWriteInit         ; external CBDLL name 'file4seqWriteInitVB';
+Function  file4seqWriteRepeat       ; external CBDLL name 'file4seqWriteRepeatP';
+
+{********************************************************************}
+{ Index Functions }
+{********************************************************************}
+Function  i4close                   ; external CBDLL;
+Function  i4create                  ; external CBDLL;
+Function  i4fileName                ; external CBDLL;
+Function  i4open                    ; external CBDLL;
+Function  i4reindex                 ; external CBDLL;
+Function  i4tag                     ; external CBDLL;
+Function  i4tagAdd                  ; external CBDLL;
+Function  i4tagInfo                 ; external CBDLL;
+Function  i4tagRemove               ; external CBDLL ;
+
+{********************************************************************}
+{ Relation Functions }
+{********************************************************************}
+Function  relate4bottom             ; external CBDLL;
+Procedure relate4changed            ; external CBDLL;
+Function  relate4count              ; external CBDLL;
+Function  relate4createSlave        ; external CBDLL;
+Function  relate4data               ; external CBDLL name 'relate4dataCB';
+Function  relate4dataTag            ; external CBDLL name 'relate4dataTagCB';
+Function  relate4doAll              ; external CBDLL;
+Function  relate4doOne              ; external CBDLL;
+Function  relate4eof                ; external CBDLL;
+Function  relate4errorAction        ; external CBDLL;
+Function  relate4free               ; external CBDLL;
+Function  relate4init               ; external CBDLL;
+Function  relate4lockAdd            ; external CBDLL;
+Function  relate4matchLen           ; external CBDLL;
+Function  relate4master             ; external CBDLL name 'relate4masterCB';
+Function  relate4masterExpr         ; external CBDLL name 'relate4masterExprCB';
+Function  relate4next               ; external CBDLL;
+Function  relate4optimizeable       ; external CBDLL;
+Function  relate4querySet           ; external CBDLL;
+Function  relate4retain             ; external CBDLL;
+Function  relate4retrieve           ; external CBDLL;
+Function  relate4save               ; external CBDLL;
+Function  relate4skip               ; external CBDLL;
+Function  relate4skipEnable         ; external CBDLL;
+Function  relate4skipMaster         ; external CBDLL;
+Function  relate4sortSet            ; external CBDLL;
+Function  relate4top                ; external CBDLL;
+Function  relate4type               ; external CBDLL;
+
+{********************************************************************}
+{ REPORT4 Functions }
+{********************************************************************}
+Function  report4caption            ; external CBDLL;
+Function  report4currency           ; external CBDLL;
+Function  report4dataDo             ; external CBDLL;
+Function  report4dataFileSet        ; external CBDLL;
+Function  report4dataGroup          ; external CBDLL;
+Function  report4dateFormat         ; external CBDLL;
+Function  report4decimal            ; external CBDLL;
+Function  report4do                 ; external CBDLL name 'report4doCB';
+Procedure report4freeLow            ; external CBDLL;
+Function  report4groupFirst         ; external CBDLL;
+Function  report4groupLast          ; external CBDLL;
+Function  report4groupLookup        ; external CBDLL;
+Function  report4groupNext          ; external CBDLL;
+Function  report4groupPrev          ; external CBDLL;
+Function  report4hardResets         ; external CBDLL;
+Function  report4init               ; external CBDLL;
+Function  report4margins            ; external CBDLL;
+Function  report4numGroups          ; external CBDLL;
+Function  report4numStyles          ; external CBDLL;
+Function  report4output             ; external CBDLL;
+Function  report4pageHeaderFooter   ; external CBDLL;
+Function  report4pageInit           ; external CBDLL;
+Function  report4pageSize           ; external CBDLL;
+Function  report4parent             ; external CBDLL;
+Function  report4printerDC          ; external CBDLL;
+Function  report4printerSelect      ; external CBDLL;
+Function  report4querySet           ; external CBDLL;
+Function  report4relate             ; external CBDLL;
+Function  report4retrieve           ; external CBDLL;
+Function  report4save               ; external CBDLL;
+Function  report4screenBreaks       ; external CBDLL;
+Function  report4separator          ; external CBDLL;
+Function  report4sortSet            ; external CBDLL;
+Function  report4styleFirst         ; external CBDLL;
+Function  report4styleLast          ; external CBDLL;
+Function  report4styleNext          ; external CBDLL;
+Function  report4stylePrev          ; external CBDLL;
+Function  report4styleSelect        ; external CBDLL;
+Function  report4styleSelected      ; external CBDLL;
+Function  report4styleSheetLoad     ; external CBDLL;
+Function  report4styleSheetSave     ; external CBDLL;
+Function  report4titlePage          ; external CBDLL;
+Function  report4titleSummary       ; external CBDLL;
+Function  report4toScreen           ; external CBDLL;
+
+Function  area4create               ; external CBDLL;
+Procedure area4free                 ; external CBDLL;
+Function  area4numObjects           ; external CBDLL;
+Function  area4objFirst             ; external CBDLL;
+Function  area4objLast              ; external CBDLL;
+Function  area4objNext              ; external CBDLL;
+Function  area4objPrev              ; external CBDLL;
+Function  area4pageBreak            ; external CBDLL;
+
+Function  group4create              ; external CBDLL;
+Function  group4footerFirst         ; external CBDLL;
+Function  group4footerNext          ; external CBDLL;
+Function  group4footerPrev          ; external CBDLL;
+Procedure group4free                ; external CBDLL;
+Function  group4headerFirst         ; external CBDLL;
+Function  group4headerNext          ; external CBDLL;
+Function  group4headerPrev          ; external CBDLL;
+Function  group4numFooters          ; external CBDLL;
+Function  group4numHeaders          ; external CBDLL;
+Function  group4repeatHeader        ; external CBDLL;
+Function  group4resetExprSet        ; external CBDLL;
+Function  group4resetPage           ; external CBDLL;
+Function  group4resetPageNum        ; external CBDLL;
+Function  group4swapFooter          ; external CBDLL;
+Function  group4swapHeader          ; external CBDLL;
+
+Function  obj4bitmapFieldCreate     ; external CBDLL;
+Procedure obj4bitmapFieldFree       ; external CBDLL;
+Function  obj4bitmapFileCreate      ; external CBDLL;
+Procedure obj4bitmapFileFree        ; external CBDLL;
+Function  obj4bitmapStaticCreate    ; external CBDLL;
+Procedure obj4bitmapStaticFree      ; external CBDLL;
+Function  obj4brackets              ; external CBDLL;
+Function  obj4calcCreate            ; external CBDLL;
+Procedure obj4calcFree              ; external CBDLL;
+Function  obj4dataFieldSet          ; external CBDLL;
+Function  obj4dateFormat            ; external CBDLL;
+Function  obj4decimals              ; external CBDLL;
+Procedure obj4delete                ; external CBDLL;
+Function  obj4displayOnce           ; external CBDLL;
+Function  obj4displayZero           ; external CBDLL;
+Function  obj4exprCreate            ; external CBDLL;
+Procedure obj4exprFree              ; external CBDLL;
+Function  obj4fieldCreate           ; external CBDLL;
+Procedure obj4fieldFree             ; external CBDLL;
+Function  obj4frameCorners          ; external CBDLL;
+Function  obj4frameCreate           ; external CBDLL;
+Function  obj4frameFill             ; external CBDLL;
+Procedure obj4frameFree             ; external CBDLL;
+Function  obj4justify               ; external CBDLL;
+Function  obj4leadingZero           ; external CBDLL;
+Function  obj4lineCreate            ; external CBDLL;
+Procedure obj4lineFree              ; external CBDLL;
+Function  obj4lineWidth             ; external CBDLL;
+Function  obj4lookAhead             ; external CBDLL;
+Function  obj4numericType           ; external CBDLL;
+Procedure obj4remove                ; external CBDLL;
+Function  obj4style                 ; external CBDLL;
+Function  obj4textCreate            ; external CBDLL;
+Procedure obj4textFree              ; external CBDLL;
+Function  obj4totalCreate           ; external CBDLL;
+Procedure obj4totalFree             ; external CBDLL;
+
+Function  style4color               ; external CBDLL;
+Function  style4create              ; external CBDLL;
+Function  style4delete              ; external CBDLL;
+Function  style4free                ; external CBDLL;
+Function  style4index               ; external CBDLL;
+Function  style4lookup              ; external CBDLL;
+
+Function  total4addCondition        ; external CBDLL;
+Function  total4create              ; external CBDLL;
+{********************************************************************}
+{ Tag Functions }
+{********************************************************************}
+Function  t4alias                   ; external CBDLL;
+Function  t4close                   ; external CBDLL;
+Function  t4open                    ; external CBDLL name 't4openCB';
+Function  t4expr                    ; external CBDLL name 't4exprCB';
+Function  t4filter                  ; external CBDLL name 't4filterCB';
+Function  t4getKey                  ; external CBDLL;
+Function  t4unique                  ; external CBDLL;
+Function  t4uniqueSet               ; external CBDLL;
+Function  t4seekN                   ; external CBDLL;
+
+Procedure u4free                    ; external CBDLL name 'u4freeDefault';
+
+Function  u4switch                  ; external CBDLL;
+
+{CBCD -- Implementation Definitions of DLL functions referenced by Name BEGIN}
+Function  code4tranStatusCB         ; external CBDLL ;
+Function  code4unlockAutoCB         ; external CBDLL ;
+Procedure code4unlockAutoSetCB      ; external CBDLL ;
+Function  d4logStatusCB             ; external CBDLL ;
+Function  d4recNoLow                ; external CBDLL ;
+Function  d4recordLow               ; external CBDLL ;
+Function  d4recWidthLow             ; external CBDLL ;
+Function  d4tagSelectP              ; external CBDLL ;
+Function  error4default             ; external CBDLL ;
+Function  error4describeDefault     ; external CBDLL ;
+Function  expr4dataCB               ; external CBDLL ;
+{Procedure u4freeDefault             ; external CBDLL ;}
+Procedure expr4freeCB               ; external CBDLL ;
+Function  expr4lenCB                ; external CBDLL ;
+Function  expr4nullLow              ; external CBDLL ;
+Function  relate4dataCB             ; external CBDLL ;
+Function  relate4dataTagCB          ; external CBDLL ;
+Function  relate4masterCB           ; external CBDLL ;
+Function  relate4masterExprCB       ; external CBDLL ;
+Function  report4doCB               ; external CBDLL ;
+Function  t4openCB                  ; external CBDLL ;
+Function  t4exprCB                  ; external CBDLL ;
+Function  t4filterCB                ; external CBDLL ;
+{CBCD -- END Implementation Definitions of DLL functions referenced by Name}
+
+{********************************************************************}
+{ code4emulator() loads the emulator code.  This includes the floating }
+{ point statement which is needed.  Include the $N+ option when compiling. }
+{********************************************************************}
+
+{
+Procedure code4emulator;
+var
+   d : Double;
+begin
+   d := 1.0;
+end;
+}
+
+{********************************************************************}
+{ The following functions have been redefined }
+{********************************************************************}
+
+{********** code4init **********}
+Function code4init : CODE4;
+begin
+   {code4emulator;}
+   code4init := code4initP;
+end;
+
+{********** date4init ***********}
+Procedure date4init ( p1 : PChar; p2 : PChar; p3 : PChar );
+begin
+   date4initP( p1, p2, p3 ) ;
+
+   { need to put a null character at end of string }
+   p1[8] := #0 ;
+end;
+
+{********** date4assign ***********}
+Procedure date4assign( p1 : PChar; p2 : Longint );
+begin
+   date4assignLow( p1, p2, 0 );
+end;
+
+{************* d4go **************}
+Function d4go( p1 : DATA4; p2 : Longint ) : Integer;
+begin
+   d4go := d4goLow( p1, p2, 1 );
+end;
+
+{************ d4lock* ************}
+Function d4lock( p1 : DATA4; p2 : Longint ) : Integer;
+begin
+   d4lock := d4lockInternal( p1, p2, 1, 1 );
+end;
+
+Function d4lockAll( p1 : DATA4 ) : Integer;
+begin
+   d4lockAll := d4lockAllInternal( p1, 1 );
+end;
+
+Function d4lockAppend( p1 : DATA4 ) : Integer;
+begin
+   d4lockAppend := d4lockAppendInternal( p1, 1 );
+end;
+
+{********** d4position **********}
+Function d4position( p1 : DATA4 ) : Double;
+var
+   d : Double;
+begin
+   d4position2( p1, @d );
+   d4position := d;
+end;
+
+Function  d4write( p1 : DATA4; p2 : Longint ) : Integer;
+begin
+   d4write := d4writeLow(p1,p2,0,1)
+end;
+
+Function  date4day ( p1 : PChar ) : Integer;
+begin
+     date4day :=  Integer ( c4atol( p1 + 6, 2 ) );
+end;
+
+Function  date4month ( p1 : PChar ) : Integer;
+begin
+     date4month := Integer ( c4atol( p1 + 4, 2 ) );
+end;
+
+Function  date4year ( p1 : PChar ) : Integer;
+begin
+     date4year :=  Integer ( c4atol( p1, 4 ) );
+end;
+
+{********** expr4double **********}
+Function expr4double( p1 : EXPR4 ) : Double;
+var
+   d : Double;
+begin
+   expr4double2( p1, @d );
+   expr4double := d;
+end;
+
+{********** expr4type **********}
+Function expr4type( p1 : EXPR4 ) : Integer;
+begin
+   expr4type := expr4typeCB( p1 );
+end;
+
+{********** f4double **********}
+Function f4double( p1 : FIELD4 ) : Double;
+var
+   d : Double;
+begin
+   f4double2( p1, @d );
+   f4double := d;
+end;
+
+Procedure report4free( p1 : REPORT4; p2 : Integer; p3 : Integer );
+begin
+   report4freeLow( p1, p2, p3, 0 );
+end;
+
+Procedure expr4free( p1: EXPR4 );
+begin
+{   u4FreeDefault( PVoid(p1) );}
+   expr4freeCB( p1 );
+end;
+
+Function  expr4parse( p1 : DATA4; p2 : PChar ) : EXPR4;
+begin
+   expr4parse := expr4parseLow( p1, p2, nil );
+end;
+
+
+{********************************************************************}
+{ End Of Implementation Section }
+{********************************************************************}
+
+{********************************************************************}
+{ Beginning Of Initialization Section }
+{********************************************************************}
+
+begin
+end.
+
+{********************************************************************}
+{ End Of Initialization Section }
+{********************************************************************}
+
+
+

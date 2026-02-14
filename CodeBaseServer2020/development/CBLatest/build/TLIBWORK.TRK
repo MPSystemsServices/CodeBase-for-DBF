@@ -1,0 +1,9 @@
+!!*                                                                                                                          .
+c4lib.cmd v=3 t=L l=4147                                                                                                     .
+c4lib_compile_msvc.cmd v=3 t=L l=4376                                                                                        .
+c4lib_link_msvc.cmd v=2 t=L l=3684                                                                                           .
+c4source.lst v=1.(4)3 t=L l=2691                                                                                             .
+c4dll.cmd v=17 t=L l=10595                                                                                                   .
+c4dll_lib.lst v=1 l=262                                                                                                      .
+c4dll_compile_msvc.cmd v=4.(2)3.2 t=T l=8851                                                                                 .
+c4dll_link_msvc.cmd v=12 t=L l=9545                                                                                          .

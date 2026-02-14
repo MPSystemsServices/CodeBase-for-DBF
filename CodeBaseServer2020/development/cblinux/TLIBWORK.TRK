@@ -1,0 +1,200 @@
+!!*                                                                                                                          .
+c4com.h v=4.1.4.(3)1 t=T l=174225                                                                                            .
+c4comlow.h v=45.35.3.(2)4.3 l=58821                                                                                          .
+C4COMWS.H v=1.15.10 t=L l=10049                                                                                              .
+c4trans.H v=4 l=73222                                                                                                        .
+d4all.h v=7.(2)1.4.4 t=T l=63691                                                                                             .
+d4data.h v=45.21.(3)2 t=T l=985360                                                                                           .
+d4declar.h v=60.21.12.2.(2)3 t=T l=1140959                                                                                   .
+d4defs.h v=49.10.13.(2)2 t=T l=450297                                                                                        .
+d4inc.h v=7.9.18.1 l=19271                                                                                                   .
+D4INLINE.H v=4 l=105400                                                                                                      .
+D4SECURE.H v=12.17.5 l=24267                                                                                                 .
+D4STAMP.H v=4 t=L l=872                                                                                                      .
+E4DEFS.H v=3.5 t=L l=122080                                                                                                  .
+e4error.h v=1.31 t=T l=192769                                                                                                .
+e4expr.h v=10.(3)1 t=L l=99197                                                                                               .
+e4string.h v=11.4 l=525531                                                                                                   .
+F4FLAG.H v=4 t=L l=13181                                                                                                     .
+M4MEM2.H v=6.6 t=T l=23388                                                                                                   .
+O4OPT.H v=1.30.2 l=21000                                                                                                     .
+POP4.H v=4 t=T l=1020                                                                                                        .
+PUSH4.H v=4 t=T l=1028                                                                                                       .
+R4REINDE.H v=1.28 t=L l=14302                                                                                                .
+R4RELATE.H v=10 l=79822                                                                                                      .
+R4REPORT.H v=4.(4)1 t=T l=343119                                                                                             .
+S4SORT.H v=1.23 l=16599                                                                                                      .
+TIMER5.H v=7 t=L l=3007                                                                                                      .
+zlib.h v=1 t=L l=40904                                                                                                       .
+zconf.h v=1 t=L l=8091                                                                                                       .
+SINGLE4.HPP v=7 t=L l=2926                                                                                                   .
+b4block.c v=1.65.81.46.1 t=T l=653618                                                                                        .
+B4NODE.C v=11 t=T l=4705                                                                                                     .
+c4.c v=6 l=165176                                                                                                            .
+c4baspas.c v=35.1.1.5 t=T l=332347                                                                                           .
+C4BCD.C v=1.29 t=L l=15016                                                                                                   .
+C4BLAST.C v=10 t=L l=4798                                                                                                    .
+c4buffer.c v=106.1.4 l=418923                                                                                                .
+C4CODE.C v=61.1.2 t=T l=899155                                                                                               .
+c4com.c v=6.(2)2 l=354922                                                                                                    .
+C4COM2.C v=18 t=T l=46648                                                                                                    .
+C4CONECT.C v=73.13.2.(2)3.2 l=106050                                                                                         .
+c4conlow.c v=94.3 l=213932                                                                                                   .
+C4CONST.C v=1.20.9.14.7 l=85237                                                                                              .
+C4HOOK.C v=2.2 t=T l=117093                                                                                                  .
+c4long.c v=4 l=2016                                                                                                          .
+c4send.c v=7 t=L l=17791                                                                                                     .
+c4set.c v=18 l=70032                                                                                                         .
+C4THREAD.C v=58 l=133872                                                                                                     .
+c4trans.c v=7.3.(3)1 t=T l=923962                                                                                            .
+c4util.c v=54.(3)1 l=137059                                                                                                  .
+COLL4ARR.C v=5.2 l=180479                                                                                                    .
+D4APPEND.C v=6.2.3.1.2 t=T l=326806                                                                                          .
+D4BOTTOM.C v=2 l=61286                                                                                                       .
+d4close.c v=2.1.45.13.9.8.1.9 l=122328                                                                                       .
+D4CREATE.C v=22.1 l=531037                                                                                                   .
+d4data.c v=7 l=153944                                                                                                        .
+D4DATE.C v=3.32.2.4.1 t=T l=86867                                                                                            .
+d4extra.c v=1.48.5 l=48815                                                                                                   .
+d4field.c v=1.15.12.(2)1 l=14609                                                                                             .
+d4file.c v=3.(2)1 t=T l=73379                                                                                                .
+D4FLUSH.C v=3.(2)1 t=T l=64016                                                                                               .
+D4FRESH.C v=1.40.12.(2)1 t=T l=25190                                                                                         .
+d4go.c v=4 l=89395                                                                                                           .
+d4index.c v=1.107.2 l=59352                                                                                                  .
+D4INFO.C v=1.41 l=24740                                                                                                      .
+D4INLINE.C v=2.4.4 l=26992                                                                                                   .
+d4lock.c v=4.40.31.1.(3)1 t=T l=150900                                                                                       .
+D4MODIFY.C v=81.2.1.(3)1 t=T l=148690                                                                                        .
+D4OPEN.C v=41.6.(2)1 t=T l=570587                                                                                            .
+D4OPT.C v=4.49.3.1.7 t=T l=127022                                                                                            .
+d4pack.c v=3 l=76224                                                                                                         .
+D4POSITI.C v=2 l=45437                                                                                                       .
+D4REMOVE.C v=1.40.1 t=T l=19934                                                                                              .
+D4SEEK.C v=9.4.3 l=314137                                                                                                    .
+d4skip.c v=3.2.1.2 l=200875                                                                                                  .
+D4TAG.C v=2 l=53986                                                                                                          .
+D4TOP.C v=3 l=57131                                                                                                          .
+d4unlock.c v=1.116.18.(2)4 l=105733                                                                                          .
+D4WRITE.C v=4.5.1.1 t=T l=291582                                                                                             .
+d4zap.c v=2 l=62373                                                                                                          .
+df4lock.c v=4.(3)1 t=T l=245383                                                                                              .
+df4unlok.c v=4.3.(2)2 t=T l=67159                                                                                            .
+E4CALC.C v=1.36.9 l=30373                                                                                                    .
+E4CALC_2.C v=1.20 t=L l=18969                                                                                                .
+e4error.c v=15.2 t=T l=278795                                                                                                .
+E4EVENT.C v=18 t=L l=9462                                                                                                    .
+E4EXPR.C v=4.1 l=213646                                                                                                      .
+e4functi.c v=8.2.1.(3)2 t=L l=392478                                                                                         .
+e4not_s.c v=1.90.40.46.(2)2 l=295072                                                                                         .
+e4parse.c v=8.4 l=304413                                                                                                     .
+e4str2.c v=1.42.2.1 t=T l=66784                                                                                              .
+e4string.c v=12.4 l=80631                                                                                                    .
+f4ass_f.c v=1.15.6.13 l=16906                                                                                                .
+F4CHAR.C v=2.(2)14 t=L l=10257                                                                                               .
+f4close.c v=1.59.2.3.(2)1 t=T l=50616                                                                                        .
+f4create.c v=4.1.(2)9.1 t=T l=170914                                                                                         .
+F4CUR.C v=22 t=L l=29653                                                                                                     .
+F4DOUBLE.C v=1.15.12.1.7 l=35224                                                                                             .
+F4DTTIME.C v=13 t=L l=4995                                                                                                   .
+F4FIELD.C v=2.1.41.19.3.20.(2)1 t=T l=204736                                                                                 .
+f4file.c v=4.6.12.(4)1 t=T l=571546                                                                                          .
+F4FILESE.C v=1.77.13.1 t=T l=123025                                                                                          .
+f4find.cPp v=14 t=T l=10325                                                                                                  .
+F4FLAG.C v=3 t=L l=49468                                                                                                     .
+F4FLUSH.C v=1.59 t=T l=37501                                                                                                 .
+f4info.c v=1.11.7 l=7333                                                                                                     .
+F4INT.C v=1.15.17.1.7.1 t=T l=27569                                                                                          .
+f4lock.c v=3 l=110277                                                                                                        .
+F4LONG.C v=1.15.19.1.8 l=41267                                                                                               .
+f4memo.c v=14.2.2.(4)1 t=T l=161044                                                                                          .
+F4NULL.C v=13 t=L l=6315                                                                                                     .
+f4open.c v=4.3.1.11 l=145399                                                                                                 .
+f4opt.c v=2.35.(2)1 l=67883                                                                                                  .
+f4ptr.c v=1.13 l=3444                                                                                                        .
+F4STR.C v=1.23.18 t=L l=20293                                                                                                .
+F4TEMP.C v=1.65.1.1.1 t=T l=57340                                                                                            .
+F4TRUE.C v=1.6.11 t=L l=3811                                                                                                 .
+f4write.c v=4.4.8.1 t=T l=240689                                                                                             .
+F4WSTR.C v=12 l=11557                                                                                                        .
+i4add.c v=9.(4)1 t=T l=362355                                                                                                .
+i4addtag.c v=1.44.37.2 l=187192                                                                                              .
+i4check.c v=3.(2)26.42.1.(2)2 t=T l=152590                                                                                   .
+i4conv.c v=61.(2)1 t=T l=243000                                                                                              .
+i4create.c v=16.8.(2)1 l=354100                                                                                              .
+I4DUMP.C v=1.23 t=L l=11903                                                                                                  .
+i4index.c v=34.2.2.1 t=T l=658999                                                                                            .
+i4info.c v=1.38.33 l=45316                                                                                                   .
+i4init.c v=1.24.7.86.1 l=135001                                                                                              .
+I4KEY.C v=1.16.9 l=12049                                                                                                     .
+I4LOCK.C v=3.1.1 t=T l=90686                                                                                                 .
+i4ntag.c v=1.110.17.15.6.10 l=226771                                                                                         .
+I4POSITI.C v=1.32 l=40845                                                                                                    .
+i4remove.c v=6.2 l=324139                                                                                                    .
+I4TAG.C v=9.5.3.1 t=T l=731220                                                                                               .
+I4THREAD.C v=62 l=92809                                                                                                      .
+L4LINK.C v=1.38.4 l=46698                                                                                                    .
+L4LOCK_C.C v=1.11 t=L l=5955                                                                                                 .
+l4mutex.c v=20 t=L l=23552                                                                                                   .
+M4CHECK.C v=2.8.5 t=L l=12173                                                                                                .
+m4create.c v=5.(2)3 t=T l=72065                                                                                              .
+m4file.c v=10.2.2 t=T l=199954                                                                                               .
+m4map.c v=7 l=220590                                                                                                         .
+m4memo.c v=5.6.(3)1 l=98730                                                                                                  .
+m4memory.c v=6.(2)2.3 l=222786                                                                                               .
+M4MEM2.C v=10 t=L l=13647                                                                                                    .
+mutex4.c v=3.1 l=7547                                                                                                        .
+o4opt.c v=5 t=T l=313292                                                                                                     .
+R4AREA.C v=3.9 t=L l=27534                                                                                                   .
+R4BIT.C v=2.19.3 l=31572                                                                                                     .
+R4DRIVE2.C v=3.31 l=95661                                                                                                    .
+R4DRIVER.C v=13.1.1 l=239033                                                                                                 .
+R4GROUP.C v=5.8.2 l=37020                                                                                                    .
+r4log.c v=3 l=89990                                                                                                          .
+R4OBJ.C v=2.19.2 l=86519                                                                                                     .
+R4REGS.C v=1.11 t=L l=4864                                                                                                   .
+r4reinde.c v=12.(3)2 t=T l=520532                                                                                            .
+R4REINDX.C v=4.33.8.19 l=150164                                                                                              .
+r4relate.c v=28.(3)1 t=T l=1169951                                                                                           .
+R4REPORT.C v=3.48 l=187728                                                                                                   .
+r4save.c v=3.39 l=256576                                                                                                     .
+R4SAVE_2.C v=1.4.23.19 l=73588                                                                                               .
+R4STYLE.C v=3.16 l=43269                                                                                                     .
+R4TOTAL.C v=3.13 l=49327                                                                                                     .
+S4INIT.C v=1.13.14.4.1 t=T l=40306                                                                                           .
+S4INITFR.C v=1.22 t=L l=10198                                                                                                .
+S4NEXT.C v=1.24 t=T l=12207                                                                                                  .
+S4QUICK.C v=1.23 t=L l=19127                                                                                                 .
+S4SIGNAL.C v=20 t=L l=19702                                                                                                  .
+s4sort.c v=3 t=T l=24288                                                                                                     .
+sema4.c v=17 l=15607                                                                                                         .
+u4name.c v=7.1 t=T l=166798                                                                                                  .
+u4util.c v=13.2.(2)1 t=T l=702341                                                                                            .
+log5.cPp v=7.9.2 l=36410                                                                                                     .
+util5.hPp v=4.(2)12.1 l=8330                                                                                                 .
+oledb5.hPp v=34.1 t=T l=7796                                                                                                 .
+util5.cPp v=7.(2)13.1 l=23339                                                                                                .
+STAMP5.HPP v=8.1 t=L l=2539                                                                                                  .
+s4stamp.cPp v=6.2 t=L l=5367                                                                                                 .
+C4DLL.RC v=4 t=L l=2495                                                                                                      .
+c4dll.RES v=1 t=L l=870                                                                                                      .
+c4dll16b.dEf v=9 t=L l=13372                                                                                                 .
+c4dll16m.dEf v=9 t=L l=13370                                                                                                 .
+c4dll32.dEf v=33.9 l=47673                                                                                                   .
+zlib.lib v=2 t=T l=17632                                                                                                     .
+zlib.dll v=2 t=T l=139114                                                                                                    .
+d4all.hPp v=1.(2)7 l=3141                                                                                                    .
+d4data.hPp v=23.1.3 l=621207                                                                                                 .
+e4string.HPP v=3 t=L l=14376                                                                                                 .
+D4DATA_P.CPP v=5 l=37393                                                                                                     .
+f4info_p.cPp v=1.4.(2)24 l=19114                                                                                             .
+F4SEQ.CPP v=1.2.(2)12 t=L l=5096                                                                                             .
+s4str.cPp v=4.(2)40.7 l=90877                                                                                                .
+s4string.cPp v=1.6.(2)17 l=13250                                                                                             .
+t4info.cPp v=1.5.(2)18 l=28311                                                                                               .
+rijndael.h v=1 t=L l=6100                                                                                                    .
+c4dll.cmd v=16 t=L l=9268                                                                                                    .
+c4dll_lib.lst v=1 l=262                                                                                                      .
+c4dll_compile_msvc.cmd v=4.(2)3.2 t=L l=8293                                                                                 .
+c4dll_link_msvc.cmd v=10 t=L l=8134                                                                                          .
+c4source.lst v=1.(4)3 t=L l=2691                                                                                             .

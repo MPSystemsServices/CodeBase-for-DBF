@@ -1,0 +1,4 @@
+shell32.lib
+user32.lib
+advapi32.lib
+gdi32.lib

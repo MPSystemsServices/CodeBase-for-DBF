@@ -1,0 +1,14 @@
+d4srvApp.c
+d4all.h(16) : warning C4005: 'S4FOX' : macro redefinition
+        unknown(0) : see previous definition of 'S4FOX'
+d4all.h(25) : warning C4005: 'S4DLL' : macro redefinition
+        unknown(0) : see previous definition of 'S4DLL'
+Microsoft (R) Incremental Linker Version 6.00.8447
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+d4service.c
+d4all.h(16) : warning C4005: 'S4FOX' : macro redefinition
+        unknown(0) : see previous definition of 'S4FOX'
+d4all.h(25) : warning C4005: 'S4DLL' : macro redefinition
+        unknown(0) : see previous definition of 'S4DLL'
+LINK : warning LNK4068: /MACHINE not specified; defaulting to IX86

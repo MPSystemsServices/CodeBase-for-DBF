@@ -1,0 +1,78 @@
+Attribute VB_Name = "help"
+Option Explicit
+
+Global Const HH_HELP_CONTEXT = &HF
+Global Const HH_DISPLAY_TOC = &H1
+Global Const HH_DISPLAY_INDEX = &H2
+Global Const HH_DISPLAY_SEARCH = &H3
+Global Const HH_DISPLAY_TOPIC = &H0
+Global Const HH_KEYWORD_LOOKUP = &HD
+
+Declare Function HtmlHelp Lib "HHCtrl.ocx" Alias "HtmlHelpA" _
+    (ByVal hwndCaller As Long, _
+    ByVal pszFile As String, _
+    ByVal uCommand As Long, _
+    dwData As Any) As Long
+
+Global Const Accept_New_Connections = 1
+Global Const Account_Manager = 2
+Global Const Accounts = 3
+Global Const Adding_a_file = 4
+Global Const Adding_an_account = 5
+Global Const ADMIN_account = 6
+Global Const Append_Privilege = 7
+Global Const Client_Server_Startup = 8
+Global Const Close_Unused_Cached_Files = 9
+Global Const Compress_reindex_privilege = 10
+Global Const Compressing_Memo_Files = 11
+Global Const Compressing_Tables = 12
+Global Const Connections_Report = 13
+Global Const Connections_Tables_Report = 14
+Global Const Create_Permanent_Priv = 15
+Global Const Create_Temp_Priv = 16
+Global Const Create_Modify_Index_Priv = 17
+Global Const Delete_Priv = 18
+Global Const Deleting_a_file = 19
+Global Const Deleting_an_account = 20
+Global Const Disconnect_menu = 21
+Global Const Disconnect_All_menu = 22
+Global Const Disconnect_priv = 23
+Global Const External_Applications = 24
+Global Const File_Access = 25
+Global Const File_Access_KEEPOPEN = 26
+Global Const File_Access_OPENMODE = 27
+Global Const File_Access_OPTIMIZE = 28
+Global Const File_Maintenance = 29
+Global Const Files_Directories = 30
+Global Const Files_Directories_DEFPATH = 31
+Global Const Files_Directories_SYSTEMPATH = 32
+Global Const CBAdmin_Introduction = 33
+Global Const Lock_Reports = 34
+Global Const Memory = 35
+Global Const Networking_Config = 36
+Global Const Networking_LOCALHOST = 37
+Global Const ODBC_Config = 38
+Global Const Open_Tables_Report = 39
+Global Const Open_Tables_con_Report = 40
+Global Const Operations_Overview = 41
+Global Const PUBLIC_Account = 42
+Global Const Read_Priv = 43
+Global Const d4check_Priv = 44
+Global Const Overwrite_priv = 45
+Global Const Account_Rename_priv = 46
+Global Const Security_Features = 47
+Global Const Server_Information = 48
+Global Const Config_memory = 49
+Global Const Server_op_config = 50
+Global Const Server_Settings = 51
+Global Const Shutdown = 52
+Global Const Start_CBAdmin = 53
+Global Const Troubleshooting = 54
+Global Const Update_priv = 55
+Global Const Backup_Settings = 56
+Global Const Update_Backup = 57
+Global Const Log_Analyze = 58
+Global Const Log_Recover = 59
+Global Const Log_Backup = 60
+Global Const Log_Restore = 61
+Global Const Options = 62

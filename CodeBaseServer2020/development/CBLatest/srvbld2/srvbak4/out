@@ -1,0 +1,16 @@
+d4main.c
+Microsoft (R) Incremental Linker Version 6.00.8168
+Copyright (C) Microsoft Corp 1992-1998. All rights reserved.
+
+user32.lib 
+gdi32.lib 
+wsock32.lib 
+uuid.lib 
+advapi32.lib 
+comdlg32.lib 
+shell32.lib 
+zlib.lib 
+"e:\development\CBLatest\srvbld2\d4main.obj" 
+   Creating library s4dll.lib and object s4dll.exp
+LINK : warning LNK4089: all references to "GDI32.dll" discarded by /OPT:REF
+

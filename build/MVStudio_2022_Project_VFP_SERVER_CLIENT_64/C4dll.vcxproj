@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{08BA9D06-BB26-4DC8-B852-B31AC8CB3F56}</ProjectGuid>
+    <SccProjectName />
+    <SccLocalPath />
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\.\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\.\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\..\IntermediateFiles\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\..\IntermediateFiles\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\.\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\.\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\..\IntermediateFiles\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\..\IntermediateFiles\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>C4dll64</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;..\source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;S4DLL_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <StructMemberAlignment>1Byte</StructMemberAlignment>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\..\source/</AssemblerListingLocation>
+      <ObjectFileName>.\..\source/</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\source/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>C4dll64.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>C4dll64.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>C4dll64.lib</ImportLibrary>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>.\./C4dll64.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>.;..\source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;S4DLL_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <StructMemberAlignment>1Byte</StructMemberAlignment>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\..\source/</AssemblerListingLocation>
+      <ObjectFileName>.\..\source/</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\source/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:I386 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>C4dll64.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ModuleDefinitionFile>..\..\WorkingSource\c4dll32.def</ModuleDefinitionFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ProgramDatabaseFile>C4dll64.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>C4dll64.lib</ImportLibrary>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TypeLibraryName>C4dll64.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.;..\source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;S4DLL_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\..\source/</AssemblerListingLocation>
+      <ObjectFileName>.\..\source/</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\source/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:X64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>C4dll64.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ModuleDefinitionFile>..\..\WorkingSource\c4dll32.def</ModuleDefinitionFile>
+      <ProgramDatabaseFile>C4dll64.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>c4dll64.lib</ImportLibrary>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <TypeLibraryName>C4dll64.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>.;..\source;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;WIN32;_WINDOWS;S4DLL_BUILD;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\..\source/</AssemblerListingLocation>
+      <ObjectFileName>.\..\source/</ObjectFileName>
+      <ProgramDataBaseFileName>.\..\source/</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>CompileAsCpp</CompileAs>
+    </ClCompile>
+    <Link>
+      <AdditionalOptions>/MACHINE:X64 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>C4dll64.dll</OutputFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ProgramDatabaseFile>C4dll64.pdb</ProgramDatabaseFile>
+      <SubSystem>Windows</SubSystem>
+      <ImportLibrary>C4dll64.lib</ImportLibrary>
+    </Link>
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>true</MkTypLibCompatible>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TypeLibraryName>C4dll64.tlb</TypeLibraryName>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\WorkingSource\B4block.c" />
+    <ClCompile Include="..\..\WorkingSource\C4.c" />
+    <ClCompile Include="..\..\WorkingSource\C4BUFFER.C" />
+    <ClCompile Include="..\..\WorkingSource\C4COM2.C" />
+    <ClCompile Include="..\..\WorkingSource\C4CONECT.C" />
+    <ClCompile Include="..\..\WorkingSource\C4CONLOW.C" />
+    <ClCompile Include="..\..\WorkingSource\C4THREAD.C" />
+    <ClCompile Include="..\..\WorkingSource\C4UTIL.C" />
+    <ClCompile Include="..\..\WorkingSource\C4bcd.c" />
+    <ClCompile Include="..\..\WorkingSource\C4code.c" />
+    <ClCompile Include="..\..\WorkingSource\C4com.c" />
+    <ClCompile Include="..\..\WorkingSource\C4const.c" />
+    <ClCompile Include="..\..\WorkingSource\C4hook.c" />
+    <ClCompile Include="..\..\WorkingSource\C4trans.c" />
+    <ClCompile Include="..\..\WorkingSource\D4MODIFY.C" />
+    <ClCompile Include="..\..\WorkingSource\D4append.c" />
+    <ClCompile Include="..\..\WorkingSource\D4bottom.c" />
+    <ClCompile Include="..\..\WorkingSource\D4close.c" />
+    <ClCompile Include="..\..\WorkingSource\D4create.c" />
+    <ClCompile Include="..\..\WorkingSource\D4data.c" />
+    <ClCompile Include="..\..\WorkingSource\D4date.c" />
+    <ClCompile Include="..\..\WorkingSource\D4extra.c" />
+    <ClCompile Include="..\..\WorkingSource\D4field.c" />
+    <ClCompile Include="..\..\WorkingSource\D4file.c" />
+    <ClCompile Include="..\..\WorkingSource\D4flush.c" />
+    <ClCompile Include="..\..\WorkingSource\D4fresh.c" />
+    <ClCompile Include="..\..\WorkingSource\D4go.c" />
+    <ClCompile Include="..\..\WorkingSource\D4index.c" />
+    <ClCompile Include="..\..\WorkingSource\D4info.c" />
+    <ClCompile Include="..\..\WorkingSource\D4inline.c" />
+    <ClCompile Include="..\..\WorkingSource\D4lock.c" />
+    <ClCompile Include="..\..\WorkingSource\D4open.c" />
+    <ClCompile Include="..\..\WorkingSource\D4opt.c" />
+    <ClCompile Include="..\..\WorkingSource\D4pack.c" />
+    <ClCompile Include="..\..\WorkingSource\D4positi.c" />
+    <ClCompile Include="..\..\WorkingSource\D4remove.c" />
+    <ClCompile Include="..\..\WorkingSource\D4seek.c" />
+    <ClCompile Include="..\..\WorkingSource\D4skip.c" />
+    <ClCompile Include="..\..\WorkingSource\D4tag.c" />
+    <ClCompile Include="..\..\WorkingSource\D4top.c" />
+    <ClCompile Include="..\..\WorkingSource\D4unlock.c" />
+    <ClCompile Include="..\..\WorkingSource\D4write.c" />
+    <ClCompile Include="..\..\WorkingSource\D4zap.c" />
+    <ClCompile Include="..\..\WorkingSource\Df4lock.c" />
+    <ClCompile Include="..\..\WorkingSource\Df4unlok.c" />
+    <ClCompile Include="..\..\WorkingSource\E4EVENT.C" />
+    <ClCompile Include="..\..\WorkingSource\E4calc.c" />
+    <ClCompile Include="..\..\WorkingSource\E4calc_2.c" />
+    <ClCompile Include="..\..\WorkingSource\E4error.c" />
+    <ClCompile Include="..\..\WorkingSource\E4expr.c" />
+    <ClCompile Include="..\..\WorkingSource\E4functi.c" />
+    <ClCompile Include="..\..\WorkingSource\E4not_s.c" />
+    <ClCompile Include="..\..\WorkingSource\E4parse.c" />
+    <ClCompile Include="..\..\WorkingSource\E4string.c" />
+    <ClCompile Include="..\..\WorkingSource\F4WSTR.C" />
+    <ClCompile Include="..\..\WorkingSource\F4ass_f.c" />
+    <ClCompile Include="..\..\WorkingSource\F4char.c" />
+    <ClCompile Include="..\..\WorkingSource\F4close.c" />
+    <ClCompile Include="..\..\WorkingSource\F4create.c" />
+    <ClCompile Include="..\..\WorkingSource\F4double.c" />
+    <ClCompile Include="..\..\WorkingSource\F4field.c" />
+    <ClCompile Include="..\..\WorkingSource\F4file.c" />
+    <ClCompile Include="..\..\WorkingSource\F4filese.c" />
+    <ClCompile Include="..\..\WorkingSource\F4flag.c" />
+    <ClCompile Include="..\..\WorkingSource\F4flush.c" />
+    <ClCompile Include="..\..\WorkingSource\F4info.c" />
+    <ClCompile Include="..\..\WorkingSource\F4int.c" />
+    <ClCompile Include="..\..\WorkingSource\F4lock.c" />
+    <ClCompile Include="..\..\WorkingSource\F4long.c" />
+    <ClCompile Include="..\..\WorkingSource\F4memo.c" />
+    <ClCompile Include="..\..\WorkingSource\F4open.c" />
+    <ClCompile Include="..\..\WorkingSource\F4opt.c" />
+    <ClCompile Include="..\..\WorkingSource\F4ptr.c" />
+    <ClCompile Include="..\..\WorkingSource\F4str.c" />
+    <ClCompile Include="..\..\WorkingSource\F4temp.c" />
+    <ClCompile Include="..\..\WorkingSource\F4true.c" />
+    <ClCompile Include="..\..\WorkingSource\F4write.c" />
+    <ClCompile Include="..\..\WorkingSource\I4THREAD.C" />
+    <ClCompile Include="..\..\WorkingSource\I4add.c" />
+    <ClCompile Include="..\..\WorkingSource\I4addtag.c" />
+    <ClCompile Include="..\..\WorkingSource\I4check.c" />
+    <ClCompile Include="..\..\WorkingSource\I4create.c" />
+    <ClCompile Include="..\..\WorkingSource\I4dump.c" />
+    <ClCompile Include="..\..\WorkingSource\I4index.c" />
+    <ClCompile Include="..\..\WorkingSource\I4info.c" />
+    <ClCompile Include="..\..\WorkingSource\I4init.c" />
+    <ClCompile Include="..\..\WorkingSource\I4key.c" />
+    <ClCompile Include="..\..\WorkingSource\I4lock.c" />
+    <ClCompile Include="..\..\WorkingSource\I4ntag.c" />
+    <ClCompile Include="..\..\WorkingSource\I4positi.c" />
+    <ClCompile Include="..\..\WorkingSource\I4remove.c" />
+    <ClCompile Include="..\..\WorkingSource\I4tag.c" />
+    <ClCompile Include="..\..\WorkingSource\L4MUTEX.C" />
+    <ClCompile Include="..\..\WorkingSource\L4link.c" />
+    <ClCompile Include="..\..\WorkingSource\L4lock_c.c" />
+    <ClCompile Include="..\..\WorkingSource\M4check.c" />
+    <ClCompile Include="..\..\WorkingSource\M4create.c" />
+    <ClCompile Include="..\..\WorkingSource\M4file.c" />
+    <ClCompile Include="..\..\WorkingSource\M4map.c" />
+    <ClCompile Include="..\..\WorkingSource\M4memo.c" />
+    <ClCompile Include="..\..\WorkingSource\M4memory.c" />
+    <ClCompile Include="..\..\WorkingSource\O4opt.c" />
+    <ClCompile Include="..\..\WorkingSource\R4area.c" />
+    <ClCompile Include="..\..\WorkingSource\R4bit.c" />
+    <ClCompile Include="..\..\WorkingSource\R4drive2.c" />
+    <ClCompile Include="..\..\WorkingSource\R4driver.c" />
+    <ClCompile Include="..\..\WorkingSource\R4group.c" />
+    <ClCompile Include="..\..\WorkingSource\R4log.c" />
+    <ClCompile Include="..\..\WorkingSource\R4obj.c" />
+    <ClCompile Include="..\..\WorkingSource\R4regs.c" />
+    <ClCompile Include="..\..\WorkingSource\R4reinde.c" />
+    <ClCompile Include="..\..\WorkingSource\R4reindx.c" />
+    <ClCompile Include="..\..\WorkingSource\R4relate.c" />
+    <ClCompile Include="..\..\WorkingSource\R4report.c" />
+    <ClCompile Include="..\..\WorkingSource\R4save.c" />
+    <ClCompile Include="..\..\WorkingSource\R4save_2.c" />
+    <ClCompile Include="..\..\WorkingSource\R4style.c" />
+    <ClCompile Include="..\..\WorkingSource\R4total.c" />
+    <ClCompile Include="..\..\WorkingSource\S4SIGNAL.C" />
+    <ClCompile Include="..\..\WorkingSource\S4init.c" />
+    <ClCompile Include="..\..\WorkingSource\S4initfr.c" />
+    <ClCompile Include="..\..\WorkingSource\S4next.c" />
+    <ClCompile Include="..\..\WorkingSource\S4quick.c" />
+    <ClCompile Include="..\..\WorkingSource\S4sort.c" />
+    <ClCompile Include="..\..\WorkingSource\SEMA4.C" />
+    <ClCompile Include="..\..\WorkingSource\U4name.c" />
+    <ClCompile Include="..\..\WorkingSource\U4util.c" />
+    <ClCompile Include="..\..\WorkingSource\b4node.c" />
+    <ClCompile Include="..\..\WorkingSource\c4baspas.c" />
+    <ClCompile Include="..\..\WorkingSource\c4send.c" />
+    <ClCompile Include="..\..\WorkingSource\c4set.c" />
+    <ClCompile Include="..\..\WorkingSource\f4find.cpp" />
+    <ClCompile Include="..\..\WorkingSource\i4conv.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\WorkingSource\C4com.h" />
+    <ClInclude Include="..\..\WorkingSource\C4coml.h" />
+    <ClInclude Include="..\..\WorkingSource\C4comws.h" />
+    <ClInclude Include="..\..\WorkingSource\C4trans.h" />
+    <ClInclude Include="..\..\WorkingSource\D4all.h" />
+    <ClInclude Include="..\..\WorkingSource\D4data.h" />
+    <ClInclude Include="..\..\WorkingSource\D4declar.h" />
+    <ClInclude Include="..\..\WorkingSource\D4defs.h" />
+    <ClInclude Include="..\..\WorkingSource\D4inline.h" />
+    <ClInclude Include="..\..\WorkingSource\E4defs.h" />
+    <ClInclude Include="..\..\WorkingSource\E4error.h" />
+    <ClInclude Include="..\..\WorkingSource\E4expr.h" />
+    <ClInclude Include="..\..\WorkingSource\E4string.h" />
+    <ClInclude Include="..\..\WorkingSource\F4flag.h" />
+    <ClInclude Include="..\..\WorkingSource\O4opt.h" />
+    <ClInclude Include="..\..\WorkingSource\R4reinde.h" />
+    <ClInclude Include="..\..\WorkingSource\R4relate.h" />
+    <ClInclude Include="..\..\WorkingSource\R4report.h" />
+    <ClInclude Include="..\..\WorkingSource\S4sort.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\..\WorkingSource\c4dll.res" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

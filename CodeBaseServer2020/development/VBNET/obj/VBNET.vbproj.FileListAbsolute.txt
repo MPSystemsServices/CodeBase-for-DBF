@@ -1,0 +1,10 @@
+E:\development\VBNET\bin\Debug\VBNET.exe
+E:\development\VBNET\bin\Debug\VBNET.pdb
+E:\development\VBNET\bin\Debug\VBNET.xml
+E:\development\VBNET\obj\Debug\ResolveAssemblyReference.cache
+E:\development\VBNET\obj\Debug\VBNET.Resources.resources
+E:\development\VBNET\obj\Debug\VBNET.vbproj.GenerateResource.Cache
+E:\development\VBNET\obj\Debug\VBNET.exe
+E:\development\VBNET\obj\Debug\VBNET.xml
+E:\development\VBNET\obj\Debug\VBNET.pdb
+E:\development\VBNET\obj\Debug\VBNET.Form1.resources

@@ -1,0 +1,9 @@
+2011/10/14  13:30:55
+     -2110
+Server Configuration Failure
+     70130
+MEMXLOCK invalid value ( < 1 )
+Client Info: ip address:   0.  0.  0.  0
+Memory: total allocated: 22224, num allocations 17
+
+

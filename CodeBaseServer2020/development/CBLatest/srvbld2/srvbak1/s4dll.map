@@ -1,0 +1,701 @@
+ s4dll
+
+ Timestamp is 4f0f6d72 (Thu Jan 12 16:32:02 2012)
+
+ Preferred load address is 10000000
+
+ Start         Length     Name                   Class
+ 0001:00000000 000073a6H .text                   CODE
+ 0002:00000000 0000055cH .rdata                  DATA
+ 0002:00000560 000000ebH .edata                  DATA
+ 0003:00000000 00000004H .CRT$XCA                DATA
+ 0003:00000004 00000004H .CRT$XCZ                DATA
+ 0003:00000008 00000004H .CRT$XIA                DATA
+ 0003:0000000c 00000008H .CRT$XIC                DATA
+ 0003:00000014 00000004H .CRT$XIZ                DATA
+ 0003:00000018 00000004H .CRT$XPA                DATA
+ 0003:0000001c 00000004H .CRT$XPX                DATA
+ 0003:00000020 00000004H .CRT$XPZ                DATA
+ 0003:00000024 00000004H .CRT$XTA                DATA
+ 0003:00000028 00000004H .CRT$XTZ                DATA
+ 0003:00000030 000014f0H .data                   DATA
+ 0003:00001520 000019e8H .bss                    DATA
+ 0004:00000000 00000078H .idata$2                DATA
+ 0004:00000078 00000014H .idata$3                DATA
+ 0004:0000008c 000001acH .idata$4                DATA
+ 0004:00000238 000001acH .idata$5                DATA
+ 0004:000003e4 0000073aH .idata$6                DATA
+
+  Address         Publics by Value              Rva+Base     Lib:Object
+
+ 0001:00000000       _setServer4global@4        10001000 f   d4main.obj
+ 0001:00000010       _setService@0              10001010 f   d4main.obj
+ 0001:00000020       _server4taskbarIcon        10001020 f   d4main.obj
+ 0001:000000d0       _InitApplication@4         100010d0 f   d4main.obj
+ 0001:00000160       ?doServerGui@@YAXQAUHINSTANCE__@@QAX@Z 10001160 f   d4main.obj
+ 0001:00000750       _InitInstance@8            10001750 f   d4main.obj
+ 0001:00000820       ?initAboutDialog@@YAXPAUHWND__@@J@Z 10001820 f   d4main.obj
+ 0001:00000a40       _AboutProc@16              10001a40 f   d4main.obj
+ 0001:00000ac0       ?AboutLicence@@YGJPAUHWND__@@IIJ@Z 10001ac0 f   d4main.obj
+ 0001:00000c70       ?UpdateWindowGUI@@YAXXZ    10001c70 f   d4main.obj
+ 0001:00000e30       ?AboutConfig@@YGJPAUHWND__@@IIJ@Z 10001e30 f   d4main.obj
+ 0001:00000e90       ?menu4about@@YAXPAUHWND__@@P6GH0IIJ@Z@Z 10001e90 f   d4main.obj
+ 0001:00000ee0       ?menu4licence@@YAXPAUHWND__@@P6GH0IIJ@Z@Z 10001ee0 f   d4main.obj
+ 0001:00000f20       ?start4config@@YAXPAUHWND__@@P6GH0IIJ@Z@Z 10001f20 f   d4main.obj
+ 0001:00000f50       ?server4getRegistryString@@YAHPAUHKEY__@@PBD1PADK@Z 10001f50 f   d4main.obj
+ 0001:00000fc0       ?server4setRegistryString@@YAHPAUHKEY__@@PBD11K@Z 10001fc0 f   d4main.obj
+ 0001:00001030       ?runProcess@@YAHPAD@Z      10002030 f   d4main.obj
+ 0001:00001080       ?mainParentNotify@@YAXIJPAUHWND__@@@Z 10002080 f   d4main.obj
+ 0001:000012d0       _MainWndProc@16            100022d0 f   d4main.obj
+ 0001:000015e0       _local4main                100025e0 f   d4main.obj
+ 0001:00001710       _d4serverInitialize        10002710 f   d4main.obj
+ 0001:00001720       _d4server@4                10002720 f   d4main.obj
+ 0001:000017a0       _GetOpenFileNameA@4        100027a0 f   comdlg32:comdlg32.dll
+ 0001:000017b0       _strncpy                   100027b0 f   LIBCMT:strncpy.obj
+ 0001:000018ae       _time                      100028ae f   LIBCMT:time.obj
+ 0001:0000198a       _sprintf                   1000298a f   LIBCMT:sprintf.obj
+ 0001:000019dc       __beginthreadex            100029dc f   LIBCMT:threadex.obj
+ 0001:00001ae3       __endthreadex              10002ae3 f   LIBCMT:threadex.obj
+ 0001:00001b15       __CRT_INIT@12              10002b15 f   LIBCMT:dllcrt0.obj
+ 0001:00001bee       __DllMainCRTStartup@12     10002bee f   LIBCMT:dllcrt0.obj
+ 0001:00001c8b       __amsg_exit                10002c8b f   LIBCMT:dllcrt0.obj
+ 0001:00001cbe       ___loctotime_t             10002cbe f   LIBCMT:dtoxtime.obj
+ 0001:00001d80       __flsbuf                   10002d80 f   LIBCMT:_flsbuf.obj
+ 0001:00001e98       __output                   10002e98 f   LIBCMT:output.obj
+ 0001:000026a2       __dosmaperr                100036a2 f   LIBCMT:dosmap.obj
+ 0001:00002715       __errno                    10003715 f   LIBCMT:dosmap.obj
+ 0001:0000271e       ___doserrno                1000371e f   LIBCMT:dosmap.obj
+ 0001:00002727       _free                      10003727 f   LIBCMT:free.obj
+ 0001:0000276f       __mtinit                   1000376f f   LIBCMT:tidtable.obj
+ 0001:000027c3       __mtterm                   100037c3 f   LIBCMT:tidtable.obj
+ 0001:000027e1       __initptd                  100037e1 f   LIBCMT:tidtable.obj
+ 0001:000027f4       __getptd                   100037f4 f   LIBCMT:tidtable.obj
+ 0001:0000285b       __freeptd                  1000385b f   LIBCMT:tidtable.obj
+ 0001:000028fb       _calloc                    100038fb f   LIBCMT:calloc.obj
+ 0001:00002988       __cinit                    10003988 f   LIBCMT:crt0dat.obj
+ 0001:000029b5       __exit                     100039b5 f   LIBCMT:crt0dat.obj
+ 0001:000029c6       __cexit                    100039c6 f   LIBCMT:crt0dat.obj
+ 0001:00002a7a       __lockexit                 10003a7a f   LIBCMT:crt0dat.obj
+ 0001:00002a83       __unlockexit               10003a83 f   LIBCMT:crt0dat.obj
+ 0001:00002aa6       __XcptFilter               10003aa6 f   LIBCMT:winxfltr.obj
+ 0001:00002c20       __global_unwind2           10003c20 f   LIBCMT:exsup.obj
+ 0001:00002c62       __local_unwind2            10003c62 f   LIBCMT:exsup.obj
+ 0001:00002cba       __NLG_Return2              10003cba f   LIBCMT:exsup.obj
+ 0001:00002cca       __abnormal_termination     10003cca f   LIBCMT:exsup.obj
+ 0001:00002ced       __NLG_Notify1              10003ced f   LIBCMT:exsup.obj
+ 0001:00002cf6       __NLG_Notify               10003cf6 f   LIBCMT:exsup.obj
+ 0001:00002d09       __NLG_Dispatch             10003d09 f   LIBCMT:exsup.obj
+ 0001:00002d18       __except_handler3          10003d18 f   LIBCMT:exsup3.obj
+ 0001:00002dd5       __seh_longjmp_unwind@4     10003dd5 f   LIBCMT:exsup3.obj
+ 0001:00002df0       __ioinit                   10003df0 f   LIBCMT:ioinit.obj
+ 0001:00002fac       __ioterm                   10003fac f   LIBCMT:ioinit.obj
+ 0001:00003000       __setenvp                  10004000 f   LIBCMT:stdenvp.obj
+ 0001:000030b9       __setargv                  100040b9 f   LIBCMT:stdargv.obj
+ 0001:00003306       ___crtGetEnvironmentStringsA 10004306 f   LIBCMT:a_env.obj
+ 0001:00003438       __heap_init                10004438 f   LIBCMT:heapinit.obj
+ 0001:00003474       __heap_term                10004474 f   LIBCMT:heapinit.obj
+ 0001:000034e9       _DllMain@12                100044e9 f   LIBCMT:dllmain.obj
+ 0001:000034ef       __FF_MSGBANNER             100044ef f   LIBCMT:crt0msg.obj
+ 0001:00003528       __NMSG_WRITE               10004528 f   LIBCMT:crt0msg.obj
+ 0001:0000367b       ___tzset                   1000467b f   LIBCMT:tzset.obj
+ 0001:00003930       __isindst                  10004930 f   LIBCMT:tzset.obj
+ 0001:00003c3d       __lseek                    10004c3d f   LIBCMT:lseek.obj
+ 0001:00003ca2       __lseek_lk                 10004ca2 f   LIBCMT:lseek.obj
+ 0001:00003d15       __write                    10004d15 f   LIBCMT:write.obj
+ 0001:00003d7a       __write_lk                 10004d7a f   LIBCMT:write.obj
+ 0001:00003f05       __getbuf                   10004f05 f   LIBCMT:_getbuf.obj
+ 0001:00003f49       __isatty                   10004f49 f   LIBCMT:isatty.obj
+ 0001:00003f72       ___initstdio               10004f72 f   LIBCMT:_file.obj
+ 0001:0000401a       ___endstdio                1000501a f   LIBCMT:_file.obj
+ 0001:0000402e       __lock_file                1000502e f   LIBCMT:_file.obj
+ 0001:0000405d       __lock_file2               1000505d f   LIBCMT:_file.obj
+ 0001:00004080       __unlock_file              10005080 f   LIBCMT:_file.obj
+ 0001:000040af       __unlock_file2             100050af f   LIBCMT:_file.obj
+ 0001:000040e0       _strlen                    100050e0 f   LIBCMT:strlen.obj
+ 0001:0000415b       _wctomb                    1000515b f   LIBCMT:wctomb.obj
+ 0001:000041b4       __wctomb_lk                100051b4 f   LIBCMT:wctomb.obj
+ 0001:00004220       __aulldiv                  10005220 f   LIBCMT:ulldiv.obj
+ 0001:00004290       __aullrem                  10005290 f   LIBCMT:ullrem.obj
+ 0001:00004305       __mtinitlocks              10005305 f   LIBCMT:mlock.obj
+ 0001:0000432e       __mtdeletelocks            1000532e f   LIBCMT:mlock.obj
+ 0001:0000439a       __lock                     1000539a f   LIBCMT:mlock.obj
+ 0001:000043fb       __unlock                   100053fb f   LIBCMT:mlock.obj
+ 0001:00004410       ___sbh_heap_init           10005410 f   LIBCMT:sbheap.obj
+ 0001:0000444e       ___sbh_find_block          1000544e f   LIBCMT:sbheap.obj
+ 0001:00004479       ___sbh_free_block          10005479 f   LIBCMT:sbheap.obj
+ 0001:000047a4       ___sbh_alloc_block         100057a4 f   LIBCMT:sbheap.obj
+ 0001:00004aad       ___sbh_alloc_new_region    10005aad f   LIBCMT:sbheap.obj
+ 0001:00004b5e       ___sbh_alloc_new_group     10005b5e f   LIBCMT:sbheap.obj
+ 0001:00004c59       ___sbh_resize_block        10005c59 f   LIBCMT:sbheap.obj
+ 0001:00004f50       _memset                    10005f50 f   LIBCMT:memset.obj
+ 0001:00004fa8       __callnewh                 10005fa8 f   LIBCMT:handler.obj
+ 0001:00004fc3       _malloc                    10005fc3 f   LIBCMT:malloc.obj
+ 0001:00004fd5       __nh_malloc                10005fd5 f   LIBCMT:malloc.obj
+ 0001:00005001       __heap_alloc               10006001 f   LIBCMT:malloc.obj
+ 0001:00005050       _strcpy                    10006050 f   LIBCMT:strcat.obj
+ 0001:00005060       _strcat                    10006060 f   LIBCMT:strcat.obj
+ 0001:00005140       __setmbcp                  10006140 f   LIBCMT:mbctype.obj
+ 0001:00005518       ___initmbctable            10006518 f   LIBCMT:mbctype.obj
+ 0001:00005540       _memcpy                    10006540 f   LIBCMT:memcpy.obj
+ 0001:00005875       ___crtMessageBoxA          10006875 f   LIBCMT:crtmbox.obj
+ 0001:000058fe       _atol                      100068fe f   LIBCMT:atox.obj
+ 0001:00005990       _strcmp                    10006990 f   LIBCMT:strcmp.obj
+ 0001:00005a14       __getenv_lk                10006a14 f   LIBCMT:getenv.obj
+ 0001:00005a91       __free_osfhnd              10006a91 f   LIBCMT:osfinfo.obj
+ 0001:00005b10       __get_osfhandle            10006b10 f   LIBCMT:osfinfo.obj
+ 0001:00005b52       __lock_fhandle             10006b52 f   LIBCMT:osfinfo.obj
+ 0001:00005bb1       __unlock_fhandle           10006bb1 f   LIBCMT:osfinfo.obj
+ 0001:00005bd3       __fcloseall                10006bd3 f   LIBCMT:closeall.obj
+ 0001:00005c54       __fflush_lk                10006c54 f   LIBCMT:fflush.obj
+ 0001:00005c82       __flush                    10006c82 f   LIBCMT:fflush.obj
+ 0001:00005cde       __flushall                 10006cde f   LIBCMT:fflush.obj
+ 0001:00005d8b       __fptrap                   10006d8b f   LIBCMT:crt0fp.obj
+ 0001:00005da0       _memmove                   10006da0 f   LIBCMT:memmove.obj
+ 0001:000060d5       ___crtLCMapStringA         100070d5 f   LIBCMT:a_map.obj
+ 0001:000062f9       ___crtGetStringTypeA       100072f9 f   LIBCMT:a_str.obj
+ 0001:00006442       __isctype                  10007442 f   LIBCMT:isctype.obj
+ 0001:000064c0       __allmul                   100074c0 f   LIBCMT:llmul.obj
+ 0001:000064f4       __mbsnbicoll               100074f4 f   LIBCMT:mbsnbico.obj
+ 0001:00006533       ___wtomb_environ           10007533 f   LIBCMT:wtombenv.obj
+ 0001:000065a1       _fclose                    100075a1 f   LIBCMT:fclose.obj
+ 0001:000065d2       __fclose_lk                100075d2 f   LIBCMT:fclose.obj
+ 0001:0000661e       __commit                   1000761e f   LIBCMT:commit.obj
+ 0001:000066c0       _strcspn                   100076c0 f   LIBCMT:strcspn.obj
+ 0001:00006700       _strncmp                   10007700 f   LIBCMT:strncmp.obj
+ 0001:00006740       _strpbrk                   10007740 f   LIBCMT:strpbrk.obj
+ 0001:00006780       __chkstk                   10007780 f   LIBCMT:chkstk.obj
+ 0001:00006780       __alloca_probe             10007780 f   LIBCMT:chkstk.obj
+ 0001:000067af       ___crtCompareStringA       100077af f   LIBCMT:a_cmp.obj
+ 0001:00006a57       ___crtsetenv               10007a57 f   LIBCMT:setenv.obj
+ 0001:00006c9d       __close                    10007c9d f   LIBCMT:close.obj
+ 0001:00006cfa       __close_lk                 10007cfa f   LIBCMT:close.obj
+ 0001:00006d7d       __freebuf                  10007d7d f   LIBCMT:_freebuf.obj
+ 0001:00006e04       _ltoa                      10007e04 f   LIBCMT:xtoa.obj
+ 0001:00006e04       __ltoa                     10007e04 f   LIBCMT:xtoa.obj
+ 0001:00006e30       __stricmp                  10007e30 f   LIBCMT:stricmp.obj
+ 0001:00006e30       __strcmpi                  10007e30 f   LIBCMT:stricmp.obj
+ 0001:00006f00       __strnicmp                 10007f00 f   LIBCMT:strnicmp.obj
+ 0001:00007001       _realloc                   10008001 f   LIBCMT:realloc.obj
+ 0001:00007139       __mbschr                   10008139 f   LIBCMT:mbschr.obj
+ 0001:000071d0       __strdup                   100081d0 f   LIBCMT:strdup.obj
+ 0001:000071fb       __tolower_lk               100081fb f   LIBCMT:tolower.obj
+ 0001:000072e0       _strchr                    100082e0 f   LIBCMT:strchr.obj
+ 0001:000072e6       ___from_strstr_to_strchr   100082e6 f   LIBCMT:strchr.obj
+ 0001:000073a0       _RtlUnwind@16              100083a0 f   kernel32:KERNEL32.dll
+ 0002:0000000c       ___lookuptable             1000900c     LIBCMT:output.obj
+ 0002:00000068       ??_C@_1O@POHA@?$AA?$CI?$AAn?$AAu?$AAl?$AAl?$AA?$CJ?$AA?$AA@ 10009068     LIBCMT:output.obj
+ 0002:00000078       ??_C@_06ONKE@?$CInull?$CJ?$AA@ 10009078     LIBCMT:output.obj
+ 0002:00000080       ??_C@_0P@GGKG@runtime?5error?5?$AA@ 10009080     LIBCMT:crt0msg.obj
+ 0002:00000090       ??_C@_02PIMC@?$AN?6?$AA@   10009090     LIBCMT:crt0msg.obj
+ 0002:00000094       ??_C@_0O@DELO@TLOSS?5error?$AN?6?$AA@ 10009094     LIBCMT:crt0msg.obj
+ 0002:000000a4       ??_C@_0N@OMLL@SING?5error?$AN?6?$AA@ 100090a4     LIBCMT:crt0msg.obj
+ 0002:000000b4       ??_C@_0P@OJAK@DOMAIN?5error?$AN?6?$AA@ 100090b4     LIBCMT:crt0msg.obj
+ 0002:000000c4       ??_C@_0CF@EANP@R6028?$AN?6?9?5unable?5to?5initialize?5he@ 100090c4     LIBCMT:crt0msg.obj
+ 0002:000000ec       ??_C@_0DF@ECGN@R6027?$AN?6?9?5not?5enough?5space?5for?5lo@ 100090ec     LIBCMT:crt0msg.obj
+ 0002:00000124       ??_C@_0DF@FKAC@R6026?$AN?6?9?5not?5enough?5space?5for?5st@ 10009124     LIBCMT:crt0msg.obj
+ 0002:0000015c       ??_C@_0CG@DPMN@R6025?$AN?6?9?5pure?5virtual?5function?5c@ 1000915c     LIBCMT:crt0msg.obj
+ 0002:00000184       ??_C@_0DF@CKIP@R6024?$AN?6?9?5not?5enough?5space?5for?5_o@ 10009184     LIBCMT:crt0msg.obj
+ 0002:000001bc       ??_C@_0CJ@GGOE@R6019?$AN?6?9?5unable?5to?5open?5console?5@ 100091bc     LIBCMT:crt0msg.obj
+ 0002:000001e8       ??_C@_0CB@LBOB@R6018?$AN?6?9?5unexpected?5heap?5error?$AN?6@ 100091e8     LIBCMT:crt0msg.obj
+ 0002:0000020c       ??_C@_0CN@FPEG@R6017?$AN?6?9?5unexpected?5multithread?5@ 1000920c     LIBCMT:crt0msg.obj
+ 0002:0000023c       ??_C@_0CM@OBIC@R6016?$AN?6?9?5not?5enough?5space?5for?5th@ 1000923c     LIBCMT:crt0msg.obj
+ 0002:00000268       ??_C@_0CB@HPAL@?$AN?6abnormal?5program?5termination?$AN?6@ 10009268     LIBCMT:crt0msg.obj
+ 0002:0000028c       ??_C@_0CM@JOOB@R6009?$AN?6?9?5not?5enough?5space?5for?5en@ 1000928c     LIBCMT:crt0msg.obj
+ 0002:000002b8       ??_C@_0CK@OIBL@R6008?$AN?6?9?5not?5enough?5space?5for?5ar@ 100092b8     LIBCMT:crt0msg.obj
+ 0002:000002e4       ??_C@_0CF@LKPB@R6002?$AN?6?9?5floating?5point?5not?5load@ 100092e4     LIBCMT:crt0msg.obj
+ 0002:0000030c       ??_C@_0CF@JPDF@Microsoft?5Visual?5C?$CL?$CL?5Runtime?5Lib@ 1000930c     LIBCMT:crt0msg.obj
+ 0002:00000334       ??_C@_02JJJH@?6?6?$AA@     10009334     LIBCMT:crt0msg.obj
+ 0002:00000338       ??_C@_0BK@DEOK@Runtime?5Error?$CB?6?6Program?3?5?$AA@ 10009338     LIBCMT:crt0msg.obj
+ 0002:00000354       ??_C@_03NAME@?4?4?4?$AA@   10009354     LIBCMT:crt0msg.obj
+ 0002:00000358       ??_C@_0BH@NNCD@?$DMprogram?5name?5unknown?$DO?$AA@ 10009358     LIBCMT:crt0msg.obj
+ 0002:00000370       ___dnames                  10009370     LIBCMT:timeset.obj
+ 0002:00000388       ___mnames                  10009388     LIBCMT:timeset.obj
+ 0002:000003b0       ??_C@_02JHIA@TZ?$AA@       100093b0     LIBCMT:tzset.obj
+ 0002:000003b4       ??_C@_0BD@NJFP@GetLastActivePopup?$AA@ 100093b4     LIBCMT:crtmbox.obj
+ 0002:000003c8       ??_C@_0BA@GILI@GetActiveWindow?$AA@ 100093c8     LIBCMT:crtmbox.obj
+ 0002:000003d8       ??_C@_0M@PKCK@MessageBoxA?$AA@ 100093d8     LIBCMT:crtmbox.obj
+ 0002:000003e4       ??_C@_0L@HKL@user32?4dll?$AA@ 100093e4     LIBCMT:crtmbox.obj
+ 0002:000003f0       ??_C@_01A@?$AA?$AA@        100093f0     LIBCMT:a_map.obj
+ 0002:000003f4       ??_C@_13A@?$AA?$AA?$AA?$AA@ 100093f4     LIBCMT:a_map.obj
+ 0002:00000438       ??_C@_07CJME@H?3mm?3ss?$AA@ 10009438     LIBCMT:strftime.obj
+ 0002:00000440       ??_C@_0BE@MHI@dddd?0?5MMMM?5dd?0?5yyyy?$AA@ 10009440     LIBCMT:strftime.obj
+ 0002:00000454       ??_C@_06HCAD@M?1d?1yy?$AA@ 10009454     LIBCMT:strftime.obj
+ 0002:0000045c       ??_C@_02DBLP@PM?$AA@       1000945c     LIBCMT:strftime.obj
+ 0002:00000460       ??_C@_02ENLM@AM?$AA@       10009460     LIBCMT:strftime.obj
+ 0002:00000464       ??_C@_08LIDF@December?$AA@ 10009464     LIBCMT:strftime.obj
+ 0002:00000470       ??_C@_08NJLI@November?$AA@ 10009470     LIBCMT:strftime.obj
+ 0002:0000047c       ??_C@_07IAMM@October?$AA@  1000947c     LIBCMT:strftime.obj
+ 0002:00000484       ??_C@_09MKGD@September?$AA@ 10009484     LIBCMT:strftime.obj
+ 0002:00000490       ??_C@_06PADP@August?$AA@   10009490     LIBCMT:strftime.obj
+ 0002:00000498       ??_C@_04PIJO@July?$AA@     10009498     LIBCMT:strftime.obj
+ 0002:000004a0       ??_C@_04ICFP@June?$AA@     100094a0     LIBCMT:strftime.obj
+ 0002:000004a8       ??_C@_05JFGC@April?$AA@    100094a8     LIBCMT:strftime.obj
+ 0002:000004b0       ??_C@_05FGPD@March?$AA@    100094b0     LIBCMT:strftime.obj
+ 0002:000004b8       ??_C@_08PGBA@February?$AA@ 100094b8     LIBCMT:strftime.obj
+ 0002:000004c4       ??_C@_07BPKJ@January?$AA@  100094c4     LIBCMT:strftime.obj
+ 0002:000004cc       ??_C@_03PGJO@Dec?$AA@      100094cc     LIBCMT:strftime.obj
+ 0002:000004d0       ??_C@_03PDLM@Nov?$AA@      100094d0     LIBCMT:strftime.obj
+ 0002:000004d4       ??_C@_03BLHK@Oct?$AA@      100094d4     LIBCMT:strftime.obj
+ 0002:000004d8       ??_C@_03DPFM@Sep?$AA@      100094d8     LIBCMT:strftime.obj
+ 0002:000004dc       ??_C@_03CMCH@Aug?$AA@      100094dc     LIBCMT:strftime.obj
+ 0002:000004e0       ??_C@_03OBKI@Jul?$AA@      100094e0     LIBCMT:strftime.obj
+ 0002:000004e4       ??_C@_03LEIG@Jun?$AA@      100094e4     LIBCMT:strftime.obj
+ 0002:000004e8       ??_C@_03MGHB@May?$AA@      100094e8     LIBCMT:strftime.obj
+ 0002:000004ec       ??_C@_03MJJM@Apr?$AA@      100094ec     LIBCMT:strftime.obj
+ 0002:000004f0       ??_C@_03GNHA@Mar?$AA@      100094f0     LIBCMT:strftime.obj
+ 0002:000004f4       ??_C@_03PICE@Feb?$AA@      100094f4     LIBCMT:strftime.obj
+ 0002:000004f8       ??_C@_03IEIF@Jan?$AA@      100094f8     LIBCMT:strftime.obj
+ 0002:000004fc       ??_C@_08FAKH@Saturday?$AA@ 100094fc     LIBCMT:strftime.obj
+ 0002:00000508       ??_C@_06ONCK@Friday?$AA@   10009508     LIBCMT:strftime.obj
+ 0002:00000510       ??_C@_08CCFO@Thursday?$AA@ 10009510     LIBCMT:strftime.obj
+ 0002:0000051c       ??_C@_09PBIN@Wednesday?$AA@ 1000951c     LIBCMT:strftime.obj
+ 0002:00000528       ??_C@_07BMBC@Tuesday?$AA@  10009528     LIBCMT:strftime.obj
+ 0002:00000530       ??_C@_06CHLK@Monday?$AA@   10009530     LIBCMT:strftime.obj
+ 0002:00000538       ??_C@_06OOEM@Sunday?$AA@   10009538     LIBCMT:strftime.obj
+ 0002:00000540       ??_C@_03MPKK@Sat?$AA@      10009540     LIBCMT:strftime.obj
+ 0002:00000544       ??_C@_03FINJ@Fri?$AA@      10009544     LIBCMT:strftime.obj
+ 0002:00000548       ??_C@_03HIKC@Thu?$AA@      10009548     LIBCMT:strftime.obj
+ 0002:0000054c       ??_C@_03HECK@Wed?$AA@      1000954c     LIBCMT:strftime.obj
+ 0002:00000550       ??_C@_03ECCP@Tue?$AA@      10009550     LIBCMT:strftime.obj
+ 0002:00000554       ??_C@_03PIEP@Mon?$AA@      10009554     LIBCMT:strftime.obj
+ 0002:00000558       ??_C@_03FHEP@Sun?$AA@      10009558     LIBCMT:strftime.obj
+ 0003:00000000       ___xc_a                    1000a000     LIBCMT:crt0init.obj
+ 0003:00000004       ___xc_z                    1000a004     LIBCMT:crt0init.obj
+ 0003:00000008       ___xi_a                    1000a008     LIBCMT:crt0init.obj
+ 0003:00000014       ___xi_z                    1000a014     LIBCMT:crt0init.obj
+ 0003:00000018       ___xp_a                    1000a018     LIBCMT:crt0init.obj
+ 0003:00000020       ___xp_z                    1000a020     LIBCMT:crt0init.obj
+ 0003:00000024       ___xt_a                    1000a024     LIBCMT:crt0init.obj
+ 0003:00000028       ___xt_z                    1000a028     LIBCMT:crt0init.obj
+ 0003:000000e0       ?StampedlicenceString@@3PADA 1000a0e0     d4main.obj
+ 0003:000001f0       ?UnStampedString@@3PADA    1000a1f0     d4main.obj
+ 0003:000002e8       ?configFields@@3PAUFIELD4INFO@@A 1000a2e8     d4main.obj
+ 0003:0000030c       ??_C@_06EOCN@SERIAL?$AA@   1000a30c     d4main.obj
+ 0003:00000314       ??_C@_08FEIM@PDELETED?$AA@ 1000a314     d4main.obj
+ 0003:00000320       ??_C@_0N@FLGO@UPPER?$CITABLE?$CJ?$AA@ 1000a320     d4main.obj
+ 0003:00000330       ??_C@_05DLJE@TABLE?$AA@    1000a330     d4main.obj
+ 0003:00000338       ??_C@_0DA@FEGJ@UPPER?$CISUBSTR?$CITRIM?$CIPATH?$CJ?$CL?8?2?8?$CLTRIM@ 1000a338     d4main.obj
+ 0003:00000368       ??_C@_08IPIA@PATH_TBL?$AA@ 1000a368     d4main.obj
+ 0003:00000374       ??_C@_0EE@GEAE@UPPER?$CITRIM?$CIACCOUNTID?$CJ?$CL?8?0?8?$CLSUBSTR@ 1000a374     d4main.obj
+ 0003:000003b8       ??_C@_08CDMI@ACCTQPTH?$AA@ 1000a3b8     d4main.obj
+ 0003:000003c4       ??_C@_07EAOK@ACCOUNT?$AA@  1000a3c4     d4main.obj
+ 0003:000003cc       ??_C@_0EG@JILI@UPPER?$CIACCOUNTID?$CJ?5?$CL?5UPPER?$CI?5SUBSTR@ 1000a3cc     d4main.obj
+ 0003:00000414       ??_C@_08BDKB@PRIVILEG?$AA@ 1000a414     d4main.obj
+ 0003:00000420       ??_C@_09FGJC@DELETED?$CI?$CJ?$AA@ 1000a420     d4main.obj
+ 0003:0000042c       ??_C@_07JFEF@RECNO?$CI?$CJ?$AA@ 1000a42c     d4main.obj
+ 0003:00000434       ??_C@_07NNMA@DELETED?$AA@  1000a434     d4main.obj
+ 0003:0000043c       ??_C@_0BK@OEPF@UPPER?$CIACCOUNTID?$CJ?$CLPASSWORD?$AA@ 1000a43c     d4main.obj
+ 0003:00000458       ??_C@_08IAOF@NAMEPASS?$AA@ 1000a458     d4main.obj
+ 0003:00000464       ??_C@_0P@LLCN@?4NOT?4DELETED?$CI?$CJ?$AA@ 1000a464     d4main.obj
+ 0003:00000474       ??_C@_0BB@LKDJ@UPPER?$CIACCOUNTID?$CJ?$AA@ 1000a474     d4main.obj
+ 0003:00000488       ??_C@_04IALP@NAME?$AA@     1000a488     d4main.obj
+ 0003:00000490       ??_C@_0BJ@NNKC@CodeBase?5Database?5Server?$AA@ 1000a490     d4main.obj
+ 0003:000004ac       ??_C@_0M@KAKF@ICON_SERVER?$AA@ 1000a4ac     d4main.obj
+ 0003:000004b8       ??_C@_0L@DLIK@TestWClass?$AA@ 1000a4b8     d4main.obj
+ 0003:000004c4       ??_C@_09JLLD@MENU_MAIN?$AA@ 1000a4c4     d4main.obj
+ 0003:000004d0       ??_C@_04LKDK@Exit?$AA@     1000a4d0     d4main.obj
+ 0003:000004d8       ??_C@_05JIMF@Close?$AA@    1000a4d8     d4main.obj
+ 0003:000004e0       ??_C@_06GACA@BUTTON?$AA@   1000a4e0     d4main.obj
+ 0003:000004e8       ??_C@_0BE@JFNL@Start?5Administrator?$AA@ 1000a4e8     d4main.obj
+ 0003:000004fc       ??_C@_0M@PHFG@Data?5Locks?3?$AA@ 1000a4fc     d4main.obj
+ 0003:00000508       ??_C@_07LKPG@Tables?3?$AA@ 1000a508     d4main.obj
+ 0003:00000510       ??_C@_0N@LCPC@Connections?3?$AA@ 1000a510     d4main.obj
+ 0003:00000520       ??_C@_0O@ECLN@Transactions?3?$AA@ 1000a520     d4main.obj
+ 0003:00000530       ??_C@_06MGKN@Users?3?$AA@  1000a530     d4main.obj
+ 0003:00000538       ??_C@_06DIAM@Failed?$AA@   1000a538     d4main.obj
+ 0003:00000540       ??_C@_09PAOJ@Succeeded?$AA@ 1000a540     d4main.obj
+ 0003:0000054c       ??_C@_07KJDJ@Current?$AA@  1000a54c     d4main.obj
+ 0003:00000554       ??_C@_0BJ@LLMP@Backup?5Computer?5Logging?3?$AA@ 1000a554     d4main.obj
+ 0003:00000570       ??_C@_0L@POPO@Max?5Users?3?$AA@ 1000a570     d4main.obj
+ 0003:0000057c       ??_C@_0P@KLNP@Serial?5Number?3?$AA@ 1000a57c     d4main.obj
+ 0003:0000058c       ??_C@_0P@LFJ@Registered?5To?3?$AA@ 1000a58c     d4main.obj
+ 0003:0000059c       ??_C@_0BB@KBEF@User?5Information?$AA@ 1000a59c     d4main.obj
+ 0003:000005b0       ??_C@_06MJBA@STATIC?$AA@   1000a5b0     d4main.obj
+ 0003:000005b8       ??_C@_0BA@GIAO@Server?5Up?5Time?3?$AA@ 1000a5b8     d4main.obj
+ 0003:000005c8       ??_C@_0BN@OFB@CodeBase?56?45?5Database?5Server?$AA@ 1000a5c8     d4main.obj
+ 0003:000005e8       ??_C@_05JKGE@?$CFs?5?$CFs?$AA@ 1000a5e8     d4main.obj
+ 0003:000005f0       ??_C@_03CMJG@OFF?$AA@      1000a5f0     d4main.obj
+ 0003:000005f4       ??_C@_07PCHH@Unknown?$AA@  1000a5f4     d4main.obj
+ 0003:000005fc       ??_C@_07CEDG@?$CFs?5?$CFd?$CF?$CF?$AA@ 1000a5fc     d4main.obj
+ 0003:00000604       ??_C@_09COL@?$CFs?5?$CFld?5KB?$AA@ 1000a604     d4main.obj
+ 0003:00000610       ??_C@_09JGBD@?$CFs?5FoxPro?$AA@ 1000a610     d4main.obj
+ 0003:0000061c       ??_C@_0L@GHD@?$CFs?5Unknown?$AA@ 1000a61c     d4main.obj
+ 0003:00000628       ??_C@_05GGPB@?$CFs?5?$CFd?$AA@ 1000a628     d4main.obj
+ 0003:00000630       ??_C@_0BF@DFAN@?$CFs?5Serial?5Number?3?5?$CFs?$AA@ 1000a630     d4main.obj
+ 0003:00000648       ??_C@_06EIMM@?$CFs?5?5?$CFs?$AA@ 1000a648     d4main.obj
+ 0003:00000650       ??_C@_0M@DPD@Customer?5?$CFs?$AA@ 1000a650     d4main.obj
+ 0003:0000065c       ??_C@_0BA@HOOO@NOTICE?5OF?5?$CFs?5?$CFs?$AA@ 1000a65c     d4main.obj
+ 0003:0000066c       ??_C@_09EKDM@Build?5?$CFld?$AA@ 1000a66c     d4main.obj
+ 0003:00000678       ??_C@_08FGLH@Disabled?$AA@ 1000a678     d4main.obj
+ 0003:00000684       ??_C@_0BO@FBNL@?$CK?$CK?$CK?5Unexpectedly?5Disabled?5?$CK?$CK?$CK?$AA@ 1000a684     d4main.obj
+ 0003:000006a4       ??_C@_09MCCL@Unlimited?$AA@ 1000a6a4     d4main.obj
+ 0003:000006b0       ??_C@_0CK@OMHL@?$CFd?5Days?0?5?$CFd?5Hours?0?5?$CFd?5Minutes?0?5?$CF@ 1000a6b0     d4main.obj
+ 0003:000006dc       ??_C@_08PGCL@DLGABOUT?$AA@ 1000a6dc     d4main.obj
+ 0003:000006e8       ??_C@_0BA@LHKD@DLGABOUTLICENCE?$AA@ 1000a6e8     d4main.obj
+ 0003:000006f8       ??_C@_0P@EMKI@DLGSTARTCONFIG?$AA@ 1000a6f8     d4main.obj
+ 0003:00000708       ??_C@_06PINC@String?$AA@   1000a708     d4main.obj
+ 0003:00000710       ??_C@_0N@BLPE@?2CBAdmin?4exe?$AA@ 1000a710     d4main.obj
+ 0003:00000720       ??_C@_0BD@FCLH@Locate?5CBAdmin?4exe?$AA@ 1000a720     d4main.obj
+ 0003:00000734       ??_C@_0CE@KBGC@CodeBase?5Administrator?$AACBADMIN?4E@ 1000a734     d4main.obj
+ 0003:00000758       ??_C@_0EP@HCHK@CodeBase?5Administrator?5could?5not@ 1000a758     d4main.obj
+ 0003:000007a8       ??_C@_0BC@OGG@CBAdmin?5Not?5Found?$AA@ 1000a7a8     d4main.obj
+ 0003:000007bc       ??_C@_0M@GHAB@CBAdmin?4exe?$AA@ 1000a7bc     d4main.obj
+ 0003:000007c8       ??_C@_01PCFE@?2?$AA@       1000a7c8     d4main.obj
+ 0003:000007cc       ??_C@_0CJ@GAJO@Software?2Sequiter?2CodeBase?5Admin@ 1000a7cc     d4main.obj
+ 0003:000007f8       ??_C@_07KHA@BaseDir?$AA@   1000a7f8     d4main.obj
+ 0003:00000800       ??_C@_0P@NOHN@TaskbarCreated?$AA@ 1000a800     d4main.obj
+ 0003:00000810       ??_C@_0GB@GJAA@An?5instance?5of?5the?5CodeBase?5data@ 1000a810     d4main.obj
+ 0003:00000874       ??_C@_0BH@OAFA@CodeBase?5Server?5Status?$AA@ 1000a874     d4main.obj
+ 0003:00000890       __aexit_rtn                1000a890     LIBCMT:dllcrt0.obj
+ 0003:00000894       ___nullstring              1000a894     LIBCMT:output.obj
+ 0003:00000898       ___wnullstring             1000a898     LIBCMT:output.obj
+ 0003:00000a08       ___tlsindex                1000aa08     LIBCMT:tidtable.obj
+ 0003:00000a10       __XcptActTab               1000aa10     LIBCMT:winxfltr.obj
+ 0003:00000a88       __First_FPE_Indx           1000aa88     LIBCMT:winxfltr.obj
+ 0003:00000a8c       __Num_FPE                  1000aa8c     LIBCMT:winxfltr.obj
+ 0003:00000a90       __XcptActTabSize           1000aa90     LIBCMT:winxfltr.obj
+ 0003:00000a94       __XcptActTabCount          1000aa94     LIBCMT:winxfltr.obj
+ 0003:00000a98       __NLG_Destination          1000aa98     LIBCMT:exsup.obj
+ 0003:00000aa8       ___badioinfo               1000aaa8     LIBCMT:ioinit.obj
+ 0003:00000acc       __amblksiz                 1000aacc     LIBCMT:heapinit.obj
+ 0003:00000b60       __timezone                 1000ab60     LIBCMT:timeset.obj
+ 0003:00000b64       __daylight                 1000ab64     LIBCMT:timeset.obj
+ 0003:00000b68       __dstbias                  1000ab68     LIBCMT:timeset.obj
+ 0003:00000bec       __tzname                   1000abec     LIBCMT:timeset.obj
+ 0003:00000c14       __lpdays                   1000ac14     LIBCMT:days.obj
+ 0003:00000c48       __days                     1000ac48     LIBCMT:days.obj
+ 0003:00000c80       __iob                      1000ac80     LIBCMT:_file.obj
+ 0003:00000f00       __cfltcvt_tab              1000af00     LIBCMT:cmiscdat.obj
+ 0003:00000f18       __pctype                   1000af18     LIBCMT:ctype.obj
+ 0003:00000f1c       __pwctype                  1000af1c     LIBCMT:ctype.obj
+ 0003:00000f20       __ctype                    1000af20     LIBCMT:ctype.obj
+ 0003:00001130       __locktable                1000b130     LIBCMT:mlock.obj
+ 0003:000011f0       ___sbh_threshold           1000b1f0     LIBCMT:sbheap.obj
+ 0003:0000140c       ___mb_cur_max              1000b40c     LIBCMT:nlsdata1.obj
+ 0003:00001410       ___decimal_point           1000b410     LIBCMT:nlsdata1.obj
+ 0003:00001414       ___decimal_point_length    1000b414     LIBCMT:nlsdata1.obj
+ 0003:00001420       ___lc_time_curr            1000b420     LIBCMT:strftime.obj
+ 0003:00001428       ___lc_time_c               1000b428     LIBCMT:strftime.obj
+ 0003:000014d8       ___lconv_static_decimal    1000b4d8     LIBCMT:lconv.obj
+ 0003:000014e0       ___lconv_c                 1000b4e0     LIBCMT:lconv.obj
+ 0003:00001510       ___lconv                   1000b510     LIBCMT:lconv.obj
+ 0003:00001520       ?initConfig@@3USEMAPHORE4St@@A 1000b520     d4main.obj
+ 0003:0000152c       ?hExitButton@@3PAUHWND__@@A 1000b52c     d4main.obj
+ 0003:00001530       ?hTables@@3PAUHWND__@@A    1000b530     d4main.obj
+ 0003:00001534       ?Cname@@3PADA              1000b534     d4main.obj
+ 0003:00001568       ?hConnections@@3PAUHWND__@@A 1000b568     d4main.obj
+ 0003:0000156c       ?hMaxUsers@@3PAUHWND__@@A  1000b56c     d4main.obj
+ 0003:00001570       ?Serial@@3PADA             1000b570     d4main.obj
+ 0003:00001588       ?hUpTime@@3PAUHWND__@@A    1000b588     d4main.obj
+ 0003:0000158c       ?hAdminButton@@3PAUHWND__@@A 1000b58c     d4main.obj
+ 0003:00001590       ?hSerialNo@@3PAUHWND__@@A  1000b590     d4main.obj
+ 0003:00001594       ?hRegistered@@3PAUHWND__@@A 1000b594     d4main.obj
+ 0003:000015a0       ?hWndConfig@@3PAUHWND__@@A 1000b5a0     d4main.obj
+ 0003:000015a4       ?hTranNo@@3PAUHWND__@@A    1000b5a4     d4main.obj
+ 0003:000015a8       ?hUsers@@3PAUHWND__@@A     1000b5a8     d4main.obj
+ 0003:000015ac       ?hTranYes@@3PAUHWND__@@A   1000b5ac     d4main.obj
+ 0003:000016b4       ?hAutoRecovery@@3PAUHWND__@@A 1000b6b4     d4main.obj
+ 0003:000016bc       ?configBuff@@3PADA         1000b6bc     d4main.obj
+ 0003:000017bc       ?startTime@@3JA            1000b7bc     d4main.obj
+ 0003:000017c0       ?config@@3PAUDATA4St@@A    1000b7c0     d4main.obj
+ 0003:000017c4       ?hLocks@@3PAUHWND__@@A     1000b7c4     d4main.obj
+ 0003:000017c8       ?hWndAbout@@3PAUHWND__@@A  1000b7c8     d4main.obj
+ 0003:000017cc       ?hWndLicence@@3PAUHWND__@@A 1000b7cc     d4main.obj
+ 0003:000017d0       ?hWndGlobal@@3PAUHWND__@@A 1000b7d0     d4main.obj
+ 0003:000017d4       ?serverPtr@@3PAVSERVER4@@A 1000b7d4     d4main.obj
+ 0003:000017d8       ?isService@@3EA            1000b7d8     d4main.obj
+ 0003:000017dc       ?c4@@3PAUCODE4St@@A        1000b7dc     d4main.obj
+ 0003:000017e0       ?hInst@@3PAUHINSTANCE__@@A 1000b7e0     d4main.obj
+ 0003:000017e4       ?timer@@3IA                1000b7e4     d4main.obj
+ 0003:000017e8       ?g_tranEnabled@@3EA        1000b7e8     d4main.obj
+ 0003:000017ec       ??_C@_00A@?$AA@            1000b7ec     d4main.obj
+ 0003:0000180c       __aenvptr                  1000b80c     LIBCMT:dllcrt0.obj
+ 0003:00001810       __wenvptr                  1000b810     LIBCMT:dllcrt0.obj
+ 0003:00001814       ___error_mode              1000b814     LIBCMT:dllcrt0.obj
+ 0003:00001818       ___app_type                1000b818     LIBCMT:dllcrt0.obj
+ 0003:0000181c       __umaskval                 1000b81c     LIBCMT:crt0dat.obj
+ 0003:00001820       __osver                    1000b820     LIBCMT:crt0dat.obj
+ 0003:00001824       __winver                   1000b824     LIBCMT:crt0dat.obj
+ 0003:00001828       __winmajor                 1000b828     LIBCMT:crt0dat.obj
+ 0003:0000182c       __winminor                 1000b82c     LIBCMT:crt0dat.obj
+ 0003:00001830       ___argc                    1000b830     LIBCMT:crt0dat.obj
+ 0003:00001834       ___argv                    1000b834     LIBCMT:crt0dat.obj
+ 0003:00001838       ___wargv                   1000b838     LIBCMT:crt0dat.obj
+ 0003:0000183c       __environ                  1000b83c     LIBCMT:crt0dat.obj
+ 0003:00001840       ___initenv                 1000b840     LIBCMT:crt0dat.obj
+ 0003:00001844       __wenviron                 1000b844     LIBCMT:crt0dat.obj
+ 0003:00001848       ___winitenv                1000b848     LIBCMT:crt0dat.obj
+ 0003:0000184c       __pgmptr                   1000b84c     LIBCMT:crt0dat.obj
+ 0003:00001850       __wpgmptr                  1000b850     LIBCMT:crt0dat.obj
+ 0003:00001854       __exitflag                 1000b854     LIBCMT:crt0dat.obj
+ 0003:00001858       __C_Termination_Done       1000b858     LIBCMT:crt0dat.obj
+ 0003:0000185c       __C_Exit_Done              1000b85c     LIBCMT:crt0dat.obj
+ 0003:00001968       __adbgmsg                  1000b968     LIBCMT:crt0msg.obj
+ 0003:00001a2c       __cflush                   1000ba2c     LIBCMT:_file.obj
+ 0003:00001a90       ?_pnhHeap@@3P6AHI@ZA       1000ba90     LIBCMT:handler.obj
+ 0003:00001a94       __newmode                  1000ba94     LIBCMT:_newmode.obj
+ 0003:00001aa8       ___lc_handle               1000baa8     LIBCMT:nlsdata2.obj
+ 0003:00001ac0       ___lc_codepage             1000bac0     LIBCMT:nlsdata2.obj
+ 0003:00001ac4       ___lc_collate_cp           1000bac4     LIBCMT:nlsdata2.obj
+ 0003:00001adc       ___lc_time_intl            1000badc     LIBCMT:inittime.obj
+ 0003:00001af8       ___lc_id                   1000baf8     LIBCMT:nlsdata3.obj
+ 0003:00001b4c       ___lconv_static_null       1000bb4c     LIBCMT:lconv.obj
+ 0003:00001b5c       ___setlc_active            1000bb5c     <common>
+ 0003:00001b60       ___unguarded_readlc_active 1000bb60     <common>
+ 0003:00001b64       ___mbcodepage              1000bb64     <common>
+ 0003:00001b70       ___mbulinfo                1000bb70     <common>
+ 0003:00001b7c       ___ismbcodepage            1000bb7c     <common>
+ 0003:00001b80       __mbcasemap                1000bb80     <common>
+ 0003:00001c80       __mbctype                  1000bc80     <common>
+ 0003:00001d84       ___mblcid                  1000bd84     <common>
+ 0003:00001d88       ___sbh_sizeHeaderList      1000bd88     <common>
+ 0003:00001d8c       ___sbh_indGroupDefer       1000bd8c     <common>
+ 0003:00001d90       ___sbh_pHeaderScan         1000bd90     <common>
+ 0003:00001d94       ___sbh_pHeaderDefer        1000bd94     <common>
+ 0003:00001d98       ___sbh_cntHeaderList       1000bd98     <common>
+ 0003:00001d9c       ___sbh_pHeaderList         1000bd9c     <common>
+ 0003:00001da0       ___piob                    1000bda0     <common>
+ 0003:00001dc0       __bufin                    1000bdc0     <common>
+ 0003:00002dc0       __nstream                  1000cdc0     <common>
+ 0003:00002dc4       __crtheap                  1000cdc4     <common>
+ 0003:00002de0       ___pioinfo                 1000cde0     <common>
+ 0003:00002ee0       __nhandle                  1000cee0     <common>
+ 0003:00002ee4       ___env_initialized         1000cee4     <common>
+ 0003:00002ee8       ___mbctype_initialized     1000cee8     <common>
+ 0003:00002eec       ___onexitend               1000ceec     <common>
+ 0003:00002ef0       ___onexitbegin             1000cef0     <common>
+ 0003:00002ef4       __FPinit                   1000cef4     <common>
+ 0003:00002ef8       __acmdln                   1000cef8     <common>
+ 0003:00002efc       __pRawDllMain              1000cefc     <common>
+ 0003:00002f00       __FPmtinit                 1000cf00     <common>
+ 0003:00002f04       __FPmtterm                 1000cf04     <common>
+ 0004:00000000       __IMPORT_DESCRIPTOR_USER32 1000d000     user32:USER32.dll
+ 0004:00000014       __IMPORT_DESCRIPTOR_GDI32  1000d014     gdi32:GDI32.dll
+ 0004:00000028       __IMPORT_DESCRIPTOR_ADVAPI32 1000d028     advapi32:ADVAPI32.dll
+ 0004:0000003c       __IMPORT_DESCRIPTOR_comdlg32 1000d03c     comdlg32:comdlg32.dll
+ 0004:00000050       __IMPORT_DESCRIPTOR_SHELL32 1000d050     shell32:SHELL32.dll
+ 0004:00000064       __IMPORT_DESCRIPTOR_KERNEL32 1000d064     kernel32:KERNEL32.dll
+ 0004:00000078       __NULL_IMPORT_DESCRIPTOR   1000d078     user32:USER32.dll
+ 0004:00000238       __imp__RegSetValueExA@24   1000d238     advapi32:ADVAPI32.dll
+ 0004:0000023c       __imp__RegOpenKeyExA@20    1000d23c     advapi32:ADVAPI32.dll
+ 0004:00000240       __imp__RegQueryValueExA@24 1000d240     advapi32:ADVAPI32.dll
+ 0004:00000244       __imp__RegCloseKey@4       1000d244     advapi32:ADVAPI32.dll
+ 0004:00000248       __imp__RegCreateKeyExA@36  1000d248     advapi32:ADVAPI32.dll
+ 0004:0000024c       \177ADVAPI32_NULL_THUNK_DATA 1000d24c     advapi32:ADVAPI32.dll
+ 0004:00000250       __imp__GetStockObject@4    1000d250     gdi32:GDI32.dll
+ 0004:00000254       \177GDI32_NULL_THUNK_DATA  1000d254     gdi32:GDI32.dll
+ 0004:00000258       __imp__FlushFileBuffers@4  1000d258     kernel32:KERNEL32.dll
+ 0004:0000025c       __imp__GetStringTypeW@16   1000d25c     kernel32:KERNEL32.dll
+ 0004:00000260       __imp__GetStringTypeA@20   1000d260     kernel32:KERNEL32.dll
+ 0004:00000264       __imp__LCMapStringW@24     1000d264     kernel32:KERNEL32.dll
+ 0004:00000268       __imp__LCMapStringA@24     1000d268     kernel32:KERNEL32.dll
+ 0004:0000026c       __imp__MultiByteToWideChar@24 1000d26c     kernel32:KERNEL32.dll
+ 0004:00000270       __imp__SetStdHandle@8      1000d270     kernel32:KERNEL32.dll
+ 0004:00000274       __imp__GetProcAddress@8    1000d274     kernel32:KERNEL32.dll
+ 0004:00000278       __imp__GetOEMCP@0          1000d278     kernel32:KERNEL32.dll
+ 0004:0000027c       __imp__GetACP@0            1000d27c     kernel32:KERNEL32.dll
+ 0004:00000280       __imp__GetCPInfo@8         1000d280     kernel32:KERNEL32.dll
+ 0004:00000284       __imp__HeapReAlloc@16      1000d284     kernel32:KERNEL32.dll
+ 0004:00000288       __imp__VirtualAlloc@16     1000d288     kernel32:KERNEL32.dll
+ 0004:0000028c       __imp__InitializeCriticalSection@4 1000d28c     kernel32:KERNEL32.dll
+ 0004:00000290       __imp__InterlockedIncrement@4 1000d290     kernel32:KERNEL32.dll
+ 0004:00000294       __imp__CompareStringA@24   1000d294     kernel32:KERNEL32.dll
+ 0004:00000298       __imp__CompareStringW@24   1000d298     kernel32:KERNEL32.dll
+ 0004:0000029c       __imp__SetEnvironmentVariableA@8 1000d29c     kernel32:KERNEL32.dll
+ 0004:000002a0       __imp__LoadLibraryA@4      1000d2a0     kernel32:KERNEL32.dll
+ 0004:000002a4       __imp__TlsAlloc@0          1000d2a4     kernel32:KERNEL32.dll
+ 0004:000002a8       __imp__InterlockedDecrement@4 1000d2a8     kernel32:KERNEL32.dll
+ 0004:000002ac       __imp__LeaveCriticalSection@4 1000d2ac     kernel32:KERNEL32.dll
+ 0004:000002b0       __imp__EnterCriticalSection@4 1000d2b0     kernel32:KERNEL32.dll
+ 0004:000002b4       __imp__SetFilePointer@16   1000d2b4     kernel32:KERNEL32.dll
+ 0004:000002b8       __imp__GlobalMemoryStatus@4 1000d2b8     kernel32:KERNEL32.dll
+ 0004:000002bc       __imp__ReleaseSemaphore@12 1000d2bc     kernel32:KERNEL32.dll
+ 0004:000002c0       __imp__CreateProcessA@40   1000d2c0     kernel32:KERNEL32.dll
+ 0004:000002c4       __imp__GetLastError@0      1000d2c4     kernel32:KERNEL32.dll
+ 0004:000002c8       __imp__CloseHandle@4       1000d2c8     kernel32:KERNEL32.dll
+ 0004:000002cc       __imp__WaitForSingleObject@8 1000d2cc     kernel32:KERNEL32.dll
+ 0004:000002d0       __imp__Sleep@4             1000d2d0     kernel32:KERNEL32.dll
+ 0004:000002d4       __imp__GetTimeZoneInformation@4 1000d2d4     kernel32:KERNEL32.dll
+ 0004:000002d8       __imp__GetSystemTime@4     1000d2d8     kernel32:KERNEL32.dll
+ 0004:000002dc       __imp__GetLocalTime@4      1000d2dc     kernel32:KERNEL32.dll
+ 0004:000002e0       __imp__CreateThread@24     1000d2e0     kernel32:KERNEL32.dll
+ 0004:000002e4       __imp__GetCurrentThreadId@0 1000d2e4     kernel32:KERNEL32.dll
+ 0004:000002e8       __imp__TlsSetValue@8       1000d2e8     kernel32:KERNEL32.dll
+ 0004:000002ec       __imp__ExitThread@4        1000d2ec     kernel32:KERNEL32.dll
+ 0004:000002f0       __imp__GetCommandLineA@0   1000d2f0     kernel32:KERNEL32.dll
+ 0004:000002f4       __imp__GetVersion@0        1000d2f4     kernel32:KERNEL32.dll
+ 0004:000002f8       __imp__HeapFree@12         1000d2f8     kernel32:KERNEL32.dll
+ 0004:000002fc       __imp__TlsFree@4           1000d2fc     kernel32:KERNEL32.dll
+ 0004:00000300       __imp__SetLastError@4      1000d300     kernel32:KERNEL32.dll
+ 0004:00000304       __imp__TlsGetValue@4       1000d304     kernel32:KERNEL32.dll
+ 0004:00000308       __imp__HeapAlloc@12        1000d308     kernel32:KERNEL32.dll
+ 0004:0000030c       __imp__ExitProcess@4       1000d30c     kernel32:KERNEL32.dll
+ 0004:00000310       __imp__TerminateProcess@8  1000d310     kernel32:KERNEL32.dll
+ 0004:00000314       __imp__GetCurrentProcess@0 1000d314     kernel32:KERNEL32.dll
+ 0004:00000318       __imp__UnhandledExceptionFilter@4 1000d318     kernel32:KERNEL32.dll
+ 0004:0000031c       __imp__RtlUnwind@16        1000d31c     kernel32:KERNEL32.dll
+ 0004:00000320       __imp__SetHandleCount@4    1000d320     kernel32:KERNEL32.dll
+ 0004:00000324       __imp__GetStdHandle@4      1000d324     kernel32:KERNEL32.dll
+ 0004:00000328       __imp__GetFileType@4       1000d328     kernel32:KERNEL32.dll
+ 0004:0000032c       __imp__GetStartupInfoA@4   1000d32c     kernel32:KERNEL32.dll
+ 0004:00000330       __imp__DeleteCriticalSection@4 1000d330     kernel32:KERNEL32.dll
+ 0004:00000334       __imp__GetModuleFileNameA@12 1000d334     kernel32:KERNEL32.dll
+ 0004:00000338       __imp__FreeEnvironmentStringsA@4 1000d338     kernel32:KERNEL32.dll
+ 0004:0000033c       __imp__FreeEnvironmentStringsW@4 1000d33c     kernel32:KERNEL32.dll
+ 0004:00000340       __imp__WideCharToMultiByte@32 1000d340     kernel32:KERNEL32.dll
+ 0004:00000344       __imp__GetEnvironmentStrings@0 1000d344     kernel32:KERNEL32.dll
+ 0004:00000348       __imp__GetEnvironmentStringsW@0 1000d348     kernel32:KERNEL32.dll
+ 0004:0000034c       __imp__HeapDestroy@4       1000d34c     kernel32:KERNEL32.dll
+ 0004:00000350       __imp__HeapCreate@12       1000d350     kernel32:KERNEL32.dll
+ 0004:00000354       __imp__VirtualFree@12      1000d354     kernel32:KERNEL32.dll
+ 0004:00000358       __imp__WriteFile@20        1000d358     kernel32:KERNEL32.dll
+ 0004:0000035c       \177KERNEL32_NULL_THUNK_DATA 1000d35c     kernel32:KERNEL32.dll
+ 0004:00000360       __imp__Shell_NotifyIconA@8 1000d360     shell32:SHELL32.dll
+ 0004:00000364       \177SHELL32_NULL_THUNK_DATA 1000d364     shell32:SHELL32.dll
+ 0004:00000368       __imp__RegisterClassA@4    1000d368     user32:USER32.dll
+ 0004:0000036c       __imp__GetSysColorBrush@4  1000d36c     user32:USER32.dll
+ 0004:00000370       __imp__GetMessageA@16      1000d370     user32:USER32.dll
+ 0004:00000374       __imp__TranslateMessage@4  1000d374     user32:USER32.dll
+ 0004:00000378       __imp__DispatchMessageA@4  1000d378     user32:USER32.dll
+ 0004:0000037c       __imp__RegisterWindowMessageA@4 1000d37c     user32:USER32.dll
+ 0004:00000380       __imp__DefWindowProcA@16   1000d380     user32:USER32.dll
+ 0004:00000384       __imp__KillTimer@8         1000d384     user32:USER32.dll
+ 0004:00000388       __imp__SetTimer@16         1000d388     user32:USER32.dll
+ 0004:0000038c       __imp__PostQuitMessage@4   1000d38c     user32:USER32.dll
+ 0004:00000390       __imp__MessageBoxA@16      1000d390     user32:USER32.dll
+ 0004:00000394       __imp__PostMessageA@16     1000d394     user32:USER32.dll
+ 0004:00000398       __imp__GetMenu@4           1000d398     user32:USER32.dll
+ 0004:0000039c       __imp__CreateDialogParamA@20 1000d39c     user32:USER32.dll
+ 0004:000003a0       __imp__SetWindowTextA@8    1000d3a0     user32:USER32.dll
+ 0004:000003a4       __imp__EnableMenuItem@12   1000d3a4     user32:USER32.dll
+ 0004:000003a8       __imp__DestroyWindow@4     1000d3a8     user32:USER32.dll
+ 0004:000003ac       __imp__GetWindowLongA@8    1000d3ac     user32:USER32.dll
+ 0004:000003b0       __imp__SendDlgItemMessageA@20 1000d3b0     user32:USER32.dll
+ 0004:000003b4       __imp__wsprintfA           1000d3b4     user32:USER32.dll
+ 0004:000003b8       __imp__SetWindowLongA@12   1000d3b8     user32:USER32.dll
+ 0004:000003bc       __imp__ShowWindow@8        1000d3bc     user32:USER32.dll
+ 0004:000003c0       __imp__UpdateWindow@4      1000d3c0     user32:USER32.dll
+ 0004:000003c4       __imp__CreateWindowExA@48  1000d3c4     user32:USER32.dll
+ 0004:000003c8       __imp__SendMessageA@16     1000d3c8     user32:USER32.dll
+ 0004:000003cc       __imp__LoadIconA@8         1000d3cc     user32:USER32.dll
+ 0004:000003d0       __imp__LoadCursorA@8       1000d3d0     user32:USER32.dll
+ 0004:000003d4       __imp__LoadImageA@24       1000d3d4     user32:USER32.dll
+ 0004:000003d8       \177USER32_NULL_THUNK_DATA 1000d3d8     user32:USER32.dll
+ 0004:000003dc       __imp__GetOpenFileNameA@4  1000d3dc     comdlg32:comdlg32.dll
+ 0004:000003e0       \177comdlg32_NULL_THUNK_DATA 1000d3e0     comdlg32:comdlg32.dll
+
+ entry point at        0001:00001bee
+
+ Static symbols
+
+ 0001:00000b40       ?initAboutLicense@@YAXPAUHWND__@@J@Z 10001b40 f   d4main.obj
+ 0001:00001790       ?server4securityCheck@@YAHPAUCODE4St@@@Z 10002790 f   d4main.obj
+ 0001:00006da8       _xtoa                      10007da8 f   LIBCMT:xtoa.obj
+ 0001:00006bde       _findenv                   10007bde f   LIBCMT:setenv.obj
+ 0001:00006c36       _copy_environ              10007c36 f   LIBCMT:setenv.obj
+ 0001:00006a2c       _strncnt                   10007a2c f   LIBCMT:a_cmp.obj
+ 0001:00006a2c       _strncnt                   10007a2c f   LIBCMT:a_cmp.obj
+ 0001:00005e10       LeadUp1                    10006e10 f   LIBCMT:memmove.obj
+ 0001:00005e3c       LeadUp2                    10006e3c f   LIBCMT:memmove.obj
+ 0001:00005e60       LeadUp3                    10006e60 f   LIBCMT:memmove.obj
+ 0001:00005edf       UnwindUp0                  10006edf f   LIBCMT:memmove.obj
+ 0001:00005ecc       UnwindUp1                  10006ecc f   LIBCMT:memmove.obj
+ 0001:00005ec4       UnwindUp2                  10006ec4 f   LIBCMT:memmove.obj
+ 0001:00005ebc       UnwindUp3                  10006ebc f   LIBCMT:memmove.obj
+ 0001:00005eb4       UnwindUp4                  10006eb4 f   LIBCMT:memmove.obj
+ 0001:00005eac       UnwindUp5                  10006eac f   LIBCMT:memmove.obj
+ 0001:00005ea4       UnwindUp6                  10006ea4 f   LIBCMT:memmove.obj
+ 0001:00005e9c       UnwindUp7                  10006e9c f   LIBCMT:memmove.obj
+ 0001:00005ef8       TrailUp0                   10006ef8 f   LIBCMT:memmove.obj
+ 0001:00005f00       TrailUp1                   10006f00 f   LIBCMT:memmove.obj
+ 0001:00005f0c       TrailUp2                   10006f0c f   LIBCMT:memmove.obj
+ 0001:00005f20       TrailUp3                   10006f20 f   LIBCMT:memmove.obj
+ 0001:00005f98       LeadDown1                  10006f98 f   LIBCMT:memmove.obj
+ 0001:00005fb8       LeadDown2                  10006fb8 f   LIBCMT:memmove.obj
+ 0001:00005fe0       LeadDown3                  10006fe0 f   LIBCMT:memmove.obj
+ 0001:00006034       UnwindDown7                10007034 f   LIBCMT:memmove.obj
+ 0001:0000603c       UnwindDown6                1000703c f   LIBCMT:memmove.obj
+ 0001:00006044       UnwindDown5                10007044 f   LIBCMT:memmove.obj
+ 0001:0000604c       UnwindDown4                1000704c f   LIBCMT:memmove.obj
+ 0001:00006054       UnwindDown3                10007054 f   LIBCMT:memmove.obj
+ 0001:0000605c       UnwindDown2                1000705c f   LIBCMT:memmove.obj
+ 0001:00006064       UnwindDown1                10007064 f   LIBCMT:memmove.obj
+ 0001:00006077       UnwindDown0                10007077 f   LIBCMT:memmove.obj
+ 0001:00006090       TrailDown0                 10007090 f   LIBCMT:memmove.obj
+ 0001:00006098       TrailDown1                 10007098 f   LIBCMT:memmove.obj
+ 0001:000060a8       TrailDown2                 100070a8 f   LIBCMT:memmove.obj
+ 0001:000060bc       TrailDown3                 100070bc f   LIBCMT:memmove.obj
+ 0001:00005ce7       _flsall                    10006ce7 f   LIBCMT:fflush.obj
+ 0001:000055b0       LeadUp1                    100065b0 f   LIBCMT:memcpy.obj
+ 0001:000055dc       LeadUp2                    100065dc f   LIBCMT:memcpy.obj
+ 0001:00005600       LeadUp3                    10006600 f   LIBCMT:memcpy.obj
+ 0001:0000567f       UnwindUp0                  1000667f f   LIBCMT:memcpy.obj
+ 0001:0000566c       UnwindUp1                  1000666c f   LIBCMT:memcpy.obj
+ 0001:00005664       UnwindUp2                  10006664 f   LIBCMT:memcpy.obj
+ 0001:0000565c       UnwindUp3                  1000665c f   LIBCMT:memcpy.obj
+ 0001:00005654       UnwindUp4                  10006654 f   LIBCMT:memcpy.obj
+ 0001:0000564c       UnwindUp5                  1000664c f   LIBCMT:memcpy.obj
+ 0001:00005644       UnwindUp6                  10006644 f   LIBCMT:memcpy.obj
+ 0001:0000563c       UnwindUp7                  1000663c f   LIBCMT:memcpy.obj
+ 0001:00005698       TrailUp0                   10006698 f   LIBCMT:memcpy.obj
+ 0001:000056a0       TrailUp1                   100066a0 f   LIBCMT:memcpy.obj
+ 0001:000056ac       TrailUp2                   100066ac f   LIBCMT:memcpy.obj
+ 0001:000056c0       TrailUp3                   100066c0 f   LIBCMT:memcpy.obj
+ 0001:00005738       LeadDown1                  10006738 f   LIBCMT:memcpy.obj
+ 0001:00005758       LeadDown2                  10006758 f   LIBCMT:memcpy.obj
+ 0001:00005780       LeadDown3                  10006780 f   LIBCMT:memcpy.obj
+ 0001:000057d4       UnwindDown7                100067d4 f   LIBCMT:memcpy.obj
+ 0001:000057dc       UnwindDown6                100067dc f   LIBCMT:memcpy.obj
+ 0001:000057e4       UnwindDown5                100067e4 f   LIBCMT:memcpy.obj
+ 0001:000057ec       UnwindDown4                100067ec f   LIBCMT:memcpy.obj
+ 0001:000057f4       UnwindDown3                100067f4 f   LIBCMT:memcpy.obj
+ 0001:000057fc       UnwindDown2                100067fc f   LIBCMT:memcpy.obj
+ 0001:00005804       UnwindDown1                10006804 f   LIBCMT:memcpy.obj
+ 0001:00005817       UnwindDown0                10006817 f   LIBCMT:memcpy.obj
+ 0001:00005830       TrailDown0                 10006830 f   LIBCMT:memcpy.obj
+ 0001:00005838       TrailDown1                 10006838 f   LIBCMT:memcpy.obj
+ 0001:00005848       TrailDown2                 10006848 f   LIBCMT:memcpy.obj
+ 0001:0000585c       TrailDown3                 1000685c f   LIBCMT:memcpy.obj
+ 0001:000052ed       _getSystemCP               100062ed f   LIBCMT:mbctype.obj
+ 0001:00005337       _CPtoLCID                  10006337 f   LIBCMT:mbctype.obj
+ 0001:0000536a       _setSBCS                   1000636a f   LIBCMT:mbctype.obj
+ 0001:00005393       _setSBUpLow                10006393 f   LIBCMT:mbctype.obj
+ 0001:000036a9       __tzset_lk                 100046a9 f   LIBCMT:tzset.obj
+ 0001:00003951       __isindst_lk               10004951 f   LIBCMT:tzset.obj
+ 0001:00003afd       _cvtdate                   10004afd f   LIBCMT:tzset.obj
+ 0001:00003152       _parse_cmdline             10004152 f   LIBCMT:stdargv.obj
+ 0001:00002c38       _gu_return                 10003c38 f   LIBCMT:exsup.obj
+ 0001:00002c40       __unwind_handler           10003c40 f   LIBCMT:exsup.obj
+ 0001:00002be4       _xcptlookup                10003be4 f   LIBCMT:winxfltr.obj
+ 0001:000029d5       _doexit                    100039d5 f   LIBCMT:crt0dat.obj
+ 0001:00002a8c       __initterm                 10003a8c f   LIBCMT:crt0dat.obj
+ 0001:000025d9       _write_char                100035d9 f   LIBCMT:output.obj
+ 0001:0000260e       _write_multi_char          1000360e f   LIBCMT:output.obj
+ 0001:0000263f       _write_string              1000363f f   LIBCMT:output.obj
+ 0001:00002677       _get_int_arg               10003677 f   LIBCMT:output.obj
+ 0001:00002684       _get_int64_arg             10003684 f   LIBCMT:output.obj
+ 0001:00002694       _get_short_arg             10003694 f   LIBCMT:output.obj
+ 0001:00001a47       __threadstartex@4          10002a47 f   LIBCMT:threadex.obj
+
+FIXUPS: 2b71 14 a 5 5 5 29 5 5 5 d 47 10 14 11 44 9 fffffd3c e 3b b 48
+FIXUPS: 2aa8 29 e 11 d 7 fffffeb0 1d ffffffa7 7e8 d 2e 25 d9 bf 3b 18 c
+FIXUPS: 33cc 8 77 12 96 16 1c 27 17 1e 18 5e 32 37 fffff782 b 29 3b 1b
+FIXUPS: 2cfe 66 fffffdcc 38 c09 19 1f 1b 51 1f 16 3e e e e e e 11 7 fffffe4d
+FIXUPS: 3739 d 7 c ffffff4b 2b d 20 d d 9 fffff85f 3f 99 19 68 f8a f e
+FIXUPS: 4087 17 fffffd61 e 86 156 fffffd8a d 11 2f 25 fffffe4f fffffe79
+FIXUPS: 3aba fffffee4 f 11 f a 6e 11 c 1b 9 fffffea7 6 9 2b 10 fc6 9 a5
+FIXUPS: 4a3a 2f 15 fffffa8e 16 8a 15 13 1a 14 d 11 12 16 19 fffffdf8 ffffff4a
+FIXUPS: 43c6 44 13 fffffcaf 35 f 10 17 fffffed7 19 14 14 e2c b 44 20 b
+FIXUPS: 4c68 e 8 d b 14 b 34 fffff99e f d 18 20 11 110 15 6 7 17 6 e 22
+FIXUPS: 4899 2b 44 1e e 16de 6 9 fffff747 109 f fffffae7 4f e 8 16 8 fffffd99
+FIXUPS: 5192 10 6c fffffd87 19 12 5b e 23 1f 33 1f fffffe54 fffffe2f e
+FIXUPS: 4d56 d b 55 1fa2 12 fffffe63 2a 2b 1b fffffeae b 39 b 39 1b fffffe98
+FIXUPS: 6a4f f 15 fffffea3 41 fffff7f5 8 111 39 2f 5 f 14d 24 28 aa fffffaaa
+FIXUPS: 5fe1 14 19ce fffffc8c 10 21 7 f a ffffff18 6 8 1d 8 8 19 ffffff54
+FIXUPS: 7584 ffffff98 ffffff85 ffffff38 10 fffffd6e 7c b4 fffffb07 fffffecd
+FIXUPS: 6c73 3c 32 10 24 1f 1b 1042 ffffff37 6 8 d b 14 17 9 c 1e 22 fffffcfe
+FIXUPS: 7a97 1c 1b 1b 21 1c 1f 28 28 8 11 24 25 6c 10 12 fffffba9 17 10f
+FIXUPS: 8242 5d ffffff3c 7 d ffffff5f b 45 c d fffffe5b 13 1a 6 1d 11 19
+FIXUPS: 8095 3b 9 a a 33 fffffe71 25 a 31 fffffeb0 24 a 23 ffffff30 ffff9259
+FIXUPS: 116a 69a 290 80 5a 10e 72 58 1f 1f 1f 1f 1f 31f 25 87 95 3d a 127
+FIXUPS: 2490 1c 1c 5c 73 5f 13 29 91 64 27

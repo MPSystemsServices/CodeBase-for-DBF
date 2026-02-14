@@ -1,0 +1,16 @@
+mv C4COMWS.H	c4comws.h
+mv c4trans.H	c4trans.h
+mv D4INLINE.H	d4inline.h
+mv D4SECURE.H	d4secure.h
+mv D4STAMP.H	d4stamp.h
+mv E4DEFS.H		e4defs.h
+mv F4FLAG.H		f4flag.h
+mv M4MEM2.H		m4mem2.h
+mv O4OPT.H		o4opt.h
+mv POP4.H		pop4.h
+mv PUSH4.H		push4.h
+mv R4REINDE.H	r4reinde.h
+mv R4RELATE.H	r4relate.h
+mv R4REPORT.H	r4report.h
+mv S4SORT.H		s4sort.h
+mv TIMER5.H		timer5.h

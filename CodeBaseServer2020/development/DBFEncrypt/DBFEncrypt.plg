@@ -1,0 +1,117 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: DBFEncrypt - Win32 Encrypt Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP2D.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "e:\cbrel\fox_sa_c\source" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D ENCRYPT=1 /Fp"Encrypt Release/DBFEncrypt.pch" /YX /Fo"Encrypt Release/" /Fd"Encrypt Release/" /FD /c 
+"E:\development\DBFEncrypt\DBFENCRYPT.C"
+]
+Creating command line "cl.exe @C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP2D.tmp" 
+Creating temporary file "C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP2E.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:no /pdb:"Encrypt Release/DBFEncrypt.pdb" /machine:I386 /out:"Release/DBFEncrypt.exe" 
+".\Encrypt Release\DBFENCRYPT.OBJ"
+..\..\cbrel\fox_sa_c\lib\sa\msvc\c4dll.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP2E.tmp"
+<h3>Output Window</h3>
+Compiling...
+DBFENCRYPT.C
+Linking...
+
+
+
+<h3>Results</h3>
+DBFEncrypt.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: DBFEncrypt - Win32 Encrypt Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP30.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "e:\cbrel\fox_sa_c\source" /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D ENCRYPT=1 /FR"Encrypt Debug/" /Fp"Encrypt Debug/DBFEncrypt.pch" /YX /Fo"Encrypt Debug/" /Fd"Encrypt Debug/" /FD /GZ /c 
+"E:\development\DBFEncrypt\DBFENCRYPT.C"
+]
+Creating command line "cl.exe @C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP30.tmp" 
+Creating temporary file "C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP31.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Encrypt Debug/DBFEncrypt.pdb" /debug /machine:I386 /out:"Debug/DBFEncrypt.exe" /pdbtype:sept 
+".\Encrypt Debug\DBFENCRYPT.OBJ"
+..\..\cbrel\fox_sa_c\lib\sa\msvc\c4dll.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP31.tmp"
+<h3>Output Window</h3>
+Compiling...
+DBFENCRYPT.C
+Linking...
+Creating command line "bscmake.exe /nologo /o"Encrypt Debug/DBFEncrypt.bsc"  ".\Encrypt Debug\DBFENCRYPT.SBR""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+DBFEncrypt.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: DBFEncrypt - Win32 Dencrypt Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP33.tmp" with contents
+[
+/nologo /ML /W3 /GX /O2 /I "e:\cbrel\fox_sa_c\source" /D "NDEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D ENCRYPT=0 /Fp"Dencrypt Release/DBFEncrypt.pch" /YX /Fo"Dencrypt Release/" /Fd"Dencrypt Release/" /FD /c 
+"E:\development\DBFEncrypt\DBFENCRYPT.C"
+]
+Creating command line "cl.exe @C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP33.tmp" 
+Creating temporary file "C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP34.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:no /pdb:"Dencrypt Release/DBFDecrypt.pdb" /machine:I386 /out:"Release/DBFDecrypt.exe" 
+".\Dencrypt Release\DBFENCRYPT.OBJ"
+..\..\cbrel\fox_sa_c\lib\sa\msvc\c4dll.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP34.tmp"
+<h3>Output Window</h3>
+Compiling...
+DBFENCRYPT.C
+Linking...
+
+
+
+<h3>Results</h3>
+DBFDecrypt.exe - 0 error(s), 0 warning(s)
+<h3>
+--------------------Configuration: DBFEncrypt - Win32 Decrypt Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP36.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /I "e:\cbrel\fox_sa_c\source" /D "_DEBUG" /D "WIN32" /D "_WINDOWS" /D "_MBCS" /D ENCRYPT=0 /FR"Decrypt Debug/" /Fp"Decrypt Debug/DBFEncrypt.pch" /YX /Fo"Decrypt Debug/" /Fd"Decrypt Debug/" /FD /GZ /c 
+"E:\development\DBFEncrypt\DBFENCRYPT.C"
+]
+Creating command line "cl.exe @C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP36.tmp" 
+Creating temporary file "C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP37.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /incremental:yes /pdb:"Decrypt Debug/DBFDecrypt.pdb" /debug /machine:I386 /out:"Debug/DBFDecrypt.exe" /pdbtype:sept 
+".\Decrypt Debug\DBFENCRYPT.OBJ"
+..\..\cbrel\fox_sa_c\lib\sa\msvc\c4dll.lib
+]
+Creating command line "link.exe @C:\DOCUME~1\cam_s\LOCALS~1\Temp\RSP37.tmp"
+<h3>Output Window</h3>
+Compiling...
+DBFENCRYPT.C
+Linking...
+Creating command line "bscmake.exe /nologo /o"Decrypt Debug/DBFEncrypt.bsc"  ".\Decrypt Debug\DBFENCRYPT.SBR""
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+DBFDecrypt.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

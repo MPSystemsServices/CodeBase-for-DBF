@@ -1,0 +1,1 @@
+copy HDR_VFP_STAND_ALONE_32\d4all.h .

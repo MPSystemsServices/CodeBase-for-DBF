@@ -1,0 +1,35 @@
+!!*                                                                                                                          .
+d4config.c v=8.1 t=L l=8728                                                                                                  .
+C4CAT.C v=2.12 t=L l=53464                                                                                                   .
+d4main.c v=2.2.4 t=L l=270343                                                                                                .
+d4secure.c v=15.(2)2.1 t=L l=95941                                                                                           .
+d4serv2.c v=41.6.25 t=T l=1685982                                                                                            .
+d4server.c v=32.1.1.4.14 t=L l=926748                                                                                        .
+d4service.c v=14 t=L l=19175                                                                                                 .
+d4servex.c v=40.3 t=L l=83364                                                                                                .
+d4servol.c v=23.1 t=L l=237777                                                                                               .
+d4simba.c v=13.1.1 t=L l=24470                                                                                               .
+d4srvapp.c v=1 t=L l=1608                                                                                                    .
+j4java.c v=108 t=L l=157227                                                                                                  .
+L4DATA.C v=1.11 t=L l=4069                                                                                                   .
+l4log.c v=1.38 t=L l=71540                                                                                                   .
+s4share.c v=7.1 t=L l=12440                                                                                                  .
+source5.cPp v=98.6.(2)17.3 t=L l=117122                                                                                      .
+tcp4char.c v=3 t=L l=1817                                                                                                    .
+hash4.cPp v=10.7.1 t=L l=18205                                                                                               .
+d4server.h v=7.5.1.1.6 t=L l=181997                                                                                          .
+D4SECURE.H v=12.17.5 l=24267                                                                                                 .
+J4JAVA.H v=17 t=L l=6954                                                                                                     .
+RES5.H v=3 t=L l=1043                                                                                                        .
+STAMP5.HPP v=8.1 t=L l=2539                                                                                                  .
+ARRAY5.CPP v=10 t=L l=4223                                                                                                   .
+S4SERVER.ICO v=1 t=L l=857                                                                                                   .
+s4server.rC v=2.3 t=L l=22930                                                                                                .
+zlib.h v=1 t=L l=40904                                                                                                       .
+zlib.lib v=2 t=T l=17632                                                                                                     .
+s4dll.cmd v=10 t=L l=6624                                                                                                    .
+s4dll_compile.cmd v=2.1.7 t=L l=9899                                                                                         .
+s4dll_link.cmd v=7 t=T l=5066                                                                                                .
+s4dll_lib.lst v=4 t=L l=1956                                                                                                 .
+s4source.lst v=1.(4)4 t=L l=3280                                                                                             .
+s4server_build.cmd v=4.5 l=11742                                                                                             .
