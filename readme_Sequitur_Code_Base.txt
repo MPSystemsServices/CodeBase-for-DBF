@@ -1,5 +1,7 @@
       readme.txt (c)Copyright Sequiter Software Inc., 1992-2007.
-      All rights reserved.
+      All rights reserved. [and See Comments below supplied by
+      M-P System Services, Inc., the administrator of this
+      repository.]
       ----------------------------------------------------------
 
       README -  Table of Contents for CodeBase 6.5
@@ -295,7 +297,13 @@
 
       The CodeBase Software web site can be found at:
               http://www.codebase.com
-
+[COMMENT BY REPOSITORY ADMINISTRATOR]
+Starting in 2018, another, completely different company grabbed the CodeBase name
+and the www.codebase.com domain.  There is no longer any on-line presence for
+the original CodeBase development team.  Sequiter still exists, but has moved
+into entirely different businesses and has no resources to support or modify
+the application CodeBase released to Open Source in this repository.
+[ENDCOMMENT]
       Usenet Newsgroup
       ----------------
 

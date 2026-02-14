@@ -8,6 +8,9 @@ This establishes that the CodeBase product can be rebuilt, if needed, by VS2010.
 
 Key to a successful build was including zlib.dll and zlib.lib in the project.
 
-November 21, 2011.
-JSH
-Evos Logistics/MPSS, Inc.
+IT IS RECOMMENDED THAT YOU MAKE USE OF MORE RECENT VERSIONS OF Microsoft Visual Studio.
+The build directory contains vcxproj files configured to work with VS 2022.  See the
+SourceCodeReadMe_Sept_2023.md file for full details on compilation with modern VS versions.
+
+M-P Systems Services, Inc.
+February, 2026
