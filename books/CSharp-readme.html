@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<head>
+<title>CodeBase for C#</title>
+<style>
+	td
+	{
+		padding-right: 1em;
+		vertical-align: top;
+	}
+	.dirspace
+	{
+		padding-left: 3em;
+	}
+	.mon
+	{
+		font-family: monospace;
+	}
+	h2
+	{
+		border-top: 2px solid #000050;
+		color: #000050;
+	}
+</style>
+</head>
+
+<body>
+
+<h1>CodeBase for C# - ReadMe</h1>
+
+<p>Copyright ©1988-2007 Sequiter Inc.&nbsp; All rights reserved.</p>
+
+<hr />
+
+<p>This document contains useful information on how to use the CodeBase CSharp API with
+Microsoft Visual Studio.</p>
+
+<h2>Installation</h3>
+
+<p>The files within this ZIP file are intended to add C# support to the base CodeBase for Windows installation. Before extracting this ZIP file, download and install one of the builds on the CodeBase for Windows download page.</p>
+
+<p>Once you have downloaded and installed one of the builds on the CodeBase for Windows download page, extract this ZIP file to the same location as where you installed CodeBase for Windows. For example, if you installed CodeBase to C:\codebase\, extract this ZIP file to C:\codebase\.
+
+<h2>Installed Files</h2>
+
+<p>After extracting this ZIP file, you should have
+the following additional files and folders. (The list below includes only the files and folders that this ZIP file adds to the CodeBase installation; it does not describe the components of the base CodeBase installation.</p>
+
+<table>
+	<tr>
+		<td>C:\codebase</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td><span class="dirspace" />\books</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>
+			<span class="dirspace" /><span class="dirspace" />CSharp_Reference_Guide.chm<br />
+			<span class="dirspace" /><span class="dirspace" />CSharp_User_Guide.chm
+		</td>
+		<td style="vertical-align: middle;">Documentation for the CodeBase C# API</td>
+	</tr>
+	<tr>
+		<td><span class="dirspace" />\examples</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td><span class="dirspace" /><span class="dirspace" />\Source</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td><span class="dirspace" /><span class="dirspace" /><span class="dirspace" />\CSharp</td>
+		<td>Sample source code featured in the documentation.</td>
+	</tr>
+	<tr>
+		<td><span class="dirspace" />\source</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr>
+		<td>
+			<span class="dirspace" /><span class="dirspace" />codebase.cs
+		</td>
+		<td>CodeBase class module</td>
+	</tr>
+</table>
+
+<h2>Required Files</h2>
+
+<p>To use CodeBase in a C# project, use the <b>Project|Add Existing Item...</b>
+menu command in your Visual Studio IDE to add <span class="mon">codebase.cs</span> to the
+project.&nbsp; Then, add</p>
+
+<p style="margin-right:.5in; margin-left:.5in;" class="mon">using CodeBase;</p>
+
+<p>to your source code files that will be using the CodeBase C# classes.</p>
+
+<p>After you have built your C# application, copy the files in CodeBase's <b>DLL32</b> folder to a location where
+your application can access it, ideally in the same folder as the
+application or in the Windows <span class="mon">System32</span> folder.</p>
+
+<h2>Building and Running Examples</h2>
+
+<p>The examples featured in the documentation are included as
+.CS files in the <span class="mon">Examples\Source\CSharp</span>
+folder.</p>
+
+<p style="margin-bottom: 0px;">To build and run these examples, the project <span class="mon">c4ap.csproj</span> has
+been included for you in the <span class="mon">Examples\Projects\CSharp</span> folder.
+The c4ap project
+includes a dummy source file called <span class="mon">example.cs</span>. To build one of the
+examples, you would do one of the following.</p>
+
+<ul style="margin-top: 0px;">
+	<li>Make a copy of the .CS file and name it <span class="mon">example.cs,</span> or</li>
+	<li>
+		Replace the project's reference to <span class="mon">example.cs</span>
+		with a reference to the .CS file you wish to use.
+	</li>
+</ul>
+
+<h2>Information for Users Transitioning from CodeBase for C++ to CodeBase for C#</h2>
+
+<p>If you have been using CodeBase previously with C++ and are making a
+transition to C#, the following information will be useful for understanding
+the differences between the two.</p>
+
+<p>This version of CodeBase for C# includes classes corresponding to the most
+often used classes from the C++ version:</p>
+
+<ul>
+	<li>Code4</li>
+	<li>Data4</li>
+	<li>Expr4</li>
+	<li>Field4</li>
+	<li>Field4info</li>
+	<li>Field4memo</li>
+	<li>Index4</li>
+	<li>Relate4</li>
+	<li>Relate4iterator</li>
+	<li>Relate4set</li>
+	<li>Tag4</li>
+	<li>Tag4info</li>
+</ul>
+
+<p>Almost all the class descriptions in the CodeBase C++ Reference Guide are applicable
+to the C# classes. The minor differences are outlined below:</p>
+
+<table border="1" cellspacing="0" width="90%" align="center">
+	<tr>
+		<th width="50%">In the C++ API</th>
+		<th width="50%">In the C# API</th>
+	</tr>
+	<tr>
+		<td>
+			Parameters and return values
+			implemented as <b>long</b> data type (e.g.&nbsp;<span class="mon">Data4::go(long)</span>)
+		</td>
+		<td>
+			Implemented as <b>int</b> data type
+			(e.g.&nbsp;<span class="mon">Data4::go(int)</span>)
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Parameters and return values
+			implemented as <b>char</b> pointer (e.g.&nbsp;<span class="mon">char&nbsp;*Data4::alias()</span>)
+		</td>
+		<td>
+			Implemented as <b>string</b> (e.g.&nbsp;<span class="mon">string&nbsp;Data4::alias()</span>)
+		</td>
+	</tr>
+	<tr>
+		<td>Constants (e.g.&nbsp;<span class="mon">r4success</span>)</td>
+		<td>
+			Constant members of the <span class="mon">Code4</span> class
+			(e.g.&nbsp;<span class="mon">Code4.r4success</span>)
+		</td>
+	</tr>
+	<tr>
+		<td><span class="mon">Code4::unlockAuto()</span>, <span class="mon">Code4::unlockAuto(int)</span></td>
+		<td><span class="mon">Code4.unlockAuto</span> class property</td>
+	</tr>
+	<tr>
+		<td><span class="mon">Data4::check()</span></td>
+		<td><span class="mon">Data4.checkIndex()</span></td>
+	</tr>
+	<tr>
+		<td><span class="mon">Data4::lock()</span></td>
+		<td><span class="mon">Data4.lockRecord()</span></td>
+	</tr>
+	<tr>
+		<td><span class="mon">Data4::log()</span></td>
+		<td><span class="mon">Data4.log</span> class property</td>
+	</tr>
+	<tr>
+		<td><span class="mon">Data4::position()</span>, <span class="mon">Data4::position(double)</span></td>
+		<td><span class="mon">Data4.position</span> class property</td>
+	</tr>
+	<tr>
+		<td><span class="mon">Data4::record()</span></td>
+		<td>Not available</td>
+	</tr>
+	<tr>
+		<td><span class="mon">Expr4::null()</span></td>
+		<td><span class="mon">Expr4.isNull()</span></td>
+	</tr>
+	<tr>
+		<td><span class="mon">Expr4::true()</span></td>
+		<td><span class="mon">Expr4.isTrue()</span></td>
+	</tr>
+	<tr>
+		<td><span class="mon">Field4::assignLong(long)</span></td>
+		<td>Not available</td>
+	</tr>
+	<tr>
+		<td><span class="mon">Field4::operator char</span></td>
+		<td><span class="mon">Field4.getChar()</span></td>
+	</tr>
+	<tr>
+		<td><span class="mon">Field4::operator double</span></td>
+		<td><span class="mon">Field4.getDouble()</span></td>
+	</tr>
+	<tr>
+		<td><span class="mon">Field4::operator int</span></td>
+		<td><span class="mon">Field4.getInt()</span></td>
+	</tr>
+	<tr>
+		<td><span class="mon">Field4::operator long</span></td>
+		<td>Not available</td>
+	</tr>
+	<tr>
+		<td><span class="mon">Field4::null()</span></td>
+		<td><span class="mon">Field4.isNull()</span></td>
+	</tr>
+	<tr>
+		<td><span class="mon">Field4::true()</span></td>
+		<td><span class="mon">Field4.isTrue()</span></td>
+	</tr>
+	<tr>
+		<td><span class="mon">Field4::ptr()</span></td>
+		<td>Not available</td>
+	</tr>
+	<tr>
+		<td><span class="mon">Index4::create()</span></td>
+		<td>Not available; index creation is done through the <span class="mon">Data4::create()</span> method</td>
+	</tr>
+	<tr>
+		<td><span class="mon">Index4::tagAdd()</span></td>
+		<td>Not available</td>
+	</tr>
+</table>
+
+</body>
+</html>
