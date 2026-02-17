@@ -8,6 +8,7 @@ The files in this repository contain the final commercial version of CodeBase 6.
 
 ## Documentation contents
 - [Software Description](#software-description)
+    - [Compiled Versions for Download](#compiled-versions-for-download)
 - [Why Use CodeBase](#why-use-codebase)
 - [Windows and other Platform Options](#windows-and-other-platform-options)
 - [Using CodeBase](#using-codebase)
@@ -19,6 +20,7 @@ The files in this repository contain the final commercial version of CodeBase 6.
 - [Quick Start](#quick-start)
 - [Examples and Demo Programs](#examples-and-demo-programs)
 - [Compiling from Source](#compiling-from-source)
+    - [Compiling for Windows](#compiling-for-windows)
 
 ## Software Description
 CodeBase(tm) is a library of callable routines for reading, writing, indexing, and otherwise handling .DBF type data tables written in C and exposed as a linkable DLL file.  The .DBF format was originally developed by Ashton-Tate in the 1980s as part of their dBase II product, but has been enormously enhanced and extended in the following years.  A number of variants of .DBF tables evolved, the most recent being the Visual FoxPro variations introduced by Microsoft, which greatly expanded the range of field types and introduced the concept of "database containers" which provided capabilities previously found only in high-end SQL databases like SQL Server or PostgreSQL.  CodeBase evolved with the times, and added support for most but not all of the Microsoft enhancements.  Most notably missing is support for the database container concept, although the product can access, update, and reindex .DBF tables contained in a database container that are also being accessed simultaneously by Visual FoxPro applications.
@@ -38,6 +40,9 @@ Under the original commercial offering CodeBase consisted of a number of modules
 
 Source code for all of these except for the SQL Inquiry tool is included in this repository.  The SQL tool licensed by Sequiter was obtained from a third party supplier, and Sequiter was not in a legal position to release that code for Open Source access.  Compiled versions of the Adminstration Console for Windows and the Server are included here, as are Sequiter's latest source code for these applications.
 
+### Compiled Versions for Download
+The most recently compiled versions (using MS Visual Studio 2022) are found in the several clearly named subdirectories in the MPSSProductionVersions directory.  
+### Sequiter Support
 To our knowledge, all employees of Sequiter Software who developed and maintained this product have retired, and Sequiter Software is now in a completely different business.  No further support or information will be forthcoming from Sequiter regarding this product.
 ## Why Use CodeBase
 Most open source tools for accessing data require some degree of facility with SQL language and queries.  While leading SQL database systems may offer great sophistication, their complexity is also often overkill for everyday requirements.  Conversely, simpler versions like SQLite have limited functionality in terms of field data types, multi-user access, speed, index construction, record level locking and other useful features which are built in with CodeBase and the DBF table format.
@@ -98,10 +103,10 @@ For most applications, you'll be able to use the .DLL files found in this reposi
 The maintainers have been able to compile the 4 core Windows DLL libraries configured for Visual FoxPro compatibility from source.  There is a directory named CodeBaseServer2020 which has compile directories as supplied by Sequiter for the Admin Console and the Server for Windows and Linux.  We have not had the time to try testing those development setups.  You are welcome to explore those on your own.
 
 To compile the client-side DLLs for Visual FoxPro compatibility, there are two steps:
-- Configure the Source Code for the version you want
-- Launch Microsoft Visual Studio 2022 against the desired .VCXPROJ file and run the "Rebuild Solution" process.
+- <b>Configure the Source Code for the version you want</b>
+- <b>Launch Microsoft Visual Studio 2022 against the desired .VCXPROJ file and run the "Rebuild Solution" process.</b>
 
-To configure the source code, navigate to the WorkingSource directory for the most recent .C language code which is used for building all 4 versions of the DLL.  There are 4 .BAT files in that directory which can be run to configure the source code to support the specific version you want:
+<b>To configure the source code</b>, navigate to the WorkingSource directory for the most recent .C language code which is used for building all 4 versions of the DLL.  There are 4 .BAT files in that directory which can be run to configure the source code to support the specific version you want:
 - SetVFP_CLIENT_SA32.BAT - The Stand-Alone client DLL for 32-bit applications
 - SetVFP_CLIENT_SA64.BAT - Ths Stand-Alone client DLL for 64-bit applications
 - SetVFP_CLIENT_SERVER32.BAT - The Client/Server client DLL for 32-bit applications
@@ -109,9 +114,9 @@ To configure the source code, navigate to the WorkingSource directory for the mo
 
 These .BAT files simply copy the correct version of d4all.h with the settings for your desired version into the main body of source code.  If you are intending to compile a DLL with Clipper compatibility or other variation, you will need to edit the d4all.h file directly, setting the #define values accordingly.
 
-To launch Visual Studio 2022, navigate with Explorer to the appropriate subdirectory in the build subdirectory of this repository.  The subdirectory names for each of the 4 types of client DLLs are self explanatory.  Right click on the c4dll.vcxproj file and select "Open With".  Choose Visual Studio 2022.  (According to Microsoft, version 2022 is the latest and will not be replaced with another base version any time soon, but there will be sub version updates regularly.  The latest version we used for test compilation is 2022 Version 17.14.26.)  The DLL output for the 32-bit versions (both Stand Alone and Client/Server) will be c4dll.dll, and the DLL output for the 64-bit versions (both Stand Alone and Client/Server) will be c4dll64.dll.
+<b>To launch Visual Studio 2022</b>, navigate with Explorer to the appropriate subdirectory in the build subdirectory of this repository.  The subdirectory names for each of the 4 types of client DLLs are self explanatory.  Right click on the c4dll.vcxproj file and select "Open With".  Choose Visual Studio 2022.  (According to Microsoft, version 2022 is the latest and will not be replaced with another base version any time soon, but there will be sub version updates regularly.  The latest version we used for test compilation is 2022 Version 17.14.26.)  The DLL output for the 32-bit versions (both Stand Alone and Client/Server) will be c4dll.dll, and the DLL output for the 64-bit versions (both Stand Alone and Client/Server) will be c4dll64.dll.
 
-As to use of earlier versions of Visual Studio, you may find that they work correctly at least going back to Visual Studio 2017.  We believe that Sequiter compiled the current version of the code with VS versions going back as far as 2010, so you may have luck with that, but we recommend working with 2022 going forward. 
+As to use of earlier versions of Visual Studio, you may find that they work correctly at least going back to Visual Studio 2017.  We believe that Sequiter compiled the last commercial version of the code with VS versions going back as far as 2010, so you may have luck with that, but we recommend working with 2022 going forward. 
 
 Note that there should be only a few warning messages from compilation to the 32-bit DLLs, but the compilation to 64-bit DLLs will generate a large number of warning messages indicating illegal conversions of various integer types with "potential data loss".  This reflects current best practices in handling variable sizes across 32-bit and 64-bit platforms.  In general it appears to be safe to ignore these warnings; however it is our hope that one of our users who relies on the 64-bit version will update the source code to eliminate most or all of these warnings for future users.
 
