@@ -6,6 +6,8 @@ This ReadME file and the content of this repository were updated in February, 20
 
 The files in this repository contain the final commercial version of CodeBase 6.5, Release 3, including the last official bug fix released on January 13, 2015.  The original readme.txt file supplied by Sequiter with its product delivery will be found in the main directory of this repository as <i>readme_Sequitur_Code_Base.txt</i>
 
+The WorkingSource subdirectory source code and compiled .DLL files in the MPSSProductionVersions subdirectory are current as of May 31, 2026.
+
 ## Documentation contents
 - [Software Description](#software-description)
     - [Compiled Versions for Download](#compiled-versions-for-download)
