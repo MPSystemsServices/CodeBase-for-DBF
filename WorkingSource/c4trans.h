@@ -197,7 +197,8 @@ S4EXPORT int S4FUNCTION code4tranCommitSingle( CODE4 S4PTR * ) ;
          S4EXPORT int S4FUNCTION tran4fileClose( TRAN4FILE *t4 ) ;
          int  code4tranInitUndoLow( TRAN4 *, const long ) ;
          S4EXPORT int  S4FUNCTION tran4set(  TRAN4 S4PTR *, const int, const long, const long, const int, const unsigned int, const long, const long ) ;
-         S4EXPORT int  S4FUNCTION tran4putData(  TRAN4 S4PTR *, const void *, unsigned ) ;
+         S4EXPORT int  S4FUNCTION tran4putData(  TRAN4 S4PTR *, const void *, size_t ) ;
+         // Changed third parm above from unsigned to size_t to keep compiler happy.  March 16, 2026. JSH.
          /* log file examination functionality */
          #ifndef S4INLINE
             S4EXPORT int  S4FUNCTION tran4bottom( TRAN4 S4PTR * ) ;

@@ -500,15 +500,15 @@
 
          for ( tagIndex = 0 ; tagIndex != tagCount ; tagIndex++ )
          {
-            len = strlen( tagData[tagIndex].name ) + 1 ;
-            offset += sizeof( CONNECTION4TAG_INFO ) ;
+            len = (short) strlen( tagData[tagIndex].name ) + 1 ;
+            offset += (short) sizeof( CONNECTION4TAG_INFO ) ;
             CONNECTION4TAG_INFO *tinfo ;
             connection4addData( connection, NULL, sizeof(CONNECTION4TAG_INFO), (void **)&tinfo ) ;
             tinfo->name.offset = htons5(offset) ;
-            unsigned int len2 = strlen( tagData[tagIndex].expression ) + 1 ;
-            offset += len ;
+            unsigned long len2 = (unsigned long) strlen( tagData[tagIndex].expression ) + 1 ;
+            offset += (short) len ;
             tinfo->expression.offset = htons5(offset) ;
-            offset += len2 ;
+            offset += (short) len2 ;
             unsigned int len3 ;
             if ( tagData[tagIndex].filter == 0 )
             {

@@ -71,6 +71,8 @@
    #define c4strcmp strcmp
    #define c4strncmp strncmp
    // AS Dec 13/05 - under Windows strcpy is becoming deprecated...
+   // NOTE THAT strlen is defined as returning a size_t value NOT an int or long in both 32 and 64-bit
+   // versions.  Mar. 15, 2026. J. Heuer.
    #ifdef S4WINDOWS_VS5_PLUS
       #define c4strcpy( a, aLen, b ) strcpy_s( (a), (aLen), (b) )
       #define c4strncat( a, aLen, b, c ) strncat_s( (a), aLen, (b), (c) )
@@ -1347,8 +1349,10 @@ S4EXPORT long S4FUNCTION c4getTimeout( CODE4 S4PTR * ) ;
       S4EXPORT short S4FUNCTION code4fileFlush( CODE4 *cb, short value ) ;
       S4EXPORT short S4FUNCTION code4goError( CODE4 *cb, short value ) ;
       S4EXPORT short S4FUNCTION code4errGo( CODE4 *cb, short value ) ;
-      S4EXPORT long  S4FUNCTION code4hInst( CODE4 *cb, long value ) ;
-      S4EXPORT long  S4FUNCTION code4hWnd( CODE4 *cb, long value ) ;
+      S4EXPORT long long  S4FUNCTION code4hInst( CODE4 *cb, HINSTANCE value ) ;
+      //The types of the above changed from long to HINSTANCE to support 64-bit programming.  March 17, 2026. JSH.
+      S4EXPORT long long  S4FUNCTION code4hWnd( CODE4 *cb, HWND value ) ;
+      // The types of the above changed from long to HWND to support 64-bit programming. March 17, 2026. JSH.
       S4EXPORT short S4FUNCTION code4lockAttempts( CODE4 *cb, short value ) ;
       S4EXPORT short S4FUNCTION code4lockAttemptsSingle( CODE4 *cb, short value ) ;
       S4EXPORT long  S4FUNCTION code4lockDelay( CODE4 *cb, long value ) ;

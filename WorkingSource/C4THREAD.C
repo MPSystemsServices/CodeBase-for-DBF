@@ -258,7 +258,7 @@ static void connect4BufferVerifyConnection( CONNECT4BUFFER *buffer, NET4MESSAGE 
    }
    else
    {
-      int status = select( conLow->sockr, (fd_set *)0, (fd_set *)0, &errorfd, &timest ) ;
+      int status = select( (long) conLow->sockr, (fd_set *)0, (fd_set *)0, &errorfd, &timest ) ;
       if ( status < 0 )
       {
          message->messageLen = -1 ;

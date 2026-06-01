@@ -444,7 +444,7 @@
          memcpy( infoIn->tagName, tag->tagFile->alias, LEN4TAG_ALIAS ) ;
          infoIn->tagName[LEN4TAG_ALIAS] = 0 ;
          // AS Oct 24/01 - Need to resolve potential tag aliasing problems (t4indx1) */
-         u4ncpy( infoIn->indexFileName, tag->tagFile->indexFile->accessName, strlen( tag->tagFile->indexFile->accessName ) + 1 ) ;
+         u4ncpy( infoIn->indexFileName, tag->tagFile->indexFile->accessName, (unsigned long) strlen( tag->tagFile->indexFile->accessName ) + 1 ) ;
          infoIn->keyLen = htons5(len) ;
          infoIn->fromCurrentPos = fromCurrentPos ;
          if ( fromCurrentPos )   /* verify at valid position, first */
@@ -966,7 +966,7 @@
                   case r5wstr:
                   case r5wstrLen:
                      if ( outputKeyLen <= 0 )
-                        outputKeyLen = c4strlen( inputKey ) ;
+                        outputKeyLen = (long) c4strlen( inputKey ) ;
                      break ;
                   default:
                      outputKeyLen = tfile->header.keyLen ;
@@ -1313,14 +1313,14 @@
                   case r4str:
                   case r4charBin:
                      if ( outputKeyLen <= 0 )
-                        outputKeyLen = c4strlen( inputKey ) ;
+                        outputKeyLen = (long) c4strlen( inputKey ) ;
                      break ;
                   #if !defined( S4DOS ) && !defined( S4WIN16)
                      case r5wstr:
                      case r5wstrLen:
                         if ( outputKeyLen <= 0 )
                            /* LY 2001/07/13 : changed to c4wcslen for 4 byte wchar on Linux */
-                           outputKeyLen = c4wcslen( (const WSTR5 *)inputKey ) * 2 ;
+                           outputKeyLen = (long) c4wcslen( (const WSTR5 *)inputKey ) * 2 ;
                         break ;
                   #endif
                   default:

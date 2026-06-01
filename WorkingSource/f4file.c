@@ -1224,7 +1224,6 @@ static unsigned file4readLowPhysical( FILE4 *f4, FILE4LONG pos, void *ptr, unsig
       DATA4 *stat ;
       CODE4 *c4 ;
    #endif
-   short numTries ;  // CS 2011/05/19 Declare outside of for loop.
 
    critical4sectionVerify( &f4->critical4file ) ;
 
@@ -1233,6 +1232,7 @@ static unsigned file4readLowPhysical( FILE4 *f4, FILE4LONG pos, void *ptr, unsig
       // Microsoft knowledgebase article #811693
       DWORD dwres ;
       #ifdef S4WINCE
+         short numTries ;  // CS 2011/05/19 Declare outside of for loop.
          for ( numTries = 0 ;; numTries++ )
          {
       #endif

@@ -321,7 +321,7 @@ long S4FUNCTION f4long( const FIELD4 *field )
             #endif
          case r4currency:
             ptr = f4currency( field, 0 ) ;
-            return c4atol( ptr, c4strlen( ptr ) ) ;
+            return c4atol( ptr, (long) c4strlen( ptr ) ) ;
       #endif
       default:
          break ;

@@ -4043,7 +4043,7 @@ int S4FUNCTION relate4next( RELATE4 **ptrPtr )
 
 int S4FUNCTION relate4querySet( RELATE4 *relate, const char *expr )
 {
-   int len ;
+   long len ;
 
    #ifdef E4PARM_HIGH
       if ( relate == 0 )
@@ -4082,8 +4082,8 @@ int S4FUNCTION relate4querySet( RELATE4 *relate, const char *expr )
          return rc ;
    #endif
 
-   len = c4strlen( expr ) + 1 ;
-   relate->relation->exprSource = (char *)u4allocEr( relate->codeBase, (long)len ) ;
+   len = (long) c4strlen( expr ) + 1 ;
+   relate->relation->exprSource = (char *)u4allocEr( relate->codeBase, (long) len ) ;
    if ( relate->relation->exprSource == 0 )
       return -1 ;
    c4memcpy( relate->relation->exprSource, expr, (unsigned int)len ) ;
@@ -5684,7 +5684,7 @@ static void relate4sortFree( RELATION4 *relation, const int deleteSort )
 int S4FUNCTION relate4sortSet( RELATE4 *relate, const char *expr )
 {
    RELATION4 *relation ;
-   int len ;
+   long len ;
 
    #ifdef E4PARM_HIGH
       if ( relate == 0 )
@@ -5723,7 +5723,7 @@ int S4FUNCTION relate4sortSet( RELATE4 *relate, const char *expr )
             if ( rc < 0 )
                return rc ;
          #endif
-         len = c4strlen( expr ) ;
+         len = (long) c4strlen( expr ) ;
          assert5( relation->sortSource == 0 ) ;
          relation->sortSource = (char *)u4allocEr( relate->codeBase, (long)len + 1L ) ;
          if ( relation->sortSource == 0 )
@@ -5753,7 +5753,7 @@ int S4FUNCTION relate4sortSetTag( RELATE4 *relate, TAG4 *tag )
 #ifdef S4CLIENT
    static int relate4add( CONNECTION4 *connection, RELATE4 *relate, unsigned int *relatePos, unsigned short *flexPos, char *relateData )
    {
-      int len, savePos ;
+      long len, savePos ;
       RELATE4 *slaveOn ;
       CONNECTION4RELATE *info ;
       TAG4 *tag ;
@@ -5773,30 +5773,30 @@ int S4FUNCTION relate4sortSetTag( RELATE4 *relate, TAG4 *tag )
          info->dataTagName.offset = 0 ;
       else
       {
-         len = strlen( tag->tagFile->alias ) + 1 ;
+         len = (long) strlen( tag->tagFile->alias ) + 1L ;
          info->dataTagName.offset = htons5(*flexPos) ;
          connection4addData( connection, tag->tagFile->alias, len, 0 ) ;
-         *flexPos += len ;
+         *flexPos += (unsigned short) len ;
       }
 
       if ( relate->masterExpr == 0 )
          info->masterExpr.offset = 0 ;
       else
       {
-         len = strlen( relate->masterExpr->source ) + 1 ;
+         len = (long) strlen( relate->masterExpr->source ) + 1L ;
          info->masterExpr.offset = htons5(*flexPos) ;
          connection4addData( connection, relate->masterExpr->source, len, 0 ) ;
-         *flexPos += len ;
+         *flexPos += (unsigned short) len ;
       }
 
       if ( relate->data == 0 )
          info->dataAccessName.offset = 0 ;
       else
       {
-         len = strlen( dfile4name( relate->data->dataFile ) ) + 1 ;
+         len = (long) strlen( dfile4name( relate->data->dataFile ) ) + 1L ;
          info->dataAccessName.offset = htons5(*flexPos) ;
          connection4addData( connection, dfile4name( relate->data->dataFile ), len, 0 ) ;
-         *flexPos += len ;
+         *flexPos += (unsigned short) len ;
       }
 
       if ( relate->data == 0 )
@@ -5807,10 +5807,10 @@ int S4FUNCTION relate4sortSetTag( RELATE4 *relate, TAG4 *tag )
             info->dataAliasName.offset = 0 ;
          else
          {
-            len = strlen( d4alias( relate->data ) ) + 1 ;
+            len = (long) strlen( d4alias( relate->data ) ) + 1L ;
             info->dataAliasName.offset = htons5(*flexPos) ;
             connection4addData( connection, d4alias( relate->data ), len, 0 ) ;
-            *flexPos += len ;
+            *flexPos += (unsigned short) len ;
          }
       }
 
@@ -5898,7 +5898,7 @@ int S4FUNCTION relate4sortSetTag( RELATE4 *relate, TAG4 *tag )
       }
       else
       {
-         exprLen = strlen( relation->exprSource ) + 1 ;
+         exprLen = (unsigned short) strlen( relation->exprSource ) + 1 ;
          info->relation.exprSource.offset = info->flexOffset ;
       }
       if ( relation->sortSource == 0 )

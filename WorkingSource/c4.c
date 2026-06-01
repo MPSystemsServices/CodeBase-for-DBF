@@ -268,7 +268,13 @@ long S4FUNCTION c4atol( const char *str, const int l )
 float S4FUNCTION c4atofloat( const char *bufIn, const int l )
 {
    float decLen = 1.0 ;
-   int i = 0, baseLen, decLenHold, offset, max, sign ;
+   // int i = 0, baseLen, decLenHold, offset, max, sign ;
+   //int i = 0;
+   
+   size_t baseLen, decLenHold, offset, max;
+   long long i = 0L;  // Modified types to support both X32 and X64 compiles, March 16, 2026. JSH.
+   int sign;
+   
    const char *cPtr, *tptr ;
    char *ptr, buf[40] ;
    float baseDoub, decDoub, doub ;

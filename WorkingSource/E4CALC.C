@@ -39,11 +39,11 @@ static void code4calcCreateSendDataAliases( EXPR4CALC *calc, CONNECTION4 *connec
 
             if ( d4->aliasSet == 1 )
             {
-               short len = strlen( dfile4name( d4->dataFile ) ) + 1 ;
+               short len = (short) strlen( dfile4name( d4->dataFile ) ) + 1 ;
                short nboLen = htons5( len ) ;
                connection4addData( connection, &nboLen, sizeof( nboLen ), 0 ) ;
                connection4addData( connection, dfile4name( d4->dataFile ), len, 0 ) ;
-               len = strlen( d4->alias ) + 1 ;
+               len = (short) strlen( d4->alias) + 1 ;
                nboLen = htons5( len ) ;
                connection4addData( connection, &nboLen, sizeof( nboLen ), 0 ) ;
                connection4addData( connection, d4->alias, len, 0 ) ;
@@ -152,7 +152,7 @@ EXPR4CALC *S4FUNCTION code4calcCreate( CODE4 *c4, EXPR4 *exp4, const char *name 
             return 0 ;
          connection4addData( connection, 0, sizeof( CONNECTION4CALC_CREATE_INFO_IN ), (void **)&infoIn ) ;
          u4ncpy( infoIn->calcName, name, sizeof( calcPtr->name ) ) ;
-         short len = strlen( exp4->source ) + 1 ;
+         short len = (short) strlen( exp4->source ) + 1 ;
          short nboLen = htons5( len ) ;  /* network byte order */
          connection4addData( connection, &nboLen, sizeof( nboLen ), 0 ) ;
          connection4addData( connection, exp4->source, len, 0 ) ;
@@ -266,8 +266,8 @@ int S4FUNCTION expr4calcNameChange( EXPR4 **exprOn, const char *oldName, const c
    const char *ptr ;
 
    ptr = expr4source( *exprOn ) ;
-   oldNameLen = strlen( oldName ) ;
-   ptrLen = strlen( ptr ) ;
+   oldNameLen = (long) strlen( oldName ) ;
+   ptrLen = (long) strlen( ptr ) ;
    bufLen = sizeof( bufMem ) ;
    buf = bufMem ;
    didAlloc = bufPos = didChange = 0 ;
@@ -310,7 +310,7 @@ int S4FUNCTION expr4calcNameChange( EXPR4 **exprOn, const char *oldName, const c
             continue ;
 
       didChange = 1 ;
-      newNameLen = strlen(newName) ;
+      newNameLen = (long) strlen(newName) ;
       if( bufLen <= (unsigned) (bufPos + newNameLen) )
       {
          if( didAlloc )

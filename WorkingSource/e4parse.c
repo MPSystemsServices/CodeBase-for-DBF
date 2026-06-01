@@ -71,7 +71,7 @@ static int s4stackPop( S4STACK * ) ;
 static int s4stackPushInt( S4STACK *, const int ) ;
 static int s4stackPushStr( S4STACK *, const void *, const int ) ;
 
-/* e4massage
+/* e4message
    -  Check the type returns to ensure that functions get the correct type
       result.  Use 'E4FUNCTIONS.code' to change the function where possible
       so that the correct function is used.
@@ -137,12 +137,12 @@ int S4FUNCTION e4lookup( const unsigned char *str, const int strLen, const int s
 
 static int e4massage( E4PARSE *p4 )
 {
-   int parmPos, iParm, isOk, codeOn ;
-   int typeShouldBe, len, i, doneTrimMemoOrCalc ;
-   int position[E4MAX_STACK_ENTRIES+1] ;
+   long parmPos, iParm, isOk, codeOn ;
+   long typeShouldBe, len, i, doneTrimMemoOrCalc ;
+   long position[E4MAX_STACK_ENTRIES+1] ;
    long length[E4MAX_STACK_ENTRIES] ;
-   int types[E4MAX_STACK_ENTRIES] ;
-   int numEntries[E4MAX_STACK_ENTRIES] ;
+   long types[E4MAX_STACK_ENTRIES] ;
+   long numEntries[E4MAX_STACK_ENTRIES] ;
    E4INFO *pointers[E4MAX_STACK_ENTRIES] ;
    unsigned storedKeyLen ;
    #ifdef S4DATA_ALIGN
@@ -171,12 +171,12 @@ static int e4massage( E4PARSE *p4 )
    #endif
 
    CODE4 *codeBase = p4->codeBase ;
-   int numParms = doneTrimMemoOrCalc = 0 ;
+   long numParms = doneTrimMemoOrCalc = 0 ;
    long bufLenNeeded = 0 ;
 
    position[0] = 0 ; /* The first parameter can be placed at position 0 */
 
-   for ( int iInfo = 0; iInfo < p4->expr.infoN; iInfo++ )
+   for ( long iInfo = 0; iInfo < p4->expr.infoN; iInfo++ )
    {
       E4INFO *info = p4->expr.info + iInfo ;
 
@@ -488,7 +488,7 @@ static int e4massage( E4PARSE *p4 )
                case E4CTOD:
                   length[numParms] = sizeof(double) ;
                   info->i1 = p4->constants.pos ;
-                  len = c4strlen( code4dateFormat( codeBase ) ) ;
+                  len = (long) c4strlen( code4dateFormat( codeBase ) ) ;
                   s4stackPushStr( &p4->constants, code4dateFormat( codeBase ), len + 1 ) ;
                   if ( info->functionI == E4DTOC || info->functionI == E4DTOC+1 )
                      length[numParms] = len ;
@@ -717,7 +717,7 @@ static int e4massage( E4PARSE *p4 )
             if ( info->functionI == E4CTOD )
             {
                info->i1 = p4->constants.pos ;
-               s4stackPushStr( &p4->constants, code4dateFormat( codeBase ), c4strlen( code4dateFormat( codeBase ) ) + 1 ) ;
+               s4stackPushStr( &p4->constants, code4dateFormat( codeBase ), (long) c4strlen( code4dateFormat( codeBase ) ) + 1 ) ;
             }
             if ( info->functionI == E4RECCOUNT )
                info->p1 = (char *)p4->expr.dataFile ;
@@ -2649,7 +2649,7 @@ static void s4scanInit( S4SCAN *s4, const unsigned char *p )
 {
    s4->ptr = p ;
    s4->pos = 0 ;
-   s4->len = c4strlen( (char *)p ) ;
+   s4->len = (long) c4strlen( (char *)p ) ;
 }
 
 

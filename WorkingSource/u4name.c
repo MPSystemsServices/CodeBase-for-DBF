@@ -54,7 +54,7 @@
       // the file extension position.  Returned is the position of this value within the string.
       // if no such position exists, the string length is returned.
 
-      int extPos = wcslen( name ) ;
+      long extPos = (long) wcslen( name ) ;
 
       if ( extPos != 0 )
       {
@@ -100,8 +100,8 @@
          ptr-- ;
       }
 
-      int fileNameLen = wcslen( name ) ;
-      int extPos = u4nameExtWideFindExtensionPos( name ) ;  // get the position of the '.' character (or where it should go)
+      long fileNameLen = (long) wcslen( name ) ;
+      long extPos = u4nameExtWideFindExtensionPos( name ) ;  // get the position of the '.' character (or where it should go)
 
       // if there is an existing extension found, and doReplace is false, just return...
       if ( fileNameLen != extPos && !doReplace )
@@ -112,7 +112,7 @@
          extensionToAdd++ ;
 
       #ifdef E4MISC
-         int extLen = wcslen( extensionToAdd ) ;
+         long extLen = (long) wcslen( extensionToAdd ) ;
          if ( extLen > 3 )
             extLen = 3 ;
          if ( lenResult <= extPos + extLen + 1 )
@@ -150,8 +150,8 @@
          ptr-- ;
       }
 
-      int fileNameLen = wcslen( name ) ;
-      int extPos = u4nameExtWideFindExtensionPos( name ) ;  // get the position of the '.' character (or where it should go)
+      long fileNameLen = (long) wcslen( name ) ;
+      long extPos = (long) u4nameExtWideFindExtensionPos( name ) ;  // get the position of the '.' character (or where it should go)
 
       // if there is no extension, just return...
       if ( fileNameLen == extPos )
@@ -187,9 +187,9 @@ int u4nameExtFindExtensionPos( const char *name )
    // the file extension position.  Returned is the position of this value within the string.
    // if no such position exists, the string length is returned.
 
-   int extPos = c4strlen( name ) ;
+   long extPos = (long) c4strlen( name ) ;
 
-   if ( extPos != 0 )
+   if ( extPos != 0L )
    {
       // go backwards through the string, until the first '.' character (we are at the
       // extension).  The cases of meeting a '\' or the beginning of the string mean that
@@ -233,8 +233,8 @@ int S4FUNCTION u4nameRemoveGivenExtension( char *name, const char *extensionToRe
       ptr-- ;
    }
 
-   int fileNameLen = c4strlen( name ) ;
-   int extPos = u4nameExtFindExtensionPos( name ) ;  // get the position of the '.' character (or where it should go)
+   long fileNameLen = (long) c4strlen( name ) ;
+   long extPos = (long) u4nameExtFindExtensionPos( name ) ;  // get the position of the '.' character (or where it should go)
 
    // if there is no extension, just return...
    if ( fileNameLen == extPos )
@@ -274,7 +274,7 @@ int S4FUNCTION u4nameRemoveGivenExtension( char *name, const char *extensionToRe
 #endif
 int S4FUNCTION u4nameExt( char *name, int lenResult, const char *extensionToAdd, const int doReplace )
 {
-   int fileNameLen, extPos, onPos ;
+   long fileNameLen, extPos, onPos ;
    char *ptr ;
    #ifdef E4MISC
       int extLen ;
@@ -289,7 +289,7 @@ int S4FUNCTION u4nameExt( char *name, int lenResult, const char *extensionToAdd,
       ptr-- ;
    }
 
-   extPos = fileNameLen = c4strlen( name ) ;
+   extPos = fileNameLen = (long) c4strlen( name ) ;
 
    if ( extPos != 0 )
       for( onPos = extPos-1 ;; onPos-- )
@@ -334,9 +334,9 @@ int S4FUNCTION u4nameExt( char *name, int lenResult, const char *extensionToAdd,
 static int u4nameFix( char *buf )
 {
    /* takes the input buffer and removes any "..\" or ".\"pieces */
-   int i, j, len, l2 ;
+   long i, j, len, l2 ;
 
-   len = c4strlen( buf ) ;
+   len = (long) c4strlen( buf ) ;
 
    #ifdef S4WINTEL
       // CJ Oct 23/01 add support for pathes that contain '/' for Windows OS's
@@ -636,9 +636,9 @@ int S4FUNCTION u4nameCreateMultiDirectories( char *outName, unsigned int outName
 
          char nameBuf[LEN4PATH] ;
          char includePath = 1 ;
-         int nLen = c4strlen( name ) ;
+         long nLen = (long) c4strlen( name ) ;
 
-         if ( nLen == 0 )
+         if ( nLen == 0L )
          {
             // AS 11/24/98 if name is empty, should still use input path to return a current directory which has been modified
             // by the input path if available.
@@ -659,7 +659,7 @@ int S4FUNCTION u4nameCreateMultiDirectories( char *outName, unsigned int outName
             if ( includePath )
             {
                u4namePath( nameBuf, sizeof( nameBuf ), path ) ;
-               int len = c4strlen( nameBuf ) ;
+               long len = (long) c4strlen( nameBuf ) ;
                if ( len != 0 )
                {
                   // CJ Oct 24/01 add support for pathes that contain '/' for Windows OS's
@@ -687,7 +687,7 @@ int S4FUNCTION u4nameCreateMultiDirectories( char *outName, unsigned int outName
       int S4FUNCTION u4nameCurrent( char *buf, const int bufLen, const char *name )
       {
          /* take the input file name and add the current drive and path if required */
-         int namePos, len = 0, len2 = 0, i, isMachineName, lx ;
+         long namePos, len = 0, len2 = 0, i, isMachineName, lx ;
          unsigned int driveNo ;
          #ifdef __WATCOMC__
             unsigned origDrive, curDrive, dummy;
@@ -760,7 +760,7 @@ int S4FUNCTION u4nameCreateMultiDirectories( char *outName, unsigned int outName
                      // CJ Oct 24/01 add support for pathes that contain '/' for Windows OS's
                      if ( noName == 0 && (name[0] == '\\' || name[0] == '/') )  /* just append the path */
                      {
-                        len = c4strlen( name ) ;
+                        len = (long) c4strlen( name ) ;
                         if ( len + 3 > bufLen )
                            return error4( 0, e4parm, E94509 ) ;
                         c4memcpy( buf + 2, name, (unsigned int)len ) ;
@@ -776,7 +776,7 @@ int S4FUNCTION u4nameCreateMultiDirectories( char *outName, unsigned int outName
                // CJ Oct 24/01 add support for pathes that contain '/' for Windows OS's
                if ( name[2] == '\\' || name[2] == '/' )  /* have the full path, so done */
                {
-                  len = c4strlen( name ) ;
+                  len = (long) c4strlen( name ) ;
                   if ( len + 1 > bufLen )
                      return error4( 0, e4parm, E94509 ) ;
                   c4memcpy( buf, name, (unsigned int)len ) ;
@@ -823,7 +823,7 @@ int S4FUNCTION u4nameCreateMultiDirectories( char *outName, unsigned int outName
                      return error4( 0, e4parm, E94509 ) ;
             #endif
 
-            lx = c4strlen( buf ) ;
+            lx = (long) c4strlen( buf ) ;
 
             /* AS 04/16/99 Novell Servers return blanks after the directory name, trim these off here... */
             while( lx > 0 )
@@ -841,7 +841,7 @@ int S4FUNCTION u4nameCreateMultiDirectories( char *outName, unsigned int outName
                   buf[i-2] = buf[i];
          }
 
-         len2 = c4strlen( buf ) ;
+         len2 = (long) c4strlen( buf ) ;
          if ( noName == 0 )
          {
             for ( ;; )
@@ -885,7 +885,7 @@ int S4FUNCTION u4nameCreateMultiDirectories( char *outName, unsigned int outName
                buf[len2] = '\\' ; //Remember that the path seperators can be either '\' or '/' or both
                len2++ ;
             }
-            len = c4strlen( name + namePos ) ;
+            len = (long) c4strlen( name + namePos ) ;
             if ( len + 1 > bufLen - len2 )
                return error4( 0, e4parm, E94509 ) ;
             c4memcpy( buf + len2, name + namePos, (unsigned int)len ) ;
@@ -899,7 +899,7 @@ int S4FUNCTION u4nameCreateMultiDirectories( char *outName, unsigned int outName
    {
       if( S4DIR != S4DIR2 )
       {
-         for (int i=0; i < len ; i++ )
+         for (long i=0; i < len ; i++ )
          {
             if( buf[i] == S4DIR2 )
                buf[i] = S4DIR ;
@@ -914,7 +914,7 @@ void S4FUNCTION u4nameMakeFindDrive( char *buf, const int bufLen, const char *de
    char drive[3] ;
    char *drivePtr = 0 ;
 
-   if ( c4strlen( fileName ) > 1 && ( fileName[1] == ':' || (fileName[0] == '\\' && fileName[1] == '\\') ) )  /* full path for file name */
+   if ( (long) c4strlen( fileName ) > 1 && ( fileName[1] == ':' || (fileName[0] == '\\' && fileName[1] == '\\') ) )  /* full path for file name */
       defaultDirectory = 0 ;
    else
    {
@@ -932,7 +932,7 @@ void S4FUNCTION u4nameMakeFindDrive( char *buf, const int bufLen, const char *de
 
 void S4FUNCTION u4nameMake( char *buf, const int bufLen, const char *defaultDrive, const char *defaultDirectory, const char *fileName )
 {
-   int defaultDirectoryLen, pos = 0 ;
+   long defaultDirectoryLen, pos = 0 ;
    int needsDrive ;
 
    if ( c4strlen( fileName ) < 2 )
@@ -959,7 +959,7 @@ void S4FUNCTION u4nameMake( char *buf, const int bufLen, const char *defaultDriv
          }
 
    if ( defaultDirectory != 0 )
-      defaultDirectoryLen = c4strlen( defaultDirectory ) ;
+      defaultDirectoryLen = (long) c4strlen( defaultDirectory ) ;
    else
       defaultDirectoryLen = 0 ;
 
@@ -972,7 +972,7 @@ void S4FUNCTION u4nameMake( char *buf, const int bufLen, const char *defaultDriv
       if ( defaultDirectory[0] == S4DIR || defaultDirectory[0] == S4DIR2 )
          defaultDirectory++ ;
 
-      defaultDirectoryLen = c4strlen(defaultDirectory) ;
+      defaultDirectoryLen = (long) c4strlen(defaultDirectory) ;
 
       u4ncpy( buf+pos, defaultDirectory, (unsigned int)(bufLen - pos) ) ;
       pos += defaultDirectoryLen ;
@@ -998,12 +998,12 @@ void S4FUNCTION u4nameMake( char *buf, const int bufLen, const char *defaultDriv
 #endif
 int S4FUNCTION u4namePiece( char *result, const unsigned int lenResult, const char *from, const int givePath, const int giveExt )
 {
-   unsigned namePos, extPos, onPos, pos, newLen, fromLen ;
+   unsigned long namePos, extPos, onPos, pos, newLen, fromLen ;
    int arePastExt ;
 
    namePos = 0 ;
    arePastExt = 0 ;
-   extPos = fromLen = c4strlen(from) ;
+   extPos = fromLen = (long) c4strlen(from) ;
    if ( extPos == 0 )
    {
       *result = 0 ;
@@ -1074,7 +1074,7 @@ void S4FUNCTION u4trim( char *stringToTrim )
    if ( stringToTrim == 0 )
       return ;
 
-   long len = c4strlen( stringToTrim ) ;
+   long len = (long) c4strlen( stringToTrim ) ;
    while ( len > 0 )
    {
       len-- ;
@@ -1260,7 +1260,8 @@ int S4FUNCTION u4namencmp( const char *string1, const char *string2, size_t coun
          #ifdef S4UNIX
             rc = strncasecmp( string1, string2, count ) ;
          #else
-            rc = strnicmp( string1, string2, count ) ;
+            rc = _strnicmp( string1, string2, count ) ;
+            // strnicmp() function name is deprecated by Microsoft.  Use _strnicmp() instead.  March 18, 2026. JSH.
          #endif
       #endif
    #else
@@ -1287,8 +1288,9 @@ int S4FUNCTION u4namencmp( const char *string1, const char *string2, size_t coun
 /* returns the length of the extension in 'from', and copies the extension in 'from' to 'result' */
 int u4nameRetExt( char *result, const int lenIn, const char *from )
 {
-   char len, name[LEN4PATH+1] ;
-   int onPos ;
+   int len;
+   char name[LEN4PATH+1] ;
+   long onPos ;
 
    int lenResult = lenIn ;
    c4memset( result, 0, lenIn ) ;
@@ -1305,7 +1307,7 @@ int u4nameRetExt( char *result, const int lenIn, const char *from )
    // AS 01/13/99 --> should move backwards through string, not forwards.  For example, names like
    // "a.b.c" return extension of 'b.c' instead of 'c' as expected.
    len = 0 ;
-   for( onPos = c4strlen( name ) - 1 ;  onPos >= 0 ; onPos-- )
+   for( onPos = (long) c4strlen( name ) - 1 ;  onPos >= 0 ; onPos-- )
    {
       if ( name[onPos] == '.' )
       {

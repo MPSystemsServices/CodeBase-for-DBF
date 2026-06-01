@@ -1166,7 +1166,7 @@ void e4fieldCurD()
 
          c4memset( currencyBuffer, 0, sizeof( currencyBuffer ) ) ;
          c4currencyToA( currencyBuffer, sizeof( currencyBuffer ), val, 4, 0 ) ;
-         d = c4atod( currencyBuffer, c4strlen( currencyBuffer ) ) ;
+         d = c4atod( currencyBuffer, (long) c4strlen( currencyBuffer ) ) ;
 
          #ifdef E4ANALYZE
             if ( ptr == 0 )
@@ -1415,7 +1415,9 @@ void e4greaterCur()
             if( rc < 0 )
                *intPtr = 0 ;
             else
-               *intPtr = (int)((long)expr4infoPtr->p1) ;
+               *intPtr = (int)((long long) expr4infoPtr->p1) ;
+               // Changed (long) cast to (long long) for 64-bit alignment in compiler. March 17, 2026. JSH.
+               // See also instances below.
          }
       }
 
@@ -1453,7 +1455,7 @@ void e4greaterDtTime()
             if( rc < 0 )
                *intPtr = 0 ;
             else
-               *intPtr = (int)((long)expr4infoPtr->p1) ;
+               *intPtr = (int)((long long)expr4infoPtr->p1) ;
          }
       }
    expr4[-2] = (char *) intPtr ;
@@ -1490,7 +1492,7 @@ void e4greater()
             if( rc < 0 )
                *intPtr = 0 ;
             else
-               *intPtr = (int)((long)expr4infoPtr->p1) ;
+               *intPtr = (int)((long long)expr4infoPtr->p1) ;
          }
       }
    expr4[-2] = (char *) intPtr ;
@@ -1760,7 +1762,7 @@ void e4lessCur()
             if( rc > 0 )
                *intPtr = 0 ;
             else
-               *intPtr = (int)((long)expr4infoPtr->p1) ;
+               *intPtr = (int)((long long)expr4infoPtr->p1) ;
          }
       }
 
@@ -1799,7 +1801,7 @@ void e4lessDtTime()
             if( rc > 0 )
                *intPtr = 0 ;
             else
-               *intPtr = (int)((long)expr4infoPtr->p1) ;
+               *intPtr = (int)((long long)expr4infoPtr->p1) ;
          }
       }
 
@@ -1893,7 +1895,7 @@ void e4less()
             if( rc > 0 )
                *intPtr = 0 ;
             else
-               *intPtr = (int)((long)expr4infoPtr->p1) ;
+               *intPtr = (int)((long long)expr4infoPtr->p1) ;
          }
       }
 

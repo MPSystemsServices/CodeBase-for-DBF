@@ -242,7 +242,7 @@ int S4FUNCTION f4int( const FIELD4 *field )
             #endif
          case r4currency:
             ptr = f4currency( field, 0 ) ;
-            return c4atoi( ptr, c4strlen( ptr ) ) ;
+            return c4atoi( ptr, (long) c4strlen( ptr ) ) ;
       #endif
       default:
          return c4atoi( f4ptr( field ), field->len ) ;

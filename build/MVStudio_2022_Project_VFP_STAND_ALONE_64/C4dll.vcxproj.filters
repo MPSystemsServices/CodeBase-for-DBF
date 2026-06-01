@@ -475,6 +475,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="..\..\WorkingSource\c4dll.res" />
+    <Resource Include="..\..\WorkingSource\c4dll64.res" />
   </ItemGroup>
 </Project>

@@ -391,7 +391,7 @@
                      if ( i4->autoOpened == 0 && c4getDoRemove( c4 ) == 1 )
                         removeFlag = 1 ;
                      info.doRemove = (short)removeFlag ;
-                     short nameLen = strlen( i4->accessName ) + 1 ;
+                     short nameLen = (short) strlen( i4->accessName ) + 1 ;
                      info.nameLen = htons5( nameLen ) ;
                      connection4addData( connection, &info, sizeof( CONNECTION4CLOSE_INDEX_INFO_IN ), NULL ) ;
                      connection4addData( connection, i4->accessName, nameLen, NULL ) ;
@@ -500,7 +500,7 @@
 
          connection = t4->index->data->dataFile->connection ;
          connection4assign( connection, CON4TAG_FNAME, data4clientId( t4->index->data ), data4serverId( t4->index->data ) ) ;
-         connection4addData( connection, t4->tagFile->alias, strlen( t4->tagFile->alias ) + 1, NULL ) ;
+         connection4addData( connection, t4->tagFile->alias, (long) strlen( t4->tagFile->alias ) + 1, NULL ) ;
          connection4sendMessage( connection ) ;
          rc = connection4receiveMessage( connection ) ;
          if ( rc < 0 )
@@ -556,7 +556,7 @@
 
          connection = i4->data->dataFile->connection ;
          connection4assign( connection, CON4INDEX_FNAME, data4clientId( i4->data ), data4serverId( i4->data ) ) ;
-         connection4addData( connection, i4->indexFile->accessName, strlen( i4->indexFile->accessName ) + 1, NULL ) ;
+         connection4addData( connection, i4->indexFile->accessName, (long) strlen( i4->indexFile->accessName ) + 1, NULL ) ;
          connection4sendMessage( connection ) ;
          rc = connection4receiveMessage( connection ) ;
          if ( rc < 0 )
@@ -3122,7 +3122,7 @@
       {
          #ifdef S4FOX
             char ext[3] ;
-            int l1, l2, count ;
+            long l1, l2, count ;
          #endif
          #ifdef E4PARM_LOW
             if ( i4 == 0 )
@@ -3164,7 +3164,7 @@
 
                if ( i4->file.name == 0 )   /* most likely a failure during open/create now closing */
                   return 0 ;
-               l1 = c4strlen( i4->file.name ) ;
+               l1 = (long) c4strlen( i4->file.name ) ;
                if ( l1 == 0 )
                   return 0 ;
                for ( count = l1 - 1 ;; count-- )
@@ -3177,7 +3177,7 @@
                      break ;
                   }
                }
-               l2 = c4strlen( i4->dataFile->file.name ) ;
+               l2 = (long) c4strlen( i4->dataFile->file.name ) ;
                if ( l2 == 0 )
                   return 0 ;
                for ( count = l2 - 1 ;; count-- )

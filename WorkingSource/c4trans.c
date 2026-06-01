@@ -1652,7 +1652,8 @@
 
 
 
-   int S4FUNCTION tran4putData( TRAN4 *t4, const void *dta, unsigned dLen )
+   int S4FUNCTION tran4putData( TRAN4 *t4, const void *dta, size_t dLen )
+   // Changed third parm from unsigned int to size_t to keep compiler happy. March 16, 2026. JSH.
    {
       CODE4 *c4 ;
 
@@ -1668,11 +1669,11 @@
       c4 = t4->c4trans->c4 ;
 
       if ( t4->dataPos + dLen + 1 > c4->tranDataLen )
-         if ( u4allocAgain( c4, &c4->tranData, &c4->tranDataLen, dLen + t4->dataPos + 1 ) != 0 )
+         if ( u4allocAgain( c4, &c4->tranData, &c4->tranDataLen, (const unsigned) (dLen + t4->dataPos + 1) ) != 0 )
             return e4memory ;
 
       memcpy( c4->tranData + t4->dataPos, dta, dLen ) ;
-      t4->dataPos += dLen ;
+      t4->dataPos += (unsigned int) dLen ;
       return 0 ;
    }
 
@@ -3474,7 +3475,7 @@
                {
                   if ( c4->transFileName != 0 )
                      u4free( c4->transFileName ) ;
-                  int lnamelen = (long)strlen( logName ) + 1L ;
+                  int lnamelen = (long) strlen( logName ) + 1L ;
                   c4->transFileName = (char *)u4allocFree( c4, lnamelen ) ;
                   if ( c4->transFileName == 0 )
                      rc = e4memory ;

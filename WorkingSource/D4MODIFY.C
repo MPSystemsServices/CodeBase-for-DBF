@@ -35,7 +35,7 @@ int S4FUNCTION d4copyTable( DATA4 *data, const char *destFolder, short includeIn
                         connection4addData( connection, NULL, sizeof(CONNECTION4COPY_INFO_IN), (void **)&dataIn ) ;
                         dataIn->includeIndex = htons5( includeIndex ) ;
                         c4strcpy(dataIn->path, LEN4PATH, destFolder ) ;
-                        int len = strlen( dataIn->path ) ;
+                        long len = (long) strlen( dataIn->path ) ;
                         if ( dataIn->path[len-1] != S4DIR )
                         {
                                 if ( len >= LEN4PATH )  // no room for the backslash
@@ -76,7 +76,8 @@ int S4FUNCTION d4copyTable( DATA4 *data, const char *destFolder, short includeIn
                                 // Copy the destination path to a separate buffer. This is
                                 // so we can ensure that it has a trailing path delimiter.
                                 c4strcpy( destFolderBuff, LEN4PATH, destFolder ) ;
-                                int len = strlen( destFolderBuff ) ;
+                                long long len = strlen( destFolderBuff ) ;
+                                // Changed type above from int to long long to handle size_t output.
                                 if ( destFolderBuff[strlen(destFolderBuff)-1] != S4DIR )
                                 {
                                         if ( len >= LEN4PATH )  // no room for the backslash
@@ -963,22 +964,22 @@ int S4FUNCTION d4copyTable( DATA4 *data, const char *destFolder, short includeIn
          short numFields = i ;
          dataIn->numFields = htons5( numFields ) ;
 
-         short len, offset ;
-         offset = sizeof( CONNECTION4MODIFY_INFO_IN ) ;
+         long len, offset ;
+         offset = (long) sizeof( CONNECTION4MODIFY_INFO_IN ) ;
          len = 0 ;
 
          for ( short fieldIndex = 0 ; fieldIndex != numFields ; fieldIndex++ )
          {
-            len += sizeof( CONNECTION4FIELD_INFO ) ;
-            len += strlen( fields[fieldIndex].name ) + 1 ;
+            len += (long) sizeof( CONNECTION4FIELD_INFO ) ;
+            len += ((long) strlen( fields[fieldIndex].name ) + 1L) ;
          }
 
-         dataIn->fieldInfoLen = htons5(len) ;
+         dataIn->fieldInfoLen = htons5((unsigned short) len) ;
 
          for ( short fieldAssignIndex = 0 ; fieldAssignIndex != numFields ; fieldAssignIndex++ )
          {
             CONNECTION4FIELD_INFO *finfo ;
-            len = strlen( fields[fieldAssignIndex].name ) + 1 ;
+            len = (long) strlen( fields[fieldAssignIndex].name ) + 1 ;
             connection4addData( connection, NULL, sizeof(CONNECTION4FIELD_INFO), (void **)&finfo ) ;
             finfo->name.offset = htons5((short)(offset + (short)sizeof(CONNECTION4FIELD_INFO))) ;
             finfo->type = htons5(fields[fieldAssignIndex].type) ;
@@ -991,19 +992,19 @@ int S4FUNCTION d4copyTable( DATA4 *data, const char *destFolder, short includeIn
 
          for ( unsigned int tagIndex = 0 ; tagIndex != numTags ; tagIndex++ )
          {
-            len = strlen( tags[tagIndex].name ) + 1 ;
+            len = (long) strlen( tags[tagIndex].name ) + 1 ;
             offset += sizeof( CONNECTION4TAG_INFO ) ;
             CONNECTION4TAG_INFO *tinfo ;
             connection4addData( connection, NULL, sizeof(CONNECTION4TAG_INFO), (void **)&tinfo ) ;
-            tinfo->name.offset = htons5(offset) ;
+            tinfo->name.offset = htons5((unsigned short) offset) ;
             unsigned int len2 = 0 ;
             offset += len ;
             // AS Jan 7/05 - if there is no expression (e.g. DEL4REUSE), we were not properly setting the expression offset to 0,
             // causing some possible corruption in the expression name.
             if ( tags[tagIndex].expression )
             {
-               len2 = strlen( tags[tagIndex].expression ) + 1 ;
-               tinfo->expression.offset = htons5(offset) ;
+               len2 = (unsigned long) strlen( tags[tagIndex].expression ) + 1 ;
+               tinfo->expression.offset = htons5((unsigned short) offset) ;
             }
             else
             {
@@ -1019,8 +1020,8 @@ int S4FUNCTION d4copyTable( DATA4 *data, const char *destFolder, short includeIn
             }
             else
             {
-               len3 = strlen( tags[tagIndex].filter ) + 1 ;
-               tinfo->filter.offset = htons5(offset) ;
+               len3 = (unsigned long) strlen( tags[tagIndex].filter ) + 1 ;
+               tinfo->filter.offset = htons5((unsigned short) offset) ;
             }
             offset += len3 ;
             tinfo->unique = htons5(tags[tagIndex].unique) ;
@@ -1344,7 +1345,9 @@ int S4FUNCTION d4copyTable( DATA4 *data, const char *destFolder, short includeIn
    #ifndef S4OFF_INDEX
    static void i4infoExtInfo( DATA4 *data, I4INFO_EXT *info, INDEX4 *i4, TAG4INFO *tags )
    {
-      int i, numTags, len ;
+      //int i, numTags, len ;
+      long long i, len;
+      long numTags;  // Changed type defs March 17, 2026. JSH.
 
       #ifdef E4PARM_LOW
          if ( info == 0 || i4 == 0 )
@@ -1377,19 +1380,19 @@ int S4FUNCTION d4copyTable( DATA4 *data, const char *destFolder, short includeIn
       {
          if ( tags[i].name == 0 )
             break ;
-         len = c4strlen( tags[i].name ) ;
-         info->tags[i].name = (char *)u4alloc( len + 1 ) ;
-         c4memcpy( info->tags[i].name, tags[i].name, len ) ;
-         len = c4strlen( tags[i].expression ) ;
-         info->tags[i].expression = (char *)u4alloc( len + 1 ) ;
-         c4memcpy( (char *)info->tags[i].expression, tags[i].expression, len ) ;
+         len = (long long) c4strlen( tags[i].name ) ;
+         info->tags[i].name = (char *)u4alloc( (long) (len + 1L) ) ;
+         c4memcpy( info->tags[i].name, tags[i].name, (long) len ) ;
+         len = (long long) c4strlen( tags[i].expression ) ;
+         info->tags[i].expression = (char *)u4alloc( (long) (len + 1L) ) ;
+         c4memcpy( (char *)info->tags[i].expression, tags[i].expression, (size_t) len ) ;
          if ( tags[i].filter != 0 )
          {
             len = c4strlen( tags[i].filter ) ;
             if ( len != 0 )
             {
-               info->tags[i].filter = (char *)u4alloc( len + 1 ) ;
-               c4memcpy( (char *)info->tags[i].filter, tags[i].filter, len ) ;
+               info->tags[i].filter = (char *)u4alloc( (long) (len + 1L) ) ;
+               c4memcpy( (char *)info->tags[i].filter, tags[i].filter, (size_t) len ) ;
             }
          }
          info->tags[i].unique = tags[i].unique ;

@@ -995,7 +995,7 @@ int S4FUNCTION file4createInternal( FILE4 *file, CODE4 *c4, S4CONST char *name, 
 
    if ( doAlloc && name != NULL )
    {
-      len = c4strlen(name) + 1 ;
+      len = (long) c4strlen(name) + 1 ;
       file->nameBuf = (char *)u4allocEr( c4, (long)len ) ;
       if ( file->nameBuf == 0 )
       {

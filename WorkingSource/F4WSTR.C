@@ -131,7 +131,7 @@ void S4FUNCTION f4assignUnicode( FIELD4 *field, const WSTR5 *wideString )
             case r4bin :
          #endif
             /* LY 2001/07/13 : changed to c4wcslen for 4 byte wchar on Linux */
-            return f4memoAssignN(field, (const char *)wideString, c4wcslen( wideString ) * 2 ) ;
+            return f4memoAssignN(field, (const char *)wideString, (unsigned long) c4wcslen( wideString ) * 2 ) ;
          default :
             f4assignWideString( field, wideString ) ;
       }

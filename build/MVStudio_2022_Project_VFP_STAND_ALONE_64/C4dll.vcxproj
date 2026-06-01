@@ -76,6 +76,9 @@
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>C4DLL64</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -139,7 +142,7 @@
       <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>.\./C4dll64.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <ModuleDefinitionFile>..\..\WorkingSource\c4dll32.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>..\..\WorkingSource\c4dll64.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>.\./C4dll64.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
@@ -221,7 +224,7 @@
       <AdditionalDependencies>wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>C4dll64.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <ModuleDefinitionFile>..\..\WorkingSource\c4dll32.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>..\..\WorkingSource\c4dll64.def</ModuleDefinitionFile>
       <ProgramDatabaseFile>.\./C4dll64.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <ImportLibrary>C4dll64.lib</ImportLibrary>
@@ -394,7 +397,7 @@
     <ClInclude Include="..\..\WorkingSource\S4sort.h" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="..\..\WorkingSource\c4dll.res" />
+    <Resource Include="..\..\WorkingSource\c4dll64.res" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

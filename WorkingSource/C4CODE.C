@@ -539,10 +539,10 @@ static int c4compressLoad( CODE4 *c4)
       connection4assign( connection, CON4CONNECT, 0L, 0L ) ;
       version = htonl5(CustomerStamp.BuildNumber) ;  // CS 2002/06/18  send build number to server instead of S4VERSION
       connection4addData( connection, &version, sizeof( version ), NULL ) ;
-      connection4addData( connection, userName, strlen( userName ) + 1, NULL ) ;
-      connection4addData( connection, password, strlen( password ) + 1, NULL ) ;
+      connection4addData( connection, userName, (long) strlen( userName ) + 1, NULL ) ;
+      connection4addData( connection, password, (long) strlen( password ) + 1, NULL ) ;
       if (c4->applicationVerify != NULL)
-         connection4addData( connection, c4->applicationVerify, strlen( c4->applicationVerify ) + 1, NULL ) ;
+         connection4addData( connection, c4->applicationVerify, (long) strlen( c4->applicationVerify ) + 1, NULL ) ;
       else
          connection4addData( connection, " ", 2, NULL ) ;
       connection4sendMessage( connection ) ;
@@ -692,7 +692,7 @@ static int c4compressLoad( CODE4 *c4)
       if (c4->connectLowMemory == NULL )
          c4->connectLowMemory = mem4create(c4, MEMORY4START_CONNECT_LOW, sizeof(CONNECT4LOW), MEMORY4EXPAND_CONNECT_LOW, 0 ) ;
 
-      portNo = (unsigned short)c4atol(processId, strlen(processId));
+      portNo = (unsigned short)c4atol(processId, (long) strlen(processId));
       if (portNo == 0)
          return error4( c4, e4parm, E91004 ) ;
 
@@ -1454,7 +1454,7 @@ int S4FUNCTION code4initLow( CODE4 *c4, const char *defaultProtocol, long versio
                numCode4--;
                return error4( 0, e4result, E91001 ) ;
             }
-            c4->interThreadHandle = _beginthread( inter4, 5000, c4->inter ) ;
+            c4->interThreadHandle = (unsigned long) _beginthread( inter4, 5000, c4->inter ) ;
             if ( c4->interThreadHandle == -1 )
             {
                inter4initUndo( c4->inter ) ;
@@ -4100,7 +4100,7 @@ long S4FUNCTION u4switch2()
          OSVERSIONINFO verInfo ;
 
          verInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO) ;
-         rc = GetVersionEx(&verInfo) ;
+         rc = GetVersionEx(&verInfo) ; // This is deprecated.
          if (!rc)
             return -1 ;
          switch ( verInfo.dwPlatformId )
@@ -4278,7 +4278,8 @@ short S4FUNCTION code4collateUnicode( CODE4 *c4, short collateType )
          return -1 ;
 
       char keyToSeek[I4MAX_KEY_SIZE+1] ;
-      int len = strlen( fullPathTableName ) ;
+      size_t len = strlen( fullPathTableName ) ;
+      // Above len changed to size_t to keep compiler happy.  Mar. 16, 2026. JSH.
       if ( len > I4MAX_KEY_SIZE )
          len = I4MAX_KEY_SIZE ;
       memcpy( keyToSeek, fullPathTableName, len ) ;
@@ -4320,7 +4321,8 @@ short S4FUNCTION code4collateUnicode( CODE4 *c4, short collateType )
          return -1 ;
 
       char keyToSeek[I4MAX_KEY_SIZE+1] ;
-      int len = strlen( fullPathTableName ) ;
+      size_t len = strlen( fullPathTableName ) ;
+      // Above type changed from int to size_t to keep compiler happy. Mar. 16, 2026. JSH.
       if ( len > I4MAX_KEY_SIZE )
          len = I4MAX_KEY_SIZE ;
       memcpy( keyToSeek, fullPathTableName, len ) ;
@@ -4428,7 +4430,8 @@ short S4FUNCTION code4collateUnicode( CODE4 *c4, short collateType )
          return -1 ;
 
       char keyToSeek[I4MAX_KEY_SIZE+1] ;
-      int len = strlen( fullPathTableName ) ;
+      size_t len = strlen( fullPathTableName ) ;
+      // Type of len changed from int to size_t to keep compiler happy. March 16, 2026. JSH.
       if ( len > I4MAX_KEY_SIZE )
          len = I4MAX_KEY_SIZE ;
       memcpy( keyToSeek, fullPathTableName, len ) ;
@@ -4955,12 +4958,12 @@ int S4FUNCTION code4additionalFunctionOdbc( CODE4 *c4, long functionNumber, void
          date4timeNow( buffer ) ;
          c4strncat( dateStr, sizeof( dateStr ), buffer, 8 ) ;  // CS 2007/05/24 compile fix
          pos = file4lenLow( appendLog ) ;
-         file4writeInternal( appendLog, pos, dateStr, c4strlen( dateStr ) ) ;
+         file4writeInternal( appendLog, pos, dateStr, (long) c4strlen( dateStr ) ) ;
          code4logAppendNewLine( appendLog ) ;
          if ( info != 0 )
          {
             pos = file4lenLow( appendLog ) ;
-            file4writeInternal( appendLog, pos, info, c4strlen( info ) ) ;
+            file4writeInternal( appendLog, pos, info, (long) c4strlen( info ) ) ;
             code4logAppendNewLine( appendLog ) ;
          }
       }

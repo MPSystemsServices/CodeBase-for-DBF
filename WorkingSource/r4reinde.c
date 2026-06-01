@@ -365,7 +365,7 @@
                   tagOn = (TAG4 *)l4next( &i4->tags, tagOn ) ;
                   if ( tagOn == 0 )
                      break ;
-                  int len = c4strlen( tfile4alias( tagOn->tagFile ) ) ;
+                  long len = (long) c4strlen( tfile4alias( tagOn->tagFile ) ) ;
                   c4memset( tagName, ' ', LEN4TAG_ALIAS ) ;
                   c4memcpy( tagName, tfile4alias( tagOn->tagFile ), (unsigned int)len ) ;
                   B4NODE node ;

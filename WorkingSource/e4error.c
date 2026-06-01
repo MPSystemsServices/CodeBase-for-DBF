@@ -90,7 +90,7 @@ static void error4logAppendNewLine( FILE4 *errorLog )
 
 void error4logAppend( CODE4 *c4, int errCode1, long errCode2, const char *desc1, const char *desc2, const char *desc3 )
 {
-   int slen ;
+   long slen ;
    char num[11] ;
    const char *ptr ;
    FILE4 *errorLog ;
@@ -118,9 +118,9 @@ void error4logAppend( CODE4 *c4, int errCode1, long errCode2, const char *desc1,
    c4strncat( dateStr, sizeof( dateStr ), buffer, 8 ) ;  // AS Dec 13/05 vs 5.0 fixes
 
    pos = file4lenLow( errorLog ) ;
-   file4writeInternal( errorLog, pos, dateStr, c4strlen( dateStr ) ) ;
+   file4writeInternal( errorLog, pos, dateStr, (unsigned long) c4strlen( dateStr ) ) ;
    error4logAppendNewLine( errorLog ) ;
-
+    // c4strlen() functions below cast to unsigned long to keep compiler happy.  March 17, 2026, JSH.
    // AS Oct 5/04 if the errCodes are both 0, don't log it, just log the description - allows flexibility with general logging
    if ( errCode1 != 0 || errCode2 != 0 )
    {
@@ -128,21 +128,21 @@ void error4logAppend( CODE4 *c4, int errCode1, long errCode2, const char *desc1,
       c4ltoa45( (long)errCode1, num, sizeof( num ) - 1 ) ;
 
       pos = file4lenLow( errorLog ) ;
-      file4writeInternal( errorLog, pos, num, c4strlen( num ) ) ;
+      file4writeInternal( errorLog, pos, num, (unsigned long) c4strlen( num ) ) ;
       error4logAppendNewLine( errorLog ) ;
 
       ptr = e4text( errCode1 ) ;
       if ( ptr != 0 )
       {
          pos = file4lenLow( errorLog ) ;
-         file4writeInternal( errorLog, pos, ptr, c4strlen( ptr ) ) ;
+         file4writeInternal( errorLog, pos, ptr, (unsigned long) c4strlen( ptr ) ) ;
          error4logAppendNewLine( errorLog ) ;
       }
 
       c4memset( num, 0, sizeof( num ) ) ;
       c4ltoa45( error4number2( errCode2 ), num, sizeof( num ) - 1 ) ;
       pos = file4lenLow( errorLog ) ;
-      file4writeInternal( errorLog, pos, num, c4strlen( num ) ) ;
+      file4writeInternal( errorLog, pos, num, (unsigned long) c4strlen( num ) ) ;
       error4logAppendNewLine( errorLog ) ;
 
       #ifndef E4OFF_STRING
@@ -150,7 +150,7 @@ void error4logAppend( CODE4 *c4, int errCode1, long errCode2, const char *desc1,
          if ( ptr != 0 )
          {
             pos = file4lenLow( errorLog ) ;
-            file4writeInternal( errorLog, pos, ptr, c4strlen( ptr ) ) ;
+            file4writeInternal( errorLog, pos, ptr, (unsigned long) c4strlen( ptr ) ) ;
             error4logAppendNewLine( errorLog ) ;
          }
       #endif
@@ -207,14 +207,14 @@ void error4logAppend( CODE4 *c4, int errCode1, long errCode2, const char *desc1,
       try
       {
       #endif
-         slen = c4strlen( desc1 ) ;
+         slen = (long) c4strlen( desc1 ) ;
       #ifdef EXCEPTION4REINDEX
       }
       catch( ... )
       {
          // default to another error
          desc1 = exceptionString ;
-         slen = strlen( desc1 ) ;
+         slen = (long) strlen( desc1 ) ;
       }
       #endif
 
@@ -230,7 +230,7 @@ void error4logAppend( CODE4 *c4, int errCode1, long errCode2, const char *desc1,
          try
          {
          #endif
-          slen = c4strlen( desc2 ) ;
+          slen = (long) c4strlen( desc2 ) ;
          #ifdef EXCEPTION4REINDEX
          }
          catch( ... )
@@ -252,7 +252,7 @@ void error4logAppend( CODE4 *c4, int errCode1, long errCode2, const char *desc1,
          try
          {
          #endif
-          slen = c4strlen( desc3 ) ;
+          slen = (long) c4strlen( desc3 ) ;
          #ifdef EXCEPTION4REINDEX
          }
          catch( ... )
@@ -537,7 +537,7 @@ S4EXPORT void S4FUNCTION error4out( CODE4 *c4, int errCode1, long errCode2, cons
             WCHAR errUStr[257] ;
          #endif
       #endif
-      int pos=0,  descNumber = 1 ;
+      long pos=0,  descNumber = 1 ;
       #ifdef S4TESTING
          #ifdef S4SERVER
             WORD wType ;
@@ -575,9 +575,9 @@ S4EXPORT void S4FUNCTION error4out( CODE4 *c4, int errCode1, long errCode2, cons
 
             c4strcpy( errorStr, sizeof( errorStr ), E4_ERROR ) ;  // AS Dec 13/05 vs 5.0 fixes
             c4strcat( errorStr, sizeof( errorStr ), " #: " ) ;
-            pos = c4strlen( errorStr ) ;
+            pos = (long) c4strlen( errorStr ) ;
             c4ltoa45( (long)errCode1, (char *)errorStr + pos, 5 ) ;
-            pos += 5 ;
+            pos += 5L ;
 
             #ifndef S4PALM
                errorStr[pos++] = '\r' ;
@@ -586,9 +586,9 @@ S4EXPORT void S4FUNCTION error4out( CODE4 *c4, int errCode1, long errCode2, cons
 
             c4strcpy( errorStr + pos, sizeof( errorStr ) - pos, E4_ERROR ) ;
             c4strcat( errorStr + pos, sizeof( errorStr ) - pos, " #: " ) ;
-            pos = c4strlen( errorStr ) ;
+            pos = (long) c4strlen( errorStr ) ;
             c4ltoa45( error4number2( errCode2 ), (char *)errorStr + pos, 6 ) ;
-            pos += 6 ;
+            pos += 6L ;
 
             errorStr[pos++] = '\r' ;
             errorStr[pos++] = '\n' ;
@@ -597,7 +597,7 @@ S4EXPORT void S4FUNCTION error4out( CODE4 *c4, int errCode1, long errCode2, cons
             if ( errPtr != 0 )
             {
                c4strcpy( errorStr + pos, sizeof( errorStr ) - pos, errPtr ) ;
-               pos += c4strlen( errPtr ) ;
+               pos += (long) c4strlen( errPtr ) ;
                #ifndef S4PALM
                   errorStr[pos++] = '\r' ;
                #endif
@@ -609,7 +609,7 @@ S4EXPORT void S4FUNCTION error4out( CODE4 *c4, int errCode1, long errCode2, cons
                if ( tPtr != 0 )
                {
                   c4strcpy( errorStr + pos, sizeof( errorStr ) - pos, tPtr ) ;
-                  pos += c4strlen( tPtr ) ;
+                  pos += (long) c4strlen( tPtr ) ;
                   #ifndef S4PALM
                      errorStr[pos++] = '\r' ;
                   #endif
@@ -625,7 +625,7 @@ S4EXPORT void S4FUNCTION error4out( CODE4 *c4, int errCode1, long errCode2, cons
             if ( c4strlen( ptr ) + pos + 3 >= sizeof( errorStr ) )
                break ;
             c4strcpy( errorStr + pos, sizeof( errorStr ) - pos, ptr ) ;
-            pos += c4strlen(ptr) ;
+            pos += (long) c4strlen(ptr) ;
             errorStr[pos++] = '\r' ;
             errorStr[pos++] = '\n' ;
             if ( descNumber++ == 1 )
@@ -1016,13 +1016,13 @@ static void error4storeDescription(CODE4 *c4, const char *s1, const char *s2, co
    // if additional description was provided
    if ( s1 || s2 || s3 )
    {
-      int descriptionLength = 0 ;
+      long descriptionLength = 0 ;
       if ( s1 )
-         descriptionLength += strlen( s1 ) ;
+         descriptionLength += (long) strlen( s1 ) ;
       if ( s2 )
-         descriptionLength += strlen( s2 ) ;
+         descriptionLength += (long) strlen( s2 ) ;
       if ( s3 )
-         descriptionLength += strlen( s3 ) ;
+         descriptionLength += (long) strlen( s3 ) ;
 
       descriptionLength += 6 ;
       c4->lastErrorDescription = (char *)u4allocFree( c4, descriptionLength ) ;
@@ -1032,7 +1032,7 @@ static void error4storeDescription(CODE4 *c4, const char *s1, const char *s2, co
 
       if (s2)
       {
-         if ( strlen( c4->lastErrorDescription ) > 0 )
+         if ( (long) strlen( c4->lastErrorDescription ) > 0 )
             c4strcat( c4->lastErrorDescription, descriptionLength, "\r\n" ) ;
          c4strcat( c4->lastErrorDescription, descriptionLength, s2 ) ;
       }

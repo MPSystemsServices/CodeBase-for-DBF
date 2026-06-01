@@ -53,7 +53,7 @@ int u4createCopyrightFromStamp( char *buffer, int bufferLen )
 
    char sprintfString[] = "(c) Sequiter Software Inc., 1988-%s. LICENSE NOTICE: This CodeBase software is licensed for use with applications developed by %s only.  Serial Number: %s" ;
 
-   int requiredLen = strlen(sprintfString) + strlen(CustomerStamp.endCopyrightDate) + strlen(CustomerStamp.customerName) + strlen(CustomerStamp.serialNumber) ;
+   long requiredLen = (long) strlen(sprintfString) + (long) strlen(CustomerStamp.endCopyrightDate) + (long) strlen(CustomerStamp.customerName) + (long) strlen(CustomerStamp.serialNumber) ;
    if ( requiredLen > bufferLen )
       return e4len ;
 

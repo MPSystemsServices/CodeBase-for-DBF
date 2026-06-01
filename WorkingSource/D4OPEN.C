@@ -1967,7 +1967,7 @@ static DATA4FILE *dfile4openGetData4ifOpen( CODE4 *c4, const char *name, char **
       connection4assign( connection, CON4OPEN, data->trans->dataIdCount,0 ) ;
       data->trans->dataIdCount++ ;
 
-      int len3 = strlen( name ) + 1 ;
+      long len3 = (long) strlen( name ) + 1 ;
       if ( len3 > LEN4PATH )
          len3 = LEN4PATH ;
 

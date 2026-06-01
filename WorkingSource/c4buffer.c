@@ -2144,7 +2144,7 @@ int S4FUNCTION connect4bufferSendString( CONNECT4BUFFER *connectBuffer, const ch
    if ( in == 0 )
       len = 0 ;
    else
-      len = strlen( in ) ;
+      len = (short) strlen( in ) ;
 
    connect4bufferSendShort( connectBuffer, len ) ;
    return connect4bufferSend( connectBuffer, in, len ) ;
@@ -2160,7 +2160,7 @@ int S4FUNCTION connect4bufferSendWideString( CONNECT4BUFFER *connectBuffer, cons
    if ( in == 0 )
       len = 0 ;
    else
-      len = (c4wcslen( in ) + 1 )* 2 ;
+      len = ((short) c4wcslen( in ) + 1 )* 2 ;
 
    connect4bufferSendShort( connectBuffer, len ) ;
    return connect4bufferSend( connectBuffer, in, len ) ;

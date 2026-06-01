@@ -132,10 +132,10 @@ e:\git_repositories\codebase-for-dbf\build\source\s4sort.obj
 e:\git_repositories\codebase-for-dbf\build\source\s4quick.obj
 e:\git_repositories\codebase-for-dbf\build\source\s4next.obj
 e:\git_repositories\codebase-for-dbf\build\source\s4initfr.obj
-e:\git_repositories\codebase-for-dbf\build\mvstudio_2022_project_vfp_server_client_32\c4dll.dll
-e:\git_repositories\codebase-for-dbf\build\mvstudio_2022_project_vfp_server_client_32\c4dll.pdb
-e:\git_repositories\codebase-for-dbf\build\mvstudio_2022_project_vfp_server_client_32\c4dll.lib
-e:\git_repositories\codebase-for-dbf\build\mvstudio_2022_project_vfp_server_client_32\c4dll.exp
+e:\git_repositories\codebase-for-dbf\build\mvstudio_2022_project_vfp_stand_alone_64\c4dll64.dll
+e:\git_repositories\codebase-for-dbf\build\mvstudio_2022_project_vfp_stand_alone_64\c4dll64.pdb
+e:\git_repositories\codebase-for-dbf\build\mvstudio_2022_project_vfp_stand_alone_64\c4dll64.lib
+e:\git_repositories\codebase-for-dbf\build\mvstudio_2022_project_vfp_stand_alone_64\c4dll64.exp
 e:\git_repositories\codebase-for-dbf\build\intermediatefiles\.\..\intermediatefiles\c4dll.vcxproj.filelistabsolute.txt
 e:\git_repositories\codebase-for-dbf\build\intermediatefiles\c4dll.tlog\cl.command.1.tlog
 e:\git_repositories\codebase-for-dbf\build\intermediatefiles\c4dll.tlog\cl.items.tlog

@@ -70,7 +70,7 @@
       CONNECTION4TAG_ADD_INFO_IN *dataIn ;
       CONNECTION4TAG_ADD_INFO_OUT *dataOut ;
       CONNECTION4TAG_INFO *tinfo ;
-      unsigned int len, len2, len3 ;
+      unsigned long len, len2, len3 ;
       DATA4 *d4 ;
       TAG4 *tag ;
       CODE4 *c4 ;
@@ -105,7 +105,7 @@
       connection4assign( connection, CON4ADD_TAG, data4clientId( d4 ), data4serverId( d4 ) ) ;
 
       connection4addData( connection, NULL, sizeof(CONNECTION4TAG_ADD_INFO_IN), (void **)&dataIn ) ;
-      u4ncpy( dataIn->indexFileName, i4->indexFile->accessName, strlen( i4->indexFile->accessName ) + 1 ) ;
+      u4ncpy( dataIn->indexFileName, i4->indexFile->accessName, (unsigned long) strlen( i4->indexFile->accessName ) + 1 ) ;
       for( numTags = 0 ; tagData[numTags].name != 0; numTags++ )
       {
          ;
@@ -114,19 +114,19 @@
       // AS May 6/02 - Added for clipper support, need safety since tag files get created
       dataIn->safety = c4->safety ;
 
-      len = 0 ;
+      len = 0L ;
       offset = sizeof( CONNECTION4TAG_ADD_INFO_IN ) ;
 
       for ( j = 0 ; j != numTags ; j++ )
       {
-         len = strlen( tagData[j].name ) + 1 ;
+         len = (unsigned long) strlen( tagData[j].name ) + 1 ;
          offset += sizeof( CONNECTION4TAG_INFO ) ;
          connection4addData( connection, NULL, sizeof(CONNECTION4TAG_INFO), (void **)&tinfo ) ;
          tinfo->name.offset = htons5(offset);
-         len2 = strlen( tagData[j].expression ) + 1 ;
-         offset += len ;
+         len2 = (unsigned long) strlen( tagData[j].expression ) + 1 ;
+         offset += (short) len ;
          tinfo->expression.offset = htons5(offset) ;
-         offset += len2 ;
+         offset += (short) len2 ;
          if ( tagData[j].filter == 0 )
          {
             len3 = 0 ;
@@ -134,10 +134,10 @@
          }
          else
          {
-            len3 = strlen( tagData[j].filter ) + 1 ;
+            len3 = (unsigned long) strlen( tagData[j].filter ) + 1 ;
             tinfo->filter.offset = htons5(offset) ;
          }
-         offset += len3 ;
+         offset += (short) len3 ;
          tinfo->unique = htons5(tagData[j].unique) ;
          tinfo->descending = htons5(tagData[j].descending) ;
          connection4addData( connection, tagData[j].name, len, NULL ) ;
@@ -1007,7 +1007,7 @@
             unsigned char tagName[LEN4TAG_ALIAS + 1] ;
             tagName[LEN4TAG_ALIAS] = '\0' ;
             c4memset( tagName, ' ', LEN4TAG_ALIAS ) ;
-            int len = c4strlen( tfile4alias( tagFile ) ) ;
+            long len = (long) c4strlen( tfile4alias( tagFile ) ) ;
             c4memcpy( tagName, tfile4alias( tagFile ), (unsigned int)len ) ;
 
             // AS Dec 8/04 - assign the eof first becuase this tfile4add below may actually want to extend the file
@@ -1808,7 +1808,7 @@
       memcpy( info->tagName, tag->tagFile->alias, LEN4TAG_ALIAS ) ;
       info->tagName[LEN4TAG_ALIAS] = 0 ;
       // AS Oct 24/01 - Need to resolve potential tag aliasing problems (t4indx1) */
-      u4ncpy( info->indexFileName, tag->tagFile->indexFile->accessName, strlen( tag->tagFile->indexFile->accessName ) + 1 ) ;
+      u4ncpy( info->indexFileName, tag->tagFile->indexFile->accessName, (unsigned long) strlen( tag->tagFile->indexFile->accessName ) + 1 ) ;
       connection4sendMessage( connection ) ;
       rc = connection4receiveMessage( connection ) ;
       if ( rc < 0 )

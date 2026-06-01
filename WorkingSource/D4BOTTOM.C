@@ -71,7 +71,7 @@
             memcpy( info->tagName, tag->tagFile->alias, LEN4TAG_ALIAS  ) ;
             info->tagName[LEN4TAG_ALIAS] = 0 ;
             // AS Oct 24/01 - Need to resolve potential tag aliasing problems (t4indx1) */
-            u4ncpy( info->indexFileName, tag->tagFile->indexFile->accessName, strlen( tag->tagFile->indexFile->accessName ) + 1 ) ;
+            u4ncpy( info->indexFileName, tag->tagFile->indexFile->accessName, (unsigned long) strlen( tag->tagFile->indexFile->accessName ) + 1 ) ;
          }
       #endif
 

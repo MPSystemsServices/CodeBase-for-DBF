@@ -1297,9 +1297,9 @@ double S4FUNCTION x4reverseDouble( const void *val )
 
             if ( reqdLen != 0 )  /* shift data over */
             {
-               int movLen = i4blockSize( tag->indexFile ) - sizeof( B4STD_HEADER ) - infoLen * b4numKeys( b4 )
+               long long movLen = i4blockSize( tag->indexFile ) - sizeof( B4STD_HEADER ) - infoLen * b4numKeys( b4 )
                          - sizeof( B4NODE_HEADER ) - b4->nodeHdr.freeSpace  - ( ( (char *)&b4->header ) + i4blockSize( tag->indexFile ) - b4->curPos ) ;
-
+               // Above type changed from int to long long to keep 64-bit compile happy. Mar. 16, 2026. JSH.
                #ifdef EXCEPTION4REINDEX
                   // in this case recover by reindexing
                   if ( movLen < 0 )
@@ -2758,8 +2758,9 @@ double S4FUNCTION x4reverseDouble( const void *val )
 
          if ( removeLen > 0 )
          {
-            int movLen = i4blockSize( b4->tag->indexFile ) - sizeof( B4STD_HEADER ) - iLen * b4numKeys( b4 )
+            long long movLen = i4blockSize( b4->tag->indexFile ) - sizeof( B4STD_HEADER ) - iLen * b4numKeys( b4 )
                       - sizeof( B4NODE_HEADER ) - b4->nodeHdr.freeSpace - ( ( (char *)&b4->header ) + i4blockSize( b4->tag->indexFile ) - b4->curPos ) ;
+            // int changed to long long for movLen to keep x64 compiler happy for conversion from size_t. March 16, 2026. JSH.
             #ifdef E4ANALYZE
                if ( movLen < 0 )
                {

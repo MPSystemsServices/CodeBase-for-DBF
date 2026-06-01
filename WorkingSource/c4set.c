@@ -29,7 +29,7 @@
             u4free( c4->transFileName ) ;
             c4->transFileName = 0 ;
          }
-         int len = c4strlen( name ) + 1 ;
+         long len = (long) c4strlen( name ) + 1 ;
          c4->transFileName = (char *)u4alloc( len ) ;
          if ( c4->transFileName != 0 )
             c4memcpy( c4->transFileName, name, len ) ;

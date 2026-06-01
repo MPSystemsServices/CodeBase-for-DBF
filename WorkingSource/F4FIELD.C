@@ -1434,7 +1434,7 @@ int S4FUNCTION c4atoCurrency( CURRENCY4 *result, const char *str, int strLen )
    {
       /* fits in a single long */
 
-      val = c4atol( buf, c4strlen( buf ) ) ;
+      val = c4atol( buf, (long) c4strlen( buf ) ) ;
       if ( sign == -1 )
          val = -val ;
 
@@ -1631,7 +1631,7 @@ int S4FUNCTION c4atoCurrency( CURRENCY4 *result, const char *str, int strLen )
          #endif
       #endif
 
-      c4atoCurrency( (CURRENCY4 *)f4assignPtr( field ), str, c4strlen( str ) ) ;
+      c4atoCurrency( (CURRENCY4 *)f4assignPtr( field ), str, (long) c4strlen( str ) ) ;
    }
 #endif /* S4OFF_WRITE */
 
@@ -2024,7 +2024,7 @@ void S4FUNCTION f4assignDateTime( FIELD4 *field, const char *dateTime )
          time = x4reverseLong( &tempTime ) ;
       #else
          date = date4long( dateTime ) ;
-         time = time4long( dateTime + 8, c4strlen( dateTime ) - 8, includeMilli ) ;
+         time = time4long( dateTime + 8, (long) c4strlen( dateTime ) - 8, includeMilli ) ;
       #endif
 
       // AS May 3/04 - if either the date or the time are invalid leave the field as blank (for Fox / Fox ODBC compatibility)

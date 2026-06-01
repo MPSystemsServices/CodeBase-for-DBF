@@ -1249,7 +1249,8 @@ int S4FUNCTION u4rename( const char *oldName, const char *newName )
    long S4FUNCTION v4Cstring(char *s)
    {
       #ifdef S4WIN64
-         // Not currently implemented for 64-bit.
+         // Not currently implemented for 64-bit - IA 64 Windows.
+         // This is NOT for X64 Standard Windows 64-bit.
          return 0;
       #else
          char *d = 0 ;
@@ -1258,11 +1259,12 @@ int S4FUNCTION u4rename( const char *oldName, const char *newName )
          {
             // AS Dec 13/05 - don't use this function.  It is deprecated and inefficient
             size_t len = strlen( s ) + 1 ;
-            d=  (char *)u4alloc( len );
+            d =  (char *)u4alloc( (long) len );
             // strcpy(d,s);
             memcpy( d, s, len ) ;
          }
-         return (long) d;
+         //return (long) d;
+         return 0;  // BAD FUNCTION.  NOT TO BE USED.  RETURN TYPE IS LONG, BUT SHOULD BE A POINTER.
       #endif
    }
 

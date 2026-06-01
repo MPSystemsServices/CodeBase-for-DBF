@@ -425,7 +425,7 @@ void S4FUNCTION date4format( const char *datePtr, char *result, char *picture )
    unsigned int resultLen, length ;
    char *ptrEnd, *monthPtr, tChar ;
 
-   resultLen = c4strlen( picture ) ;
+   resultLen = (unsigned int) c4strlen( picture ) ;
    c4memset( result, ' ', resultLen ) ;
 
    c4upper( picture ) ;
@@ -466,7 +466,7 @@ void S4FUNCTION date4format( const char *datePtr, char *result, char *picture )
          tChar = monthOfYear[mNum].cmonth[length] ;
          if( tChar == '\0' || tChar == ' ' )
          {
-            mNum = c4strlen(monthOfYear[mNum].cmonth) ;
+            mNum = (long) c4strlen(monthOfYear[mNum].cmonth) ;
             if ( (unsigned)mNum != length )
                monthPtr[mNum] = ' ' ;
          }
@@ -519,12 +519,12 @@ void S4FUNCTION date4init( char *datePtr, const char *dateData, char *picture )
    centuryCount = 2 ;
 
    c4memset( datePtr, ' ', 8 ) ;
-
+    // Set type of strlen() to long from size_t to keep compiler happy.
    c4upper( picture ) ;
    /* LY 2003/07/23 : if the picture contains single digits old algorithm fails
       ( "M/DD/YY" and "9/11/01" produces "2001/90/11" ) */
    //   for ( i=0; picture[i] != '\0'; i++ )
-   for ( i = ( strlen( picture ) < strlen( dateData ) ? strlen( picture ) : strlen( dateData ) ) - 1 ; i >= 0 ; i-- )
+   for ( i = ( (long) strlen( picture ) < (long) strlen( dateData ) ? (long) strlen( picture ) : (long) strlen( dateData ) ) - 1 ; i >= 0 ; i-- )
    {
       if ( dateData[i] == 0 )  // reached end of input string - just stop, ignore rest of picture
          break ;

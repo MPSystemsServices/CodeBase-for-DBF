@@ -236,7 +236,7 @@ int S4FUNCTION d4tagSync( DATA4 *data, TAG4 * const tag )
          memcpy( info->tagName, tag->tagFile->alias, LEN4TAG_ALIAS  ) ;
          info->tagName[LEN4TAG_ALIAS] = 0 ;
          // AS Oct 24/01 - Need to resolve potential tag aliasing problems (t4indx1) */
-         u4ncpy( info->indexFileName, tag->tagFile->indexFile->accessName, strlen( tag->tagFile->indexFile->accessName ) + 1 ) ;
+         u4ncpy( info->indexFileName, tag->tagFile->indexFile->accessName, (unsigned long) strlen( tag->tagFile->indexFile->accessName ) + 1 ) ;
          info->recno = htonl5(d4recNo( data )) ;
          saveRc = connection4repeat( connection ) ;
 
@@ -602,7 +602,7 @@ int S4FUNCTION d4tagSync( DATA4 *data, TAG4 * const tag )
             tag->tagFile->tagDataValid = 0 ;  // reset to invalid
             connect4sendShort( connect, 1 ) ;  // does use tag
             connect4send( connect, tag->tagFile->alias, LEN4TAG_ALIAS ) ;
-            short indexNameLen = strlen( tag->tagFile->indexFile->accessName ) ;
+            short indexNameLen = (short) strlen( tag->tagFile->indexFile->accessName ) ;
             connect4sendShort( connect, indexNameLen ) ;  // does use tag
             connect4send( connect, tag->tagFile->indexFile->accessName, indexNameLen  ) ;
 

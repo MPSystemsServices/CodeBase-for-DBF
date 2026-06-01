@@ -107,9 +107,10 @@ int S4FUNCTION tfile4keyLenExport( TAG4FILE *tag )
                rc = u4namecmp(tagName,tagInfo[i].name) ;
             #else
                #ifdef S4UNIX
-                  rc = strcasecmp(tagName,tagInfo[i].name) ;
+                  rc = strcasecmp(tagName, tagInfo[i].name) ;
                #else
-                  rc = stricmp(tagName,tagInfo[i].name) ;
+                  rc = _stricmp(tagName, tagInfo[i].name) ;
+                  // Microsoft has deprecated stricmp() and replaced it with _stricmp(). JSH. March 18, 2026.
                #endif
             #endif
             if ( rc == 0 )
@@ -268,7 +269,7 @@ int S4FUNCTION tfile4keyLenExport( TAG4FILE *tag )
    #ifdef S4CLIENT
       TAG4INFO *S4FUNCTION i4tagInfo( INDEX4 *i4 )
       {
-         int rc, offset, len ;
+         long rc, offset, len ;
          unsigned int i ;
 
          #ifdef E4PARM_HIGH
@@ -285,7 +286,7 @@ int S4FUNCTION tfile4keyLenExport( TAG4FILE *tag )
 
          CONNECTION4 *connection = i4->data->dataFile->connection ;
          connection4assign( connection, CON4INDEX_INFO, data4clientId( i4->data ), data4serverId( i4->data ) ) ;
-         connection4addData( connection, i4->indexFile->accessName, strlen( i4->indexFile->accessName ) + 1, NULL ) ;
+         connection4addData( connection, i4->indexFile->accessName, (long) strlen( i4->indexFile->accessName ) + 1, NULL ) ;
          connection4sendMessage( connection ) ;
          rc = connection4receiveMessage( connection ) ;
          if ( rc < 0 )
@@ -328,14 +329,14 @@ int S4FUNCTION tfile4keyLenExport( TAG4FILE *tag )
             CONNECTION4TAG_INFO_FOR_I4INFO *tagInfoFromServer = ( CONNECTION4TAG_INFO_FOR_I4INFO *)((char *)out + offset) ;
             tagInfo[i].name.ptr = (char *)out + ntohs5(tagInfoFromServer->name.offset) ;
             tagInfo[i].expression.ptr = (char *)out + ntohs5( tagInfoFromServer->expression.offset ) ;
-            offset += ( sizeof( CONNECTION4TAG_INFO_FOR_I4INFO ) + strlen( tagInfo[i].name.ptr )
-                      + strlen( tagInfo[i].expression.ptr ) + 2 ) ;
+            offset += ( sizeof( CONNECTION4TAG_INFO_FOR_I4INFO ) + (long) strlen( tagInfo[i].name.ptr )
+                      + (long) strlen( tagInfo[i].expression.ptr ) + 2 ) ;
             if ( tagInfoFromServer->filter.offset == 0 )
                tagInfo[i].filter.ptr = 0 ;
             else
             {
                tagInfo[i].filter.ptr = (char *)out + ntohs5(tagInfoFromServer->filter.offset) ;
-               offset += ( strlen( tagInfo[i].filter.ptr ) + 1 ) ;
+               offset += ( (long) strlen( tagInfo[i].filter.ptr ) + 1 ) ;
             }
             tagInfo[i].unique = ntohs5( tagInfoFromServer->unique ) ;
             tagInfo[i].descending = ntohs5( tagInfoFromServer->descending ) ;
@@ -350,7 +351,7 @@ int S4FUNCTION tfile4keyLenExport( TAG4FILE *tag )
             tagFile->keyLen = ntohs5( tagInfoFromServer->keyLen ) ;
             if ( tagFile->exprPtr == 0 )
             {
-               len = strlen( tagInfo[i].expression.ptr ) ;
+               len = (long) strlen( tagInfo[i].expression.ptr ) ;
                if ( len != 0 )
                {
                   tagFile->exprPtr = (char *)u4allocFree( c4, len + 1 ) ;
@@ -369,7 +370,7 @@ int S4FUNCTION tfile4keyLenExport( TAG4FILE *tag )
             {
                if ( tagInfo[i].filter.ptr != 0 )
                {
-                  len = strlen( tagInfo[i].filter.ptr ) ;
+                  len = (long) strlen( tagInfo[i].filter.ptr ) ;
                   if ( len != 0 )
                   {
                      tagFile->filterPtr = (char *)u4allocFree( c4, len + 1 ) ;

@@ -83,7 +83,7 @@ TAG4 *S4FUNCTION t4openLow( DATA4 *d4, INDEX4 *i4ndx, const char *fileName, cons
       u4ncpy( dataIn->indexName, indexName, sizeof( dataIn->indexName ) ) ;
 
    if ( i4ndx != 0 )
-      dataIn->nameLen = strlen( i4ndx->indexFile->accessName ) + 1 ;
+      dataIn->nameLen = (short) strlen( i4ndx->indexFile->accessName ) + 1 ;
    if ( i4ndx != 0 )
       connection4addData( connection, i4ndx->indexFile->accessName, dataIn->nameLen, NULL ) ;
    dataIn->nameLen = ntohs5( dataIn->nameLen ) ;

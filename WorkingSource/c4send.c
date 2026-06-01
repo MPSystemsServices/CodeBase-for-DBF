@@ -316,7 +316,7 @@ short S4FUNCTION pipe4sendMessage( PIPE4SEND *pipe, char *message )
          return error4( 0, e4parm_null, E91004 ) ;
    #endif
 
-   return pipe4sendMessageN( pipe, message, strlen( message ) + 1 ) ;
+   return pipe4sendMessageN( pipe, message, (unsigned long) strlen( message ) + 1 ) ;
 }
 
 

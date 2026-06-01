@@ -303,7 +303,9 @@
       return c4setLog( &(cb->errGo), value ) ;
    }
 
-   long S4FUNCTION code4hInst( CODE4 *cb, long value )
+   //long S4FUNCTION code4hInst( CODE4 *cb, long value )
+   long long S4FUNCTION code4hInst( CODE4 *cb, HINSTANCE value)
+   // Corrected types for proper 64-bit operations. March 17, 2026. JSH.
    {
       #ifdef S4WIN32
          void *temp ;
@@ -312,21 +314,22 @@
       #endif
 
       #ifdef E4VBASIC
-         if ( c4parm_check( cb, 1, E40110 ) ) return -1L ;
+         if ( c4parm_check( cb, 1, E40110 ) ) return (long long) -1L ;
       #endif
 
-      if ( value < 0 && value != r4check ) return (long) r4check ;
-      if ( value == r4check ) return (long) cb->hInst ;
+      if ( value < 0 && (long long) value != r4check ) return (long long) r4check ;
+      if ( (long long) value == r4check ) return (long long) cb->hInst ;
       temp = cb->hInst ;
       #ifdef S4WIN32
-         cb->hInst = (HINSTANCE) value ;
+         cb->hInst = value ;
       #else
-         cb->hInst = (int) value ;
+         cb->hInst = (long long) value ;
       #endif
-      return (long)temp ;
+      return (long long) temp ;
    }
 
-   long S4FUNCTION code4hWnd( CODE4 *cb, long value )
+   long long S4FUNCTION code4hWnd( CODE4 *cb, HWND value )
+   // Corrected types for proper 64-bit operations. March 17, 2026. JSH.
    {
       #ifndef S4WINDOWS
          return 0 ;
@@ -338,18 +341,18 @@
          #endif
 
          #ifdef E4VBASIC
-            if ( c4parm_check( cb, 1, E40111 ) ) return -1L ;
+            if ( c4parm_check( cb, 1, E40111 ) ) return (long long) -1L ;
          #endif
 
-         if ( value < 0 && value != r4check ) return (long) r4check ;
-         if ( value == r4check ) return (long) cb->hWnd ;
+         if ( value < 0 && (long long) value != r4check ) return (long long) r4check ;
+         if ( (long long) value == r4check ) return (long long) cb->hWnd ;
          temp = cb->hWnd ;
          #ifdef S4WIN32
-            cb->hWnd = (HWND) value ;
+            cb->hWnd = value ;
          #else
-            cb->hWnd = (unsigned int) value ;
+            cb->hWnd = (long long) value ;
          #endif
-         return (long) temp ;
+         return (long long) temp ;
       #endif
    }
 
@@ -1077,7 +1080,8 @@
       void* buffer;
    } FILE4SEQWRITEVB ;
 
-   S4EXPORT unsigned S4FUNCTION file4seqReadInitVB( FILE4* f4, long startPos, unsigned bufferLen)
+   S4EXPORT FILE4SEQREADVB* S4FUNCTION file4seqReadInitVB( FILE4* f4, long startPos, unsigned bufferLen)
+   // Changed return type to reflect what is actually returned.
    {
       FILE4SEQREADVB* fsrvb = NULL;
       fsrvb = (FILE4SEQREADVB*)u4alloc(sizeof(FILE4SEQREADVB));
@@ -1086,12 +1090,12 @@
       if((fsrvb->buffer = (char*)u4alloc(bufferLen)) == NULL) {
          u4free(fsrvb->fsr);
          u4free(fsrvb);
-         return NULL;
+         return (FILE4SEQREADVB*) NULL;
       }
 
       file4seqReadInit( fsrvb->fsr, f4, startPos, fsrvb->buffer, bufferLen);
 
-      return (unsigned)fsrvb;
+      return fsrvb;
    }
 
    S4EXPORT void S4FUNCTION file4seqReadFreeVB(FILE4SEQREADVB* fsrvb)
@@ -1101,7 +1105,8 @@
       u4free(fsrvb);
    }
 
-   S4EXPORT unsigned S4FUNCTION file4seqWriteInitVB( FILE4* f4, long startPos, unsigned bufferLen)
+   S4EXPORT FILE4SEQWRITEVB* S4FUNCTION file4seqWriteInitVB( FILE4* f4, long startPos, unsigned bufferLen)
+   // Return type changed to reflect what is actually returned.  March 17, 2026. JSH.
    {
       char* buffer = NULL;
       FILE4SEQWRITEVB* fswvb = NULL;
@@ -1110,12 +1115,12 @@
 
       if((fswvb->buffer = (char*)u4alloc(bufferLen)) == NULL) {
          u4free(fswvb);
-         return NULL;
+         return (FILE4SEQWRITEVB*)NULL;
       }
 
       file4seqWriteInit( fswvb->fsw, f4, startPos, fswvb->buffer, bufferLen);
 
-      return (unsigned)fswvb;
+      return fswvb;
    }
 
    S4EXPORT void S4FUNCTION file4seqWriteFreeVB(FILE4SEQWRITEVB* fswvb)
@@ -1125,27 +1130,29 @@
       u4free(fswvb);
    }
 
-   S4EXPORT unsigned S4FUNCTION file4createVB(CODE4 *code, char *name)
+   S4EXPORT FILE4* S4FUNCTION file4createVB(CODE4 *code, char *name)
+   // Changed return type to reflect actual return of pointer.  March 17, 2026. JSH.
    {
       FILE4 *file = (FILE4*)u4alloc(sizeof(FILE4));
 
       if(file4create(file,code,name,1) != r4success) {
          u4free(file);
-         return NULL;
+         return (FILE4*) NULL;
       } else {
-         return (unsigned)file;
+         return file;
       }
    }
 
-   S4EXPORT unsigned S4FUNCTION file4openVB(CODE4 *code, char *name)
+   S4EXPORT FILE4* S4FUNCTION file4openVB(CODE4 *code, char *name)
+   //  Changed return type to reflect actual return of pointer for x64 compiles.  March 17, 2026. JSH.
    {
       FILE4 *file = (FILE4*)u4alloc(sizeof(FILE4));
 
       if(file4open(file,code,name,1) != r4success) {
          u4free(file);
-         return NULL;
+         return (FILE4*) NULL;
       } else {
-         return (unsigned)file;
+         return file;
       }
    }
 
@@ -1232,7 +1239,7 @@
    S4EXPORT int S4FUNCTION file4nameLenVB( FILE4* f4 )
    {
       if(f4->name != NULL) {
-         return strlen(f4->name);
+         return (int) strlen(f4->name);
       } else {
          return 0;
       }
@@ -1733,7 +1740,7 @@
             c4atou( ptr, buff, LEN4DATE_FORMAT ) ;
          #else
             // AS Dec 13/05 vs 5.0 fixes
-            int lenToCopy = strlen( ptr ) + 1 ;
+            long lenToCopy = (long) strlen( ptr ) + 1 ;
             if ( lenToCopy > LEN4DATE_FORMAT )
                lenToCopy = LEN4DATE_FORMAT ;
             memcpy( buff, ptr, lenToCopy ) ;
@@ -1755,7 +1762,7 @@
             c4atou( ptr, buff, 3 ) ;
          #else
             // AS Dec 13/05 vs 5.0 fixes
-            int lenToCopy = strlen( ptr ) + 1 ;
+            long lenToCopy = (long) strlen( ptr ) + 1 ;
             if ( lenToCopy > 3 )
                lenToCopy = 3 ;
             memcpy( buff, ptr, lenToCopy ) ;
@@ -1774,9 +1781,9 @@
       if ( ptr )
       {
          #ifdef S4WINCE
-            c4atou( ptr, buff, strlen(ptr) ) ;
+            c4atou( ptr, buff, (long) strlen(ptr) ) ;
          #else
-            memcpy( buff, ptr, strlen( ptr ) + 1 ) ;  // AS Dec 13/05 vs 5.0 fixes
+            memcpy( buff, ptr, (long) strlen( ptr ) + 1 ) ;  // AS Dec 13/05 vs 5.0 fixes
          #endif
       }
    }
@@ -1792,9 +1799,9 @@
       if ( ptr )
       {
          #ifdef S4WINCE
-            c4atou( ptr, buff, strlen(ptr) ) ;
+            c4atou( ptr, buff, (long) strlen(ptr) ) ;
          #else
-            memcpy( buff, ptr, strlen( ptr ) + 1 ) ;  // AS Dec 13/05 vs 5.0 fixes
+            memcpy( buff, ptr, (long) strlen( ptr ) + 1 ) ;  // AS Dec 13/05 vs 5.0 fixes
          #endif
       }
    }
@@ -1810,9 +1817,9 @@
       if ( ptr )
       {
          #ifdef S4WINCE
-            c4atou( ptr, buff, strlen(ptr) ) ;
+            c4atou( ptr, buff, (long) strlen(ptr) ) ;
          #else
-            memcpy( buff, ptr, strlen( ptr ) + 1 ) ;  // AS Dec 13/05 vs 5.0 fixes
+            memcpy( buff, ptr, (long) strlen( ptr ) + 1 ) ;  // AS Dec 13/05 vs 5.0 fixes
          #endif
       }
    }
@@ -1829,9 +1836,9 @@
       if ( ptr )
       {
          #ifdef S4WINCE
-            c4atou( ptr, buff, strlen(ptr) ) ;
+            c4atou( ptr, buff, (long) strlen(ptr) ) ;
          #else
-            memcpy( buff, ptr, strlen( ptr ) + 1 ) ;  // AS Dec 13/05 vs 5.0 fixes
+            memcpy( buff, ptr, (long) strlen( ptr ) + 1 ) ;  // AS Dec 13/05 vs 5.0 fixes
          #endif
       }
    }
@@ -1850,7 +1857,7 @@
             c4atou( ptr, buff, LEN4DATA_ALIAS ) ;
          #else
             // AS Dec 13/05 vs 5.0 fixes
-            int lenToCopy = strlen( ptr ) + 1 ;
+            long lenToCopy = (long) strlen( ptr ) + 1 ;
             if ( lenToCopy > LEN4DATA_ALIAS )
                lenToCopy = LEN4DATA_ALIAS ;
             memcpy( buff, ptr, lenToCopy ) ;
@@ -1935,7 +1942,7 @@
    S4EXPORT char * S4FUNCTION date4alloc( CODE4 *cb, char *pict )
    {
       char *ptr ;
-      ptr = (char *) u4allocErr( cb, strlen(pict)+1 ) ;
+      ptr = (char *) u4allocErr( cb, (long) strlen(pict)+1 ) ;
       return ptr ;
    }
 
@@ -2111,7 +2118,7 @@
          #else
             // strncpy( buff, ptr, expr4len( e4expr ) ) ;
             // AS Dec 13/05 vs 5.0 fixes
-            int lenToCopy = strlen( ptr ) + 1 ;
+            long lenToCopy = (long) strlen( ptr ) + 1 ;
             if ( lenToCopy > expr4len( e4expr ) )
                lenToCopy = expr4len( e4expr ) ;
             memcpy( buff, ptr, lenToCopy ) ;
@@ -2161,7 +2168,7 @@
          #else
             // strncpy( buff, ptr, 20 ) ;
             // AS Dec 13/05 vs 5.0 fixes
-            int lenToCopy = strlen( ptr ) + 1 ;
+            long lenToCopy = (long) strlen( ptr ) + 1 ;
             if ( lenToCopy > 20 )
                lenToCopy = 20 ;
             memcpy( buff, ptr, lenToCopy ) ;
@@ -2183,9 +2190,9 @@
             c4atou( ptr, buff, 16 ) ;
          #else
             // CS 2010/08/10 Change from 16 to 20 to allow for reading r4dateTimeMilli fields.
-            int lenToCopy = strlen( ptr ) + 1 ;
-            if ( lenToCopy > 20 )
-               lenToCopy = 20 ;
+            long lenToCopy = (long) strlen( ptr ) + 1 ;
+            if ( lenToCopy > 20L )
+               lenToCopy = 20L ;
             memcpy( buff, ptr, lenToCopy ) ;
          #endif
       }
@@ -2356,9 +2363,9 @@
          #else
             // strncpy( buff, fldInfo[fldNum].name, 10 ) ;
             // AS Dec 13/05 vs 5.0 fixes
-            int lenToCopy = strlen( fldInfo[fldNum].name ) + 1 ;
-            if ( lenToCopy > 10 )
-               lenToCopy = 10 ;
+            long lenToCopy = (long) strlen( fldInfo[fldNum].name ) + 1 ;
+            if ( lenToCopy > 10L )
+               lenToCopy = 10L ;
             memcpy( buff, fldInfo[fldNum].name, lenToCopy ) ;
          #endif
       }
@@ -2485,9 +2492,9 @@
          #else
             // strncpy( buff, ptr, f4memoLen( field ) ) ;
             // AS Dec 13/05 vs 5.0 fixes
-            unsigned int lenToCopy = strlen( ptr ) + 1 ;
-            if ( lenToCopy > f4memoLen( field ) )
-               lenToCopy = f4memoLen( field ) ;
+            long lenToCopy = (long) strlen( ptr ) + 1 ;
+            if ( lenToCopy > (long) f4memoLen( field ) )
+               lenToCopy = (long) f4memoLen( field ) ;
             memcpy( buff, ptr, lenToCopy ) ;
          #endif
       }
@@ -2521,9 +2528,9 @@
          #else
             // strncpy( buff, ptr, 10 ) ;
             // AS Dec 13/05 vs 5.0 fixes
-            int lenToCopy = strlen( ptr ) + 1 ;
-            if ( lenToCopy > 10 )
-               lenToCopy = 10 ;
+            long lenToCopy = (long) strlen( ptr ) + 1 ;
+            if ( lenToCopy > 10L )
+               lenToCopy = 10L ;
             memcpy( buff, ptr, lenToCopy ) ;
          #endif
       }
@@ -2544,7 +2551,7 @@
          #else
             // strncpy( buff, ptr, f4len( field ) ) ;
             // AS Dec 13/05 vs 5.0 fixes
-            unsigned int lenToCopy = strlen( ptr ) + 1 ;
+            unsigned long lenToCopy = (unsigned long) strlen( ptr ) + 1 ;
             if ( lenToCopy > f4len( field ) )
                lenToCopy = f4len( field ) ;
             memcpy( buff, ptr, lenToCopy ) ;
@@ -2687,7 +2694,7 @@
          #else
             // strncpy( buff, ptr, LEN4TAG_ALIAS ) ;
             // AS Dec 13/05 vs 5.0 fixes
-            int lenToCopy = strlen( ptr ) + 1 ;
+            long lenToCopy = (long) strlen( ptr ) + 1L ;
             if ( lenToCopy > LEN4TAG_ALIAS )
                lenToCopy = LEN4TAG_ALIAS ;
             memcpy( buff, ptr, lenToCopy ) ;
@@ -2753,7 +2760,7 @@
          WSTR5 wideBuff[4096] ;
       #endif
 
-      if ( name != 0 )
+      if ( name != NULL )
       {
          #ifdef S4WINCE
             len = wcslen( name ) ;
@@ -2763,13 +2770,13 @@
          #else
             len = strlen( name ) ;
          #endif
-         buff = (char *) u4allocEr( cb, (len+1)*sizeof(char) ) ;
+         buff = (char *) u4allocEr( cb, (long) ((len + 1L) * sizeof(char)) ) ;
          if ( buff )
          {
             #ifdef S4WINCE
                memcpy( buff, wideBuff, len*sizeof(char) ) ;
             #else
-               memcpy( buff, name, len*sizeof(char) ) ;
+               memcpy( buff, name, (long) (len*sizeof(char) )) ;
             #endif
          }
          else
@@ -2789,7 +2796,7 @@
          #else
             len = strlen( expr ) ;
          #endif
-         exprBuff = (char *) u4allocEr( cb, (len+1)*sizeof(char) ) ;
+         exprBuff = (char *) u4allocEr( cb, (long) ((len+1)*sizeof(char))) ;
          if ( exprBuff )
          {
             #ifdef S4WINCE
@@ -2817,7 +2824,7 @@
          #else
             len = strlen( filter ) ;
          #endif
-         filterBuff = (char *) u4allocEr( cb, (len+1)*sizeof(char) ) ;
+         filterBuff = (char *) u4allocEr( cb, (long) ((len+1)*sizeof(char))) ;
          if ( filterBuff )
          {
             #ifdef S4WINCE
@@ -3001,7 +3008,7 @@
             #else
                // strncpy( buff, tagInfo[tagPos].name, LEN4TAG_ALIAS ) ;
                // AS Dec 13/05 vs 5.0 fixes
-               int lenToCopy = strlen( tagInfo[tagPos].name ) + 1 ;
+               long lenToCopy = (long) strlen( tagInfo[tagPos].name ) + 1 ;
                if ( lenToCopy > LEN4TAG_ALIAS )
                   lenToCopy = LEN4TAG_ALIAS ;
                memcpy( buff, tagInfo[tagPos].name, lenToCopy ) ;
@@ -3085,6 +3092,5 @@ long S4FUNCTION code4memStartMax( CODE4 *cb, long value )
 
    return( temp ) ;
 }
-
 
 

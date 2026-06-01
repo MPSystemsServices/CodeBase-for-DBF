@@ -431,7 +431,6 @@
       #ifdef S4UNICODE
          WSTR5 nameU[256] ;
       #endif
-                short numTries ;  // CS 2011/05/19 Declare outside of for loop.
 
       #ifdef S4WINCE
          if (name[1] == L':' && name[2] == L'\\')  // CS 2001/16/20 strip off driver letter in CE
@@ -446,6 +445,7 @@
       // AS Feb 17/06 - for Windows CE, it is possible to get errors if the card is not ready...retry if access denied error
       // Microsoft knowledgebase article #811693
       #ifdef S4WINCE
+         short numTries ;  // CS 2011/05/19 Declare outside of for loop.
          for ( numTries = 0 ;; numTries++ )
          {
       #endif
@@ -807,7 +807,7 @@
 // (in particular to decide whether or not to encrypt files - only encrypt data/index/memos with block encryption)
 int S4FUNCTION file4openInternal( FILE4 *file, CODE4 *c4, S4CONST char *name, const int doAlloc, char fileType )
 {
-   int rc, len ;
+   long rc, len ;
    #ifdef S4FILE_EXTENDED
       FILE4LONG lrc ;
    #endif
@@ -867,7 +867,7 @@ int S4FUNCTION file4openInternal( FILE4 *file, CODE4 *c4, S4CONST char *name, co
 
    if ( doAlloc )
    {
-      len = c4strlen( name ) + 1 ;
+      len = (long) c4strlen( name ) + 1 ;
       file->nameBuf = (char *)u4allocFree( c4, (long)len ) ;
       if ( file->nameBuf == 0 )
       {

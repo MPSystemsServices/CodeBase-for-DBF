@@ -318,7 +318,7 @@ double S4FUNCTION f4double( const FIELD4 *field )
             #endif
          case r4currency:
             ptr = f4currency( field, 4 ) ;
-            return c4atod( ptr, c4strlen( ptr ) ) ;
+            return c4atod( ptr, (long) c4strlen( ptr ) ) ;
       #endif
    }
 

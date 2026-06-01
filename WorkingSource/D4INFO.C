@@ -12,7 +12,7 @@
    int S4FUNCTION code4serverConfigName( CODE4 *c4, char *name )
    {
       CONNECTION4 *connection ;
-      int rc, len ;
+      long rc, len ;
       // char *name, *ptr ;
       char *ptr ;
 
@@ -50,7 +50,7 @@
       }
 
       ptr = (char *)connection4data( connection ) ;
-      len = strlen( ptr ) ;
+      len = (long) strlen( ptr ) ;
 
       #ifdef E4ANALYZE
          if ( len > LEN4PATH + 1 || len < 0 )

@@ -297,9 +297,9 @@
          return 0 ;
 
       connect4sendShort( &c4->clientConnect, STREAM4TABLES ) ;
-      short len = strlen( path ) ;
-      connect4sendShort( &c4->clientConnect, len ) ;
-      connect4send( &c4->clientConnect, path, len ) ;
+      long len = (long) strlen( path ) ;
+      connect4sendShort( &c4->clientConnect, (short) len ) ;
+      connect4send( &c4->clientConnect, path, (short) len ) ;
       connect4sendFlush( &c4->clientConnect ) ;
 
       len = connect4receiveShort( &c4->clientConnect ) ;

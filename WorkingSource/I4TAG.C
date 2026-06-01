@@ -475,7 +475,7 @@ int S4FUNCTION tfile4exprKeyExport( TAG4FILE *tag, unsigned char **ptrPtr )
          connection4addData( connection, NULL, sizeof(CONNECTION4TAG_BOTTOM_INFO_IN), (void **)&infoIn ) ;
          memcpy( infoIn->tagName, t4->alias, LEN4TAG_ALIAS ) ;
          infoIn->tagName[LEN4TAG_ALIAS] = 0 ;
-         u4ncpy( infoIn->indexName, t4->indexFile->accessName, strlen( t4->indexFile->accessName ) + 1 ) ;
+         u4ncpy( infoIn->indexName, t4->indexFile->accessName, (unsigned long) strlen( t4->indexFile->accessName ) + 1 ) ;
          rc = connection4sendMessage( connection ) ;
          if ( rc == 0 )
             rc = connection4receiveMessage( connection ) ;
@@ -875,7 +875,7 @@ int S4FUNCTION tfile4exprKeyExport( TAG4FILE *tag, unsigned char **ptrPtr )
          connection4addData( connection, NULL, sizeof(CONNECTION4TAG_EOF_INFO_IN), (void **)&infoIn ) ;
          memcpy( infoIn->tagName, t4->alias, LEN4TAG_ALIAS ) ;
          infoIn->tagName[LEN4TAG_ALIAS] = 0 ;
-         u4ncpy( infoIn->indexName, t4->indexFile->accessName, strlen( t4->indexFile->accessName ) + 1 ) ;
+         u4ncpy( infoIn->indexName, t4->indexFile->accessName, (unsigned long) strlen( t4->indexFile->accessName ) + 1 ) ;
          rc = connection4sendMessage( connection ) ;
          if ( rc == 0 )
             rc = connection4receiveMessage( connection ) ;
@@ -947,7 +947,7 @@ int S4FUNCTION tfile4exprKeyExport( TAG4FILE *tag, unsigned char **ptrPtr )
          connection4addData( connection, NULL, sizeof(CONNECTION4TAG_COUNT_INFO_IN), (void **)&infoIn ) ;
          memcpy( infoIn->tagName, t4->alias, LEN4TAG_ALIAS ) ;
          infoIn->tagName[LEN4TAG_ALIAS] = 0 ;
-         u4ncpy( infoIn->indexName, t4->indexFile->accessName, strlen( t4->indexFile->accessName ) + 1 ) ;
+         u4ncpy( infoIn->indexName, t4->indexFile->accessName, (unsigned long) strlen( t4->indexFile->accessName ) + 1 ) ;
          rc = connection4sendMessage( connection ) ;
          if ( rc == 0 )
             rc = connection4receiveMessage( connection ) ;
@@ -1097,7 +1097,7 @@ int S4FUNCTION tfile4exprKeyExport( TAG4FILE *tag, unsigned char **ptrPtr )
                infoIn->startRecno = htonl5( tag->recNo ) ;
             else
                infoIn->startRecno = htonl5( 0L ) ;
-            u4ncpy( infoIn->indexName, tag->indexFile->accessName, strlen( tag->indexFile->accessName ) + 1 ) ;
+            u4ncpy( infoIn->indexName, tag->indexFile->accessName, (unsigned long) strlen( tag->indexFile->accessName ) + 1 ) ;
             rc = connection4sendMessage( connection ) ;
             if ( rc == 0 )
                rc = connection4receiveMessage( connection ) ;
@@ -1225,7 +1225,7 @@ int S4FUNCTION tfile4exprKeyExport( TAG4FILE *tag, unsigned char **ptrPtr )
          connection4addData( connection, NULL, sizeof(CONNECTION4TAG_GO_INFO_IN), (void **)&infoIn ) ;
          memcpy( infoIn->tagName, t4->alias, LEN4TAG_ALIAS ) ;
          infoIn->tagName[LEN4TAG_ALIAS] = 0 ;
-         u4ncpy( infoIn->indexName, t4->indexFile->accessName, strlen( t4->indexFile->accessName ) + 1 ) ;
+         u4ncpy( infoIn->indexName, t4->indexFile->accessName, (unsigned long) strlen( t4->indexFile->accessName ) + 1 ) ;
          unsigned short keyLen = tfile4keyLen( t4 ) ;
          infoIn->keyLen = htons5( keyLen ) ;
          infoIn->goAdd = htons5( goAdd ) ;
@@ -1644,7 +1644,7 @@ int S4FUNCTION tfile4exprKeyExport( TAG4FILE *tag, unsigned char **ptrPtr )
          memcpy( info->tagName, t4->alias, LEN4TAG_ALIAS  ) ;
          info->tagName[LEN4TAG_ALIAS] = 0 ;
          // AS Oct 24/01 - Need to resolve potential tag aliasing problems (t4indx1) */
-         u4ncpy( info->indexName, t4->indexFile->accessName, strlen( t4->indexFile->accessName ) + 1 ) ;
+         u4ncpy( info->indexName, t4->indexFile->accessName, (unsigned long) strlen( t4->indexFile->accessName ) + 1 ) ;
          info->keyLen = htonl5( lenIn ) ;
          connection4addData( connection, ptr, lenIn, NULL ) ;
          connection4sendMessage( connection ) ;
@@ -1778,7 +1778,8 @@ int S4FUNCTION tfile4exprKeyExport( TAG4FILE *tag, unsigned char **ptrPtr )
             #ifdef S4WIN64 /* LY 00/09/21 */
                UINT64 len = 0 ;
             #else
-               int len = 0 ;
+               long long len = 0 ;
+               // Changed from int to long long March 17, 2026. JSH.
             #endif
             for ( ; len < b4numKeys( oldBlock ) - nKeys ; len++ )
             {
@@ -2421,7 +2422,7 @@ int S4FUNCTION tfile4exprKeyExport( TAG4FILE *tag, unsigned char **ptrPtr )
          t4->tagDataValid = 0 ;  // reset to invalid
          infoIn->numSkip = htonl5( numSkip ) ;
          infoIn->tfile4dskip = tfile4dSkip ;
-         u4ncpy( infoIn->indexName, t4->indexFile->accessName, strlen( t4->indexFile->accessName ) + 1 ) ;
+         u4ncpy( infoIn->indexName, t4->indexFile->accessName, (unsigned long) strlen( t4->indexFile->accessName ) + 1 ) ;
          rc = connection4sendMessage( connection ) ;
          if ( rc == 0 )
             rc = connection4receiveMessage( connection ) ;
@@ -3232,7 +3233,7 @@ int S4FUNCTION t4versionCheckExport( TAG4 *t4, const int d1, const int d2 )
             connection4addData( connection, NULL, sizeof(CONNECTION4TAG_TOP_INFO_IN), (void **)&infoIn ) ;
             memcpy( infoIn->tagName, t4->alias, LEN4TAG_ALIAS ) ;
             infoIn->tagName[LEN4TAG_ALIAS] = 0 ;
-            u4ncpy( infoIn->indexName, t4->indexFile->accessName, strlen( t4->indexFile->accessName ) + 1 ) ;
+            u4ncpy( infoIn->indexName, t4->indexFile->accessName, (unsigned long) strlen( t4->indexFile->accessName ) + 1 ) ;
             rc = connection4sendMessage( connection ) ;
             if ( rc == 0 )
                rc = connection4receiveMessage( connection ) ;
@@ -3965,7 +3966,7 @@ S4EXPORT int S4FUNCTION tfile4skipCache( TAG4FILE S4PTR *t4, long numRowsIn, lon
          infoIn->numRows = htonl5( numRowsIn ) ;
          infoIn->modus =  htonl5( modus ) ;
          t4->tagDataValid = 0 ;  // reset to invalid
-         u4ncpy( infoIn->indexName, t4->indexFile->accessName, strlen( t4->indexFile->accessName ) + 1 ) ;
+         u4ncpy( infoIn->indexName, t4->indexFile->accessName, (unsigned long) strlen( t4->indexFile->accessName ) + 1 ) ;
 
          rc = connection4sendMessage( connection ) ;
          if ( rc == 0 )

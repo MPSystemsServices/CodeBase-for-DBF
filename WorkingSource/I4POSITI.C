@@ -39,7 +39,7 @@
          memcpy( info->tagName, t4->alias, LEN4TAG_ALIAS  ) ;
          info->tagName[LEN4TAG_ALIAS] = 0 ;
          // AS Oct 24/01 - Need to resolve potential tag aliasing problems (t4indx1) */
-         u4ncpy( info->indexName, t4->indexFile->accessName, strlen( t4->indexFile->accessName ) + 1 ) ;
+         u4ncpy( info->indexName, t4->indexFile->accessName, (unsigned long) strlen( t4->indexFile->accessName ) + 1 ) ;
          connection4sendMessage( connection ) ;
          rc = connection4receiveMessage( connection ) ;
          if ( rc < 0 )
@@ -102,7 +102,7 @@
          memcpy( info->tagName, t4->alias, LEN4TAG_ALIAS  ) ;
          info->tagName[LEN4TAG_ALIAS] = 0 ;
          // AS Oct 24/01 - Need to resolve potential tag aliasing problems (t4indx1) */
-         u4ncpy( info->indexName, t4->indexFile->accessName, strlen( t4->indexFile->accessName ) + 1 ) ;
+         u4ncpy( info->indexName, t4->indexFile->accessName, (unsigned long) strlen( t4->indexFile->accessName ) + 1 ) ;
          connection4sendMessage( connection ) ;
          rc = connection4receiveMessage( connection ) ;
          if ( rc < 0 )

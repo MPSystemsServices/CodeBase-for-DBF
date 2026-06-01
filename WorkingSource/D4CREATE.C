@@ -146,7 +146,8 @@
    DATA4 *S4FUNCTION d4createLow( CODE4 *c4, const char *name, const FIELD4INFO *fieldData, const TAG4INFO *tagInfo )
    {
        #ifdef S4CLIENT
-         short len, offset ;
+         long len;
+         short offset ;
       #else
          int oldReadOnly ;
          // AS 09/29/00 - allow the logging of create now (for backup/recovery)
@@ -306,11 +307,11 @@
          for ( short fieldIndex = 0 ; fieldIndex != numFields ; fieldIndex++ )
          {
             len += sizeof( CONNECTION4FIELD_INFO ) ;
-            len += strlen( fieldData[fieldIndex].name ) + 1 ;
+            len += ((long) strlen( fieldData[fieldIndex].name ) + 1L) ;
          }
 
-         dataIn->fieldInfoLen = htons5(len) ;
-         offset = sizeof( CONNECTION4CREATE_INFO_IN ) ;
+         dataIn->fieldInfoLen = htons5((short) len) ;
+         offset = (short) sizeof( CONNECTION4CREATE_INFO_IN ) ;
 
          // AS Jul 6/06 - we were not sending this to server...
          // use the fact that createIndexMultiplier always 1 or 1024 to determine if fox compatible...
@@ -325,7 +326,7 @@
          for ( short fieldAssignIndex = 0 ; fieldAssignIndex != numFields ; fieldAssignIndex++ )
          {
             CONNECTION4FIELD_INFO *finfo ;
-            len = strlen( fieldData[fieldAssignIndex].name ) + 1 ;
+            len = (long) strlen( fieldData[fieldAssignIndex].name ) + 1L ;
             connection4addData( connection, NULL, sizeof(CONNECTION4FIELD_INFO), (void **)&finfo ) ;
             finfo->name.offset = htons5((short)(offset + (short)sizeof(CONNECTION4FIELD_INFO))) ;
             finfo->type = htons5(fieldData[fieldAssignIndex].type) ;
@@ -333,23 +334,23 @@
             finfo->dec = htons5(fieldData[fieldAssignIndex].dec) ;
             finfo->nulls = htons5(fieldData[fieldAssignIndex].nulls) ;
             connection4addData( connection, fieldData[fieldAssignIndex].name, len, NULL ) ;
-            offset += ( len + sizeof( CONNECTION4FIELD_INFO ) ) ;
+            offset += ( (short) len + sizeof( CONNECTION4FIELD_INFO ) ) ;
          }
 
          for ( unsigned int tagIndex = 0 ; tagIndex != numTags ; tagIndex++ )
          {
-            len = strlen( tagInfo[tagIndex].name ) + 1 ;
+            len = (long) (strlen( tagInfo[tagIndex].name )) + 1 ;
             offset += sizeof( CONNECTION4TAG_INFO ) ;
             CONNECTION4TAG_INFO *tinfo ;
             connection4addData( connection, NULL, sizeof(CONNECTION4TAG_INFO), (void **)&tinfo ) ;
             tinfo->name.offset = htons5(offset) ;
             unsigned int len2 = 0 ;
-            offset += len ;
+            offset += (short) len ;
             // AS Jan 7/05 - if there is no expression (e.g. DEL4REUSE), we were not properly setting the expression offset to 0,
             // causing some possible corruption in the expression name.
             if ( tagInfo[tagIndex].expression )
             {
-               len2 = strlen( tagInfo[tagIndex].expression ) + 1 ;
+               len2 = (unsigned int) strlen( tagInfo[tagIndex].expression ) + 1 ;
                tinfo->expression.offset = htons5(offset) ;
             }
             else
@@ -366,7 +367,7 @@
             }
             else
             {
-               len3 = strlen( tagInfo[tagIndex].filter ) + 1 ;
+               len3 = (unsigned long) strlen( tagInfo[tagIndex].filter ) + 1 ;
                tinfo->filter.offset = htons5(offset) ;
             }
             offset += len3 ;
@@ -1093,7 +1094,7 @@
          {
             headerLen = (long)numFields * 21 + 34 ;
             for ( int iField = 0 ; iField < numFields ; iField++ )  // room for length, name and null
-               headerLen += sizeof( short ) + strlen( fieldData[iField]. name ) + 1 ;
+               headerLen += sizeof( short ) + (long) strlen( fieldData[iField]. name ) + 1 ;
          }
          else
             headerLen = (long)numFields * 32 + 34 ;
@@ -1106,7 +1107,7 @@
                if ( numNulls > 0 )  /* extra field for null settings */
                {
                   if ( hasLongFieldNames == 1 )
-                     headerLen += sizeof( short ) + strlen( NULL4FLAGS_FIELD_NAME ) + 22 ;
+                     headerLen += sizeof( short ) + (long) strlen( NULL4FLAGS_FIELD_NAME ) + 22 ;
                   else
                      headerLen += 32 ;
                }
@@ -1141,7 +1142,7 @@
       {
          /* actually physically create the file */
 
-         int rc, oldCreateTemp, len ;
+         long rc, oldCreateTemp, len ;
 
          *tempName = 0 ;
          *tempFreeSet = 0 ;
@@ -1191,7 +1192,7 @@
                   file4setTemporary( file, 1, 0 ) ;  // AS Sep. 18/01 - last param 0, don't register as temp, only mark it
                if ( file->name != 0 )
                {
-                  len = c4strlen( file->name ) ;
+                  len = (long) c4strlen( file->name ) ;
                   if ( len > sizeof( name ) + 1 )
                      len = sizeof( name ) - 1 ;
                   c4memcpy( name, file->name, len ) ;
@@ -1855,7 +1856,7 @@
                if ( fieldData[fieldCounter].name == 0 )
                   break ;
                dataLen += 1 ;  // size of length of name (max 10)
-               dataLen += strlen( fieldData[fieldCounter].name ) ;   // room for name
+               dataLen += (long) strlen( fieldData[fieldCounter].name ) ;   // room for name
                assert5( sizeof( fieldData[fieldCounter].type ) == 2 ) ;
                assert5( sizeof( fieldData[fieldCounter].len ) == 2 ) ;
                assert5( sizeof( fieldData[fieldCounter].dec ) == 2 ) ;
@@ -1872,12 +1873,12 @@
                   if ( tagInfo[tagCounter].name == 0 )
                      break ;
                   dataLen += 1 ;  // size of name
-                  dataLen += strlen( tagInfo[tagCounter].name ) ;
+                  dataLen += (long) strlen( tagInfo[tagCounter].name ) ;
                   dataLen += 4  ;   // size for expression and filter
                   if ( tagInfo[tagCounter].expression )  // may be null with DEL4REUSE
-                     dataLen += strlen( tagInfo[tagCounter].expression ) ;
+                     dataLen += (long) strlen( tagInfo[tagCounter].expression ) ;
                   if ( tagInfo[tagCounter].filter )
-                     dataLen += strlen( tagInfo[tagCounter].filter ) ;
+                     dataLen += (long) strlen( tagInfo[tagCounter].filter ) ;
                   dataLen += 2 * sizeof( short ) ;   // unique and descending
                   assert5( sizeof(tagInfo[tagCounter].unique) == 2 ) ;
                   assert5( sizeof(tagInfo[tagCounter].descending) == 2 ) ;
@@ -2970,7 +2971,7 @@ DATA4 * S4FUNCTION d4compress( DATA4 *fromIn, const char *compressName, short bl
       }
       connection4assign( connection, CON4DATA_COMPRESS, data4clientId( fromIn ), data4serverId( fromIn ) ) ;
       connection4addData( connection, NULL, sizeof( CONNECTION4DATA_COMPRESS_INFO_IN ), (void **)&dataIn ) ;
-      int len3 = strlen( compressName ) + 1 ;
+      long len3 = (long) strlen( compressName ) + 1 ;
       if ( len3 > LEN4PATH )
          len3 = LEN4PATH ;
       dataIn->blockSize = htons5( blockSize ) ;
