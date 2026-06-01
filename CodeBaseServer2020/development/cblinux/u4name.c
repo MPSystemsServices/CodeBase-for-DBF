@@ -422,7 +422,7 @@ int S4FUNCTION u4nameCreateMultiDirectories( char *outName, unsigned int outName
       if ( includePath )
       {
          u4namePath( outName, outNameLen, inputDir1 ) ;
-         if ( c4strlen( outName + c4strlen( inputName ) ) > outNameLen )
+         if ( c4strlen( outName ) + c4strlen( inputName ) > outNameLen )
             return -1 ;
          c4strcat( outName, inputName ) ;
       }
