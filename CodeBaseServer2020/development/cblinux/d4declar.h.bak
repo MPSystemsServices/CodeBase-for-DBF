@@ -1,16 +1,6 @@
 /* d4declar.h  (c)Copyright Sequiter Software Inc., 1988-2001.  All rights reserved. */
 
 /* AS 09/22/98 for MicroSoft compilers, at least, make functions intrinsic... */
-
-/* WARNING!  After 2005, Sequitur modified d4declar.h for Windows to avoid the vulnerability related to
-strcpy and strcat causing buffer overruns.  After that date, an #ifdef was added for Windows compilation
-to force c4strcpy to wrap strcpy_s() the Microsoft "safe" version with buffer size checking.  Those
-improvements HAVE NOT BEEN IMPLEMENTED IN THIS LINUX VERSION.  c4strcpy() here is a wrapper with the 
-unmodified strcpy() without buffer overrun protection.  You'll need to implement your own buffer size checking
-if you make use of c4strcpy, c4strcat, and related functions.
-
-Note added June 4, 2026. J. Heuer, M-P Systems Services, Inc.
-*/
 #ifdef _MSC_VER
    #ifndef _FAST
       #ifdef S4WINCE
